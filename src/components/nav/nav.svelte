@@ -2,7 +2,7 @@
 	import NavItem from "../navItem.svelte";
 
 </script>
-<nav class="w-full flex justify-center bg-red-400">
+<nav class="w-full flex justify-center ">
     <ul class="flex space-x-2">
         <NavItem name="Home"/>
         <NavItem name="About"/>

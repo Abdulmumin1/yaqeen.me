@@ -4,7 +4,7 @@
     import Nav from '../components/nav/nav.svelte';
 </script>
 
-<div class="w-screen h-screen bg-orange-50">
-    <Nav/>
+<div class="w-screen bg-[#08090a] text-white">
+    
     <slot/>
 </div>
