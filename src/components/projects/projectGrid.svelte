@@ -2,7 +2,7 @@
 	import Template from "./template.svelte";
     
 </script>
-<div class="h-full flex flex-wrap space-x-2 space-y-2 items-center justify-center">
+<div class="h-full flex flex-wrap items-center justify-center overflow-hidden">
 <Template/>
 <Template/>
 <Template/>

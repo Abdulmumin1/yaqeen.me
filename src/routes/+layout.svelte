@@ -4,7 +4,8 @@
     import Nav from '../components/nav/nav.svelte';
 </script>
 
-<div class="w-screen bg-[#08090a] text-white">
+<div class="w-screen  no-scrollbar">
     
     <slot/>
+    <!-- bg-[#08090a] -->
 </div>

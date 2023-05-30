@@ -8,7 +8,8 @@
 		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"css": "npx tailwindcss -i ./src/tailwind.css -o ./src/app.css --watch"
+		"css": "npx tailwindcss -i ./src/tailwind.css -o ./src/app.css --watch",
+		"net": "vite --host"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
