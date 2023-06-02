@@ -4,7 +4,7 @@
     import { faAngleRight, faFlag } from '@fortawesome/free-solid-svg-icons'
     import { faGithub } from '@fortawesome/free-brands-svg-icons';
 </script>
-<div class="h-screen flex flex-col p-4 m-1 border-t-2 rounded-sm">
+<div class="border-t-2 border-black rounded-sm p-1 lg:p-6" id='project'>
     
     <h2 class="lg:text-4xl text-2xl text-center">Projects</h2>
     <ProjectGrid/>
