@@ -4,15 +4,15 @@
 	export let title;
 </script>
 
-<div class="flex flex-col border-b-2 border-black dark:border-[#333] border-dashed">
+<div class="flex flex-col border-b-2 border-black dark:border-[#333]">
 	<p class="text-lg lg:text-2xl font-visby_bold font-bold">
 		{title}
 	</p>
-	<div class="text-gray-700 flex items-center space-x-2">
+	<div class="text-stone-400 flex items-center space-x-2">
 		<Fa icon={faClock} />
 		<p>Jan, 2023</p>
 	</div>
-	<div class="flex items-center w-fit space-x-2 p-1 rounded-xl">
+	<div class="flex items-center w-fit space-x-2 p-1 rounded-xl hover_link">
 		<a href="#" class="">Read More </a>
 		<Fa icon={faAngleRight} />
 	</div>

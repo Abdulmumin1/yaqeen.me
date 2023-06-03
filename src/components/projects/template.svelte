@@ -37,7 +37,7 @@
 
 			<a
 				href="#"
-				class="flex w-fit p-1 rounded items-center border border-black dark:border-[#333] hover:shadow-xl"
+				class="flex w-fit p-1 rounded items-center border border-black dark:border-[#333] hover:shadow-xl hover_link_fill"
 				>Visit <div class="px-1" />
 				<Fa icon={faAngleRight} /></a
 			>
