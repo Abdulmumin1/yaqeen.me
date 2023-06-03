@@ -1,12 +1,15 @@
 <script>
-	import ProjectGrid from "./projectGrid.svelte";
-    import Fa from 'svelte-fa'
-    import { faAngleRight, faFlag } from '@fortawesome/free-solid-svg-icons'
-    import { faGithub } from '@fortawesome/free-brands-svg-icons';
+	import ProjectGrid from './projectGrid.svelte';
+	import Fa from 'svelte-fa';
+	import { faAngleRight, faFlag } from '@fortawesome/free-solid-svg-icons';
+	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 </script>
-<div class="border-t-2 border-black rounded-sm p-1 lg:p-6" id='project'>
-    
-    <h2 class="lg:text-4xl text-2xl text-center">Projects</h2>
-    <ProjectGrid/>
-    <div class="text-center flex items-center justify-center space-x-1 "><a href='#project' class="text-center">Visit Github </a><Fa icon={faGithub}/> <Fa icon={faAngleRight}/></div>
+
+<div class="border-t-2 border-black dark:border-[#333] rounded-sm p-1 lg:p-6" id="project">
+	<h2 class="lg:text-5xl text-4xl text-center font-visby_bold font-bold">Projects</h2>
+	<ProjectGrid />
+	<div class="text-center flex items-center justify-center space-x-1">
+		<a href="#project" class="text-center">Visit Github </a><Fa icon={faGithub} />
+		<Fa icon={faAngleRight} />
+	</div>
 </div>

@@ -9,7 +9,7 @@
 <div class="snap-proximity snap-y flex flex-col no-scrollbar">
 	<div class="lg:h-[600px] h-[500px] flex flex-col justify-center items-center snap-center">
 		<div
-			class=" w-[90%] h-[90%] flex p-2 relative rounded-2xl lg:border-2 border-orange-100 items-center justify-center"
+			class=" w-[90%] h-[90%] flex p-2 relative rounded-2xl lg:border-2 border-black dark:border-[#333] items-center justify-center"
 		>
 			<!-- <img src="{me}" alt="abdulmumin yaqeen " class="h-full border-2 border-black rounded-3xl"> -->
 			<!-- <Nav/> -->

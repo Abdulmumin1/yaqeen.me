@@ -14,5 +14,21 @@
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
       }
+        @font-face {
+      font-family: "visby";
+      src: url("/src/lib/font/VisbyRoundCF-Regular.woff")
+        format("woff");
+    }
+    @font-face {
+      font-family: "visby mid";
+      src: url("/src/lib/font/VisbyRoundCF-Medium.woff")
+        format("woff");
+    }
+     @font-face {
+      font-family: "visby bold";
+      src: url("/src/lib/font/VisbyRoundCF-DemiBold.woff")
+        format("woff");
+    }
+
 
   }

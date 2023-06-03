@@ -4,8 +4,8 @@
 	export let title;
 </script>
 
-<div class="flex flex-col">
-	<p class="text-lg lg:text-2xl">
+<div class="flex flex-col border-b-2 border-black dark:border-[#333] border-dashed">
+	<p class="text-lg lg:text-2xl font-visby_bold font-bold">
 		{title}
 	</p>
 	<div class="text-gray-700 flex items-center space-x-2">

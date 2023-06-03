@@ -11,7 +11,7 @@
 	} from '@fortawesome/free-solid-svg-icons';
 </script>
 
-<nav class="w-full border-b-2 border-black flex justify-center items-center">
+<nav class="w-full border-b-2 border-black dark:border-[#333] flex justify-center items-center">
 	<ul class="flex space-x-2">
 		<NavItem name="Home" />
 		<NavItem name="About" />
