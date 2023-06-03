@@ -1,4 +1,6 @@
 <script>
+	import { scale } from 'svelte/transition';
+
 	import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	export let details;
@@ -9,10 +11,11 @@
 	let stack_dict = {};
 
 	const unsubscribe_stack = stackLinks.subscribe((data) => (stack_dict = data));
-	console.log(stack_dict);
+	unsubscribe_stack();
 </script>
 
 <div
+	in:scale
 	class="border border-black dark:border-[#333] rounded-md p-6 flex flex-col w-full max-h-screen"
 >
 	<div>

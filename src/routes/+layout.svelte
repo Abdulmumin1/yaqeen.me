@@ -5,7 +5,9 @@
 	import Footer from '../components/home/footer.svelte';
 </script>
 
-<div class="w-screen bg-orange-50 dark:text-orange-50 font-visby dark:bg-[#08090a] relative">
+<div
+	class="w-screen bg-orange-50 dark:text-orange-50 font-visby dark:bg-[#08090a] relative transition-colors duration-500"
+>
 	<Nav />
 	<slot />
 	<Footer />
