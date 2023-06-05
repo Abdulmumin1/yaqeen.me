@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex flex-col border-b-2 border-black dark:border-[#333]">
-	<p class="text-lg lg:text-2xl font-visby_bold font-bold">
+	<p class="text-lg lg:text-2xl font-visby_mid">
 		{title}
 	</p>
 	<div class="text-stone-400 flex items-center space-x-2">

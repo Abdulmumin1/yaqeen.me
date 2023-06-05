@@ -11,9 +11,7 @@
 >
 	<h2 class="lg:text-5xl text-4xl text-center font-visby_bold font-bold">Projects</h2>
 	<ProjectGrid />
-	<div
-		class="text-center flex items-center justify-center space-x-1 w-fit self-center hover:text-lg hover_link"
-	>
+	<div class="text-center flex items-center justify-center space-x-1 w-fit self-center hover_link">
 		<a href="https://github.com/Abdulmumin1" class="text-center">Visit Github </a><Fa
 			icon={faGithub}
 		/>

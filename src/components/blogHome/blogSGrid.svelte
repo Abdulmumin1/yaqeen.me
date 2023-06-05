@@ -1,19 +1,21 @@
 <script>
 	import latestPostImage from '$lib/images/latest-blog.png';
-	import { faAngleRight, faClock } from '@fortawesome/free-solid-svg-icons';
+	import { faAngleRight, faClock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import BlogSPost from './blogSPost.svelte';
-	import { faDev, faHashnode, faMedium } from '@fortawesome/free-brands-svg-icons';
+	import { faDev, faHashnode, faMedium, faYoutube } from '@fortawesome/free-brands-svg-icons';
 </script>
 
 <div>
 	<div class="flex lg:space-x-4 h-full flex-col lg:flex-row">
-		<div class="lg:w-3/5 mb-3">
+		<div class="lg:w-3/5 mb-3 space-y-1">
 			<img src={latestPostImage} alt="" class="border-[1.8px] border-black rounded-md" />
 			<p class="text-2xl lg:text-4xl font-visby_bold font-bold">Python tips and tricks</p>
 			<p class="text-stone-400">
-				When we talk python, we don't normally include building mobile apps, this is because these
-				python frameworks are not fully optimized to build a production re.....
+				This appears in almost any programming article on "best practices", so I had to make it my
+				number one point. Writing global state variables comes with a lot of problems, like code
+				readability issues, maintenance and namespace conflicts. Instead of global variables, you
+				can use function parameters or...
 			</p>
 			<div
 				class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-black hover:shadow-xl dark:border-[#333]"
@@ -22,26 +24,38 @@
 				<Fa icon={faAngleRight} />
 			</div>
 		</div>
-		<div class="flex flex-col">
+		<div class="flex flex-col space-y-3">
+			<p
+				class="visby_bold text-2xl lg:text-4xl border-b-2 w-fit border-black dark:border-b-orange-100"
+			>
+				Recent
+			</p>
 			<BlogSPost title={' Getting started with CI/CD with Github Actions'} />
 			<BlogSPost title={' Git For Beginners: A Complete Guide.'} />
-		</div>
-	</div>
-	<div
-		class="space-y-2 border-2 border-black dark:border-[#333] p-3 my-3 rounded items-center justify-center flex flex-col"
-	>
-		<p class="text-3xl font-visby_bold font-bold">Find my writings</p>
-		<div class="flex space-x-2">
-			<Fa icon={faHashnode} />
-			<Fa icon={faDev} />
-			<Fa icon={faMedium} />
-		</div>
+			<div
+				class="space-x-2 p-3 my-3 items-center border-2 border-black dark:border-[#333] rounded-xl justify-between flex"
+			>
+				<p class="text-xl lg:text-2xl font-visby_mid self-center">Read anywhere</p>
+				<div class="flex space-x-2 text-xl lg:text-3xl items-center">
+					<a> <Fa icon={faEllipsisH} /> </a>
+					<a href="#">
+						<Fa icon={faHashnode} />
+					</a>
+					<a href="#">
+						<Fa icon={faDev} />
+					</a>
+					<a href="#">
+						<Fa icon={faMedium} />
+					</a>
+				</div>
 
-		<p class="text-2xl font-visby_bold font-bold">Subscribe to my Newsletter</p>
-		<input
-			placeholder="name@example.com"
-			class="p-2 bg-inherit border border-black dark:border-[#333] rounded w-full"
-		/>
-		<button class=" hover_link_fill">Subscribe</button>
+				<!-- <p class="text-2xl font-visby_mid">Subscribe to my Newsletter</p>
+				<input
+					placeholder="name@example.com"
+					class="p-2 bg-inherit border border-black dark:border-[#333] rounded"
+				/>
+				<button class=" hover_link_fill">Subscribe</button> -->
+			</div>
+		</div>
 	</div>
 </div>
