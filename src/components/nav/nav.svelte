@@ -40,8 +40,8 @@
 	class="w-full bg-orange-100 dark:bg-inherit border-b-2 border-black dark:border-[#333] flex justify-center items-center"
 >
 	<ul class="flex space-x-2">
-		<NavItem name="Home" />
-		<NavItem name="About" />
+		<NavItem data={{ name: 'Home', href: '/' }} />
+		<NavItem data={{ name: 'About', href: '/' }} />
 
 		{#if darkMode}
 			<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
@@ -52,7 +52,7 @@
 				<Fa icon={faSun} class="self-center" />
 			</button>
 		{/if}
-		<NavItem name="Blog" />
-		<NavItem name="Project" />
+		<NavItem data={{ name: 'Blog', href: '/' }} />
+		<NavItem data={{ name: 'Projects', href: '/' }} />
 	</ul>
 </nav>
