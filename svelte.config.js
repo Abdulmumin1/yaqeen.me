@@ -9,7 +9,7 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter()
 	},
-	extensions: ['.svelte', '.md'],
+	extensions: ['.svelte', '.html'],
 	preprocess: [
 		mdsvex({
 			extensions: ['.md']

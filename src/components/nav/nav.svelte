@@ -37,12 +37,9 @@
 </script>
 
 <nav
-	class="w-full bg-orange-100 dark:bg-inherit border-b-2 border-black dark:border-[#333] flex justify-center items-center"
+	class="w-full border-b-2 dark:border-[#333] border-black flex justify-center items-center flex-col"
 >
-	<ul class="flex space-x-2">
-		<NavItem data={{ name: 'Home', href: '/' }} />
-		<NavItem data={{ name: 'About', href: '/' }} />
-
+	<div class="text-3xl">
 		{#if darkMode}
 			<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
 				<Fa icon={faMoon} class="self-center" />
@@ -52,6 +49,11 @@
 				<Fa icon={faSun} class="self-center" />
 			</button>
 		{/if}
+	</div>
+	<ul class="flex space-x-2 p-1 rounded-lg border-black dark:border-[#333]">
+		<NavItem data={{ name: 'Home', href: '/' }} />
+		<NavItem data={{ name: 'About', href: '/' }} />
+
 		<NavItem data={{ name: 'Blog', href: '/' }} />
 		<NavItem data={{ name: 'Projects', href: '/' }} />
 	</ul>
