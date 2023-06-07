@@ -34,7 +34,7 @@
 			<BlogSPost title={' Git For Beginners: A Complete Guide.'} />
 
 			<p class="border-l-2 border-current pl-1">
-				My Content is available in all your favorite plafroms
+				My writings are available in all your favorite plaforms
 			</p>
 			<div
 				class="space-x-2 p-3 my-3 items-center border border-black dark:border-[#333] rounded-xl justify-between flex"
