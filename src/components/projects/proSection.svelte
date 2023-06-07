@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="border-t-2 border-black dark:border-[#333] rounded-sm p-1 lg:p-6 flex flex-col"
+	class="border-t-2 border-black dark:border-[#333] rounded-sm p-1 py-6 lg:p-6 flex flex-col"
 	id="project"
 >
 	<h2 class="lg:text-5xl text-4xl text-center font-visby_bold font-bold">Projects</h2>

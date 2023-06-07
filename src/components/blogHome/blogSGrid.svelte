@@ -32,8 +32,12 @@
 			</p>
 			<BlogSPost title={' Getting started with CI/CD with Github Actions'} />
 			<BlogSPost title={' Git For Beginners: A Complete Guide.'} />
+
+			<p class="border-l-2 border-current pl-1">
+				My Content is available in all your favorite plafroms
+			</p>
 			<div
-				class="space-x-2 p-3 my-3 items-center border-2 border-black dark:border-[#333] rounded-xl justify-between flex"
+				class="space-x-2 p-3 my-3 items-center border border-black dark:border-[#333] rounded-xl justify-between flex"
 			>
 				<p class="text-xl lg:text-2xl font-visby_mid self-center">Read anywhere</p>
 				<div class="flex space-x-2 text-xl lg:text-3xl items-center">

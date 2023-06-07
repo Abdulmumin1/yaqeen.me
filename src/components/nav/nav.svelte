@@ -36,23 +36,21 @@
 	});
 </script>
 
-<nav
-	class="w-full border-b-2 dark:border-[#333] border-black flex justify-center items-center flex-col"
->
-	<div class="text-3xl">
-		{#if darkMode}
-			<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
-				<Fa icon={faMoon} class="self-center" />
-			</button>
-		{:else}
-			<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
-				<Fa icon={faSun} class="self-center" />
-			</button>
-		{/if}
-	</div>
-	<ul class="flex space-x-2 p-1 rounded-lg border-black dark:border-[#333]">
+<nav class="w-full flex justify-center items-center flex-col">
+	<ul class="flex space-x-2 p-1 rounded-lg items-center justify-center">
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<NavItem data={{ name: 'About', href: '/' }} />
+		<div class="text-3xl">
+			{#if darkMode}
+				<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
+					<Fa icon={faMoon} class="self-center" />
+				</button>
+			{:else}
+				<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
+					<Fa icon={faSun} class="self-center" />
+				</button>
+			{/if}
+		</div>
 
 		<NavItem data={{ name: 'Blog', href: '/' }} />
 		<NavItem data={{ name: 'Projects', href: '/' }} />
