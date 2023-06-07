@@ -31,8 +31,9 @@
 			}
 		}
 	}
+
 	onMount(() => {
-		// darkMode = localStorage.theme === 'dark';
+		darkMode = localStorage.theme === 'dark';
 	});
 </script>
 
