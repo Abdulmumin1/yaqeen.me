@@ -41,14 +41,14 @@
 			>
 				<p class="text-xl lg:text-2xl font-visby_mid self-center">Read anywhere</p>
 				<div class="flex space-x-2 text-xl lg:text-3xl items-center">
-					<a> <Fa icon={faEllipsisH} /> </a>
-					<a href="#">
+					<a href="/blog" target="_blank"> <Fa icon={faEllipsisH} /> </a>
+					<a href="https://abdulmumin.com" target="_blank">
 						<Fa icon={faHashnode} />
 					</a>
-					<a href="#">
+					<a href="https://dev.to/@abdulmuminyqn" target="_blank">
 						<Fa icon={faDev} />
 					</a>
-					<a href="#">
+					<a href="https://medium.com/@abdulmuminyqn" target="_blank">
 						<Fa icon={faMedium} />
 					</a>
 				</div>
