@@ -10,7 +10,7 @@
 	<div class="flex lg:space-x-4 h-full flex-col lg:flex-row">
 		<div class="lg:w-3/5 mb-3 space-y-1">
 			<img src={latestPostImage} alt="" class="border-[1.8px] border-black rounded-md" />
-			<p class="text-2xl lg:text-4xl font-visby_bold font-bold">Python tips and tricks</p>
+			<a href="https://www.abdulmumin.com/python-best-practices" class="text-2xl lg:text-4xl font-visby_bold font-bold">Python Best Practices</a>
 			<p class="text-stone-400">
 				This appears in almost any programming article on "best practices", so I had to make it my
 				number one point. Writing global state variables comes with a lot of problems, like code
@@ -33,7 +33,7 @@
 			<BlogSPost title={' Getting started with CI/CD with Github Actions'} />
 			<BlogSPost title={' Git For Beginners: A Complete Guide.'} />
 
-			<p class="border-l-2 border-current pl-1">
+			<p class="border-l-4 border-[#333] pl-1 b rounded-l">
 				My writings are available in all your favorite plaforms
 			</p>
 			<div

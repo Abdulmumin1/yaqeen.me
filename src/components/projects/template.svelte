@@ -33,7 +33,7 @@
 
 <div
 	in:scale
-	class="border border-black dark:border-[#333] rounded-md p-6 flex flex-col w-full max-h-screen"
+	class="border border-black dark:border-[#333] rounded-md p-6 flex flex-col w-full max-h-screen transition-transform duration-300 transform hover:scale-105"
 >
 	<div>
 		<h2 class="text-4xl lg:text-6xl">{details.name}</h2>

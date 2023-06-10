@@ -56,7 +56,7 @@
 
 
 .hover_link_fill {
-  box-shadow: inset 0 0 0 0 rgb(255 237 213/1);
+  box-shadow: inset 0 0 0 0 rgb(255 247 237/1);
   
   padding: 0 .25rem;
   margin: 1 -.25rem;
@@ -65,7 +65,7 @@
 }
 .hover_link_fill:hover {
   color: #333;
-  box-shadow: inset 200px 0 0 0 rgb(255 237 213/1);;
+  box-shadow: inset 200px 0 0 0 rgb(255 247 237/1);
 }
 
 /* Presentational styles */

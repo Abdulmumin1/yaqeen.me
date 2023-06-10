@@ -15,7 +15,7 @@ export const project_data = readable([
 	},
 	{
 		name: 'Numbertime',
-		stack: ['Python', 'Flask', 'PyQt5'],
+		stack: ['Python', 'CSS3', 'PyQt5'],
 		description: 'A math game that helps you exale in your thinking ability'
 	},
 	{
