@@ -8,7 +8,7 @@
 	<p class="text-lg lg:text-2xl font-visby_mid">
 		{title}
 	</p>
-	<div class="text-stone-400 flex items-center space-x-2">
+	<div class="text-stone-900 dark:text-stone-300 flex items-center space-x-2">
 		<Fa icon={faClock} />
 		<p>Jan, 2023</p>
 	</div>
