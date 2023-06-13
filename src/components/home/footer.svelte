@@ -1,6 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+	import {mylinks } from '../utils/randomstore.js'
 </script>
 
 <footer
@@ -8,10 +9,22 @@
 >
 	<p class="">abdulmumin.com</p>
 	<div class="flex space-x-2">
-		<Fa icon={faGithub} />
-		<Fa icon={faLinkedin} />
-		<Fa icon={faTwitter} />
-		<Fa icon={faYoutube} />
+		<a href="{$mylinks.github}">
+
+			<Fa icon={faGithub} />
+		</a>
+		<a href="{$mylinks.linkedin}">
+
+			<Fa icon={faLinkedin} />
+		</a>
+		<a href="{$mylinks.twitter}">
+			<Fa icon={faTwitter} />
+
+		</a>
+		<a href="{$mylinks.youtube}">
+
+			<Fa icon={faYoutube} />
+		</a>
 	</div>
 	<div>
 		<p>Gigs, or Need help? Email</p>
@@ -24,11 +37,11 @@
 	<p class="font-visby_bold font-bold text-2xl">Helpful links</p>
 
 	<div class="flex space-x-2 flex-wrap">
-		<a href="#">Blog</a>
+		<a href="{$mylinks.hashnode}">Blog</a>
 		<p>|</p>
-		<a href="#">LinkedIn</a>
+		<a href="{$mylinks.linkedin}">LinkedIn</a>
 		<p>|</p>
-		<a href="#">Resources</a>
+		<a href="{$mylinks.hashnode}">Resources</a>
 		<p>|</p>
 		<a href="#">Wallpapers</a>
 	</div>

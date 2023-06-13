@@ -1,26 +1,24 @@
 <script>
-	import latestPostImage from '$lib/images/latest-blog.png';
+	import latestPostImage from '$lib/images/latest+blog.png';
 	import { faAngleRight, faClock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import BlogSPost from './blogSPost.svelte';
 	import { faDev, faHashnode, faMedium, faYoutube } from '@fortawesome/free-brands-svg-icons';
+	import { latestPostDetail, others } from '../utils/latestbog.js';
 </script>
 
 <div>
 	<div class="flex lg:space-x-4 h-full flex-col lg:flex-row">
 		<div class="lg:w-3/5 mb-3 space-y-1">
 			<img src={latestPostImage} alt="" class="border-2 border-black rounded-md" />
-			<a href="https://www.abdulmumin.com/python-best-practices" class="text-2xl lg:text-4xl font-visby_bold font-bold">Python Best Practices</a>
+			<a href="https://www.abdulmumin.com/python-best-practices" class="text-2xl lg:text-4xl font-visby_bold font-bold">{$latestPostDetail.title}</a>
 			<p class="text-stone-900 dark:text-stone-300">
-				This appears in almost any programming article on "best practices", so I had to make it my
-				number one point. Writing global state variables comes with a lot of problems, like code
-				readability issues, maintenance and namespace conflicts. Instead of global variables, you
-				can use function parameters or...
+				{$latestPostDetail.description}
 			</p>
 			<div
 				class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-black hover:shadow-xl dark:border-[#333]"
 			>
-				<a href="#" class="hover_link_fill">Read More </a>
+				<a href="{$latestPostDetail.link}" class="hover_link_fill">Read More </a>
 				<Fa icon={faAngleRight} />
 			</div>
 		</div>
@@ -30,8 +28,11 @@
 			>
 				Recent
 			</p>
-			<BlogSPost title={' Getting started with CI/CD with Github Actions'} />
-			<BlogSPost title={' Git For Beginners: A Complete Guide.'} />
+			{#each $others as post (post.link)}
+				
+			<BlogSPost title={post.title} link={post.link} />
+			{/each}
+			<!-- <BlogSPost title={' Git For Beginners: A Complete Guide.'} /> -->
 
 			<p class="border-l-4 border-[#333] pl-1 b rounded-l">
 				My writings are available in all your favorite plaforms
