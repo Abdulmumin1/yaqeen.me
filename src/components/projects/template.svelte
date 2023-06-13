@@ -43,7 +43,7 @@
 			<img src={edit} alt="" class="h-full rounded-md" />
 		</div> -->
 		<div class="space-y-3">
-			<p class="text-stone-900">{details.description}</p>
+			<p class="text-stone-900 dark:text-stone-300">{details.description}</p>
 			<ul class="flex space-x-2 text-black">
 				{#each details.stack as stack}
 					<li class="border border-black {getRandomColor()} p-1 rounded-md">
