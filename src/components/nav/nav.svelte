@@ -33,7 +33,7 @@
 	});
 </script>
 
-<nav class="w-full flex border-b-2 border-black dark:border-[#333] justify-center items-center flex-col dark:bg-[#131212]">
+<nav class="w-full flex border-b-2 border-black dark:border-[#333] justify-center items-center flex-col bg-white dark:bg-[#131212]">
 	<ul class="flex space-x-2 p-1 rounded-lg items-center justify-center">
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<NavItem data={{ name: 'About', href: '/about' }} />
@@ -49,7 +49,7 @@
 			{/if}
 		</div>
 
-		<NavItem data={{ name: 'Blog', href: '/' }} />
-		<NavItem data={{ name: 'Projects', href: '/' }} />
+		<NavItem data={{ name: 'Blog', href: '#blog' }} />
+		<NavItem data={{ name: 'Projects', href: '#projects' }} />
 	</ul>
 </nav>
