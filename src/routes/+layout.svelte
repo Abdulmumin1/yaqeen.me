@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="w-screen bg-orange-100 dark:text-orange-50 font-visby dark:bg-[#040200] relative transition-colors duration-500"
+	class="w-screen bg-orange-50 dark:text-orange-50 font-visby dark:bg-[#040200] relative transition-colors duration-500"
 >
 	<Nav />
 	<slot />
