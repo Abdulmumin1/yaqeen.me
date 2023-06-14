@@ -6,7 +6,6 @@
 	export let details;
 	import { stackLinks } from '../utils/stackLookup.js';
 	//{'name':"Project Name", 'stack':['Stack1', 'Stack2', 'Stack3'], 'description':"a short sentence that gives a overall picture of the project"}
-	import edit from '$lib/images/edit.png';
 
 	// let stack_dict = {};
 
