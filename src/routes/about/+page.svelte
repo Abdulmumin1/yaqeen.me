@@ -26,9 +26,8 @@
                     I'm commited to both learning and writing and I actively share my learnings and knowledge through my blog with the rest of the world.
                 </p>
                 <h3 class="text-xl font-bold">Things I Enjoy</h3>
-                <p></p>
                 <ul>
-                    .....
+                    <li>......</li>
                 </ul>
             </div>
     </div>
