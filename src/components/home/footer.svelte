@@ -5,7 +5,7 @@
 </script>
 
 <footer
-	class="bottom-0 bg-orange-500 dark:text-black border-t-2 border-black w-full p-6 items-center justify-center flex flex-col s"
+	class="bottom-0 bg-orange-600 dark:bg-orange-700 dark:text-black border-t-2 border-black w-full p-6 items-center justify-center flex flex-col s"
 >
 	<p class="">abdulmumin.com</p>
 	<div class="flex space-x-2">
