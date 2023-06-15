@@ -11,7 +11,7 @@
 	<div class="flex lg:space-x-4 h-full flex-col lg:flex-row">
 		<div class="lg:w-3/5 mb-3 space-y-1">
 			<img src={latestPostImage} alt="" class="border-2 border-black rounded-md" />
-			<a href="https://www.abdulmumin.com/python-best-practices" class="text-2xl lg:text-4xl font-visby_bold font-bold">{$latestPostDetail.title}</a>
+			<a href={$latestPostDetail.link} class="text-2xl lg:text-4xl font-visby_bold font-bold">{$latestPostDetail.title}</a>
 			<p class="text-stone-900 dark:text-stone-300">
 				{$latestPostDetail.description}
 			</p>
