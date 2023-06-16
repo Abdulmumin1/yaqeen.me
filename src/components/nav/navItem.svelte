@@ -3,7 +3,7 @@
 </script>
 
 <li class="cursor-pointer p-1">
-	<a href={data.href} class="link link--elara font-visby_mid">
+	<a href={data.href} class="link link--elara font-visby_mid  border-[1.7px] border-current p-2 rounded-lg">
 		{data.name}
 	</a>
 </li>

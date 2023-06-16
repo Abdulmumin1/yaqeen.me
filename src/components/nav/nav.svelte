@@ -33,11 +33,11 @@
 	});
 </script>
 
-<nav class="w-full flex border-b-2 border-black dark:border-[#333] justify-center items-center flex-col bg-orange-600 dark:bg-orange-700 dark:text-black">
+<nav class="w-full flex border-b-2 border-black dark:border-black justify-center items-center flex-col dark:text-white text-black">
 	<ul class="flex space-x-2 p-1 rounded-lg items-center justify-center">
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<NavItem data={{ name: 'About', href: '/about' }} />
-		<div class="text-3xl">
+		<div class="text-4xl">
 			{#if darkMode}
 				<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
 					<Fa icon={faMoon} class="self-center" />
