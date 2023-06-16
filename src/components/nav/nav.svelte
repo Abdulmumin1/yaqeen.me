@@ -33,7 +33,7 @@
 	});
 </script>
 
-<nav class="w-full flex border-b-2 border-black dark:border-black justify-center items-center flex-col dark:text-white text-black">
+<nav class="w-full flex border-b-2 border-black dark:border-[#444] justify-center items-center flex-col  dark:text-orange-400 text-orange-900">
 	<ul class="flex space-x-2 p-1 rounded-lg items-center justify-center">
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<NavItem data={{ name: 'About', href: '/about' }} />
