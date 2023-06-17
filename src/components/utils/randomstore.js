@@ -10,4 +10,4 @@ export const mylinks = readable( {
 
 })
 
-export const wallpapers = readable(['src/lib/images/walls/setup+1+circles.png', 'src/lib/images/walls/setup+eveee+2.png','src/lib/images/walls/setup+top+evee.png', 'src/lib/images/walls/wall.png'])
+export const wallpapers = readable(['https://i.ibb.co/Hdx12sS/wall.png', 'https://i.ibb.co/FVzZYgS/setup-top-evee.png','https://i.ibb.co/LZGNPYm/setup-1-circles.png', 'https://i.ibb.co/VT0cvn3/setup-eveee-2.png'])
