@@ -49,7 +49,7 @@
 			{/if}
 		</div>
 
-		<NavItem data={{ name: 'Blog', href: '#blog' }} />
-		<NavItem data={{ name: 'Projects', href: '#projects' }} />
+		<NavItem data={{ name: 'Blog', href: '/#blog' }} />
+		<NavItem data={{ name: 'Projects', href: '/#projects' }} />
 	</ul>
 </nav>

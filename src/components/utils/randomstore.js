@@ -9,3 +9,5 @@ export const mylinks = readable( {
     youtube:'https://youtube.com/@abdulmuminyqn',
 
 })
+
+export const wallpapers = readable(['src/lib/images/walls/setup+1+circles.png', 'src/lib/images/walls/setup+eveee+2.png','src/lib/images/walls/setup+top+evee.png', 'src/lib/images/walls/wall.png'])

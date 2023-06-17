@@ -43,6 +43,6 @@
 		<p>|</p>
 		<a href="{$mylinks.hashnode}">Resources</a>
 		<p>|</p>
-		<a href="#">Wallpapers</a>
+		<a href="/wallpapers">Wallpapers</a>
 	</div>
 </footer>
