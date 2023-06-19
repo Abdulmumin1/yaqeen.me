@@ -10,4 +10,4 @@ export const mylinks = readable( {
 
 })
 
-export const wallpapers = readable(['https://i.ibb.co/Hdx12sS/wall.png', 'https://i.ibb.co/FVzZYgS/setup-top-evee.png','https://i.ibb.co/LZGNPYm/setup-1-circles.png', 'https://i.ibb.co/VT0cvn3/setup-eveee-2.png'])
+export const wallpapers = readable(['https://i.ibb.co/Hdx12sS/wall.png', 'https://i.ibb.co/FVzZYgS/setup-top-evee.png','https://i.ibb.co/LZGNPYm/setup-1-circles.png', 'https://i.ibb.co/VT0cvn3/setup-eveee-2.png','https://i.ibb.co/Dfddp8H/Specific-HPBlue-Wal-Pa-PER.png','https://i.ibb.co/WHsp71X/GOdATA.png','https://i.ibb.co/y6X1nv5/wall-Pap-ER.png'])
