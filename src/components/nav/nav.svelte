@@ -1,10 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import NavItem from './navItem.svelte';
-	import {
-		faMoon,
-		faSun
-	} from '@fortawesome/free-solid-svg-icons';
+	import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 	import { scale } from 'svelte/transition';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
@@ -33,7 +30,9 @@
 	});
 </script>
 
-<nav class="w-full flex border-b-2 border-black dark:border-[#444] justify-center items-center flex-col  dark:text-orange-400 text-orange-900">
+<nav
+	class="w-full flex border-black dark:border-[#333] justify-center items-center flex-col border-b-4"
+>
 	<ul class="flex space-x-2 p-1 rounded-lg items-center justify-center">
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<NavItem data={{ name: 'About', href: '/about' }} />
