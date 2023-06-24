@@ -20,3 +20,12 @@
 	<meta name="twitter:description" content="A creative, curiosity-driven developer & writer" />
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
+
+<div class="h-screen p-6">
+	<div
+		class="h-[200px] flex justify-center items-center border px-12 mt-4 border-black dark:border-[#444] rounded-xl"
+	>
+		<p class="text-3xl text-center p-3">Abdulmumin Yaqeen's Blog</p>
+	</div>
+	<p class="text-6xl rotate-6 text-center">Under Contruction</p>
+</div>

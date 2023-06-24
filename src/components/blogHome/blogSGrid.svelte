@@ -11,14 +11,16 @@
 	<div class="flex lg:space-x-4 h-full flex-col lg:flex-row">
 		<div class="lg:w-3/5 mb-3 space-y-1">
 			<img src={latestPostImage} alt="" class="border-2 border-black rounded-md" />
-			<a href={$latestPostDetail.link} class="text-2xl lg:text-4xl font-visby_bold font-bold">{$latestPostDetail.title}</a>
+			<a href={$latestPostDetail.link} class="text-2xl lg:text-4xl font-visby_bold font-bold"
+				>{$latestPostDetail.title}</a
+			>
 			<p class="text-stone-900 dark:text-stone-300">
 				{$latestPostDetail.description}
 			</p>
 			<div
 				class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-black hover:shadow-xl dark:border-[#333]"
 			>
-				<a href="{$latestPostDetail.link}" class="hover_link_fill">Read More </a>
+				<a href={$latestPostDetail.link} class="hover_link_fill">Read More </a>
 				<Fa icon={faAngleRight} />
 			</div>
 		</div>
@@ -29,8 +31,7 @@
 				Recent
 			</p>
 			{#each $others as post (post.link)}
-				
-			<BlogSPost title={post.title} link={post.link} />
+				<BlogSPost title={post.title} link={post.link} />
 			{/each}
 			<!-- <BlogSPost title={' Git For Beginners: A Complete Guide.'} /> -->
 
@@ -42,7 +43,7 @@
 			>
 				<p class="text-xl lg:text-2xl font-visby_mid self-center">Read anywhere</p>
 				<div class="flex space-x-2 text-xl lg:text-3xl items-center">
-					<a href="/blog" target="_blank"> <Fa icon={faEllipsisH} /> </a>
+					<a href="/blog"> <Fa icon={faEllipsisH} /> </a>
 					<a href="https://abdulmumin.com" target="_blank">
 						<Fa icon={faHashnode} />
 					</a>
