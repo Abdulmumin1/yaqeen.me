@@ -2,7 +2,7 @@
 	export let data;
 </script>
 
-<li class="cursor-pointer p-1 dark:border-[#444] rounded">
+<li class="cursor-pointer p-1 dark:border-dark rounded">
 	<a href={data.href} class="link link--elara font-visby_mid">
 		{data.name}
 	</a>

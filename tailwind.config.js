@@ -4,6 +4,10 @@ export default {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			colors: {
+				orang: 'theme(colors.orange.500)',
+				dark: 'theme(colors.orange.700)'
+			},
 			fontFamily: {
 				visby: ['visby', 'roboto'],
 				visby_mid: ['visby', 'roboto'],

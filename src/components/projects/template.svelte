@@ -21,7 +21,7 @@
 
 <div
 	in:scale
-	class="border border-black border-b-4 dark:border-[#333] rounded-md p-6 flex flex-col w-full max-h-screen transition-transform duration-300 transform hover:scale-105"
+	class="border border-orang border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4"
 >
 	<div>
 		<h2 class="text-4xl lg:text-6xl">{details.name}</h2>
@@ -34,7 +34,7 @@
 			<p class="text-stone-900 dark:text-stone-300">{details.description}</p>
 			<ul class="flex space-x-2 text-black">
 				{#each details.stack as stack}
-					<li class="border border-black {getRandomColor()} p-1 rounded-md">
+					<li class=" text-orang dark:text-dark bg-orang dark:bg-dark p-1 rounded-md">
 						<a href={$stackLinks[stack.toLowerCase()]}>{stack}</a>
 					</li>
 				{/each}
@@ -42,12 +42,12 @@
 
 			<div class="flex space-x-2">
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-black hover:shadow-xl dark:border-[#333]"
+					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover:shadow-xl dark:border-dark"
 				>
 					<a href="#" class="hover_link_fill">Case study </a>
 				</div>
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-black hover:shadow-xl dark:border-[#333]"
+					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover:shadow-xl dark:border-dark"
 				>
 					<a href="#" class="hover_link_fill">Visit</a>
 					<Fa icon={faAngleRight} />

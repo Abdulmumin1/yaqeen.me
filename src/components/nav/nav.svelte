@@ -32,7 +32,7 @@
 
 <nav class="w-full flex justify-center items-center flex-col pt-3">
 	<ul
-		class="flex border px-2 border-black dark:border-[#333] border-b-4 space-x-2 rounded-lg items-center justify-center"
+		class="flex border px-2 border-orange-600 dark:border-dark border-b-4 space-x-2 rounded-lg items-center justify-center"
 	>
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<p>·</p>

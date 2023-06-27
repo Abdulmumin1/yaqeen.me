@@ -23,7 +23,7 @@
 
 <div class="h-screen p-6">
 	<div
-		class="h-[200px] flex justify-center items-center border px-12 mt-4 border-black dark:border-[#444] rounded-xl"
+		class="h-[200px] flex justify-center items-center border px-12 mt-4 border-orang dark:border-[#444] rounded-xl"
 	>
 		<p class="text-3xl text-center p-3">Abdulmumin Yaqeen's Blog</p>
 	</div>

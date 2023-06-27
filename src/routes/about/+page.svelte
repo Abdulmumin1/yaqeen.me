@@ -30,7 +30,7 @@
 		<div class="rounded-full p-2">
 			<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />
 		</div>
-		<h1 class="text-3xl font-visby_mid font-bold w-fit pb-4">About me</h1>
+		<h1 class="text-3xl font-visby_mid font-bold w-fit pb-4 text-orang dark:text-dark">About me</h1>
 		<div class="text-md lg:text-lg flex flex-col space-y-2">
 			<p>
 				I'm Abdulmumin Yaqeen Abdulkarim, i have been hitting the keyboards for the past 3 years.
