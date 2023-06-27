@@ -1,5 +1,4 @@
 <script>
-	import latestPostImage from '$lib/images/latest+blog.png';
 	import { faAngleRight, faClock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import BlogSPost from './blogSPost.svelte';
@@ -10,7 +9,11 @@
 <div>
 	<div class="flex lg:space-x-4 h-full flex-col lg:flex-row">
 		<div class="lg:w-3/5 mb-3 space-y-1">
-			<img src={latestPostImage} alt="" class="border-2 border-orang dark:border-dark rounded-md" />
+			<img
+				src={$latestPostDetail.imageLink}
+				alt=""
+				class="border-2 border-orang dark:border-dark rounded-md"
+			/>
 			<a href={$latestPostDetail.link} class="text-2xl lg:text-4xl font-visby_bold font-bold"
 				>{$latestPostDetail.title}</a
 			>

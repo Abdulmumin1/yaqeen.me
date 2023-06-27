@@ -9,10 +9,7 @@
 	<p class="text-lg lg:text-2xl font-visby_mid">
 		{title}
 	</p>
-	<div class="text-stone-900 dark:text-stone-300 flex items-center space-x-2">
-		<Fa icon={faClock} />
-		<p>Jan, 2023</p>
-	</div>
+
 	<div class="flex items-center w-fit space-x-2 p-1 rounded-xl hover_link">
 		<a href={link} class="">Read More </a>
 		<Fa icon={faAngleRight} />
