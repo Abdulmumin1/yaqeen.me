@@ -6,8 +6,9 @@
 </script>
 
 <div
-	class="w-screen bg-orange-50 dark:text-orange-100 font-visby dark:bg-[#040200] relative transition-colors duration-500"
+	class="w-screen bg-orange-50 dark:text-orange-100 font-visby dark:bg-stone-900 relative transition-colors duration-500"
 >
+	<!-- dark:bg-[#040200] -->
 	<Nav />
 	<slot />
 	<Footer />
