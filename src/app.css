@@ -788,6 +788,18 @@ video {
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
+.divide-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(2px * var(--tw-divide-x-reverse));
+  border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+}
+
 .self-center {
   align-self: center;
 }
@@ -947,6 +959,10 @@ video {
   background-color: inherit;
 }
 
+.bg-orang {
+  background-color: #f97316;
+}
+
 .bg-orange-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 186 116 / var(--tw-bg-opacity));
@@ -989,10 +1005,6 @@ video {
 .bg-yellow-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
-}
-
-.bg-orang {
-  background-color: #f97316;
 }
 
 .p-1 {
@@ -1352,11 +1364,6 @@ video {
   border-color: #c2410c;
 }
 
-:is(.dark .dark\:border-b-orange-100) {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(255 237 213 / var(--tw-border-opacity));
-}
-
 :is(.dark .dark\:bg-\[\#040200\]) {
   --tw-bg-opacity: 1;
   background-color: rgb(4 2 0 / var(--tw-bg-opacity));
@@ -1367,17 +1374,22 @@ video {
   background-color: rgb(17 17 17 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-dark) {
+  background-color: #c2410c;
+}
+
 :is(.dark .dark\:bg-orange-700) {
   --tw-bg-opacity: 1;
   background-color: rgb(194 65 12 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:bg-dark) {
-  background-color: #c2410c;
+:is(.dark .dark\:bg-stone-900) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 25 23 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:text-orang) {
-  color: #f97316;
+:is(.dark .dark\:text-dark) {
+  color: #c2410c;
 }
 
 :is(.dark .dark\:text-orange-100) {
@@ -1388,10 +1400,6 @@ video {
 :is(.dark .dark\:text-stone-300) {
   --tw-text-opacity: 1;
   color: rgb(214 211 209 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-dark) {
-  color: #c2410c;
 }
 
 :is(.dark .dark\:shadow-sm) {

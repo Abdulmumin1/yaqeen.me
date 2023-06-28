@@ -25,9 +25,9 @@
 	<div>
 		<p>Gigs, or Need help? Email</p>
 		<a
-			href="mailto:hello@abdulmumin.com?subject=Hi%20Abdulmumin&body=Just%20saying%20hi!"
+			href="mailto:abdulmuminyqn@gmail.com?subject=Hi%20Abdulmumin&body=Just%20saying%20hi!"
 			class="font-visby font-bold"
-			target="_blank">hello@abdulmumin.com</a
+			target="_blank">abdulmuminyqn@gmail.com</a
 		>
 	</div>
 	<p class="font-visby_bold font-bold text-2xl">Helpful links</p>
