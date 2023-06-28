@@ -16,10 +16,10 @@
 		<h2 class="text-2xl border border-orang dark:border-dark p-2 w-fit rounded-md text-left">
 			Eid Mubarak Folks! 🫱🏼‍🫲🏽
 		</h2>
-		<i>
+		<em>
 			<p>If the download button doesn't work, <strong>kindly long press the image</strong>.</p>
 			<p>I couldn't get it fixed before runnig out of time</p>
-		</i>
+		</em>
 	</div>
 
 	<div class="flex flex-wrap gap-5 justify-center">
