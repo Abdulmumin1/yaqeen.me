@@ -14,6 +14,11 @@ export const wallpapers = readable([
 	'https://i.ibb.co/vjjzjTQ/masjid-mobile-dark.png',
 	'https://i.ibb.co/KmwVGGx/masjid-desktop-dark.png',
 	'https://i.ibb.co/FJVwCHS/masjid-desktop-light.png',
+	'https://i.ibb.co/Tm0BXsR/Untitled-design-2.png',
+	'https://i.ibb.co/f4gTfX8/kaaba.png',
+	'https://i.ibb.co/JjxYY3k/kaaba-angle-warm.png',
+	'https://i.ibb.co/0VzSC5V/kaaba-warm.png',
+
 	'https://i.ibb.co/Hdx12sS/wall.png',
 	'https://i.ibb.co/FVzZYgS/setup-top-evee.png',
 	'https://i.ibb.co/LZGNPYm/setup-1-circles.png',
