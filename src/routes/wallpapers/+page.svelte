@@ -13,10 +13,10 @@
 
 <div class=" mt-3 mb-2 px-2 flex gap-5 flex-col">
 	<div class="w-full flex items-center flex-col">
-		<h2 class="text-2xl border border-orang dark:border-dark p-2 w-fit rounded-md">
+		<h2 class="text-2xl border border-orang dark:border-dark p-2 w-fit rounded-md text-left">
 			Eid Mubarak Folks! 🫱🏼‍🫲🏽
 		</h2>
-		<p>if the download button doesn't work, kindly long press the image.</p>
+		<p>If the download button doesn't work, kindly long press the image.</p>
 		<p>I couldn't get it fixed on time</p>
 	</div>
 
