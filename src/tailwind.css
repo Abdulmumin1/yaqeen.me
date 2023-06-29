@@ -81,5 +81,6 @@
 		border-radius: theme(borderRadius.2xl);
 		padding: theme(padding.4);
 		overflow: scroll;
+		width: 100%;
 	}
 }
