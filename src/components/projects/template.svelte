@@ -24,7 +24,7 @@
 	class="border border-orang border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4"
 >
 	<div>
-		<h2 class="text-4xl lg:text-6xl">{details.name}</h2>
+		<p class="text-4xl lg:text-6xl">{details.name}</p>
 	</div>
 	<div class="space-x-3 grid lg:grid-cols-2 grid-cols-1 items-center">
 		<!-- <div>
