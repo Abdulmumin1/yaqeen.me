@@ -2,7 +2,7 @@
 	import BlogSection from '../components/blogHome/blogSection.svelte';
 	import Hero from '../components/home/hero.svelte';
 	import ProSection from '../components/projects/proSection.svelte';
-
+	import { fly, scale, slide, draw } from 'svelte/transition';
 	import me from '$lib/images/me.jpg';
 </script>
 

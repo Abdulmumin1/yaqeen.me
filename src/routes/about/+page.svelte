@@ -1,7 +1,7 @@
 <script>
 	import me from '$lib/images/abdul.jpg';
 
-	import { fly } from 'svelte/transition';
+	import { fly, scale, slide } from 'svelte/transition';
 </script>
 
 <svelte:head>
@@ -25,7 +25,7 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<div in:fly class=" flex justify-center p-4">
+<div in:scale out:slide class=" flex justify-center p-4">
 	<div class="  max-w-[500px] flex flex-col items-center">
 		<div class="rounded-full p-2">
 			<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />

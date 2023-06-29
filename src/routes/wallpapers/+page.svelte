@@ -1,6 +1,7 @@
 <script>
 	import Card from '../../components/wallpaper/card.svelte';
 	import { wallpapers } from '../../components/utils/randomstore.js';
+	import { scale, slide } from 'svelte/transition';
 </script>
 
 <svelte:head>
@@ -11,7 +12,7 @@
 	<meta name="description" content="Download beautiful 3D wallpapers" />
 </svelte:head>
 
-<div class=" mt-3 mb-2 px-2 flex gap-5 flex-col">
+<div in:scale out:slide class=" mt-3 mb-2 px-2 flex gap-5 flex-col">
 	<div class="w-full flex items-center flex-col">
 		<h2 class="text-2xl border border-orang dark:border-dark p-2 w-fit rounded-md text-left">
 			Eid Mubarak Folks! 🫱🏼‍🫲🏽

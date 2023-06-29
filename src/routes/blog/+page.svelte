@@ -1,3 +1,7 @@
+<script>
+	import { scale, slide } from 'svelte/transition';
+</script>
+
 <svelte:head>
 	<!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
@@ -21,7 +25,7 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<div class="h-screen p-6">
+<div in:scale out:slide class="h-screen p-6">
 	<div
 		class="h-[200px] flex justify-center items-center border px-12 mt-4 border-orang dark:border-[#444] rounded-xl"
 	>
