@@ -1,0 +1,48 @@
+---
+title: First post
+description: post description
+date: '2023-14-14'
+categories:
+  - svelte
+  - sveltekit
+  - frontend
+
+published: true
+---
+
+# First Post
+
+i really want to play with sveltekit
+But the tailwind config has overide the default stylelfd afd sfsfs
+fdslafdsfdsfd fsfd
+fdsaf daf saf
+fds afdslfds
+fsfd slf
+
+# new
+
+```js
+import { json } from '@sveltejs/kit';
+
+async function getPosts() {
+	let posts = [];
+	const paths = import.meta.glob('../../posts/*.md', { eager: true });
+
+	for (const path in paths) {
+		const file = paths[path];
+		const slug = path.split('/').at(-1)?.replace('.md', '');
+		const metadata = file.metadata;
+		const post = { ...metadata, slug };
+		post.published && posts.push(post);
+	}
+
+	posts = posts.sort((f, s) => {
+		new Date(s.date).getTime() - new Date(f.data).getTime();
+	});
+	return posts;
+}
+export async function GET() {
+	const posts = await getPosts();
+	return json(posts);
+}
+```

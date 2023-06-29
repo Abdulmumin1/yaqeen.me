@@ -10,19 +10,20 @@
 		<!-- <img src="{me}" alt="abdulmumin yaqeen " class="h-full border-2 border-orang rounded-3xl"> -->
 		<!-- <Nav/> -->
 
-		<div class="text-center md:p-3 w-full flex items-center justify-center flex-col gap-2">
-			<p
-				class="lg:text-6xl text-4xl text-center font-visby_bold font-bold text-orang dark:text-dark"
-			>
-				I'm Abdulmumin
-			</p>
-			<p>Technical writer & fool stack developer</p>
-			<div
-				class="flex gap-2 border-b-2 items-center rounded-2xl border py-1 px-3 cursor-pointer border-orang dark:border-dark transition-transform duration-200 transform hover:scale-105 hover:font-bold"
-			>
-				<a href="/about">Long Story</a>
-				<Fa icon={faLongArrowRight} />
-			</div>
-		</div>
-	</div>
+    	<div class="text-center md:p-3 w-full flex items-center justify-center flex-col gap-2">
+    		<p
+    			class="lg:text-6xl text-4xl text-center font-visby_bold font-bold text-orang dark:text-dark"
+    		>
+    			I'm Abdulmumin
+    		</p>
+    		<p>Technical writer & fool stack developer</p>
+    		<div
+    			class="flex gap-2 border-b-2 items-center rounded-2xl border py-1 px-3 cursor-pointer border-orang dark:border-dark transition-transform duration-200 transform hover:scale-105 hover:font-bold"
+    		>
+    			<a href="/about">Long Story</a>
+    			<Fa icon={faLongArrowRight} />
+    		</div>
+    	</div>
+    </div>
+
 </div>

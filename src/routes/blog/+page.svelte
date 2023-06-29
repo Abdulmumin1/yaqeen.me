@@ -1,5 +1,7 @@
 <script>
 	import { scale, slide } from 'svelte/transition';
+	import BlogCard from '../../components/mainBlog/blogCard.svelte';
+	export let data;
 </script>
 
 <svelte:head>
@@ -25,11 +27,10 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<div in:scale out:slide class="h-screen p-6">
-	<div
-		class="h-[200px] flex justify-center items-center border px-12 mt-4 border-orang dark:border-[#444] rounded-xl"
-	>
-		<p class="text-3xl text-center p-3">Abdulmumin Yaqeen's Blog</p>
+<section in:scale out:slide class="h-screen">
+	<div class="w-full p-6 gap-6 flex flex-col flex-wrap items-center">
+		{#each data.posts as post}
+			<BlogCard details={post} />
+		{/each}
 	</div>
-	<p class="text-6xl rotate-6 text-center">Under Contruction</p>
-</div>
+</section>
