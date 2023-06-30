@@ -7,7 +7,7 @@
 <footer
 	class="bottom-0 bg-orange-600 dark:bg-orange-700 text-black border-t-2 border-black w-full p-6 items-center justify-center flex flex-col s"
 >
-	<p class="">abdulmumin.com</p>
+	<p class="">&copy; yaqeen.me</p>
 	<div class="flex space-x-2">
 		<a href={$mylinks.github}>
 			<Fa icon={faGithub} />

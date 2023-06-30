@@ -31,10 +31,14 @@
 
 <section in:scale out:slide class="min-h-screen">
 	<div class="w-full flex items-center justify-center space-x-2 pt-6">
+		<!-- <input
+			value="search - alpha"
+			class="bg-inherit border p-2 border-b-2 rounded-xl border-orang dark:border-dark"
+		/> -->
 		<Fa icon={faRss} />
 		<a href="/rss.xml"> RSS</a>
 	</div>
-	<div class="w-full p-6 gap-6 flex flex-col flex-wrap items-center">
+	<div class="w-full p-6 space-y-8 flex flex-col flex-wrap items-center">
 		{#each data.posts as post}
 			<BlogCard details={post} />
 		{/each}
