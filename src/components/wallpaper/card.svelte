@@ -14,7 +14,7 @@
 	class="border space-y-3 border-b-4 border-orang dark:border-dark p-2 dark:bg-[#111] transition-transform duration-300 transform hover:scale-105 rounded-lg max-w-sm"
 >
 	<a href={wall}>
-		<img src={wall} alt="Eid Mubarak wallpaper" />
+		<img src={wall} alt="Eid Mubarak wallpaper" loading="lazy" />
 	</a>
 	<div class="flex space-x-2 items-center justify-end text-xl">
 		<button
