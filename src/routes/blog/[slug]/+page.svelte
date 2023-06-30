@@ -17,7 +17,7 @@
 		{/each}
 	</div>
 
-	<div>
+	<div class="space-y-6">
 		<svelte:component this={data.content} />
 	</div>
 </article>
