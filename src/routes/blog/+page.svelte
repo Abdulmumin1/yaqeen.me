@@ -1,6 +1,8 @@
 <script>
 	import { scale, slide } from 'svelte/transition';
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
+	import Fa from 'svelte-fa';
+	import { faRss } from '@fortawesome/free-solid-svg-icons';
 	export let data;
 </script>
 
@@ -27,7 +29,11 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<section in:scale out:slide class="h-screen">
+<section in:scale out:slide class="min-h-screen">
+	<div class="w-full flex items-center justify-center space-x-2 pt-6">
+		<Fa icon={faRss} />
+		<a href="/rss.xml"> RSS</a>
+	</div>
 	<div class="w-full p-6 gap-6 flex flex-col flex-wrap items-center">
 		{#each data.posts as post}
 			<BlogCard details={post} />

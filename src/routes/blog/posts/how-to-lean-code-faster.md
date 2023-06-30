@@ -1,7 +1,7 @@
 ---
 title: How to learn to code faster
 description: post description
-date: '2023-14-14'
+date: '2023-3-14'
 categories:
   - beginners
   - roadmap

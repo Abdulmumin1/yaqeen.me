@@ -1,7 +1,7 @@
 ---
 title: 10+ AWS services explained!
 description: post description
-date: '2023-14-14'
+date: '2023-4-14'
 categories:
   - svelte
   - sveltekit

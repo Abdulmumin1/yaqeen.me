@@ -69,12 +69,14 @@
 		padding-top: theme(padding.5);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
+		text-transform: capitalize;
 	}
 	h1 {
 		font-size: theme(fontSize.5xl);
 		padding-block: theme(padding.5);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
+		/* text-transform: t; */
 	}
 
 	h3 {
