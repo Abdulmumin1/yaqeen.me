@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	export let data;
 	import { formatDate } from '$lib/js/utils.js';
 
@@ -12,10 +13,15 @@
 		faTwitter,
 		faWhatsapp
 	} from '@fortawesome/free-brands-svg-icons';
-	import { faCopy } from '@fortawesome/free-solid-svg-icons';
+	import { faBorderNone, faCopy } from '@fortawesome/free-solid-svg-icons';
+
+	let url;
+
+	onMount(() => {
+		url = window.location.href;
+	});
 
 	function copyUrlToClipboard() {
-		var url = window.location.href;
 		navigator.clipboard
 			.writeText(url)
 			.then(() => {
@@ -25,6 +31,15 @@
 				console.error('Failed to copy URL to clipboard:', error);
 			});
 	}
+
+	function convertLinkToRequestReadable(link) {
+		// Encode the link using encodeURIComponent
+		var encodedLink = encodeURIComponent(link);
+
+		return encodedLink;
+	}
+
+	let encodedTitle = convertLinkToRequestReadable(data.meta.title);
 </script>
 
 <svelte:head>
@@ -50,50 +65,42 @@
 		>
 			<span>Love it? Share it!</span>
 			<div class="flex space-x-3 items-center justify-center">
-				<span><Fa icon={faCopy} /></span>
+				<button on:click={copyUrlToClipboard}><Fa icon={faCopy} /></button>
 				<a
-					href="https://twitter.com/share?url={window.location
-						.href}%3Fref%3Dtwitter-share&amp;text={data.meta.title}"
+					href="https://twitter.com/share?url={convertLinkToRequestReadable(
+						url
+					)}%3Fref%3Dtwitter-share&amp;text={encodedTitle}"
 					target="_blank"
 					rel="noopener"
 				>
 					<span><Fa icon={faTwitter} /></span>
 				</a>
 				<a
-					href="http://www.reddit.com/submit?url={window.location.href}&amp;title={data.meta.title}"
+					href="http://www.reddit.com/submit?url={url}&amp;title={encodedTitle}"
 					target="_blank"
 					rel="noopener"
 				>
 					<span><Fa icon={faReddit} /></span>
 				</a>
-				<a
-					href="https://www.linkedin.com/cws/share?url={window.location.href}"
-					target="_blank"
-					rel="noopener"
-				>
+				<a href="https://www.linkedin.com/cws/share?url={url}" target="_blank" rel="noopener">
 					<span><Fa icon={faLinkedin} /></span>
 				</a>
 				<a
-					href="http://news.ycombinator.com/submitlink?u={window.location.href}&amp;t={data.meta
-						.title}"
+					href="http://news.ycombinator.com/submitlink?u={url}&amp;t={encodedTitle}"
 					target="_blank"
 					rel="noopener"
 				>
 					<Fa icon={faHackerNews} />
 				</a>
-				<a
-					href="https://www.facebook.com/sharer/sharer.php?u={window.location.href}"
-					target="_blank"
-					rel="noopener"
-				>
+				<a href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_blank" rel="noopener">
 					<Fa icon={faFacebook} />
 				</a>
 				<a
-					href="https://api.whatsapp.com/send?text={data.meta.title}%20{window.location.href}"
+					href="https://api.whatsapp.com/send?text={encodedTitle}%20{url}"
 					target="_blank"
 					rel="noopener"
 				>
-					<button on:click={copyUrlToClipboard}><Fa icon={faWhatsapp} /></button>
+					<Fa icon={faWhatsapp} />
 				</a>
 			</div>
 		</div>
