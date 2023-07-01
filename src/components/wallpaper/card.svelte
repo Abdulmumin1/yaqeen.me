@@ -8,6 +8,15 @@
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	export let wall;
+
+	// let fileUrl = 'https://url.com/image.png';
+
+	function downloadFile() {
+		const link = document.createElement('a');
+		link.href = wall;
+		link.download = wall.substring(wall.lastIndexOf('/') + 1);
+		link.click();
+	}
 </script>
 
 <div
@@ -18,11 +27,12 @@
 	</a>
 	<div class="flex space-x-2 items-center justify-end text-xl">
 		<button
+			on:click={downloadFile}
 			class="border hover:bg-green-500 px-5 py-2 rounded-lg border-orang dark:border-dark hover:shadow-lg"
 		>
-			<a href={wall} download="wallpaper-image">
-				<Fa icon={faDownload} />
-			</a>
+			<!-- <button on:click={downloadFile}> -->
+			<Fa icon={faDownload} />
+			<!-- </button> -->
 		</button>
 		<button class="border hover:bg-green-600 px-5 py-2 rounded-lg border-orang dark:border-dark">
 			<Fa icon={faShareAlt} />
