@@ -20,7 +20,7 @@ published: true
 
 5. Example resource
 
-6. Building quote project
+6. Building our qoute project
 
 7. Conclusion
 
@@ -135,7 +135,7 @@ But **basically**:
 
 3. `api = Api(app)` creates an instance of Flask_rrestful which will be used to define API endpoints.
 
-4. The `Class Hello(Resource)` This code defines a class called **_Hello_** and inherits from the **_Resource_** class imported from flask\*restful. The \*\*\_Resource**\* class represent a resource in the **API** and will handle **HTTP\*\* request made to the corresponding endpoint.
+4. The `Class Hello(Resource)` This code defines a class called **Hello** and inherits from the **Resource** class imported from flask\*restful. The **Resource** class represent a resource in the **API** and will handle **HTTP** request made to the corresponding endpoint.
 
 5. Within the Hello class, the get method defined will be executed when a GET request is made to the endpoint. In this case, It simply returns a JSON with the message "Hello World!"
 
