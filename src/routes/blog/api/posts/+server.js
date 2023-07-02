@@ -13,9 +13,10 @@ async function getPosts() {
 		post.published && posts.push(post);
 	}
 
-	posts = posts.sort((f, s) => {
-		new Date(s.date).getTime() - new Date(f.date).getTime();
-	});
+	posts = posts.sort(
+		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
+	);
+
 	return posts;
 }
 export async function GET() {

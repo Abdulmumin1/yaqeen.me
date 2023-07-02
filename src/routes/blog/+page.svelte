@@ -38,9 +38,11 @@
 		<Fa icon={faRss} />
 		<a href="/rss.xml"> RSS</a>
 	</div>
-	<div class="w-full p-6 space-y-8 flex flex-col flex-wrap items-center">
+	<article
+		class="w-full p-6 space-y-8 flex flex-col flex-wrap items-center divide-y divide-orang dark:divide-dark"
+	>
 		{#each data.posts as post}
 			<BlogCard details={post} />
 		{/each}
-	</div>
+	</article>
 </section>

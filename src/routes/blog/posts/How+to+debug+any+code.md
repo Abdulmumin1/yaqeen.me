@@ -1,7 +1,7 @@
 ---
 title: How to debug any code
 description: post description
-date: '2023-6-14'
+date: '2023-2-14'
 categories:
   - debugging
   - code

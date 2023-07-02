@@ -1,15 +1,13 @@
 ---
 title: How to Build Restful API with python
 description: post description
-date: '2023-9-14'
+date: '2023-7-14'
 categories:
-
-- python
-- api
-- flask
+  - python
+  - api
+  - flask
 
 published: true
-
 ---
 
 1. What is restful API
@@ -46,15 +44,15 @@ Adding to that, REST API is independent of the technology used, it seamlessly co
 
 Why **Flask**? well, Flask is a Python micro-framework for building web apps and API. It is perfect for not just this demo, but building API in general.
 
-Ok, not really just Flask, but we will be using it alongside an extension called **flask\_restful**, which makes it super easy to write RESTful APIs with Flask, allowing you to harness the power of Flask with a little to no effort and define API endpoints and resources in a structured manner.
+Ok, not really just Flask, but we will be using it alongside an extension called **flask_restful**, which makes it super easy to write RESTful APIs with Flask, allowing you to harness the power of Flask with a little to no effort and define API endpoints and resources in a structured manner.
 
 ### Requirements.
 
-* Flask
+- Flask
 
-* Flask\_Restful
+- Flask_Restful
 
-* Hmm, That's it!
+- Hmm, That's it!
 
 ### Install Requirements
 
@@ -88,11 +86,11 @@ source venv/bin/activate
 
 > **Note**: if you're using Vscode, consider using the newly created virtual enviroment as the interpreter for your project.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238705859/77955035-b81d-4685-a6d5-040dc19b7816.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238705859/77955035-b81d-4685-a6d5-040dc19b7816.png)
 
 ### Installations
 
-Install flask, flask\_restful
+Install flask, flask_restful
 
 ```bash
 pip install flask flask_restful
@@ -131,19 +129,19 @@ If you know Flask, this shouldn't be a problem. I mean, that much of a problem.
 
 But **basically**:
 
-1. The first two lines of code import the necessary resource we need from Flask and flask\_restful.
+1. The first two lines of code import the necessary resource we need from Flask and flask_restful.
 
 2. `app = Flask(__name__)` creates an instance of Flask web application. `__name__` represent the current file/module.
 
-3. `api = Api(app)` creates an instance of Flask\_rrestful which will be used to define API endpoints.
+3. `api = Api(app)` creates an instance of Flask_rrestful which will be used to define API endpoints.
 
-4. The `Class Hello(Resource)` This code defines a class called ***Hello*** and inherits from the ***Resource*** class imported from flask\_restful. The ***Resource*** class represent a resource in the **API** and will handle **HTTP** request made to the corresponding endpoint.
+4. The `Class Hello(Resource)` This code defines a class called **_Hello_** and inherits from the **_Resource_** class imported from flask\*restful. The \*\*\_Resource**\* class represent a resource in the **API** and will handle **HTTP\*\* request made to the corresponding endpoint.
 
 5. Within the Hello class, the get method defined will be executed when a GET request is made to the endpoint. In this case, It simply returns a JSON with the message "Hello World!"
 
-6. `app.add_resource(Hello, '/')` This line binds the ***Hello*** resource to the root or **'/'** endpoint of the API.
+6. `app.add_resource(Hello, '/')` This line binds the **_Hello_** resource to the root or **'/'** endpoint of the API.
 
-7. The code block `if __name__ == '__main__'` ensure the following is only executed the script is executed and not imported. [`app.run`](http://app.run)`(debug=True)` starts the Flask development server. `debug=True` make sure to reload the script whenever changes are made to any of the project files.
+7. The code block `if __name__ == '__main__'` ensure the following is only executed the script is executed and not imported. `app.run(debug=True)` starts the Flask development server. `debug=True` make sure to reload the script whenever changes are made to any of the project files.
 
 When you run this script, a development server should start on your local machine.
 
@@ -175,15 +173,15 @@ At the end of this project, you will learn:
 
 ### Project features
 
-* Get a random quote at - [https://project.url/random](https://project.url/random)
+- Get a random quote at - [https://project.url/random](https://project.url/random)
 
-* Get a random quote from a specific author - [https://project.url?author=" steve](https://project.url?author="steve) jobs"
+- Get a random quote from a specific author - [https://project.url?author=" steve](https://project.url?author="steve) jobs"
 
-* Get a quote with a specific ID - [https://project.url/{id}](https://project.url/{id})
+- Get a quote with a specific ID - [https://project.url/id](https://project.url/id)
 
-* Post new quote - [https://project.url/new](https://project.url/new)
+- Post new quote - [https://project.url/new](https://project.url/new)
 
-* Delete quote with a specific ID - DELETE [https://project.url/{id}](https://project.url/{id})
+- Delete quote with a specific ID - DELETE [https://project.url/id](https://project.url/id)
 
 The data we will be needing for the project will be getting them from a JSON file, with a list of some random quotes I got online.
 
@@ -210,7 +208,7 @@ The data we will be needing for the project will be getting them from a JSON fil
 ]
 ```
 
-> You can get the json file with the full list of qoutes from my [github]('https://github.com/Abdulmumin1/qoute-api').
+> You can get the json file with the full list of qoutes from my github.
 
 ### 1\. Defining GET, POST Requests
 
@@ -275,17 +273,17 @@ Inside it, we define a `get` function which as we said, would be executed on a G
 
 The rest I think is straightforward.
 
-1. `api.add_resource(RandomQoute, '/random')` this line basically binds this resource to this **/random** path. e.g [***https://project.url/random***](https://project.url/random)
+1. `api.add_resource(RandomQoute, '/random')` this line basically binds this resource to this **/random** path. e.g [**_https://project.url/random_**](https://project.url/random)
 
 That it!
 
 We can then test this in browser or using any other services you're familiar with.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238796001/0c11090b-cad0-4eeb-979b-5dd20257ba98.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238796001/0c11090b-cad0-4eeb-979b-5dd20257ba98.png)
 
 **Testing post request!**
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238892124/7e331123-a155-40c9-ad43-010989bc1a8f.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238892124/7e331123-a155-40c9-ad43-010989bc1a8f.png)
 
 ### 2\. Dynamic URL
 
@@ -332,7 +330,7 @@ Again, the abomination I have always written may or may not be a mystery to you,
 
 You can see your code in action by testing it in a browser, or any API tool you are comfortable with.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238974638/308ad202-d816-4d12-be37-894205716cc5.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1688238974638/308ad202-d816-4d12-be37-894205716cc5.png)
 
 ### 3\. DELETE Request
 

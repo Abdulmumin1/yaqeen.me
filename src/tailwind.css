@@ -64,14 +64,14 @@
 
 	/* Presentational styles */
 
-	h2 {
+	.article h2 {
 		font-size: theme(fontSize.4xl);
-		padding-top: theme(padding.5);
+		padding-top: theme(padding.4);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
 		text-transform: capitalize;
 	}
-	h1 {
+	.article h1 {
 		font-size: theme(fontSize.5xl);
 		padding-block: theme(padding.5);
 		font-weight: theme(fontWeight.bold);
@@ -79,14 +79,19 @@
 		/* text-transform: t; */
 	}
 
-	h3 {
+	.article h3 {
 		font-size: theme(fontSize.2xl);
-		padding-block: theme(padding.5);
+		padding-block: theme(padding.3);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
 	}
-
-	pre {
+	.article h4 {
+		font-size: theme(fontSize.xl);
+		padding-block: theme(padding.3);
+		font-weight: theme(fontWeight.bold);
+		/* color: theme(colors.orang); */
+	}
+	.article pre {
 		border-radius: theme(borderRadius.2xl);
 		padding: theme(padding.4);
 		overflow: scroll;
@@ -96,28 +101,45 @@
 		max-width: 100%;
 		width: 100%;
 	}
-	blockquote {
-		@apply border-orang border-b-2 dark:border-dark w-fit py-2;
+	.article blockquote {
+		@apply border-orang p-1 rounded-r-md border-l-4 dark:border-dark w-fit bg-orange-100 dark:bg-stone-800;
 	}
 	/* Hide the default scrollbar */
-	pre::-webkit-scrollbar {
+	.article pre::-webkit-scrollbar {
 		width: 8px;
 		background-color: transparent;
 	}
 
 	/* Track */
-	pre::-webkit-scrollbar-track {
+	.article pre::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
 
 	/* Handle */
-	pre::-webkit-scrollbar-thumb {
+	.article pre::-webkit-scrollbar-thumb {
 		background-color: rgb(34, 31, 31);
 		border-radius: 6px;
 	}
 
 	/* Handle on hover */
-	pre::-webkit-scrollbar-thumb:hover {
+	.article pre::-webkit-scrollbar-thumb:hover {
 		background-color: rgb(165, 164, 164);
+	}
+
+	.article ul {
+		@apply space-y-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center  flex-col list-none;
+	}
+	.article ol {
+		@apply space-y-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center  flex-col list-none;
+	}
+	.article li {
+		padding: 9px;
+	}
+	.article code {
+		/* background-color: #888; */
+		@apply rounded-md p-[1px] bg-orange-200 dark:bg-dark dark:text-black;
+	}
+	.article pre > code {
+		background-color: inherit !important;
 	}
 }

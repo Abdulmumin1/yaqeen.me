@@ -32,10 +32,10 @@
 
 <nav class="w-full font-medium flex justify-center items-center flex-col pt-3">
 	<ul
-		class="flex border px-2 border-orange-600 dark:border-dark border-b-4 space-x-2 rounded-lg items-center justify-center"
+		class="flex gap-1 lg:gap-3 border px-2 border-orange-600 dark:border-dark border-b-4 space-x-2 rounded-lg items-center justify-center"
 	>
 		<NavItem data={{ name: 'Home', href: '/' }} />
-		<p>·</p>
+		<!-- <p>·</p> -->
 		<NavItem data={{ name: 'About', href: '/about' }} />
 		<div class="text-4xl">
 			{#if darkMode}
@@ -50,7 +50,7 @@
 		</div>
 
 		<NavItem data={{ name: 'Blog', href: '/blog' }} />
-		<p>·</p>
+		<!-- <p>·</p> -->
 		<NavItem data={{ name: 'Projects', href: '/#projects' }} />
 	</ul>
 </nav>

@@ -1,7 +1,7 @@
 ---
 title: Python tips and tricks
 description: post description
-date: '2023-8-14'
+date: '2023-5-14'
 categories:
   - python
   - tips
