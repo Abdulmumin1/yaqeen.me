@@ -1282,6 +1282,11 @@ video {
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1630,6 +1635,7 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(254 215 170 / var(--tw-bg-opacity));
   padding: 1px;
+  font-family: visby, roboto;
 }
 
 :is(.dark .article code) {
@@ -1640,6 +1646,17 @@ video {
 
 .article pre > code {
   background-color: inherit !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+			'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .article pre > code {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 .hover\:scale-105:hover {
@@ -1713,6 +1730,11 @@ video {
 :is(.dark .dark\:bg-stone-900) {
   --tw-bg-opacity: 1;
   background-color: rgb(28 25 23 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:text-black) {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:text-dark) {

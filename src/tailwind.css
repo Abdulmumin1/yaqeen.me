@@ -137,9 +137,12 @@
 	}
 	.article code {
 		/* background-color: #888; */
-		@apply rounded-md p-[1px] bg-orange-200 dark:bg-dark dark:text-black;
+		@apply rounded-md p-[1px] bg-orange-200 dark:bg-dark dark:text-black font-visby;
 	}
 	.article pre > code {
 		background-color: inherit !important;
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+			'Courier New', monospace;
+		@apply text-sm lg:text-base;
 	}
 }

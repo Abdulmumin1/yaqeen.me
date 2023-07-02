@@ -1,5 +1,5 @@
 ---
-title: How to Build Restful API with python
+title: How to Create RESTful API with Python
 description: post description
 date: '2023-7-14'
 categories:
