@@ -1423,18 +1423,6 @@ video {
   src: url('/src/lib/font/VisbyRoundCF-Regular.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'visby mid';
-
-  src: url('/src/lib/font/VisbyRoundCF-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'visby bold';
-
-  src: url('/src/lib/font/VisbyRoundCF-DemiBold.woff') format('woff');
-}
-
 .hover_link {
   position: relative;
 }
@@ -1536,7 +1524,7 @@ video {
 /* Hide the default scrollbar */
 
 .article pre::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
   background-color: transparent;
 }
 
@@ -1556,7 +1544,25 @@ video {
 /* Handle on hover */
 
 .article pre::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(165, 164, 164);
+  background-color: #f97316;
+}
+
+:is(.dark .article pre)::-webkit-scrollbar-thumb:hover {
+  background-color: #c2410c;
+}
+
+/* Arrow Buttons */
+
+.article pre::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+/* Scrollbar Buttons */
+
+.article pre::-webkit-scrollbar-button:start:decrement,
+	pre::-webkit-scrollbar-button:end:increment {
+  background-color: red;
 }
 
 .article ul {
