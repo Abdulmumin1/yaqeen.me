@@ -47,9 +47,44 @@
 				I'm commited to both learning and writing and I actively share my learnings and knowledge
 				through my blog with the rest of the world.
 			</p>
-			<h3 class="text-xl font-bold">Things I Enjoy</h3>
-			<ul>
-				<li>......</li>
+			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
+			<ul
+				class="space-y-3 py-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center flex-col list-none"
+			>
+				<li class="px-3">Writing</li>
+				<li class="px-3">Drawing</li>
+				<li class="px-3">
+					& Of course, <span class="font-bold">Space!!</span> It such a beauty.
+					<p class="pl-3 text-dark rounded-lg dark:text-black bg-orange-200 dark:bg-dark">
+						I mean the constellation, Moon, sometimes I just wished I had pursued a field in
+						astrology because it has always fascinated me. The celestial bodies, their complexity,
+						and their influence on human behavior have always intrigued me. The Moon, in particular,
+						with its ever-changing phases and mysterious presence in the night sky, holds a special
+						allure.
+					</p>
+				</li>
+			</ul>
+			<h3 class="text-2xl font-bold text-orang dark:text-dark">Frameworks I Use</h3>
+
+			<ul class="grid grid-cols-2 gap-4">
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">Svelte</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">Flask</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">Django</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">Tailwind</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">AWS</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">Bash & Linux</span>
+				</li>
 			</ul>
 		</div>
 	</div>
