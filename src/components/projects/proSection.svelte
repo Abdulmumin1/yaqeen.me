@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="border-t-4 border-dashed border-orang dark:border-dark rounded-sm p-1 py-6 lg:p-6 flex flex-col"
+	class="border-t-4 border-dotted border-orang dark:border-dark rounded-sm p-1 py-6 lg:p-6 flex flex-col"
 	id="projects"
 >
 	<h2
