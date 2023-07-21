@@ -51,7 +51,7 @@
 		<h1 class="text-5xl">{data.meta.title}</h1>
 		<p>Published {formatDate(data.meta.date)}</p>
 	</hgroup>
-	<div class="flex gap-3">
+	<div class="flex gap-3 flex-wrap">
 		{#each data.meta.categories as tag}
 			<span class="px-3 py-1 text-black rounded-full bg-orang dark:bg-dark">&num;{tag}</span>
 		{/each}
