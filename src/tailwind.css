@@ -149,4 +149,7 @@
 			'Courier New', monospace;
 		@apply text-sm lg:text-base;
 	}
+	.article a {
+		@apply hover:border-b border-orang dark:border-dark hover:text-orang hover:dark:text-dark;
+	}
 }

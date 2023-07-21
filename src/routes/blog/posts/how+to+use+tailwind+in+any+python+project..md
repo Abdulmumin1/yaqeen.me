@@ -4,10 +4,13 @@ description: post description
 date: '2023-07-18'
 categories:
   - python
-  - kivy
+  - tailwindcss
+  - css
+  - flask
 
 published: true
 ---
+
 We all really love TailwindCSS, I mean some don't, but even if you've never tried it, you've heard about it and maybe you are not soo much of a javascript dev, so setting it up in your project might become quite a hassle.
 
 You might not even know what npm, npx or javascript gazillions of stuff and commands does, or maybe you tried to follow the tailwind installation guide step by step and you end up having alien files in your project you don't seem to understand.
@@ -46,9 +49,9 @@ That's it!!
 
 Because TailwindCSS depends on node and stuff, you are going to need to have the following installed
 
-* Nodejs
+- Nodejs
 
-* npm - comes with node, so no worries.
+- npm - comes with node, so no worries.
 
 ## Installation
 
@@ -71,11 +74,11 @@ In the created tailwind.config.js, replace it with the folder that contains all 
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./folder that contains your html/**/*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+	content: ['./folder that contains your html/**/*.{html,js}'],
+	theme: {
+		extend: {}
+	},
+	plugins: []
 };
 ```
 
@@ -92,11 +95,7 @@ update the package.json with where you want to store the generated CSS,
 In your HTML, add the path to the CSS.
 
 ```html
-<link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='css/tailwind.css')}}"
-/>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tailwind.css')}}" />
 ```
 
 In this case, we are using it in the base.html file of a Flask project!
@@ -198,6 +197,8 @@ You can **star** the project repository if you find this interesting
 [https://github.com/Abdulmumin1/tailwindpie](https://github.com/Abdulmumin1/tailwindpie)
 
 ### Bonus
+
+If you don't have the TailwindCSS intelliSense extension installed in vscode, make sure to do it, it really makes things super easy.
 
 [https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
