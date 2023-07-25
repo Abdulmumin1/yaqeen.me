@@ -3,7 +3,6 @@
 	export let data;
 	import { formatDate } from '$lib/js/utils.js';
 
-	import { page } from '$app/stores';
 	import Fa from 'svelte-fa';
 	import {
 		faFacebook,
@@ -13,8 +12,8 @@
 		faTwitter,
 		faWhatsapp
 	} from '@fortawesome/free-brands-svg-icons';
-	import { faBorderNone, faCopy } from '@fortawesome/free-solid-svg-icons';
-	import { fade, scale, slide } from 'svelte/transition';
+	import { faCopy } from '@fortawesome/free-solid-svg-icons';
+	import { slide } from 'svelte/transition';
 
 	let url;
 
