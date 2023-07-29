@@ -1283,14 +1283,14 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pb-3 {
@@ -1581,6 +1581,12 @@ video {
   padding: 1rem;
   overflow: scroll;
   font-size: 1rem;
+  border-width: 2px;
+  border-color: #f97316;
+}
+
+:is(.dark .article pre) {
+  border-color: #c2410c;
 }
 
 .shiki {
@@ -1797,22 +1803,6 @@ video {
 
 .hover\:text-orang:hover {
   color: #f97316;
-}
-
-.hover\:opacity-40:hover {
-  opacity: 0.4;
-}
-
-.hover\:opacity-90:hover {
-  opacity: 0.9;
-}
-
-.hover\:opacity-60:hover {
-  opacity: 0.6;
-}
-
-.hover\:opacity-70:hover {
-  opacity: 0.7;
 }
 
 .hover\:opacity-80:hover {
