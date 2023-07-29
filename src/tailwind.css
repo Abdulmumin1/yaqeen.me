@@ -112,6 +112,7 @@
 	.article pre::-webkit-scrollbar-thumb {
 		background-color: rgb(34, 31, 31);
 		border-radius: 6px;
+		@apply w-0 h-0 md:w-4 md:h-2;
 	}
 
 	/* Handle on hover */

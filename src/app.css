@@ -617,6 +617,10 @@ video {
   display: none;
 }
 
+.h-0 {
+  height: 0px;
+}
+
 .h-\[480px\] {
   height: 480px;
 }
@@ -646,6 +650,10 @@ video {
   min-height: 100vh;
 }
 
+.w-0 {
+  width: 0px;
+}
+
 .w-2 {
   width: 0.5rem;
 }
@@ -669,6 +677,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .min-w-\[300px\] {
@@ -1630,6 +1642,15 @@ video {
 .article pre::-webkit-scrollbar-thumb {
   background-color: rgb(34, 31, 31);
   border-radius: 6px;
+  height: 0px;
+  width: 0px;
+}
+
+@media (min-width: 768px) {
+  .article pre::-webkit-scrollbar-thumb {
+    height: 0.5rem;
+    width: 1rem;
+  }
 }
 
 /* Handle on hover */
@@ -1883,6 +1904,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:w-4 {
+    width: 1rem;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
