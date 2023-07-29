@@ -14,7 +14,7 @@
 	>
 	<p>{formatDate(details.date)}</p>
 	<!-- <p>{details.description}</p> -->
-	<a href={`blog/${details.slug}`} class="py-2 flex items-center gap-3">
+	<!-- <a href={`blog/${details.slug}`} class="py-2 flex items-center gap-3">
 		Read more <Fa icon={faArrowTrendUp} /></a
-	>
+	> -->
 </div>
