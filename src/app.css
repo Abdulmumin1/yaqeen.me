@@ -662,6 +662,10 @@ video {
   width: 0.75rem;
 }
 
+.w-4 {
+  width: 1rem;
+}
+
 .w-\[90\%\] {
   width: 90%;
 }
@@ -677,10 +681,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .min-w-\[300px\] {
@@ -1475,6 +1475,12 @@ video {
   transition-duration: 150ms;
 }
 
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1497,6 +1503,14 @@ video {
 
 .duration-500 {
   transition-duration: 500ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -1642,15 +1656,8 @@ video {
 .article pre::-webkit-scrollbar-thumb {
   background-color: rgb(34, 31, 31);
   border-radius: 6px;
-  height: 0px;
-  width: 0px;
-}
-
-@media (min-width: 768px) {
-  .article pre::-webkit-scrollbar-thumb {
-    height: 0.5rem;
-    width: 1rem;
-  }
+  width: 0;
+  height: 0;
 }
 
 /* Handle on hover */
@@ -1818,6 +1825,11 @@ video {
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
+.hover\:text-5xl:hover {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .hover\:font-bold:hover {
   font-weight: 700;
 }
@@ -1904,10 +1916,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:w-4 {
-    width: 1rem;
-  }
-
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -21,7 +21,7 @@
 
 <div
 	in:scale
-	class="border border-orang border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4"
+	class="border border-orang border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4 transition-all duration-100"
 >
 	<div>
 		<p class="text-4xl lg:text-6xl">{details.name}</p>

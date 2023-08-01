@@ -37,13 +37,21 @@
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<!-- <p>·</p> -->
 		<NavItem data={{ name: 'About', href: '/about' }} />
-		<div class="text-4xl">
+		<div class="text-4xl hover:text-5xl">
 			{#if darkMode}
-				<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
+				<button
+					in:scale
+					class=" cursor-pointer p-3 self-center hover-animate"
+					on:click={handleSwitchDarkMode}
+				>
 					<Fa icon={faMoon} class="self-center" />
 				</button>
 			{:else}
-				<button in:scale class=" cursor-pointer p-3 self-center" on:click={handleSwitchDarkMode}>
+				<button
+					in:scale
+					class=" cursor-pointer p-3 self-center hover-animate"
+					on:click={handleSwitchDarkMode}
+				>
 					<Fa icon={faSun} class="self-center" />
 				</button>
 			{/if}
@@ -54,3 +62,9 @@
 		<NavItem data={{ name: 'Projects', href: '/#projects' }} />
 	</ul>
 </nav>
+
+<style>
+	.hover-animate {
+		transition: font-size 0.15s ease-in-out; /* Transition on font-size property */
+	}
+</style>

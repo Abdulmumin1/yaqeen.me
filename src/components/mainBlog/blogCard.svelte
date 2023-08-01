@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-800 dark:text-orange-200 border-orang dark:border-dark"
+	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-800 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 hover:scale-105"
 >
 	<a href={`blog/${details.slug}`} class="text-2xl lg:text-3xl hover:opacity-80">
 		{details.title}</a

@@ -3,63 +3,18 @@
 </script>
 
 <li class="cursor-pointer p-1 dark:border-dark rounded">
-	<a href={data.href} class="link link--elara font-visby_mid">
+	<a href={data.href} class="font-visby_mid hover-animate">
 		{data.name}
 	</a>
 </li>
 
 <style>
-	.link {
-		cursor: pointer;
-
-		position: relative;
+	.hover-animate {
+		font-size: 16px; /* Starting font size */
+		transition: font-size 0.15s ease-in-out; /* Transition on font-size property */
 	}
 
-	.link::before,
-	.link::after {
-		position: absolute;
-		width: 100%;
-		height: 1px;
-		background: currentColor;
-		top: 100%;
-		left: 0;
-		pointer-events: none;
-	}
-
-	.link::before {
-		content: '';
-		/* show by default */
-	}
-	.link--elara::before {
-		transform-origin: 50% 100%;
-		transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
-		clip-path: polygon(
-			0% 0%,
-			0% 100%,
-			0 100%,
-			0 0,
-			100% 0,
-			100% 100%,
-			0 100%,
-			0 100%,
-			100% 100%,
-			100% 0%
-		);
-	}
-
-	.link--elara:hover::before {
-		transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
-		clip-path: polygon(
-			0% 0%,
-			0% 100%,
-			50% 100%,
-			50% 0,
-			50% 0,
-			50% 100%,
-			50% 100%,
-			0 100%,
-			100% 100%,
-			100% 0%
-		);
+	.hover-animate:hover {
+		font-size: 24px; /* Ending font size on hover */
 	}
 </style>
