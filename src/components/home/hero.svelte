@@ -16,7 +16,7 @@
 			>
 				I'm Abdulmumin
 			</p>
-			<p>Technical writer & fool stack developer</p>
+			<p>Technical writer & fullstack developer</p>
 			<div
 				class="flex gap-2 border-b-2 items-center rounded-2xl border py-1 px-3 cursor-pointer border-orang dark:border-dark transition-transform duration-200 transform hover:scale-105 hover:font-bold"
 			>

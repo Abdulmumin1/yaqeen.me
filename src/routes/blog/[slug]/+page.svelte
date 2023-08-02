@@ -13,7 +13,7 @@
 		faWhatsapp
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faCopy } from '@fortawesome/free-solid-svg-icons';
-	import { slide } from 'svelte/transition';
+	import { scale, slide } from 'svelte/transition';
 
 	let url;
 
@@ -45,7 +45,8 @@
 <svelte:head>
 	<title>{data.meta.title}</title>
 </svelte:head>
-<article in:slide class="mx-auto flex flex-col gap-4 article">
+
+<article in:scale class="mx-auto flex flex-col gap-4 article">
 	<hgroup class="text-center p-6">
 		<h1 class="text-5xl">{data.meta.title}</h1>
 		<p>Published {formatDate(data.meta.date)}</p>

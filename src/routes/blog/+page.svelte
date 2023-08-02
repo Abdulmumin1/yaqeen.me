@@ -29,7 +29,7 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<section in:scale out:slide class="min-h-screen">
+<section in:scale class="min-h-screen">
 	<div class="w-full flex items-center justify-center space-x-2 pt-6">
 		<!-- <input
 			value="search - alpha"

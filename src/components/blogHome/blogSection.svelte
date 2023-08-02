@@ -1,6 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import BlogSGrid from './blogSGrid.svelte';
+	import { slide } from 'svelte/transition';
 </script>
 
 <div
