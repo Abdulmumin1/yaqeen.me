@@ -1,7 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-	import { mylinks } from '../utils/randomstore.js';
+	import { mylinks } from '$lib/utils/randomstore.js';
 </script>
 
 <footer

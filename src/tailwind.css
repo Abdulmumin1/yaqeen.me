@@ -95,7 +95,7 @@
 		width: 100%;
 	}
 	.article blockquote {
-		@apply border-orang p-1 rounded-r-md border-l-4 dark:border-dark w-fit bg-orange-100 dark:bg-stone-800;
+		@apply border-orang p-2 rounded-r-md border-l-4 dark:border-dark w-fit bg-orange-100 dark:bg-stone-800;
 	}
 	/* Hide the default scrollbar */
 	.article pre::-webkit-scrollbar {

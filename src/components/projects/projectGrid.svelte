@@ -1,6 +1,6 @@
 <script>
 	import Template from './template.svelte';
-	import { project_data } from '../utils/projectStore.js';
+	import { project_data } from '$lib/utils/projectStore.js';
 	// let data = [];
 	// const unsubscribe_stack = project_data.subscribe((data) => (stack_dict = data));
 	// unsubscribe_stack();

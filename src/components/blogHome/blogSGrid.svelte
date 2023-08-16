@@ -3,7 +3,7 @@
 	import Fa from 'svelte-fa';
 	import BlogSPost from './blogSPost.svelte';
 	import { faDev, faHashnode, faMedium, faYoutube } from '@fortawesome/free-brands-svg-icons';
-	import { latestPostDetail, others } from '../utils/latestbog.js';
+	import { latestPostDetail, others } from '$lib/utils/latestbog.js';
 </script>
 
 <div>
@@ -17,7 +17,7 @@
 			<a href={$latestPostDetail.link} class="text-2xl lg:text-4xl font-visby_bold font-bold"
 				>{$latestPostDetail.title}</a
 			>
-			<p class="text-stone-900 dark:text-stone-300">
+			<p class="text-stone-950 dark:text-stone-100">
 				{$latestPostDetail.description}
 			</p>
 			<div
@@ -36,7 +36,7 @@
 			{/each}
 			<!-- <BlogSPost title={' Git For Beginners: A Complete Guide.'} /> -->
 
-			<p class="border-l-4 border-dark pl-1 b rounded-l">
+			<p class="border-l-4 border-orang dark:border-dark pl-1 b rounded-l">
 				My writings are available in all your favorite plaforms
 			</p>
 			<div

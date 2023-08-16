@@ -1,6 +1,6 @@
 <script>
 	import Card from '../../components/wallpaper/card.svelte';
-	import { wallpapers } from '../../components/utils/randomstore.js';
+	import { wallpapers } from '$lib/utils/randomstore.js';
 	import { scale, slide } from 'svelte/transition';
 </script>
 
