@@ -32,7 +32,7 @@
 		</div> -->
 		<div class="space-y-3">
 			<p class="text-stone-900 dark:text-stone-100">{details.description}</p>
-			<ul class="flex space-x-2 text-black">
+			<ul class="flex gap-2 flex-wrap text-black">
 				{#each details.stack as stack}
 					<li class=" text-orang dark:text-dark bg-orang dark:bg-dark p-1 rounded-md">
 						<a href={$stackLinks[stack.toLowerCase()]} class="text-orang dark:text-dark">{stack}</a>

@@ -39,7 +39,7 @@
 		<a href="/rss.xml"> RSS</a>
 	</div>
 	<article class="<w-full flex justify-center items-center">
-		<div class="max-w-[900px] w-full p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+		<div class="max-w-[900px] w-full p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
 			{#each data.posts as post}
 				<BlogCard details={post} />
 			{/each}

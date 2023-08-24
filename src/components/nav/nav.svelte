@@ -37,7 +37,7 @@
 		<NavItem data={{ name: 'Home', href: '/' }} />
 		<!-- <p>·</p> -->
 		<NavItem data={{ name: 'About', href: '/about' }} />
-		<div class="text-4xl hover:text-5xl">
+		<div class="text-4xl md:hover:text-5xl">
 			{#if darkMode}
 				<button
 					in:scale

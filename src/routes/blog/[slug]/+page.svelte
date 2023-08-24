@@ -47,9 +47,11 @@
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-4 article">
-	<hgroup class="text-center p-6">
-		<h1 class="text-5xl">{data.meta.title}</h1>
-		<p>Published {formatDate(data.meta.date)}</p>
+	<hgroup class="p-6 mb-4 h-[70vh] flex items-center rounded-lg justify-center w-full">
+		<div class="flex max-w-md flex-col text-center">
+			<h1 class="text-5xl">{data.meta.title}</h1>
+			<p>Published {formatDate(data.meta.date)}</p>
+		</div>
 	</hgroup>
 	<div class="flex gap-3 flex-wrap">
 		{#each data.meta.categories as tag}

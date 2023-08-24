@@ -49,19 +49,21 @@
 		<h1 class="text-3xl font-visby_mid font-bold w-fit pb-4 text-orang dark:text-dark">About me</h1>
 		<div class="text-md lg:text-lg flex flex-col space-y-2">
 			<p>
-				I'm Abdulmumin Yaqeen Abdulkarim, i have been hitting the keyboards for the past 3 years.
+				I'm Abdulmumin Yaqeen Abdulkarim, I have been on this exhilarating odyssey for the past
+				couple of years, constantly hitting the keyboards, and burying my head into the machine.
 			</p>
 			<p>
-				I mostly write lots of python and javascript code, and worked in various field spanning web,
-				mobile and cloud computing.
+				I mostly write lots of python and javascript code, and have worked in various field spanning
+				web, mobile and cloud computing.
 			</p>
 			<p>
-				I have a deep fascination for computer science theory. Enjoys exploring new tools and
-				technologies and I actively seek opportunities to expand my knowledge and skill set.
+				I have a deep fascination for computer science and gaining a deeper knowledge on
+				computational paradigms.
 			</p>
 			<p>
-				I'm commited to both learning and writing and I actively share my learnings and knowledge
-				through my blog with the rest of the world.
+				I think the best decision of my career was to start writing, I super enjoy writing about
+				techie stuff in a way that's easy to understand. without a doubt, become one of the crowning
+				achievements of my journey.
 			</p>
 			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
 			<ul
