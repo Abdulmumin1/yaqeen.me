@@ -1,4 +1,3 @@
-import Clipbard from '$lib/images/clipboard.svg';
 export function formatDate(date, dateStyle = 'medium', locales = 'en') {
 	const formatter = new Intl.DateTimeFormat(locales, { dateStyle });
 	return formatter.format(new Date(date));
@@ -7,20 +6,23 @@ export function formatDate(date, dateStyle = 'medium', locales = 'en') {
 export function insertCopyButton(icon) {
 	let pre = document.querySelectorAll('pre');
 	pre.forEach((element) => {
+		let div = document.createElement('div');
+		div.classList = 'w-full flex items-center justify-end bg-orang dark:bg-dark rounded-t-2xl';
+		div.style.marginBottom = '-23px';
 		let copyButton = document.createElement('button');
 		copyButton.innerText = 'copy';
 		copyButton.classList =
-			' opacity-80 p-1 rounded-lg w-fit dark:bg-dark absolute top-0 right-0 mx-2 bg-orang z-9999';
+			' px-2 rounded-t-lg  w-fit dark:bg-dark text-black top-0 right-0  bg-orang z-9999';
 		copyButton.onclick = () => {
 			copyUrlToClipboard(element.lastElementChild.innerText);
 			copyButton.innerText = 'copied';
 			setTimeout(() => {
 				copyButton.innerText = 'copy';
-			}, 3000);
+			}, 2000);
 		};
+		div.appendChild(copyButton);
 		element.classList.add('relative');
-		element.insertBefore(copyButton, element.firstElementChild);
-		console.log();
+		element.insertAdjacentElement('beforebegin', div);
 	});
 }
 

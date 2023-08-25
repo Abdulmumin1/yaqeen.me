@@ -84,11 +84,10 @@
 		/* color: theme(colors.orang); */
 	}
 	.article pre {
-		border-radius: theme(borderRadius.2xl);
 		padding: theme(padding.3);
 		overflow: scroll;
 		font-size: theme(fontSize.base);
-		@apply border-2 border-orang dark:border-dark;
+		@apply border-2 border-orang dark:border-dark  rounded-b-2xl;
 	}
 	.shiki {
 		max-width: 100%;
