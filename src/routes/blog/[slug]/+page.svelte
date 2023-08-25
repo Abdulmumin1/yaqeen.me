@@ -49,7 +49,7 @@
 		{/each}
 	</div>
 
-	<div class="space-y-5">
+	<div class="space-y-5 markdown-content">
 		<svelte:component this={data.content} />
 	</div>
 	<div class="w-full flex items-center justify-center p-3">
