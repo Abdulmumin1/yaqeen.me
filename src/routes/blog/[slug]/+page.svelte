@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	export let data;
-	import { formatDate } from '$lib/js/utils.js';
+	import { formatDate, insertCopyButton, copyUrlToClipboard } from '$lib/js/utils.js';
 
 	import Fa from 'svelte-fa';
 	import {
@@ -19,18 +19,8 @@
 
 	onMount(() => {
 		url = window.location.href;
+		insertCopyButton(faCopy);
 	});
-
-	function copyUrlToClipboard() {
-		navigator.clipboard
-			.writeText(url)
-			.then(() => {
-				console.log('URL copied to clipboard:', url);
-			})
-			.catch((error) => {
-				console.error('Failed to copy URL to clipboard:', error);
-			});
-	}
 
 	function convertLinkToRequestReadable(link) {
 		// Encode the link using encodeURIComponent
@@ -68,7 +58,11 @@
 		>
 			<span>Love it? Share it!</span>
 			<div class="flex space-x-3 items-center justify-center">
-				<button on:click={copyUrlToClipboard}><Fa icon={faCopy} /></button>
+				<button
+					on:click={() => {
+						copyUrlToClipboard(url);
+					}}><Fa icon={faCopy} /></button
+				>
 				<a
 					href="https://twitter.com/share?url={convertLinkToRequestReadable(
 						url
