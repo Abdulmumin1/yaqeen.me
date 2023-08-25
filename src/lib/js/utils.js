@@ -7,12 +7,12 @@ export function insertCopyButton(icon) {
 	let pre = document.querySelectorAll('pre');
 	pre.forEach((element) => {
 		let div = document.createElement('div');
-		div.classList = 'w-full flex items-center justify-end bg-orang dark:bg-dark rounded-t-2xl';
+		div.classList =
+			'w-full flex items-center justify-end bg-orange-100 dark:bg-stone-800 rounded-t-2xl';
 		div.style.marginBottom = '-23px';
 		let copyButton = document.createElement('button');
 		copyButton.innerText = 'copy';
-		copyButton.classList =
-			' px-2 rounded-t-lg  w-fit dark:bg-dark text-black top-0 right-0  bg-orang z-9999';
+		copyButton.classList = ' px-4 rounded-t-lg  w-fit z-9999';
 		copyButton.onclick = () => {
 			copyUrlToClipboard(element.lastElementChild.innerText);
 			copyButton.innerText = 'copied';

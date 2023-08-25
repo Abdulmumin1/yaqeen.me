@@ -30,7 +30,7 @@
 	});
 </script>
 
-<nav class="w-full font-medium flex justify-center items-center flex-col pt-3">
+<nav class="w-full font-medium flex justify-center items-center pt-3">
 	<ul
 		class="flex gap-1 lg:gap-5 font-medium border px-2 border-orange-600 dark:border-dark border-b-2 md:border-b-4 space-x-2 rounded-lg items-center justify-center"
 	>
