@@ -1,7 +1,7 @@
 import { readable } from 'svelte/store';
 
 export const mylinks = readable({
-	hashnode: 'https://abdulmumin.com',
+	hashnode: 'https://avdurr.hashnode.dev',
 	linkedin: 'https://linkedin.com/in/abdulmuminyqn',
 	medium: '',
 	twitter: 'https://twitter.com/@abdulmuminyqn',
