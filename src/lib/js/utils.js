@@ -8,7 +8,7 @@ export function insertCopyButton(icon) {
 	pre.forEach((element) => {
 		let div = document.createElement('div');
 		div.classList =
-			'w-full flex items-center justify-end bg-orange-100 dark:bg-stone-800 rounded-t-2xl';
+			'w-full flex items-center justify-end bg-orange-200 dark:bg-stone-800 rounded-t-2xl';
 		div.style.marginBottom = '-23px';
 		let copyButton = document.createElement('button');
 		copyButton.innerText = 'copy';

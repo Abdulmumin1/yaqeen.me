@@ -87,7 +87,7 @@
 		padding: theme(padding.3);
 		overflow: scroll;
 		font-size: theme(fontSize.base);
-		@apply border-8 border-orange-100 dark:border-stone-800  rounded-b-2xl;
+		@apply border-8 border-orange-200 dark:border-stone-800  rounded-b-2xl;
 	}
 	.shiki {
 		max-width: 100%;
