@@ -29,7 +29,7 @@
 
 <div in:scale out:slide class=" flex justify-center p-4">
 	<div class="  max-w-[500px] flex flex-col items-center">
-		<div class="rounded-full p-2">
+		<div class="rounded-full relative tinted-image">
 			<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />
 		</div>
 		<div class="flex gap-2 p-2">
@@ -121,3 +121,17 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.tinted-image {
+		position: relative;
+		display: inline-block;
+	}
+
+	.tinted-image img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		z-index: 2; /* Ensure the image is above the tint layer */
+	}
+</style>
