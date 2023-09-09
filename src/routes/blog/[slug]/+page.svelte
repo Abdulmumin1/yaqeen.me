@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
 	export let data;
 	import { formatDate, insertCopyButton, copyUrlToClipboard } from '$lib/js/utils.js';
+	import { mylinks } from '$lib/utils/randomstore.js';
+	import me from '$lib/images/abdul.jpg';
+	// import { faGithub, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 	import Fa from 'svelte-fa';
 	import {
@@ -10,7 +13,9 @@
 		faLinkedin,
 		faReddit,
 		faTwitter,
-		faWhatsapp
+		faWhatsapp,
+		faGithub,
+		faYoutube
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faCopy } from '@fortawesome/free-solid-svg-icons';
 	import { scale, slide } from 'svelte/transition';
@@ -36,11 +41,31 @@
 	<title>{data.meta.title}</title>
 </svelte:head>
 
-<article in:scale class="mx-auto flex flex-col gap-4 article">
-	<hgroup class="p-6 mb-4 h-[70vh] flex items-center rounded-lg justify-center w-full">
-		<div class="flex max-w-md flex-col text-center">
+<article in:scale class="mx-auto flex flex-col gap-2 article">
+	<hgroup class=" mb-4 flex rounded-lg w-full flex-col gap-3">
+		<div class="flex max-w-md flex-col">
 			<h1 class="text-5xl">{data.meta.title}</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
+		</div>
+
+		<div class="flex items-center">
+			<div class="rounded-full h-10 w-10">
+				<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />
+			</div>
+			<div class="flex gap-2 p-2">
+				<a href={$mylinks.github}>
+					<Fa icon={faGithub} />
+				</a>
+				<a href={$mylinks.linkedin}>
+					<Fa icon={faLinkedin} />
+				</a>
+				<a href={$mylinks.twitter}>
+					<Fa icon={faTwitter} />
+				</a>
+				<a href={$mylinks.youtube}>
+					<Fa icon={faYoutube} />
+				</a>
+			</div>
 		</div>
 	</hgroup>
 	<div class="flex gap-3 flex-wrap">

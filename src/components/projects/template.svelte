@@ -1,7 +1,7 @@
 <script>
 	import { scale } from 'svelte/transition';
 
-	import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+	import { faAngleRight, faFolder, faFolderBlank } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	export let details;
 	import { stackLinks } from '$lib/utils/stackLookup.js';
@@ -21,10 +21,13 @@
 
 <div
 	in:scale
-	class="border border-orang gap-2 border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4 transition-all duration-100"
+	class="border border-orang gap-2 border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4 transition-all duration-100 bg-orange-200 dark:bg-stone-900"
 >
-	<div>
-		<p class="text-4xl lg:text-6xl">{details.name}</p>
+	<div class="flex gap-2 items-center">
+		<p class="text-4xl lg:text-5xl">{details.name}</p>
+		<p class="text-orang dark:text-dark text-4xl lg:text-6xl">
+			<Fa icon={faFolderBlank} />
+		</p>
 	</div>
 	<div class="space-x-3 grid lg:grid-cols-2 grid-cols-1 items-center">
 		<!-- <div>
@@ -44,7 +47,7 @@
 				<div
 					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover:shadow-xl dark:border-dark"
 				>
-					<a href={details.links.study} class="hover_link_fill">Case study </a>
+					<a href={details.links.study} class="hover_link_fill">Github </a>
 				</div>
 				<div
 					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover:shadow-xl dark:border-dark"

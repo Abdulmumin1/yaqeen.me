@@ -1,9 +1,9 @@
 <script>
 	import { scale, slide } from 'svelte/transition';
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
-	import Fa from 'svelte-fa';
-	import { faRss } from '@fortawesome/free-solid-svg-icons';
+
 	export let data;
+	console.log(data.posts);
 </script>
 
 <svelte:head>
@@ -29,20 +29,18 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<section in:scale class="min-h-screen">
-	<div class="w-full flex items-center justify-center space-x-2 pt-6">
-		<!-- <input
-			value="search - alpha"
-			class="bg-inherit border p-2 border-b-2 rounded-xl border-orang dark:border-dark"
-		/> -->
-		<Fa icon={faRss} />
-		<a href="/rss.xml"> RSS</a>
-	</div>
-	<article class="<w-full flex justify-center items-center">
-		<div class="max-w-[900px] w-full p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-			{#each data.posts as post}
-				<BlogCard details={post} />
-			{/each}
+<section in:scale class="min-h-screen mt-20">
+	<article class="<w-full flex justify-center items-center flex-col">
+		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
+			<div class="text-6xl flex flex-col gap-3">
+				<p>Latest post</p>
+				<BlogCard details={data.posts[0]} latest={true} />
+			</div>
+			<div class=" grid grid-cols-1 md:grid-cols-2 gap-5">
+				{#each data.posts.splice(1, data.posts.length) as post (post.slug)}
+					<BlogCard details={post} />
+				{/each}
+			</div>
 		</div>
 	</article>
 </section>
