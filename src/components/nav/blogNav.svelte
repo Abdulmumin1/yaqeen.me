@@ -7,7 +7,7 @@
 
 <ul
 	transition:slide
-	class="w-full flex justify-between py-6 px-3 z-50 fixed bg-orange-100 items-center mt-12 border-b-2 border-orang dark:border-dark"
+	class="w-full flex justify-between py-6 px-3 z-50 fixed bg-orange-100 items-center mt-12 border-b-2 border-orang dark:border-dark dark:bg-stone-900"
 >
 	<li>
 		<a href="/blog" class="font-bold">yaqeen.me</a>

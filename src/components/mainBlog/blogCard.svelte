@@ -16,7 +16,7 @@
 		<div class="max-w-md flex flex-col gap-3">
 			<a
 				href={`blog/${details.slug}`}
-				class="text-5xl lg:text-6xl hover:opacity-80 text-orang max-w-md capitalize"
+				class="text-5xl lg:text-6xl hover:opacity-80 text-orang dark:text-dark max-w-md capitalize"
 			>
 				{details.title}</a
 			>
