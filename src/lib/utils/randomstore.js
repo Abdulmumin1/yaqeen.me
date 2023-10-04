@@ -6,7 +6,8 @@ export const mylinks = readable({
 	medium: '',
 	twitter: 'https://twitter.com/@abdulmuminyqn',
 	github: 'https://github.com/Abdulmumin1',
-	youtube: 'https://youtube.com/@abdulmuminyqn'
+	youtube: 'https://youtube.com/@abdulmuminyqn',
+	devto: 'https://dev.to/@abdulmuminyqn'
 });
 
 export const wallpapers = readable([

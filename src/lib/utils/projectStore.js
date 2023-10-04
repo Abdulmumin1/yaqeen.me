@@ -2,7 +2,7 @@ import { readable } from 'svelte/store';
 
 export const project_data = readable([
 	{
-		name: 'Snippet',
+		name: 'SnippetLand',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description:
 			'Share and discover code snippets for various programming languages and use cases.',

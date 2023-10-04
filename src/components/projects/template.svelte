@@ -21,7 +21,7 @@
 
 <div
 	in:scale
-	class="border border-orang gap-2 border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4 transition-all duration-100 bg-orange-200 dark:bg-stone-900"
+	class="border border-orang gap-2 border-b-2 dark:border-dark rounded-md p-6 flex flex-col w-full max-h-screen hover:border-b-4 transition-all duration-100 bg-orange-100 dark:bg-stone-900"
 >
 	<div class="flex gap-2 items-center">
 		<p class="text-4xl lg:text-5xl">{details.name}</p>
@@ -34,7 +34,7 @@
 			<img src={edit} alt="" class="h-full rounded-md" />
 		</div> -->
 		<div class="space-y-3">
-			<p class="text-stone-900 dark:text-stone-100">{details.description}</p>
+			<p class="text-stone-900 dark:text-orange-100">{details.description}</p>
 			<ul class="flex gap-2 flex-wrap text-black">
 				{#each details.stack as stack}
 					<li class=" text-orang dark:text-dark bg-orang dark:bg-dark p-1 rounded-md">

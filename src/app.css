@@ -2118,6 +2118,16 @@ video {
   color: rgb(245 245 244 / var(--tw-text-opacity));
 }
 
+:is(.dark .dark\:text-orange-100) {
+  --tw-text-opacity: 1;
+  color: rgb(255 237 213 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:text-orange-500) {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:shadow-lg) {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2179,6 +2189,10 @@ video {
 
   .lg\:h-\[580px\] {
     height: 580px;
+  }
+
+  .lg\:w-3\/12 {
+    width: 25%;
   }
 
   .lg\:w-3\/5 {
