@@ -1,5 +1,5 @@
 ---
-title: Things svelte just do better!
+title: Svelte Tips and Features to Enhance Your Developer Experience
 
 description: post description
 
