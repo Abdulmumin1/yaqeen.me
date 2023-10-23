@@ -37,7 +37,7 @@ Once you have created the action function, you can attach it to an element using
 
 When the element is mounted, the action function will be called with the element as a parameter. You can then use the element object to manipulate the element in any way you want.
 
-Here is an example of a simple action function that scrolls an element to the top:
+Here is an example of a simple action function that adds a tooltip to an element:
 
 ```js
 function addTooltip(element) {
@@ -92,7 +92,7 @@ In this example, we're going to create an alias for our components folder, In yo
 ```json
 {
     aliases: {
-        "$components":"./src/components"
+        "$components":"src/components"
     }    
 }
 ```
