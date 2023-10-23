@@ -1,4 +1,19 @@
-# Svelte Tips and Features to Enhance Your Developer Experience
+---
+title: Things svelte just do better!
+
+description: post description
+
+date: '2023-10-23'
+
+categories:
+  - svelte
+
+  - webdev
+
+  - tips
+
+published: true
+---
 
 If you're using Svelte, you're likely already enamored by its awesomeness. For both developers and users, the experience of working on a Svelte app or interacting with one is truly exceptional. But what's even more exciting is the potential to elevate this experience to new heights. In the world of Svelte, there's always another level to explore, much like in life, where ease and challenges continually reveal new layers of complexity and simplicity.
 
