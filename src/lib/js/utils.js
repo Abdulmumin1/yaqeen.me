@@ -8,11 +8,11 @@ export function insertCopyButton(icon) {
 	pre.forEach((element) => {
 		let div = document.createElement('div');
 		div.classList =
-			'w-full flex items-center justify-end bg-orange-200 dark:bg-stone-800 rounded-t-2xl';
+			'w-full flex items-center justify-end bg-orange-200 p-2 dark:bg-stone-800 rounded-t-xl';
 		div.style.marginBottom = '-23px';
 		let copyButton = document.createElement('button');
 		copyButton.innerText = 'copy';
-		copyButton.classList = ' px-4 rounded-t-lg  w-fit z-9999';
+		copyButton.classList = ' px-4 rounded-t-lg  text-sm w-fit z-9999';
 		copyButton.onclick = () => {
 			copyUrlToClipboard(element.lastElementChild.innerText);
 			copyButton.innerText = 'copied';

@@ -31,7 +31,7 @@ An exciting use case I've recently done is using Svelte action to add tooltips t
 
 Well, grieve no more, because you can easily manipulate any element with svelte actions, Let see how it is done:
 
-*To manipulate* an element with a Svelte action, you first need to create an action function. This function will take the element as a parameter and perform the desired manipulation.
+_To manipulate_ an element with a Svelte action, you first need to create an action function. This function will take the element as a parameter and perform the desired manipulation.
 
 Once you have created the action function, you can attach it to an element using the `use:action` directive. This directive takes the name of the action function as a parameter.
 
@@ -41,34 +41,32 @@ Here is an example of a simple action function that adds a tooltip to an element
 
 ```js
 function addTooltip(element) {
-    // element.classList.add('relative');
-    const container = document.createElement('div');
-    container.classList = 'relative';
-    const tooltip = document.createElement('div');
-    const newElement = element.cloneNode(true);
-    tooltip.classList = 'p-2 bg-orange-100 rounded-xl absolute bottom-[100%]  w-[200px] hidden m-2';
-    tooltip.innerText = 'this is a tooltip';
+	// element.classList.add('relative');
+	const container = document.createElement('div');
+	container.classList = 'relative';
+	const tooltip = document.createElement('div');
+	const newElement = element.cloneNode(true);
+	tooltip.classList = 'p-2 bg-orange-100 rounded-xl absolute bottom-[100%]  w-[200px] hidden m-2';
+	tooltip.innerText = 'this is a tooltip';
 
-    container.appendChild(tooltip);
-    container.appendChild(newElement);
+	container.appendChild(tooltip);
+	container.appendChild(newElement);
 
-    element.parentElement.replaceChild(container, element);
+	element.parentElement.replaceChild(container, element);
 
-    newElement.addEventListener('mouseover', (event) => {
-        tooltip.classList.remove('hidden');
-    });
-    newElement.addEventListener('mouseout', (event) => {
-        tooltip.classList.add('hidden');
-    });
+	newElement.addEventListener('mouseover', (event) => {
+		tooltip.classList.remove('hidden');
+	});
+	newElement.addEventListener('mouseout', (event) => {
+		tooltip.classList.add('hidden');
+	});
 }
 ```
 
 To use this action function, you would attach it to an element like this:
 
 ```html
-<div use:addTooltip>
-  show tooltip
-</div>
+<div use:addTooltip>show tooltip</div>
 ```
 
 When the element is mounted, the `addTooltip` function will be called and the element will be replaced with a container that contains the original element and a tooltip.
@@ -89,11 +87,11 @@ Let's see how it is done:
 
 In this example, we're going to create an alias for our components folder, In your `svelte.config.js`
 
-```json
+```svelte
 {
-    aliases: {
-        "$components":"src/components"
-    }    
+	"aliases": {
+		$components: "src/components"
+	}
 }
 ```
 
@@ -102,18 +100,17 @@ And just so you know, you're aliases can be recognized by your editor and auto i
 Your imports will quickly transform, becoming more easier to navigate and also more elegant:
 
 ```js
-// Before
-import SomeComponent from '../../../../components/someComponent'
-
-// After
-import SomeComponent from '$components/someComponent'
+// Before import
+import SomeComponent from '../../../../components/someComponent';
+// After import
+import SomeComponent from '$components/someComponent';
 ```
 
 ## Toggle Class
 
 So in svelte everything is reactive, and we've seen, we've experienced it and we fell in love. And even more, you've probably used some of its syntactic sugar, it also has the most elegant and easiest way of binding element attributes and listeners using  `bind:WHATEVER`.
 
-But then, what do I mean by toggle class? Well you know not all the tiny cool features get a name, they are all under the syntactic sugar umbrella, so that's what I just decided to call it *toggle class*, you can call it whatever you like. This feature is also part of the super amazing syntactic sugars of svelte.
+But then, what do I mean by toggle class? Well you know not all the tiny cool features get a name, they are all under the syntactic sugar umbrella, so that's what I just decided to call it _toggle class_, you can call it whatever you like. This feature is also part of the super amazing syntactic sugars of svelte.
 
 This is a method of adding or removing a class from an element depending on the truth value of something. Let's say you have some element and you want to change its background color to red when some variable is false or green when the variable is true.
 
@@ -121,40 +118,37 @@ This is where `"Toggle class"` as I call it comes in, you can remove a class or 
 
 Let's see how it done in action:
 
-```html
+```svelte
 <script>
-    let buttonSucces = false
+	let buttonSucces = false;
 
-    function toggle(){
-        buttonSucces = !buttonSuces
-}
+	function toggle() {
+		buttonSucces = !buttonSuces;
+	}
 </script>
 
-<button 
-class="p-3 rounded-xl" 
-class:bg-blue={buttonSucces} 
-class:bg-red={!buttonSucces}
-on:click={toggle}
+<button
+	class="p-3 rounded-xl"
+	class:bg-blue={buttonSucces}
+	class:bg-red={!buttonSucces}
+	on:click={toggle}
 >
-Click
+	Click
 </button>
 
-
 <style>
-
-.p-3{
-    padding: 2.5rem
-}
-.rounded-xl{
-    border-radius:3.5rem;
-}
-.bg-blue{
-    background-color:blue;
-}
-.bg-red{
-    background-color:red;
-}
-
+	.p-3 {
+		padding: 2.5rem;
+	}
+	.rounded-xl {
+		border-radius: 3.5rem;
+	}
+	.bg-blue {
+		background-color: blue;
+	}
+	.bg-red {
+		background-color: red;
+	}
 </style>
 ```
 
@@ -174,17 +168,17 @@ You see, you can have some UI displayed before the Promise is fulfilled and get 
 
 All this sounds complicated when I'm explaining it (I made it sound so), but wait until you see how Svelte handles this:
 
-```js
+```svelte
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms)).then(() => 'completed');
 }
 ```
 
-```js
+```svelte
 {#await sleep(3000)}
-    <p>Loading</p>
-{:then sleep_completed} 
-     <p>Sleep Status: {sleep_completed}!</p>
+	<p>Loading</p>
+{:then sleep_completed}
+	<p>Sleep Status: {sleep_completed}!</p>
 {/await}
 ```
 
@@ -194,14 +188,14 @@ You can already see how this can help you build work faster, especially when you
 
 There is also a catch block in case of any error you will want to show a message for.
 
-```js
+```svelte
 {#await sleep(3000)}
-    <p>Loading</p>
-{:then sleep_completed} 
-    <p>Sleep Status: {sleep_completed}!</p>
+	<p>Loading</p>
+{:then sleep_completed}
+	<p>Sleep Status: {sleep_completed}!</p>
 {:catch someError}
-    <p> Unable to complete action </p>
-    {someError.message}
+	<p>Unable to complete action</p>
+	{someError.message}
 {/await}
 ```
 

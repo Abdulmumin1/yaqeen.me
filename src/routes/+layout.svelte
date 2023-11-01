@@ -10,6 +10,7 @@
 		isBlog = $page.url.pathname.startsWith('/blog');
 		console.log(isBlog);
 	}
+	let r = ['rounded-t-xl'];
 </script>
 
 <div

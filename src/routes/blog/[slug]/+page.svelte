@@ -43,15 +43,12 @@
 
 <article in:scale class="mx-auto flex flex-col gap-2 article">
 	<hgroup class=" mb-4 flex rounded-lg w-full flex-col gap-3">
-		<div class="flex max-w-md flex-col">
+		<div class="flex max-w-md md:max-w-full flex-col">
 			<h1 class="text-5xl">{data.meta.title}</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
 		</div>
 
 		<div class="flex items-center">
-			<div class="rounded-full h-10 w-10">
-				<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />
-			</div>
 			<div class="flex gap-2 p-2">
 				<a href={$mylinks.github}>
 					<Fa icon={faGithub} />
@@ -70,7 +67,8 @@
 	</hgroup>
 	<div class="flex gap-3 flex-wrap">
 		{#each data.meta.categories as tag}
-			<span class="px-3 py-1 text-black rounded-full bg-orang dark:bg-dark">&num;{tag}</span>
+			<span class="px-3 py-1 text-sm text-black rounded-full bg-orang dark:bg-dark">&num;{tag}</span
+			>
 		{/each}
 	</div>
 
@@ -79,7 +77,7 @@
 	</div>
 	<div class="w-full flex items-center justify-center p-3">
 		<div
-			class="w-full flex justify-between max-w-md items-center border border-b-2 rounded-lg border-orang dark:border-dark p-4"
+			class="w-full flex justify-between max-w-md items-center border border-b-2 rounded-lg bg-orange-300 dark:bg-black border-orang dark:border-dark p-4"
 		>
 			<span>Love it? Share it!</span>
 			<div class="flex space-x-3 items-center justify-center">

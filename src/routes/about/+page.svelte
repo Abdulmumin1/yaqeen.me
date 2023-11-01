@@ -92,7 +92,7 @@
 					<span class="text-lg font-bold">Javascript</span>
 				</li>
 				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Svelte</span>
+					<span class="text-lg font-bold">Svelte/Sveltekit</span>
 				</li>
 				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
 					<span class="text-lg font-bold">Flask</span>
@@ -104,7 +104,13 @@
 					<span class="text-lg font-bold">Supabase</span>
 				</li>
 				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Tailwind</span>
+					<span class="text-lg font-bold">Prisma</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">MongoDB</span>
+				</li>
+				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+					<span class="text-lg font-bold">Tailwind CSS</span>
 				</li>
 				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
 					<span class="text-lg font-bold">AWS</span>

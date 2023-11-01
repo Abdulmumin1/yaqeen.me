@@ -32,7 +32,7 @@
 <section in:scale class="min-h-screen mt-20">
 	<article class="<w-full flex justify-center items-center flex-col">
 		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
-			<div class="text-6xl flex flex-col gap-3">
+			<div class="text-4xl flex flex-col gap-3">
 				<p>Latest post</p>
 				<BlogCard details={data.posts[0]} latest={true} />
 			</div>
