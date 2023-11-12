@@ -1,7 +1,9 @@
 ---
 title: Authentication Keeps Getting Easier, Passkeys with Hanko Cloud.
 
-description: post description
+description: "Passkeys are a new type of authentication that is more secure and convenient than passwords. Passkeys are based on public key cryptography, which is the same cryptography that is used to secure HTTPS connections.
+
+To use a passkey, you first need to register it with your device. This can be done using a fingerprint, face scan, or PIN. Once your passkey is registered, you can use it to authenticate to websites and apps without having to enter a password."
 
 date: '2023-10-30'
 

@@ -23,3 +23,9 @@
 	<Footer />
 	<!-- bg-[#08090a] -->
 </div>
+
+<style>
+	::selection {
+		background-color: orange;
+	}
+</style>

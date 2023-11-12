@@ -4,9 +4,7 @@
 	import { mylinks } from '$lib/utils/randomstore.js';
 </script>
 
-<footer
-	class="bottom-0 bg-orange-600 dark:bg-orange-700 text-black border-t-2 border-black w-full p-6 items-center justify-center flex flex-col s"
->
+<footer class="bottom-0 w-full p-6 items-center justify-center flex flex-col s">
 	<p class="">&copy; yaqeen.me</p>
 	<div class="flex space-x-2">
 		<a href={$mylinks.github}>

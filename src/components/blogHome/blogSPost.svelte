@@ -1,17 +1,20 @@
 <script>
 	import { faAngleRight, faClock } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
+	import { formatDate } from '$lib/js/utils.js';
+
 	export let title;
 	export let link;
 </script>
 
-<div class="flex flex-col border-b-2 border-orang dark:border-dark">
-	<p class="text-lg lg:text-2xl font-visby_mid">
-		{title}
-	</p>
+<div
+	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 md:hover:scale-105"
+>
+	<a href={link} class="text-2xl lg:text-3xl hover:opacity-80"> {title}</a>
+	<!-- <p>{formatDate(details.date)}</p> -->
 
-	<div class="flex items-center w-fit space-x-2 p-1 rounded-xl hover_link">
-		<a href={link} class="">Read More </a>
-		<Fa icon={faAngleRight} />
-	</div>
+	<!-- <p>{details.description}</p> -->
+	<!-- <a href={`blog/${details.slug}`} class="py-2 flex items-center gap-3">
+		Read more <Fa icon={faArrowTrendUp} /></a
+	> -->
 </div>

@@ -2,6 +2,15 @@ import { readable } from 'svelte/store';
 
 export const project_data = readable([
 	{
+		name: 'Habitud',
+		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
+		description: 'Habit tracking app with passkeys integration',
+		links: {
+			study: 'https://github.com/Abdulmumin1/habitud',
+			page: 'https://habitud.vercel.app'
+		}
+	},
+	{
 		name: 'SnippetLand',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description:
@@ -30,14 +39,14 @@ export const project_data = readable([
 			study: 'https://github.com/Abdulmumin1/edit',
 			page: 'https://editss.vercel.app'
 		}
-	},
-	{
-		name: 'Neuro Odyssey',
-		stack: ['Python', 'CSS3', 'PyQt5'],
-		description: 'Excell in you thinking ability with curated brain exercises',
-		links: {
-			study: '',
-			page: '/neuroodyssey'
-		}
 	}
+	// {
+	// 	name: 'Neuro Odyssey',
+	// 	stack: ['Python', 'CSS3', 'PyQt5'],
+	// 	description: 'Excell in you thinking ability with curated brain exercises',
+	// 	links: {
+	// 		study: '',
+	// 		page: '/neuroodyssey'
+	// 	}
+	// }
 ]);
