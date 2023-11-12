@@ -5,7 +5,7 @@
 </script>
 
 <footer class="bottom-0 w-full p-6 items-center justify-center flex flex-col s">
-	<p class="">&copy; yaqeen.me</p>
+	<p class="">Made with <span class="font-bold text-orang dark:text-dark"> Sveltekit</span> ♡</p>
 	<div class="flex space-x-2">
 		<a href={$mylinks.github}>
 			<Fa icon={faGithub} />

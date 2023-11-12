@@ -45,12 +45,12 @@
 
 			<div class="flex space-x-2">
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover:shadow-xl dark:border-dark"
+					class="flex items-center w-fit space-x-2 p-1 rounded-lg border hover_link_fill border-orang dark:border-dark"
 				>
 					<a href={details.links.study} class="">Github </a>
 				</div>
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover:shadow-xl dark:border-dark"
+					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover_link_fill dark:border-dark"
 				>
 					<a href={details.links.page} class="">Visit</a>
 					<Fa icon={faAngleRight} />

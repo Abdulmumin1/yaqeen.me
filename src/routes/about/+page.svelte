@@ -49,11 +49,12 @@
 		<h1 class="text-3xl font-visby_mid font-bold w-fit pb-4 text-orang dark:text-dark">About me</h1>
 		<div class="text-md lg:text-lg flex flex-col space-y-2">
 			<p>
-				I'm Abdulmumin Yaqeen Abdulkarim, I have been on this exhilarating odyssey for the past
-				couple of years, constantly hitting the keyboards, and burying my head into the machine.
+				I'm Abdulmumin Yaqeen Abdulkarim, navigating an exhilarating journey over the past few
+				years. My days are filled with the rhythmic tapping of keyboards and immersing myself in the
+				intricate world of technology.
 			</p>
 			<p>
-				I mostly write lots of python and javascript code, and have worked in various field spanning
+				I mostly write lots of Python and Javascript code, and have worked in various field spanning
 				web, mobile and cloud computing.
 			</p>
 			<p>
@@ -61,9 +62,10 @@
 				computational paradigms.
 			</p>
 			<p>
-				I think the best decision of my career was to start writing, I super enjoy writing about
-				techie stuff in a way that's easy to understand. without a doubt, become one of the crowning
-				achievements of my journey.
+				One of the pivotal decisions in my career was embracing the art of writing. I find immense
+				joy in articulating complex tech concepts in a way that's accessible to everyone. This has
+				undeniably become one of the crowning achievements of my journey, making the fusion of
+				technology and writing an integral part of my professional narrative.
 			</p>
 			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
 			<ul
@@ -71,14 +73,12 @@
 			>
 				<li class="px-3 py-2">Writing</li>
 				<li class="px-3 py-2">Drawing</li>
+				<li class="px-3 py-2">Photography</li>
+				<li class="px-3 py-2">Alone time</li>
 				<li class="px-3 py-3">
 					& Of course, <span class="font-bold">Space!!</span> It such a beauty.
 					<p class="pl-3 py-3 my-2 text-dark rounded-lg dark:text-black bg-orange-200 dark:bg-dark">
-						I mean the constellation, Moon, sometimes I just wished I had pursued a field in
-						astrology because it has always fascinated me. The celestial bodies, their complexity,
-						and their influence on human behavior have always intrigued me. The Moon, in particular,
-						with its ever-changing phases and mysterious presence in the night sky, holds a special
-						allure.
+						The state of constant wonder, is just exciting to me!!
 					</p>
 				</li>
 			</ul>

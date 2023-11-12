@@ -5,10 +5,7 @@
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 </script>
 
-<div
-	class="bg-orange-100 rounded-2xl dark:bg-inherit border-t-4 border-dotted border-orang dark:border-dark p-1 py-6 lg:p-6 flex flex-col"
-	id="projects"
->
+<div class="bg-orange-100 rounded-2xl dark:bg-inherit p-1 py-6 lg:p-6 flex flex-col" id="projects">
 	<h2
 		class="lg:text-5xl text-4xl text-center font-visby_bold font-bold pb-3 text-orang dark:text-dark"
 	>

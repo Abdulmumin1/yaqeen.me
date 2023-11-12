@@ -28,7 +28,7 @@
 		width: 100%;
 		height: 2px;
 		border-radius: 4px;
-		background-color: currentColor;
+		@apply bg-orang dark:bg-dark;
 		bottom: 0;
 		left: 0;
 		transform-origin: left;
@@ -42,16 +42,17 @@
 	}
 
 	.hover_link_fill {
-		box-shadow: inset 0 0 0 0 rgb(255 247 237/1);
+		/* box-shadow: inset 0 0 0 0 rgb(255 247 237/1);
 
 		padding: 0 0.25rem;
 		margin: 1 -0.25rem;
 		transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		border-radius: 5px;
+		border-radius: 5px; */
+		transition: color 0.3s ease-in-out;
 	}
 	.hover_link_fill:hover {
-		color: #333;
-		box-shadow: inset 200px 0 0 0 rgb(255 247 237/1);
+		@apply text-orang dark:text-dark
+		/* box-shadow: inset 200px 0 0 0 rgb(255 247 237/1); */;
 	}
 
 	/* Presentational styles */
