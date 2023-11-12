@@ -31,7 +31,7 @@
 				>
 					<a
 						href={`/blog/${posts[0]?.slug}`}
-						class="text-[4rem] lg:text-[4rem] font-visby_bold font-bold"
+						class="text-[2rem] lg:text-[4rem] font-visby_bold font-bold"
 						><h1 class="leading-none text-orang dark:text-dark">
 							{posts[0]?.title}
 						</h1></a
