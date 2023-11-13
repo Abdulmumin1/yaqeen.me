@@ -8,7 +8,8 @@ export const project_data = readable([
 		links: {
 			study: 'https://github.com/Abdulmumin1/habitud',
 			page: 'https://habitud.vercel.app'
-		}
+		},
+		color: 'bg-orange-200'
 	},
 	{
 		name: 'SnippetLand',
@@ -18,7 +19,8 @@ export const project_data = readable([
 		links: {
 			study: 'https://github.com/Abdulmumin1/snippets',
 			page: 'https://snippet-bice.vercel.app'
-		}
+		},
+		color: 'bg-sky-300'
 	},
 	{
 		name: 'Drop',
@@ -28,7 +30,8 @@ export const project_data = readable([
 		links: {
 			study: 'https://github.com/Abdulmumin1/drop',
 			page: 'https://github.com/Abdulmumin1/drop'
-		}
+		},
+		color: 'bg-orange-400 dark:bg-orange-500'
 	},
 	{
 		name: 'Edit',
@@ -38,7 +41,8 @@ export const project_data = readable([
 		links: {
 			study: 'https://github.com/Abdulmumin1/edit',
 			page: 'https://editss.vercel.app'
-		}
+		},
+		color: 'bg-white'
 	}
 	// {
 	// 	name: 'Neuro Odyssey',
