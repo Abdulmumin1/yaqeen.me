@@ -27,7 +27,7 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<div class="snap-proximity p-4 snap-y flex flex-col items-center justify-center">
+<div class="snap-proximity md:p-4 snap-y flex flex-col items-center justify-center">
 	<div class="flex flex-col max-w-[1000px]">
 		<Hero />
 		<ProSection />

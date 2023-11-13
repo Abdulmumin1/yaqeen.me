@@ -77,7 +77,7 @@
 	</div>
 	<div class="w-full flex items-center justify-center p-3">
 		<div
-			class="w-full flex justify-between max-w-md items-center border border-b-2 rounded-lg bg-orange-300 dark:bg-black border-orang dark:border-dark p-4"
+			class="w-full flex justify-between max-w-md items-center border border-b-2 rounded-2xl bg-orange-300 dark:bg-black border-orang dark:border-dark p-4"
 		>
 			<span>Love it? Share it!</span>
 			<div class="flex space-x-3 items-center justify-center">

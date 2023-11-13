@@ -134,10 +134,10 @@
 	}
 
 	.article ul {
-		@apply space-y-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center  flex-col list-none;
+		@apply py-2 space-y-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center  flex-col list-none;
 	}
 	.article ol {
-		@apply space-y-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center  flex-col list-none;
+		@apply py-2 space-y-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center  flex-col list-none;
 	}
 	.article li {
 		padding: 9px;
