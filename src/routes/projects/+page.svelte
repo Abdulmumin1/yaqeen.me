@@ -5,9 +5,10 @@
 	let alternate = true;
 </script>
 
-<div class=" snap-both w-screen gap-4 flex overflow-scroll">
+<!-- <p class="text-center">Under Construction</p> -->
+<div class=" scroll-container overflow-y-hidden w-screen gap-4 flex overflow-x-scroll">
 	{#each $project_data as project}
-		<div class="w-fit">
+		<div class="w-fit scroll-item">
 			<ProjectOverview details={project} {alternate} />
 		</div>
 	{/each}
@@ -21,5 +22,14 @@
 	::-webkit-scrollbar {
 		height: 0;
 		width: 0;
+	}
+
+	.scroll-container {
+		scroll-snap-type: x mandatory; /* Define vertical scroll snap behavior */
+	}
+
+	.scroll-item {
+		scroll-snap-align: start;
+		transition: transform 0.3s ease;
 	}
 </style>

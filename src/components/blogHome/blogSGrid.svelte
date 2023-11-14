@@ -40,9 +40,9 @@
 						{posts[0]?.description}
 					</p>
 					<div
-						class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-orang hover:shadow-xl dark:border-dark"
+						class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-orang dark:border-dark hover_link_fill"
 					>
-						<a href={$latestPostDetail.link} class="hover_link_fill">Read More </a>
+						<a href={`blog/${posts[0]?.slug}`} class="">Read More </a>
 						<Fa icon={faAngleRight} />
 					</div>
 				</div>

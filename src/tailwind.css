@@ -169,4 +169,8 @@
 
 		@apply bg-orang dark:bg-dark;
 	}
+	*::selection {
+		@apply bg-orang dark:bg-dark;
+		color: black;
+	}
 }

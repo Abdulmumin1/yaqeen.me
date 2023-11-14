@@ -3,7 +3,7 @@
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
 
 	export let data;
-	console.log(data.posts);
+	// console.log(data.posts);
 </script>
 
 <svelte:head>
