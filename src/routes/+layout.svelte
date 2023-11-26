@@ -25,7 +25,5 @@
 </div>
 
 <style>
-	::selection {
-		background-color: orange;
-	}
+	
 </style>

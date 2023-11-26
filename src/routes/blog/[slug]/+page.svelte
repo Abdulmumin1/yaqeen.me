@@ -17,7 +17,7 @@
 		faGithub,
 		faYoutube
 	} from '@fortawesome/free-brands-svg-icons';
-	import { faCopy } from '@fortawesome/free-solid-svg-icons';
+	import { faCopy, faRightLong } from '@fortawesome/free-solid-svg-icons';
 	import { scale, slide } from 'svelte/transition';
 
 	let url;
@@ -49,7 +49,7 @@
 		</div>
 
 		<div class="flex items-center">
-			<div class="flex gap-2 p-2">
+			<div class="flex gap-2">
 				<a href={$mylinks.github}>
 					<Fa icon={faGithub} />
 				</a>
@@ -65,16 +65,47 @@
 			</div>
 		</div>
 	</hgroup>
-	<div class="flex gap-3 flex-wrap">
-		{#each data.meta.categories as tag}
-			<span class="px-3 py-1 text-sm text-black rounded-full bg-orang dark:bg-dark">&num;{tag}</span
-			>
-		{/each}
-	</div>
+	<section class="flex w-full">
+		<div class="w-full">
+			<div class="flex gap-3 flex-wrap mb-4">
+				{#each data.meta.categories as tag}
+					<span class="px-3 py-1 text-sm text-black rounded-full bg-orang dark:bg-dark"
+						>&num;{tag}</span
+					>
+				{/each}
+			</div>
 
-	<div class="space-y-5 markdown-content">
-		<svelte:component this={data.content} />
-	</div>
+			<div class="space-y-5 max-w-[800px] w-full markdown-content">
+				<svelte:component this={data.content} />
+			</div>
+		</div>
+		<aside class="relative w-[400px] hidden lg:flex">
+			<div
+				class="absolute bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
+			>
+				<div class="flex flex-col gap-2">
+					<p class="font-semibold">Signup for Snippetland</p>
+					<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant previews!</p>
+					<a
+						href="https://snippet-bice.vercel.app/play/try"
+						target="_blank"
+						class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
+						>Try Snippetland <Fa icon={faRightLong} /></a
+					>
+				</div>
+				<div class="flex flex-col gap-2">
+					<p class="font-semibold">SleekScroll</p>
+					<p class="text-sm">Make Ugly Chromium scrollbars look cool!</p>
+					<a
+						href="https://github.com/Abdulmumin1/sleek-scroll"
+						target="_blank"
+						class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
+						>Get Browser Extension <Fa icon={faRightLong} /></a
+					>
+				</div>
+			</div>
+		</aside>
+	</section>
 	<div class="w-full flex items-center justify-center p-3">
 		<div
 			class="w-full flex justify-between max-w-md items-center border border-b-2 rounded-2xl bg-orange-300 dark:bg-black border-orang dark:border-dark p-4"
