@@ -19,6 +19,7 @@
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faCopy, faRightLong } from '@fortawesome/free-solid-svg-icons';
 	import { scale, slide } from 'svelte/transition';
+	import Ad from '../../../components/mainBlog/ad.svelte';
 
 	let url;
 
@@ -42,8 +43,8 @@
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2 article">
-	<hgroup class=" mb-4 flex rounded-lg w-full flex-col gap-3">
-		<div class="flex max-w-md md:max-w-full flex-col">
+	<hgroup class="md:h-[400px] justify-center mb-4 flex rounded-lg w-full flex-col gap-3">
+		<div class="flex max-w-md md:max-w-[800px] flex-col">
 			<h1 class="text-5xl">{data.meta.title}</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
 		</div>
@@ -80,30 +81,7 @@
 			</div>
 		</div>
 		<aside class="relative w-[400px] hidden lg:flex">
-			<div
-				class="absolute bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
-			>
-				<div class="flex flex-col gap-2">
-					<p class="font-semibold">Signup for Snippetland</p>
-					<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant previews!</p>
-					<a
-						href="https://snippet-bice.vercel.app/play/try"
-						target="_blank"
-						class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
-						>Try Snippetland <Fa icon={faRightLong} /></a
-					>
-				</div>
-				<div class="flex flex-col gap-2">
-					<p class="font-semibold">SleekScroll</p>
-					<p class="text-sm">Make Ugly Chromium scrollbars look cool!</p>
-					<a
-						href="https://github.com/Abdulmumin1/sleek-scroll"
-						target="_blank"
-						class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
-						>Get Browser Extension <Fa icon={faRightLong} /></a
-					>
-				</div>
-			</div>
+			<Ad />
 		</aside>
 	</section>
 	<div class="w-full flex items-center justify-center p-3">

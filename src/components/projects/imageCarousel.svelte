@@ -29,7 +29,7 @@
 		}, 3000);
 	}
 	onMount(() => {
-		createInterval();
+		// createInterval();
 	});
 </script>
 

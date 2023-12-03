@@ -47,12 +47,14 @@
 	class="bottom-nav w-full flex justify-between py-6 px-3 z-50 fixed bg-orange-100 items-center mt-12 border-b-2 border-orang dark:border-dark dark:bg-stone-900"
 >
 	<li>
-		<a href="/blog" class="font-bold">yaqeen.me</a>
+		<a href="/blog" class="font-bold flex items-center justify-center w-20 dark:invert"
+			><img src="/signature.png " alt="logo" width="80" /></a
+		>
 	</li>
 	<li>
 		<ul class="flex gap-2 items-center justify-center">
 			<li class="flex items-center justify-center">
-				<a href="/about">About</a>
+				<a href="/about ">About</a>
 			</li>
 			<li class="flex items-center justify-center">
 				<div class="w-full flex items-center justify-center gap-2">

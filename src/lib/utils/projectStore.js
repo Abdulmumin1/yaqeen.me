@@ -20,7 +20,7 @@ export const project_data = readable([
 			study: 'https://github.com/Abdulmumin1/snippets',
 			page: 'https://snippet-bice.vercel.app'
 		},
-		color: 'bg-sky-300'
+		color: 'bg-sky-400'
 	},
 	{
 		name: 'Drop',

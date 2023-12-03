@@ -50,12 +50,11 @@
 		<div class="text-md lg:text-lg flex flex-col space-y-2">
 			<p>
 				I'm Abdulmumin Yaqeen Abdulkarim, navigating an exhilarating journey over the past few
-				years. My days are filled with the rhythmic tapping of keyboards and immersing myself in the
-				intricate world of technology.
+				years.
 			</p>
 			<p>
-				I mostly write lots of Python and Javascript code, and have worked in various field spanning
-				web, mobile and cloud computing.
+				I write lots of Python and Javascript code, and have worked in various field spanning web,
+				mobile and cloud computing.
 			</p>
 			<p>
 				I have a deep fascination for computer science and gaining a deeper knowledge on
@@ -123,7 +122,7 @@
 				</li>
 			</ul>
 
-			<h3 class="text-2xl font-bold text-orang dark:text-dark">Recent Experience</h3>
+			<!-- <h3 class="text-2xl font-bold text-orang dark:text-dark">Recent Experience</h3> -->
 		</div>
 	</div>
 </div>
