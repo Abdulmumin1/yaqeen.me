@@ -17,7 +17,7 @@
 	list = shuffleArray(list);
 </script>
 
-<div class="snap-mandatory h-[600px] w-[100vw] p-2 md:p-12" id={details.name}>
+<div class="snap-mandatory h-screen h-[100dvh] p-2 md:p-12" id={details.name}>
 	<div class="   h-full border-orang dark:border-dark rounded-xl flex items-center justify-center">
 		<div class="flex flex-col md:flex-row gap-10 items-start md:items-center justify-center p-12">
 			<ImageCarousel imageList={list} />

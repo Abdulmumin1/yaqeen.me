@@ -5,16 +5,16 @@
 
 <div class="parent w-full h-full">
 	<div
-		class="absolute top-0 bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
+		class="sticky top-[120px] bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
 	>
 		<div class="flex flex-col gap-2">
-			<p class="font-semibold">Signup for Snippetland</p>
+			<p class="font-semibold">Signup for DevCanvas</p>
 			<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant previews!</p>
 			<a
 				href="https://snippet-bice.vercel.app/play/try"
 				target="_blank"
 				class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
-				>Try Snippetland <Fa icon={faRightLong} /></a
+				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
 		</div>
 		<div class="flex flex-col gap-2">

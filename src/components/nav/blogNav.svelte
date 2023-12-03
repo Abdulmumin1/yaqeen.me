@@ -47,9 +47,10 @@
 	class="bottom-nav w-full flex justify-between py-6 px-3 z-50 fixed bg-orange-100 items-center mt-12 border-b-2 border-orang dark:border-dark dark:bg-stone-900"
 >
 	<li>
-		<a href="/blog" class="font-bold flex items-center justify-center w-20 dark:invert"
-			><img src="/signature.png " alt="logo" width="80" /></a
-		>
+		<a href="/blog" class="relative font-bold flex items-center justify-center">
+			<h1>yaqeen</h1>
+			<!-- <img src="/signature.png " alt="logo" width="80" class="colorize" /> -->
+		</a>
 	</li>
 	<li>
 		<ul class="flex gap-2 items-center justify-center">
@@ -81,5 +82,12 @@
 
 	.visible {
 		transform: translateY(0);
+	}
+
+	.colorize {
+		filter: brightness(0) saturate(100%) hue-rotate(0deg) sepia(100%) invert(100%) brightness(100%)
+			contrast(100%);
+		mix-blend-mode: color;
+		background-color: rgb(255, 187, 110);
 	}
 </style>

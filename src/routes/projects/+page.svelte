@@ -38,26 +38,55 @@
 
 <!-- <p class="text-center">Under Construction</p> -->
 <div class="grid place-content-center">
-	<div class="flex max-w-[1200px]">
-		<div class="w-[200px] relative">
-			<div
-				class="grid fixed mt-[10rem] top-0 place-items-center bg-orange-100 rounded-lg dark:bg-stone-900 p-12"
-			>
-				<div class="flex flex-col gap-2 justify-center p-2">
+	<div class="flex max-w-[1200px] relative">
+		<div
+			class="w-[399px] hidden md:flex sticky top-[100px] h-fit mt-[150px] bg-orange-100 dark:bg-stone-900 rounded-2xl"
+		>
+			<div class="grid place-items-center p-12">
+				<div class="flex flex-col gap-2 justify-center p-2 sticky">
 					{#each $project_data as p}
 						<button
-							class="text-md md:text-xl p-2 flex gap-2"
+							class="text-md tmd:text-xl p-2 flex gap-2 items-center j"
 							class:text-orang={p.name == projectData[currentView].name}
-							on:click={() => changLoc(p)}><Fa icon={faRightLong} />{p.name}</button
+							on:click={() => changLoc(p)}
+						>
+							<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+							<svg
+								width="20px"
+								height="20px"
+								viewBox="0 0 24.00 24.00"
+								fill="l"
+								xmlns="http://www.w3.org/2000/svg"
+								transform="rotate(90)"
+							>
+								<g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+								<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+								<g id="SVGRepo_iconCarrier">
+									<g id="Interface / Line_L">
+										<path
+											id="Vector"
+											d="M12 19V5"
+											stroke="#000000"
+											stroke-width="0.8640000000000001"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											class="dark:stroke-orange-200"
+										/>
+									</g>
+								</g>
+							</svg>
+							{p.name}</button
 						>
 					{/each}
 				</div>
 			</div>
 		</div>
 
-		<div class="relative scroll-container overflow-y-hidden w-screen gap-4 overflow-x-scroll">
+		<div class="relative w-full scroll-container gap-4 overflow-y-scroll">
 			{#each projectData as project (project.name)}
-				<div class="w-fit scroll-item">
+				<div class="w-full scroll-item">
 					<ProjectOverview details={project} {alternate} />
 				</div>
 			{/each}
@@ -73,9 +102,9 @@
 		class="absolute hidden md:flex justify-end items-center left-0 my-auto inset-y-0 p-4 text-xl"
 		on:click={() => changLocR('g')}><Fa icon={faAngleLeft} /></button
 	> -->
-
-	<div class="border border-orang dark:border-dark" />
 </div>
+
+<!-- <div class="border border-orang dark:border-dark" /> -->
 
 <style>
 	::-webkit-scrollbar {
@@ -84,7 +113,7 @@
 	}
 
 	.scroll-container {
-		scroll-snap-type: x mandatory; /* Define vertical scroll snap behavior */
+		scroll-snap-type: y mandatory; /* Define vertical scroll snap behavior */
 	}
 
 	.scroll-item {
