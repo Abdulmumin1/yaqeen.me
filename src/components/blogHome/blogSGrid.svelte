@@ -1,5 +1,10 @@
 <script>
-	import { faAngleRight, faClock, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+	import {
+		faAngleRight,
+		faArrowDown,
+		faClock,
+		faEllipsisH
+	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import BlogSPost from './blogSPost.svelte';
 	import { faDev, faHashnode, faMedium, faYoutube } from '@fortawesome/free-brands-svg-icons';
@@ -58,15 +63,12 @@
 				{/each}
 				<!-- <BlogSPost title={' Git For Beginners: A Complete Guide.'} /> -->
 
-				<p class="border-l-4 border-orang dark:border-dark pl-1 b rounded-l">
-					My writings are available in all your favorite plaforms
-				</p>
 				<div
 					class="space-x-2 p-3 my-3 items-center border border-orang dark:border-dark rounded-xl justify-between flex"
 				>
-					<p class="text-xl lg:text-2xl font-visby_mid self-center">Read anywhere</p>
-					<div class="flex space-x-2 text-xl lg:text-3xl items-center">
-						<a href="/blog"> <Fa icon={faEllipsisH} /> </a>
+					<p class="text-xl lg:text-2xl font-visby_mid self-center">Writings Available @</p>
+					<div class="flex space-x-2 text-xl items-center">
+						<a href="/blog"> <Fa icon={faArrowDown} /> </a>
 						<a href={$mylinks.hashnode} target="_blank">
 							<Fa icon={faHashnode} />
 						</a>

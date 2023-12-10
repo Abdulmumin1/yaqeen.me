@@ -13,7 +13,7 @@
 			<a
 				href="https://snippet-bice.vercel.app/play/try"
 				target="_blank"
-				class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
 				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
 		</div>
@@ -23,7 +23,7 @@
 			<a
 				href="https://github.com/Abdulmumin1/sleek-scroll"
 				target="_blank"
-				class="flex text-sm items-center gap-2 bg-orang dark:bg-dark dark:text-stone-950 p-2 rounded-xl w-fit"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
 				>Get Browser Extension <Fa icon={faRightLong} /></a
 			>
 		</div>

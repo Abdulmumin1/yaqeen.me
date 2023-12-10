@@ -63,13 +63,15 @@
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
 		text-transform: capitalize;
+		@apply leading-none;
 	}
 	.article h1 {
 		font-size: theme(fontSize.5xl);
 		padding-block: theme(padding.5);
 		font-weight: theme(fontWeight.bold);
+		@apply leading-none
 		/* color: theme(colors.orang); */
-		/* text-transform: t; */
+		/* text-transform: t; */;
 	}
 
 	.article h3 {
@@ -77,18 +79,34 @@
 		padding-block: theme(padding.3);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
+		@apply leading-none;
 	}
 	.article h4 {
 		font-size: theme(fontSize.xl);
 		padding-block: theme(padding.3);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
+		@apply leading-none;
 	}
 	.article pre {
 		padding: theme(padding.3);
 		overflow: scroll;
 		font-size: theme(fontSize.base);
 		@apply border-8 border-[#1f1f1f]   rounded-b-xl;
+	}
+	.article table {
+		@apply bg-orange-100 dark:bg-stone-900;
+		border-collapse: collapse;
+	}
+	.article thead {
+		@apply bg-orange-200 dark:bg-dark dark:text-black;
+	}
+	.article table,
+	th,
+	td {
+		border: 1px solid;
+		padding: 10px;
+		@apply dark:border-dark;
 	}
 	.shiki {
 		max-width: 100%;
@@ -144,7 +162,9 @@
 	}
 	.article code {
 		/* background-color: #888; */
-		@apply rounded-md p-[1px] bg-orange-200 dark:bg-dark dark:text-black font-visby;
+		@apply rounded-md p-[1px] bg-orange-200 dark:bg-dark dark:text-black;
+		font-family: 'Source Code Pro' !important;
+		font-size: 14px !important;
 	}
 	.article pre > code {
 		background-color: inherit !important;

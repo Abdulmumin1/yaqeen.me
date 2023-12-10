@@ -12,10 +12,9 @@ export const project_data = readable([
 		color: 'bg-orange-200'
 	},
 	{
-		name: 'SnippetLand',
+		name: 'DevCanvas',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description:
-			'Share and discover code snippets for various programming languages and use cases.',
+		description: 'Online Code Canvas, to paint, build and share built htmt/css/js creations',
 		links: {
 			study: 'https://github.com/Abdulmumin1/snippets',
 			page: 'https://snippet-bice.vercel.app'
@@ -36,7 +35,7 @@ export const project_data = readable([
 	{
 		name: 'Edit',
 		stack: ['Vanillajs', 'TailwindCSS', 'HTML'],
-		description: 'Beautifully edit text and images',
+		description: 'A Progressive Wep App to edit and frame screenshots beautifully',
 		image: '$lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/edit',

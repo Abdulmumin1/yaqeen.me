@@ -1,6 +1,10 @@
 <script>
 	import { formatDate } from '$lib/js/utils.js';
-	import { faArrowAltCircleRight, faArrowTrendUp } from '@fortawesome/free-solid-svg-icons';
+	import {
+		faArrowAltCircleRight,
+		faArrowRightLong,
+		faArrowTrendUp
+	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import { fade, scale, slide } from 'svelte/transition';
 	// import { slide } from 'svelte/transition';
@@ -25,7 +29,7 @@
 			<a
 				href={`blog/${details.slug}`}
 				class="flex gap-2 hover:gap-4 text-base transition-all duration-300 items-center"
-				>Continue Reading <Fa icon={faArrowAltCircleRight} /></a
+				>Continue Reading <Fa icon={faArrowRightLong} /></a
 			>
 		</div>
 	{:else}

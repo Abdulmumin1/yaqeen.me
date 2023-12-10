@@ -43,9 +43,11 @@
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2 article">
-	<hgroup class="md:h-[400px] justify-center mb-4 flex rounded-lg w-full flex-col gap-3">
-		<div class="flex max-w-md md:max-w-[800px] flex-col">
-			<h1 class="text-5xl">{data.meta.title}</h1>
+	<hgroup
+		class="md:h-[400px] justify-center mb-4 flex items-center rounded-lg w-full flex-col gap-3"
+	>
+		<div class="flex max-w-md md:max-w-[800px] flex-col items-center justify-center">
+			<h1 class="text-5xl md:text-6xl md:text-center">{data.meta.title}</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
 		</div>
 
@@ -66,7 +68,7 @@
 			</div>
 		</div>
 	</hgroup>
-	<section class="flex w-full">
+	<section class="flex w-full flex-col lg:flex-row">
 		<div class="w-full">
 			<div class="flex gap-3 flex-wrap mb-4">
 				{#each data.meta.categories as tag}
@@ -76,11 +78,14 @@
 				{/each}
 			</div>
 
-			<div class="space-y-5 max-w-[800px] w-full markdown-content">
+			<div
+				class="space-y-5 max-w-[800px] w-full markdown-content text-base
+			"
+			>
 				<svelte:component this={data.content} />
 			</div>
 		</div>
-		<aside class="relative w-[400px] hidden lg:flex">
+		<aside class="relative w-[400px] hidden md:hidden lg:flex">
 			<Ad />
 		</aside>
 	</section>
