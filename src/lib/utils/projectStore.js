@@ -14,7 +14,7 @@ export const project_data = readable([
 	{
 		name: 'DevCanvas',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description: 'Online Code Canvas, to paint, build and share built htmt/css/js creations',
+		description: 'Online Code Editor, to paint, build and share cool html/css/js creations',
 		links: {
 			study: 'https://github.com/Abdulmumin1/snippets',
 			page: 'https://snippet-bice.vercel.app'
