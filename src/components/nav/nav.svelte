@@ -23,7 +23,7 @@
 			</div>
 			<NavItem data={{ name: 'Blog', href: '/blog' }} />
 			<!-- <p>·</p> -->
-			<NavItem data={{ name: 'Projects', href: '#projects' }} />
+			<NavItem data={{ name: 'Projects', href: '/#projects' }} />
 		</ul>
 	{:else}
 		<BlogNav />
