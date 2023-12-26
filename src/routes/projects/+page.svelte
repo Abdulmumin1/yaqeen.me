@@ -3,7 +3,10 @@
 	import Fa from 'svelte-fa';
 	import ProjectOverview from '../../components/projects/projectOverview.svelte';
 	import { faAngleLeft, faAngleRight, faRightLong } from '@fortawesome/free-solid-svg-icons';
-	import { scale } from 'svelte/transition';
+	import { scale, slide } from 'svelte/transition';
+	import MiniSection from '../../components/projects/miniSection.svelte';
+	import ProSection from '../../components/projects/proSection.svelte';
+	import BigSection from '../../components/projects/bigSection.svelte';
 
 	let alternate = true;
 	let projectData = $project_data;
@@ -37,9 +40,9 @@
 </script>
 
 <!-- <p class="text-center">Under Construction</p> -->
-<div class="grid place-content-center">
-	<div class="flex max-w-[1200px] relative">
-		<div
+<div class="grid place-items-center w-full p-4">
+	<div class="flex gap-4 flex-col max-w-[800px] w-full relative">
+		<!-- <div
 			class="w-[399px] hidden md:flex sticky top-[100px] h-fit mt-[150px] bg-orange-100 dark:bg-stone-900 rounded-2xl"
 		>
 			<div class="grid place-items-center p-12">
@@ -50,7 +53,6 @@
 							class:text-orang={p.name == projectData[currentView].name}
 							on:click={() => changLoc(p)}
 						>
-							<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
 							<svg
 								width="20px"
 								height="20px"
@@ -90,7 +92,9 @@
 					<ProjectOverview details={project} {alternate} />
 				</div>
 			{/each}
-		</div>
+		</div> -->
+		<MiniSection />
+		<BigSection />
 	</div>
 
 	<!--

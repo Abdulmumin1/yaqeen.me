@@ -48,7 +48,7 @@
 >
 	<li>
 		<a href="/blog" class="relative font-bold flex items-center justify-center">
-			<h1>yaqeen</h1>
+			<h1>Home</h1>
 			<!-- <img src="/signature.png " alt="logo" width="80" class="colorize" /> -->
 		</a>
 	</li>

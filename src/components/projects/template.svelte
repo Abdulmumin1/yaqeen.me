@@ -35,13 +35,13 @@
 		</div> -->
 		<div class="space-y-3">
 			<p class="text-stone-900 dark:text-orange-100">{details.description}</p>
-			<ul class="flex gap-2 flex-wrap text-black">
-				<!-- {#each details.stack as stack}
+			<!-- <ul class="flex gap-2 flex-wrap text-black">
+				{#each details.stack as stack}
 					<li class=" text-orang dark:text-dark bg-orang dark:bg-dark p-1 rounded-md">
 						<a href={$stackLinks[stack.toLowerCase()]} class="text-orang dark:text-dark">{stack}</a>
 					</li>
-				{/each} -->
-			</ul>
+				{/each}
+			</ul> -->
 
 			<div class="flex space-x-2">
 				<div

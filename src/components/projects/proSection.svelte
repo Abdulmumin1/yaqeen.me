@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="bg-orange-100 md:rounded-2xl dark:bg-inherit p-1 py-6 lg:p-6 flex flex-col"
+	class="bg-orange-100 md:rounded-2xl dark:bg-stone-900 p-1 py-6 lg:p-6 flex flex-col"
 	id="projects"
 >
 	<h2

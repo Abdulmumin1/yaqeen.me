@@ -58,35 +58,27 @@
 	/* Presentational styles */
 
 	.article h2 {
-		font-size: theme(fontSize.4xl);
-		padding-top: theme(padding.4);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
 		text-transform: capitalize;
-		@apply leading-none;
+		@apply leading-none text-3xl md:text-4xl py-2 md:py-4;
 	}
 	.article h1 {
-		font-size: theme(fontSize.5xl);
-		padding-block: theme(padding.5);
 		font-weight: theme(fontWeight.bold);
-		@apply leading-none
+		@apply leading-none text-4xl md:text-5xl py-3 md:py-5;
 		/* color: theme(colors.orang); */
-		/* text-transform: t; */;
+		/* text-transform: t; */
 	}
 
 	.article h3 {
-		font-size: theme(fontSize.2xl);
-		padding-block: theme(padding.3);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
-		@apply leading-none;
+		@apply leading-none text-xl md:text-2xl py-1 md:py-3;
 	}
 	.article h4 {
-		font-size: theme(fontSize.xl);
-		padding-block: theme(padding.3);
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
-		@apply leading-none;
+		@apply leading-none text-lg md:text-xl py-1 md:py-3;
 	}
 	.article pre {
 		padding: theme(padding.3);
