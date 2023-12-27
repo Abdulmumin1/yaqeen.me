@@ -127,8 +127,8 @@ Contributions are welcome! If you'd like to contribute to SleekScroll, follow th
 
 ### License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/Abdulmumin1/sleek-scroll/LICENSE).
 
 I might be taking this too far 😅.
 
-**Get Started** [SleekScroll](https://www.codium.ai/products/git-plugin/)
+**Get Started** [SleekScroll](https://github.com/Abdulmumin1/sleek-scroll/LICENSE)
