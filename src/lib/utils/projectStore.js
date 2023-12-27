@@ -104,7 +104,7 @@ export const project_data_main = readable([
 			'An extenstion of the commandline tcp chat, with desktop interface, notifications and markdown messages! ',
 		links: {
 			study: '',
-			page: '/private'
+			page: '/'
 		}
 	},
 	{
@@ -122,7 +122,7 @@ export const project_data_main = readable([
 		description: 'A secure mobile app to save passowrds built with python kivymd and sqlite3',
 		links: {
 			study: '',
-			page: '/private'
+			page: '/'
 		}
 	},
 	{
@@ -131,7 +131,7 @@ export const project_data_main = readable([
 		description: 'A secure desktop app to save passowrds built with python pyqt5 and sqlite3.',
 		links: {
 			study: '',
-			page: '/private'
+			page: '/'
 		}
 	}
 ]);
