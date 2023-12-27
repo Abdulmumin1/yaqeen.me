@@ -26,7 +26,7 @@
 </script>
 
 <div class=" h-full w-full">
-	<div class="grid grid-cols-2 gap-4 h-full flex-col md:flex-row w-full">
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full flex-col md:flex-row w-full">
 		{#await loadPost()}
 			<p>loading</p>
 		{:then posts}
