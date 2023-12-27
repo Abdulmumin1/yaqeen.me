@@ -2,6 +2,7 @@
 	import {
 		faAngleRight,
 		faArrowDown,
+		faCalendar,
 		faClock,
 		faEllipsisH
 	} from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +12,7 @@
 	import { latestPostDetail, others } from '$lib/utils/latestbog.js';
 	import { mylinks } from '$lib/utils/randomstore.js';
 	import { onMount } from 'svelte';
+	import { formatDate } from '$lib/js/utils.js';
 
 	async function loadPost() {
 		const response = await fetch('blog/api/postlg');
@@ -23,35 +25,42 @@
 	// });
 </script>
 
-<div>
-	<div class="flex gap-4 h-full flex-col lg:flex-row w-full">
+<div class=" h-full w-full">
+	<div class="grid grid-cols-2 gap-4 h-full flex-col md:flex-row w-full">
 		{#await loadPost()}
 			<p>loading</p>
 		{:then posts}
-			<div class="w-full h-full">
+			<div class="w-full h-full flex flex-col">
 				<h2 class="lg:text-4xl text-3xl font-visby_bold font-bold mt-6 mb-4">Latest Post</h2>
 
 				<div
-					class="w-full gap-4 flex flex-col border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark"
+					class="w-full gap-4 flex justify-between flex-col border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark"
 				>
-					<a
-						href={`/blog/${posts[0]?.slug}`}
-						class="text-[2rem] lg:text-[4rem] font-visby_bold font-bold"
-						><h1 class="leading-none text-orang dark:text-dark">
-							{posts[0]?.title}
-						</h1></a
-					>
-					<p class="text-stone-950 dark:text-orange-100">
-						{posts[0]?.description}
-					</p>
-					<div
-						class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-orang dark:border-dark hover_link_fill"
-					>
-						<a href={`blog/${posts[0]?.slug}`} class="">Read More </a>
-						<Fa icon={faAngleRight} />
+					<div class="flex items-center gap-2">
+						<Fa icon={faCalendar} />
+						{formatDate(posts[0]?.date)}
+					</div>
+					<div class="flex flex-col">
+						<a
+							href={`/blog/${posts[0]?.slug}`}
+							class="text-[2rem] lg:text-[4rem] font-visby_bold font-bold"
+							><h1 class="leading-none text-orang dark:text-dark">
+								{posts[0]?.title}
+							</h1></a
+						>
+						<p class="text-stone-950 dark:text-orange-100">
+							{posts[0]?.description}
+						</p>
+						<div
+							class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-orang dark:border-dark hover_link_fill"
+						>
+							<a href={`blog/${posts[0]?.slug}`} class="">Read More </a>
+							<Fa icon={faAngleRight} />
+						</div>
 					</div>
 				</div>
 			</div>
+
 			<div class="flex flex-col gap-4">
 				<p
 					class="mt-6 mb-4 visby_bold text-2xl lg:text-4xl border-b-2 w-fit border-orang dark:border-dark"

@@ -26,47 +26,6 @@
 	onMount(() => {
 		url = window.location.href;
 		insertCopyButton(faCopy);
-
-		async function generateSocialPreview(title) {
-			try {
-				const response = await fetch(
-					`blog/api/generate-preview?title=${encodeURIComponent(title)}`,
-					{
-						method: 'GET' // or 'POST', depending on your server setup
-					}
-				);
-
-				if (!response.ok) {
-					throw new Error('Network response was not ok.');
-				}
-
-				// Assuming the response is an image, convert it to base64 for display or further use
-				const imageBlob = await response.blob();
-				const imageBase64 = await blobToBase64(imageBlob);
-
-				// Use the base64 image data as needed (e.g., set it as the src of an img tag)
-				console.log('Generated image base64:', imageBase64);
-
-				return imageBase64;
-			} catch (error) {
-				console.error('Error generating social preview:', error);
-				return null;
-			}
-		}
-
-		// Helper function to convert blob to base64
-		function blobToBase64(blob) {
-			return new Promise((resolve, reject) => {
-				const reader = new FileReader();
-				reader.onloadend = () => resolve(reader.result);
-				reader.onerror = reject;
-				reader.readAsDataURL(blob);
-			});
-		}
-
-		// Usage example:
-		const pageTitle = data.meta.title;
-		generateSocialPreview(pageTitle);
 	});
 
 	function convertLinkToRequestReadable(link) {
