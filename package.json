@@ -31,6 +31,7 @@
 		"@fortawesome/free-brands-svg-icons": "^6.4.0",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"gray-matter": "^4.0.3",
+		"puppeteer": "^21.6.1",
 		"shiki": "^0.14.3",
 		"svelte-fa": "^3.0.4"
 	}
