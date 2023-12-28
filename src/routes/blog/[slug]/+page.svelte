@@ -40,6 +40,22 @@
 
 <svelte:head>
 	<title>{data.meta.title}</title>
+	<meta name="description" content={data.meta?.description} />
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://www.yaqeen.me/blog" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={data.meta.title} />
+	<meta property="og:description" content={data.meta?.description} />
+	<meta property="og:image" content={data.meta?.thumbnail} />
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content="yaqeen.me" />
+	<meta property="twitter:url" content="https://www.yaqeen.me" />
+	<meta name="twitter:title" content={data.meta.title} />
+	<meta name="twitter:description" content={data.meta?.description} />
+	<meta name="twitter:image" content={data.meta?.thumbnail} />
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2 article">

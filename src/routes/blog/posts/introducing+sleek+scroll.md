@@ -14,6 +14,8 @@ categories:
 - extension
 - js
 
+thumbnail: "https://cdn.hashnode.com/res/hashnode/image/upload/v1703704767703/f10479c5-a422-4b08-897f-57ff35b98bc2.png"
+
 published: true
 
 ---
