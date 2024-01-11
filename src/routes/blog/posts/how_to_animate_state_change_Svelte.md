@@ -21,7 +21,7 @@ If you’re to do this with CSS, you will find it almost impossible if what you�
 
 ## How?
 
-we can achieve this with the `{#key …}` block, which is part of the super useful is list of logic blocks Svelte provides.
+we can achieve this with the `{#key …}` block, which is part of the super useful list of logic blocks Svelte provides.
 
 > view the complete list of logic blocks [here](https://svelte.dev/docs/logic-blocks)
 
