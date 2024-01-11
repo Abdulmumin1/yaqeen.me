@@ -1,30 +1,30 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
-
-import { escapeSvelte, mdsvex } from 'mdsvex';
-import shiki from 'shiki';
+import mdsvexConfig from './mdsvex.config.mjs';
+import { mdsvex } from 'mdsvex';
+// import shiki from 'shiki';
 
 /** @type {import('@sveltejs/kit').Config} */
 
-const mdsvexConf = {
-	extensions: ['.md'],
-	highlight: {
-		highlighter: async (code, lang = 'text') => {
-			const highlighter = await shiki.getHighlighter({
-				theme: 'min-dark'
-			});
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }));
-			return `{@html \`${html}\`}`;
-		}
-	}
-};
+// const mdsvexConf = {
+// 	extensions: ['.md'],
+// 	highlight: {
+// 		highlighter: async (code, lang = 'text') => {
+// 			const highlighter = await shiki.getHighlighter({
+// 				theme: 'min-dark'
+// 			});
+// 			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }));
+// 			return `{@html \`${html}\`}`;
+// 		}
+// 	}
+// };
 
 const config = {
 	kit: {
 		adapter: adapter()
 	},
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexConf)]
+	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)]
 };
 
 export default config;

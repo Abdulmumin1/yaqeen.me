@@ -95,7 +95,7 @@
 			</div>
 
 			<div
-				class="space-y-5 max-w-[800px] w-full markdown-content text-base
+				class="space-y-5 max-w-[800px] w-full markdown-content text-lg
 			"
 			>
 				<svelte:component this={data.content} />

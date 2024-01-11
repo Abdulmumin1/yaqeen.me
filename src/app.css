@@ -2206,11 +2206,10 @@ video {
 }
 
 .article pre {
-  padding: 0.75rem;
+  padding: 0.25rem;
   overflow: scroll;
   font-size: 1rem;
-  border-bottom-right-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
+  border-radius: 0.75rem;
   border-width: 8px;
   --tw-border-opacity: 1;
   border-color: rgb(31 31 31 / var(--tw-border-opacity));
@@ -2663,12 +2662,13 @@ video {
     border-radius: 1rem;
   }
 
-  .md\:border-2 {
-    border-width: 2px;
-  }
-
   .md\:border-b-4 {
     border-bottom-width: 4px;
+  }
+
+  .md\:bg-orange-100 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 237 213 / var(--tw-bg-opacity));
   }
 
   .md\:p-12 {
@@ -2725,6 +2725,11 @@ video {
   .md\:hover\:text-2xl:hover {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  :is(.dark .md\:dark\:bg-stone-900) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(28 25 23 / var(--tw-bg-opacity));
   }
 }
 

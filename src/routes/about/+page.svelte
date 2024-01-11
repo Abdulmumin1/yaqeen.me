@@ -66,21 +66,7 @@
 				undeniably become one of the crowning achievements of my journey, making the fusion of
 				technology and writing an integral part of my professional narrative.
 			</p>
-			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
-			<ul
-				class="space-y-3 py-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center flex-col list-none"
-			>
-				<li class="px-3 py-2">Writing</li>
-				<li class="px-3 py-2">Drawing</li>
-				<li class="px-3 py-2">Photography</li>
-				<li class="px-3 py-2">Alone time</li>
-				<li class="px-3 py-3">
-					& Of course, <span class="font-bold">Space!!</span> It such a beauty.
-					<p class="pl-3 py-3 my-2 text-dark rounded-lg dark:text-black bg-orange-200 dark:bg-dark">
-						The state of constant wonder, is just exciting to me!!
-					</p>
-				</li>
-			</ul>
+
 			<h3 class="text-2xl font-bold text-orang dark:text-dark">Technologies I Use</h3>
 
 			<ul class="grid grid-cols-2 gap-4">
@@ -121,7 +107,21 @@
 					<span class="text-lg font-bold">PyQt</span>
 				</li>
 			</ul>
-
+			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
+			<ul
+				class="space-y-3 py-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center flex-col list-none"
+			>
+				<li class="px-3 py-2">Writing ✏️</li>
+				<li class="px-3 py-2">Drawing 🎨</li>
+				<li class="px-3 py-2">Photography 📸</li>
+				<li class="px-3 py-2">Alone time 🔇</li>
+				<li class="px-3 py-3">
+					& Of course, <span class="font-bold">Space!! 🌌</span> It such a beauty.
+					<p class="pl-3 py-3 my-2 text-dark rounded-lg dark:text-black bg-orange-200 dark:bg-dark">
+						The state of constant wonder, is just exciting to me!!
+					</p>
+				</li>
+			</ul>
 			<!-- <h3 class="text-2xl font-bold text-orang dark:text-dark">Recent Experience</h3> -->
 		</div>
 	</div>
