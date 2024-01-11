@@ -1,9 +1,47 @@
 <script>
 	import { scale, slide } from 'svelte/transition';
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
-
+	import Fa from 'svelte-fa';
+	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+	import { onMount } from 'svelte';
 	export let data;
-	// console.log(data.posts);
+
+	let latest = data.posts[0];
+	data.posts.shift();
+	let pagelength = 6;
+	let showPagination = data.posts && data.posts.length > pagelength; // Updated condition for showPagination
+	let currentPage = 0;
+	let currentPageData = [];
+	let muteNext = false;
+	let mutePrev = true;
+
+	onMount(() => {
+		updateCurrentPageData(); // Move the logic to update current page data into a function
+	});
+
+	function updateCurrentPageData() {
+		currentPageData = data.posts.slice(currentPage, currentPage + pagelength);
+	}
+
+	function next() {
+		if (currentPage + pagelength < data.posts.length) {
+			currentPage += pagelength;
+			updateCurrentPageData();
+		} else {
+			muteNext = true; // Disable next button when at the last page
+		}
+		mutePrev = false; // Reset mutePrev when navigating to the next page
+	}
+
+	function prev() {
+		if (currentPage - pagelength >= 0) {
+			currentPage -= pagelength;
+			updateCurrentPageData();
+		} else {
+			mutePrev = true; // Disable prev button when at the first page
+		}
+		muteNext = false; // Reset muteNext when navigating to the previous page
+	}
 </script>
 
 <svelte:head>
@@ -34,13 +72,30 @@
 		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
 			<div class="text-4xl flex flex-col gap-3">
 				<p>Latest post</p>
-				<BlogCard details={data.posts[0]} latest={true} />
+				<BlogCard details={latest} latest={true} />
 			</div>
 			<div class=" grid grid-cols-1 md:grid-cols-2 gap-5">
-				{#each data.posts.splice(1, data.posts.length) as post (post.slug)}
+				{#each currentPageData as post (post.slug)}
 					<BlogCard details={post} />
 				{/each}
 			</div>
+
+			{#if showPagination}
+				<div class="flex justify-between w-full">
+					<button
+						on:click={prev}
+						disabled={mutePrev}
+						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+						><Fa icon={faAngleLeft} /> prev</button
+					>
+					<button
+						on:click={next}
+						disabled={muteNext}
+						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+						><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></button
+					>
+				</div>
+			{/if}
 		</div>
 	</article>
 </section>
