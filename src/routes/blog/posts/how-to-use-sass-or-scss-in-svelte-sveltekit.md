@@ -35,14 +35,14 @@ In order to of course compile your scss, you need to install it preprocessor, th
 Install as a dev-dependency using:
 
 ```bash
-    // npm
-    npm i -D sass svelte-preprocess
+// npm
+npm i -D sass svelte-preprocess
 
-    // pnpm
-    pnpm add -D sass svelte-preprocess
+// pnpm
+pnpm add -D sass svelte-preprocess
 
-    // yarn
-    yarn add -D sass svelte-preprocess
+// yarn
+yarn add -D sass svelte-preprocess
 ```
 
 ## 2. Svelte Preprocess Config
@@ -52,17 +52,18 @@ This step is only required for Svelte and not Sveltekit. Sveltekit by default ha
 In your `rolloup.config.js`
 
 ```svelte {8}
-    import svelte from 'rollup-plugin-svelte'
-    import sveltePreprocess from 'svelte-preprocess';
+import svelte from 'rollup-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
 
-    export default {
-      // other configs
-      plugins: [
-        svelte({
-          preprocess: sveltePreprocess(),
-        }),
-      ],
-    };
+export default {
+  // other configs
+  plugins: [
+    svelte({
+      preprocess: sveltePreprocess(),
+    }),
+  ],
+};
+
 ```
 
 If you have global CSS written in scss, you can modify the config to include the path:
@@ -70,14 +71,14 @@ If you have global CSS written in scss, you can modify the config to include the
 > These additional config can also be done in sveltekit in your `svelte.config.js`
 
 ```svelte {3-6}
-    // ...
-      preprocess: sveltePreprocess(
-        // Not recommended though
-        scss: {
-          includePaths: ['src/styles'], // Optional, specify additional include paths
-        }
-      ),
-    // ...
+// ...
+preprocess: sveltePreprocess({
+  scss: {
+    includePaths: ['src/styles'], // Optional, specify additional include paths
+  },
+}),
+// ...
+
 ```
 
 > You can learn more about the official svelte-preprocess and other available config [here](https://github.com/sveltejs/svelte-preprocess/blob/main/docs/getting-started.md)
@@ -94,15 +95,16 @@ To enable Sass/Scss in scoped styles, all you have to do is add `lang="scss"` in
 	$secondary-color: #2ecc71;
 
 	.button {
-	  background-color: $primary-color;
-	  color: white;
-	  padding: 10px 20px;
-	  border-radius: 5px;
-	  transition: background-color 0.3s ease;
+		background-color: $primary-color;
+		color: white;
+		padding: 10px 20px;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
 
-	  &:hover {
-	    background-color: darken($primary-color, 10%);
-	  }
+		&:hover {
+			background-color: darken($primary-color, 10%);
+		}
+	}
 </style>
 ```
 
