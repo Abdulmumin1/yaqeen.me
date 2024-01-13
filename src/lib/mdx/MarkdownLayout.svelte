@@ -21,7 +21,4 @@
 		gap: 20px;
 		flex-direction: column;
 	}
-	.heading {
-		text-align: center;
-	}
 </style>

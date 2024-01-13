@@ -22,7 +22,7 @@ code {
 }
 
 :is(.dark .highlight-line) {
-	border-left: var(--spacing-1) solid #c2410c;
+	border-left: 9px solid #c2410c;
 }
 
 :root {
