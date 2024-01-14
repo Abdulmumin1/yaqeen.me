@@ -15,6 +15,10 @@ thumbnail: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705009291855/62
 published: true
 ---
 
+<script>
+	import BlogCarousel from '$lib/demos/blogCoursel.svelte'
+</script>
+
 Svelte is amazing, and in this article we will go through how you can animation/transition between components in svelte.
 
 If you’re to do this with CSS, you will find it almost impossible if what you’re changing is not a CSS property. With the recent development in view-transitions-api, we’re moving to a phase were it going to become easier to do this.
@@ -67,6 +71,9 @@ Here we are going to wrap our content around the key and we’re going apply a s
 	</div>
 </div>
 ```
+
+Demo
+<BlogCarousel/>
 
 One thing I want to clarify is that, in both examples, no just values can be passed to the key, you can also feed it an **expression**, and will perform the same.
 
