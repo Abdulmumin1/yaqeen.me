@@ -72,7 +72,6 @@ Here we are going to wrap our content around the key and we’re going apply a s
 </div>
 ```
 
-Demo
 <BlogCarousel/>
 
 One thing I want to clarify is that, in both examples, no just values can be passed to the key, you can also feed it an **expression**, and will perform the same.
