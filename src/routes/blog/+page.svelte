@@ -49,13 +49,19 @@
 
 	<!-- HTML Meta Tags -->
 	<title>Blog - Abdulmumin Yaqeen</title>
-	<meta name="description" content="A creative, curiosity-driven developer & writer" />
+	<meta
+		name="description"
+		content="Visual powered blog - Get the best learning experience with interactive element to showcase concepts"
+	/>
 
 	<!-- Facebook Meta Tags -->
 	<meta property="og:url" content="https://www.yaqeen.me" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Abdulmumin Yaqeen" />
-	<meta property="og:description" content="A creative, curiosity-driven developer & writer" />
+	<meta
+		property="og:description"
+		content="Visual powered blog - Get the best learning experience with interactive element to showcase concepts"
+	/>
 	<meta property="og:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 
 	<!-- Twitter Meta Tags -->
@@ -63,7 +69,10 @@
 	<meta property="twitter:domain" content="yaqeen.me" />
 	<meta property="twitter:url" content="https://www.yaqeen.me" />
 	<meta name="twitter:title" content="Abdulmumin Yaqeen" />
-	<meta name="twitter:description" content="A creative, curiosity-driven developer & writer" />
+	<meta
+		name="twitter:description"
+		content="Visual powered blog - Get the best learning experience with interactive elements to showcase concepts"
+	/>
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
@@ -96,6 +105,35 @@
 					>
 				</div>
 			{/if}
+		</div>
+
+		<div class="flex flex-col gap-6 px-6">
+			<h1 class="text-sm">
+				Visual powered blog - Get the best learning experience with interactive elements to showcase
+				concepts
+			</h1>
+
+			<form
+				class="p-12 max-w-3xl bg-orange-100 dark:bg-stone-900 flex items-center justify-center flex-col gap-2 rounded-xl border-2 border-orang dark:border-stone-800"
+			>
+				<h4>Subscribe to my newsletter!</h4>
+				<p class="text-sm">* Every tips & tricks in your Inbox 🫶</p>
+				<form method="post" class="flex flex-col md:flex-row gap-3">
+					<input
+						type="email"
+						name="email"
+						placeholder="name@example.com"
+						class="p-2 bg-orange-200 dark:bg-stone-800 rounded-lg"
+					/>
+
+					<button
+						type="submit"
+						disabled="true"
+						class="bg-orang dark:bg-dark text-black px-2 rounded-lg"
+						>Subscribe
+					</button>
+				</form>
+			</form>
 		</div>
 	</article>
 </section>

@@ -27,7 +27,7 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<div in:scale out:slide class=" flex justify-center p-4">
+<div in:scale out:slide class="min-h-screen flex justify-center p-4">
 	<div class="  max-w-[500px] flex flex-col items-center">
 		<div class="rounded-full relative tinted-image">
 			<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />

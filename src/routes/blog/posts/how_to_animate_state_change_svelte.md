@@ -12,6 +12,8 @@ categories:
 
 thumbnail: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705009291855/6247f945-a075-4916-8af7-9ae1ca31f235.png'
 
+visual: true
+
 published: true
 ---
 

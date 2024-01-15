@@ -57,6 +57,11 @@
 							<a href={`blog/${posts[0]?.slug}`} class="">Read More </a>
 							<Fa icon={faAngleRight} />
 						</div>
+						{#if posts[0]?.visual}
+							<div class="text-sm mt-2 bg-orange-200 dark:bg-stone-800 rounded-3xl w-fit px-2">
+								Interactive Blog
+							</div>
+						{/if}
 					</div>
 				</div>
 			</div>
@@ -68,7 +73,12 @@
 					Recent
 				</p>
 				{#each posts.slice(1, 4) as post}
-					<BlogSPost title={post.title} link={`/blog/${post.slug}`} date={post.date} />
+					<BlogSPost
+						title={post.title}
+						link={`/blog/${post.slug}`}
+						date={post.date}
+						visual={post?.visual}
+					/>
 				{/each}
 				<!-- <BlogSPost title={' Git For Beginners: A Complete Guide.'} /> -->
 
