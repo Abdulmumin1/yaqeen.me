@@ -10,7 +10,7 @@ categories:
   - transition
   - tips
 
-thumbnail: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705009291855/6247f945-a075-4916-8af7-9ae1ca31f235.png'
+thumbnail: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705306342282/203b7eb8-84fe-470a-949b-0df7288f6ce3.png'
 
 visual: true
 
