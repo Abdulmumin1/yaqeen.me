@@ -100,7 +100,7 @@
 			<div class="flex gap-3 flex-wrap mb-4">
 				{#each data.meta.categories as tag}
 					<span class="px-3 py-1 text-sm text-black rounded-full bg-orang dark:bg-dark"
-						>&num;{tag}</span
+						><a href="/category/{tag}">&num;&nbsp;{tag}</a></span
 					>
 				{/each}
 			</div>

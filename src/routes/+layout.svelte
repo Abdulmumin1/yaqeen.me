@@ -7,9 +7,9 @@
 
 	$: isBlog = false;
 	$: {
-		isBlog = $page.url.pathname.startsWith('/blog');
-		console.log(isBlog);
+		isBlog = $page.url.pathname.startsWith('/blog') || $page.url.pathname.startsWith('/category');
 	}
+
 	let r = ['rounded-t-xl'];
 </script>
 
@@ -25,5 +25,4 @@
 </div>
 
 <style>
-	
 </style>

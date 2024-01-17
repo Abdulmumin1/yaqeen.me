@@ -19,7 +19,7 @@
 	{#if latest}
 		<div class="max-w-md flex flex-col gap-3">
 			<a
-				href={`blog/${details.slug}`}
+				href={`/blog/${details.slug}`}
 				title={details.title}
 				class="text-5xl lg:text-6xl hover:opacity-80 text-orang dark:text-dark max-w-md capitalize"
 			>
@@ -28,7 +28,7 @@
 			<p class="text-sm">{formatDate(details.date)}</p>
 
 			<a
-				href={`blog/${details.slug}`}
+				href={`/blog/${details.slug}`}
 				class="flex gap-2 hover:gap-4 text-base transition-all duration-300 items-center"
 				>Continue Reading <Fa icon={faArrowRightLong} /></a
 			>
@@ -40,7 +40,7 @@
 		</div>
 	{:else}
 		<a
-			href={`blog/${details.slug}`}
+			href={`/blog/${details.slug}`}
 			title={details.title}
 			class="text-2xl lg:text-3xl hover:opacity-80"
 		>
