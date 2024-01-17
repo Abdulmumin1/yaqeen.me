@@ -1,7 +1,13 @@
 ---
 title: How to debug any code
-description: post description
+description: `Tracking down the cause of the error or bug is what we call debugging.
+
+We have always had the option to either paste our error in the Google search box or if we have some Googling skills, we can figure out a way to ask Google and get the best result.
+`
 date: '2023-2-14'
+
+lastmod: '2024-01-12'
+
 categories:
   - debugging
   - code

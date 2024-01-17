@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="bg-orange-100 border border-b-2 dark:bg-stone-900 dark:border-dark border-orang rounded-3xl p-6 w-full"
+	class="bg-orange-100 border border-b-2 dark:bg-stone-900 dark:border-dark border-orang rounded-3xl p-6 w-full con"
 >
 	<div>
 		<div class="flex justify-between items-center">
@@ -20,3 +20,11 @@
 		{description}
 	</div>
 </div>
+
+<style>
+	.con {
+		display: flex;
+		flex-direction: column;
+		gap: 100px;
+	}
+</style>

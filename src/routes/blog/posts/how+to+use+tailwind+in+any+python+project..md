@@ -1,7 +1,11 @@
 ---
 title: How to use TailwindCSS in any Python project
-description: post description
+description: 'In this article, I present to you a solution to your problem, that is, taking away the hassle of setting up Tailwind in a non-javascript project.'
+
 date: '2023-07-18'
+
+lastmod: '2024-01-12'
+
 categories:
   - python
   - tailwindcss

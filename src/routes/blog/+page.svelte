@@ -15,12 +15,22 @@
 	let muteNext = false;
 	let mutePrev = true;
 
+	function scrollToTopSmooth() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
+
 	onMount(() => {
+		// scrollToTopSmooth();
 		updateCurrentPageData(); // Move the logic to update current page data into a function
 	});
 
 	function updateCurrentPageData() {
 		currentPageData = data.posts.slice(currentPage, currentPage + pagelength);
+
+		scrollToTopSmooth();
 	}
 
 	function next() {
@@ -108,13 +118,13 @@
 		</div>
 
 		<div class="flex flex-col gap-6 px-6">
-			<h1 class="text-sm">
+			<h4 class="text-sm">
 				Visual powered blog - Get the best learning experience with interactive elements to showcase
-				concepts
-			</h1>
+				concepts 🫶.
+			</h4>
 
-			<form
-				class="p-12 max-w-3xl bg-orange-100 dark:bg-stone-900 flex items-center justify-center flex-col gap-2 rounded-xl border-2 border-orang dark:border-stone-800"
+			<!-- <div
+				class="p-12 max-w-3xl bg-orange-100 dark:bg-stone-900 flex items-center justify-center flex-col gap-2 rounded-xl border-2 border-orange-200 dark:border-stone-800"
 			>
 				<h4>Subscribe to my newsletter!</h4>
 				<p class="text-sm">* Every tips & tricks in your Inbox 🫶</p>
@@ -133,7 +143,7 @@
 						>Subscribe
 					</button>
 				</form>
-			</form>
+			</div> -->
 		</div>
 	</article>
 </section>

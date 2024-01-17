@@ -5,6 +5,8 @@ description: 'If you’re to do this with CSS, you will find it almost impossibl
 
 date: '2024-01-11'
 
+lastmod: '2024-01-12'
+
 categories:
   - svelte
   - transition

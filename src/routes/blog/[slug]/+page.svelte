@@ -22,8 +22,15 @@
 	import Ad from '../../../components/mainBlog/ad.svelte';
 
 	let url;
+	function scrollToTopSmooth() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
 
 	onMount(() => {
+		scrollToTopSmooth();
 		url = window.location.href;
 		insertCopyButton(faCopy);
 	});
@@ -54,8 +61,12 @@
 	<meta property="twitter:domain" content="yaqeen.me" />
 	<meta property="twitter:url" content="https://www.yaqeen.me" />
 	<meta name="twitter:title" content={data.meta.title} />
-	<meta name="twitter:description" content={data.meta?.description} />
+	<meta name="twitter:description" content={data.meta?.description || data.meta.title} />
 	<meta name="twitter:image" content={data.meta?.thumbnail} />
+
+	{#if data.meta?.published}
+		<meta name="robots" content="index, follow" />
+	{/if}
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2 article">

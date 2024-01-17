@@ -5,6 +5,8 @@ description: 'When we face a challenge or are approached with a problem as a nov
 
 date: '2023-01-02'
 
+lastmod: '2024-01-12'
+
 categories:
   - design pattern
   - problem solving

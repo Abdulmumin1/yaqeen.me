@@ -1,7 +1,13 @@
 ---
 title: How to Create RESTful API with Python
-description: post description
+description: "API skills are becoming more and more popular and valuable, with the increasing demand and use of API by both small and large businesses.
+I mean, most of us spend a whole lot of hours trying to find a suitable API for our next project. The fun part is that we aren't just consumers, we are builders as well.
+"
+
 date: '2023-7-3'
+
+lastmod: '2024-01-12'
+
 categories:
   - python
   - api

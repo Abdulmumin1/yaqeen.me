@@ -1,7 +1,12 @@
 ---
 title: How to Containerize a Python web app
-description: post description
+description: "One of the biggest problems in moving our apps from one environment to another has been solved with containers, what they basically are, just like the name suggest is that it a container where everything from our application dependencies to the operating system which our app will run on top off, has been put together in one piece.
+
+"
 date: '2023-07-29'
+
+lastmod: '2024-01-12'
+
 categories:
   - python
   - flask

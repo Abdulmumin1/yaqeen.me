@@ -1,9 +1,12 @@
 ---
 title: Things svelte just do better!
 
-description: post description
+description: "I think it is time to move on. Yes yes 😒, I know, you don't have to refactor all of your codebase to Svelte, but you should consider trying it out. I must warn you though, you might be tempted to refactor your entire company's codebase to svelte once you've experienced its beauty and simplicity.
+"
 
 date: '2023-08-15'
+
+lastmod: '2024-01-12'
 
 categories:
   - svelte

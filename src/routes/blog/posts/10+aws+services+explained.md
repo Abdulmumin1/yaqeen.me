@@ -1,7 +1,11 @@
 ---
 title: 10+ AWS services explained!
-description: post description
+description: 'Amazon Web Services(AWS) is a cloud computing platform with over 150+ featured services that provide businesses, customers, startups and developers with access to cloud infrastructures and software. AWS includes the mixture of Infrascture-as-a-services(IAAS), Platform-as-a-services(IAAS), and Software-as-a-services(SAAS).'
+
 date: '2023-6-14'
+
+lastmod: '2024-01-12'
+
 categories:
   - svelte
   - sveltekit

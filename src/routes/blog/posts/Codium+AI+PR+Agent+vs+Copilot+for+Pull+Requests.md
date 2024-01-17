@@ -5,6 +5,8 @@ description: "Taking advantage of AI, more products have started to emerge to he
 
 date: '2023-12-10'
 
+lastmod: '2024-01-12'
+
 categories:
   - git
 
@@ -135,16 +137,16 @@ Having all of these options should feel like a pro feature, but it isn’t as mu
 
 # Comparison Table
 
-| Features                             | Coduim’s PR-Agent     | Copilot for Pull Request |
-| ------------------------------------ | --------------------- | ------------------------ |
-| Ask                                  | ✅                     | ❌                        |
-| Enforcing CONTRIBUTING.md guidelines | Coming soon ✅         | ❌                        |
-| Generate Test in PR                  | ❌                     | ✅                        |
-| Improve                              | ✅                     | ✅                        |
-| Resolve Issue                        | PR-Agent for Issues ✅ | ✅                        |
-| Summarize                            | ✅                     | ✅                        |
-| Update Changelog                     | ✅                     | ❌                        |
-| Describe                             | ✅                     | ✅                        |
+| Features                             | Coduim’s PR-Agent      | Copilot for Pull Request |
+| ------------------------------------ | ---------------------- | ------------------------ |
+| Ask                                  | ✅                     | ❌                       |
+| Enforcing CONTRIBUTING.md guidelines | Coming soon ✅         | ❌                       |
+| Generate Test in PR                  | ❌                     | ✅                       |
+| Improve                              | ✅                     | ✅                       |
+| Resolve Issue                        | PR-Agent for Issues ✅ | ✅                       |
+| Summarize                            | ✅                     | ✅                       |
+| Update Changelog                     | ✅                     | ❌                       |
+| Describe                             | ✅                     | ✅                       |
 
 # Why Choose Copilot For Pull Request?
 

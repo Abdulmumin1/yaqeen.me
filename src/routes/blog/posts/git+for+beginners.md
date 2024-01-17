@@ -8,6 +8,8 @@ Most of the time, you are working on building simple projects, and the code base
 
 date: '2022-12-7'
 
+lastmod: '2024-01-12'
+
 categories:
 
 - git

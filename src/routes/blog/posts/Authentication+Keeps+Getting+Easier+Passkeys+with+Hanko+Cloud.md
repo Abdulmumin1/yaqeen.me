@@ -7,6 +7,9 @@ To use a passkey, you first need to register it with your device. This can be do
 
 date: '2023-10-30'
 
+lastmod: '2024-01-12'
+
+
 categories:
   - svelte
 

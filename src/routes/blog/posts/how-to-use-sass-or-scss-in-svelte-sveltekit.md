@@ -6,6 +6,8 @@ description: "SASS has a pretty strong fan base, It was something beautiful that
 
 date: '2024-01-13'
 
+lastmod: '2024-01-12'
+
 categories:
   - svelte
   - sass

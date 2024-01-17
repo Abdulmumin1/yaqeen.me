@@ -1,7 +1,11 @@
 ---
 title: Python tips and tricks
-description: post description
+description: "With the growing popularity of AI, the probability of you coming across Python code keeps increasing. In this article, we'll explore some tips and tricks to improve your code, help you understand them when you come across them, and get the most out of Python."
+
 date: '2023-5-14'
+
+lastmod: '2024-01-12'
+
 categories:
   - python
   - tips

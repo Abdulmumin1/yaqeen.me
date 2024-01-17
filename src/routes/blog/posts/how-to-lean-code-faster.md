@@ -1,7 +1,13 @@
 ---
 title: How to learn to code faster
-description: post description
+description: `For some what motivated them into getting into the fields is how fast they can learn and start earning and for others, passion.
+
+You might find yourself having spent more than a year and a half without a decent understanding of how it works.`
+
 date: '2022-12-14'
+
+lastmod: '2024-01-12'
+
 categories:
   - beginners
   - roadmap

@@ -1,7 +1,10 @@
 ---
 title: Svelte Tips and Features to Enhance Your Developer Experience
 
-description: post description
+description: "Svelte has a framework, with the power of its compiler, that allows you to do less with more, but sometimes you get to dig a little to find these gems, There might be features you're unaware of or aspects you never thought possible, but they're there, waiting to be discovered!
+"
+
+lastmod: '2024-01-12'
 
 date: '2023-10-23'
 

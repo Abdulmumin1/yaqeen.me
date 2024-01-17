@@ -1,7 +1,12 @@
 ---
 title: An easier framework to build web apps with python
-description: post description
+
+description: 'To use flask we need to install it on our machine - Run this on your terminal/cmd'
+
 date: '2022-09-10'
+
+lastmod: '2024-01-12'
+
 categories:
   - python
   - flask
