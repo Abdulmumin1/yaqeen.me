@@ -20,7 +20,7 @@
 	import { faCopy, faRightLong } from '@fortawesome/free-solid-svg-icons';
 	import { scale, slide } from 'svelte/transition';
 	import Ad from '../../../components/mainBlog/ad.svelte';
-
+	import {page} from '$app/stores'
 	let url;
 	function scrollToTopSmooth() {
 		window.scrollTo({
@@ -54,7 +54,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={data.meta.title} />
 	<meta property="og:description" content={data.meta?.description} />
-	<meta property="og:image" content={data.meta?.thumbnail} />
+	<meta property="og:image" content={data.meta?.thumbnail ?? `${$page.url.origin}/og?message=${data.meta.title}`} />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -62,7 +62,7 @@
 	<meta property="twitter:url" content="https://www.yaqeen.me" />
 	<meta name="twitter:title" content={data.meta.title} />
 	<meta name="twitter:description" content={data.meta?.description || data.meta.title} />
-	<meta name="twitter:image" content={data.meta?.thumbnail} />
+	<meta name="twitter:image" content={data.meta?.thumbnail ?? `${$page.url.origin}/og?message=${data.meta.title}`} />
 
 	{#if data.meta?.published}
 		<meta name="robots" content="index, follow" />
