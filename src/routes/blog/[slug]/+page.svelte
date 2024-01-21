@@ -62,7 +62,7 @@
 	<meta property="twitter:url" content="https://www.yaqeen.me" />
 	<meta name="twitter:title" content={data.meta.title} />
 	<meta name="twitter:description" content={data.meta?.description || data.meta.title} />
-	<meta name="twitter:image" content={data.meta?.thumbnail ?? `${$page.url.origin}/og?message=${data.meta.title}`} />
+	<meta name="twitter:image" content={data.meta?.thumbnail ?? `${$page.url.origin}/og?message=${encodeURIComponent(data.meta.title)}`} />
 
 	{#if data.meta?.published}
 		<meta name="robots" content="index, follow" />
