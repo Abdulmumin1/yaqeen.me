@@ -19,8 +19,6 @@ visual: false
 published: true
 ---
 
-# How to connect to a MongoDB database in Sveltekit
-
 While a database like Mongo is not the go-to choice for a lot of devs, It has gained quite a few honest users and a thriving community. If you’re here, you are likely part of this community.
 
 MongoDB is a document-oriented database, which means it allows for flexible and dynamic schema design. This flexibility is particularly beneficial in scenarios where the data structure evolves over time.
