@@ -25,6 +25,6 @@
 	.con {
 		display: flex;
 		flex-direction: column;
-		gap: 100px;
+		max-width: 600px;
 	}
 </style>

@@ -3,7 +3,7 @@
 
 	import Fa from 'svelte-fa';
 	import { faRss } from '@fortawesome/free-solid-svg-icons';
-
+	import { getKbarState } from 'kbar-svelte-mini';
 	import { onMount, onDestroy } from 'svelte';
 	import Darkmode from './Darkmode.svelte';
 
@@ -16,7 +16,7 @@
 		showNav = true;
 		// Hide after 3 seconds of inactivity
 	};
-
+	let kbarState = getKbarState();
 	onMount(() => {
 		let prevScrollPos = window.pageYOffset;
 
@@ -39,6 +39,10 @@
 			window.removeEventListener('scroll', handleScroll);
 		};
 	});
+
+	function toggleKbar() {
+		$kbarState = !$kbarState;
+	}
 </script>
 
 <ul
@@ -54,6 +58,11 @@
 	</li>
 	<li>
 		<ul class="flex gap-2 items-center justify-center">
+			<li
+				class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-2 px-4 rounded-full text-black text-sm"
+			>
+				<button on:click={toggleKbar}> Search <span class="">Ctrl+K</span></button>
+			</li>
 			<li class="flex items-center justify-center">
 				<a href="/about ">About</a>
 			</li>

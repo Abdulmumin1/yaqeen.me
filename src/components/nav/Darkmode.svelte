@@ -6,34 +6,35 @@
 
 	import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 	import { scale } from 'svelte/transition';
+	import { darkMode } from '$lib/utils/darkmode.js';
 
-	$: darkMode = true;
-
-	function handleSwitchDarkMode() {
-		darkMode = !darkMode;
-		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-
+	$: {
 		if (browser) {
+			localStorage.setItem('theme', $darkMode ? 'dark' : 'light');
+
 			if (
 				localStorage.theme === 'dark' ||
 				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 			) {
 				document.documentElement.classList.add('dark');
-				darkMode = true;
 			} else {
 				document.documentElement.classList.remove('dark');
-				darkMode = false;
 			}
 		}
 	}
+	function handleSwitchDarkMode() {
+		darkMode.update((cur) => {
+			return !cur;
+		});
+	}
 
 	onMount(() => {
-		darkMode = localStorage.theme === 'dark';
+		darkMode.set(localStorage.theme === 'dark');
 	});
 </script>
 
 <div class="text-inherit flex items-center justify-center">
-	{#if darkMode}
+	{#if $darkMode}
 		<button
 			in:scale
 			class=" cursor-pointer self-center hover-animate"

@@ -7,7 +7,7 @@
 	class="flex flex-col w-full items-center gap-6 bg-orange-100 dark:bg-stone-900 mt-2 p-4 py-6 lg:p-8 rounded-3xl"
 >
 	<h1 class="text-4xl font-bold text-orang dark:text-dark">MINI Projects</h1>
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+	<div class="flex flex-col items-center justify-center gap-6 w-full iss p-1 py-6">
 		<MiniProject
 			title={'CSS-Faster'}
 			description={'a vscode extenstion that allows you to write vanilla css faster, using tailwind classes as snippets'}

@@ -1,8 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import NavItem from './navItem.svelte';
-	import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-	import { scale, slide } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import BlogNav from './blogNav.svelte';
 	import Darkmode from './Darkmode.svelte';
 
