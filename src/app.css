@@ -2784,8 +2784,8 @@ video {
     display: flex;
   }
 
-  .lg\:h-\[580px\] {
-    height: 580px;
+  .lg\:h-\[500px\] {
+    height: 500px;
   }
 
   .lg\:grid-cols-2 {
@@ -2810,6 +2810,20 @@ video {
 
   .lg\:p-8 {
     padding: 2rem;
+  }
+
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .lg\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .lg\:text-2xl {

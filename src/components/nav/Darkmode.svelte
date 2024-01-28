@@ -10,6 +10,7 @@
 
 	$: {
 		if (browser) {
+			console.log(localStorage.theme);
 			localStorage.setItem('theme', $darkMode ? 'dark' : 'light');
 
 			if (
@@ -29,7 +30,8 @@
 	}
 
 	onMount(() => {
-		darkMode.set(localStorage.theme === 'dark');
+		let isdark = localStorage.theme == 'dark';
+		darkMode.set(isdark);
 	});
 </script>
 

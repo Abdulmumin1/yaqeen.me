@@ -59,7 +59,7 @@
 	<li>
 		<ul class="flex gap-2 items-center justify-center">
 			<li
-				class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-2 px-4 rounded-full text-black text-sm"
+				class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-2 px-3 rounded-full text-black text-sm"
 			>
 				<button on:click={toggleKbar}> Search <span class="">Ctrl+K</span></button>
 			</li>

@@ -10,7 +10,7 @@
 	}
 </script>
 
-<main class="lg:h-[580px] h-[480px] flex flex-col justify-center items-center snap-center">
+<main class="lg:h-[500px] h-[480px] flex flex-col justify-center items-center snap-center">
 	<div
 		class="w-[90%] h-[90%] flex p-2 relative rounded-2xl md:border-2 border-orang dark:border-dark items-center justify-center"
 	>
