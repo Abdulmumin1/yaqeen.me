@@ -56,7 +56,8 @@
 	<meta property="og:description" content={data.meta?.description} />
 	<meta
 		property="og:image"
-		content={data.meta?.thumbnail ?? `${$page.url.origin}/og?message=${data.meta.title}`}
+		content={data.meta?.thumbnail ??
+			`${$page.url.origin}/og?message=${encodeURIComponent(data.meta.title)}`}
 	/>
 
 	<!-- Twitter Meta Tags -->
@@ -80,25 +81,24 @@
 	<hgroup
 		class="md:h-[400px] justify-center mb-4 flex items-center rounded-lg w-full flex-col gap-3"
 	>
-		<div class="flex max-w-md md:max-w-[800px] flex-col items-center justify-center">
+		<div class="flex max-w-md md:max-w-[800px] flex-col md:items-center gap-2 justify-center">
 			<h1 class="text-5xl md:text-6xl md:text-center">{data.meta.title}</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
-		</div>
-
-		<div class="flex items-center">
-			<div class="flex gap-2">
-				<a href={$mylinks.github}>
-					<Fa icon={faGithub} />
-				</a>
-				<a href={$mylinks.linkedin}>
-					<Fa icon={faLinkedin} />
-				</a>
-				<a href={$mylinks.twitter}>
-					<Fa icon={faTwitter} />
-				</a>
-				<a href={$mylinks.youtube}>
-					<Fa icon={faYoutube} />
-				</a>
+			<div class="flex md:items-center">
+				<div class="flex gap-2">
+					<a href={$mylinks.github}>
+						<Fa icon={faGithub} />
+					</a>
+					<a href={$mylinks.linkedin}>
+						<Fa icon={faLinkedin} />
+					</a>
+					<a href={$mylinks.twitter}>
+						<Fa icon={faTwitter} />
+					</a>
+					<a href={$mylinks.youtube}>
+						<Fa icon={faYoutube} />
+					</a>
+				</div>
 			</div>
 		</div>
 	</hgroup>
@@ -106,14 +106,14 @@
 		<div class="w-full">
 			<div class="flex gap-3 flex-wrap mb-4">
 				{#each data.meta.categories as tag}
-					<span class="px-3 py-1 text-sm text-black rounded-full bg-orang dark:bg-dark"
+					<span class="px-3 py-1 text-sm text-black rounded-lg bg-orang dark:bg-dark"
 						><a href="/category/{tag}">&num;&nbsp;{tag}</a></span
 					>
 				{/each}
 			</div>
 
 			<div
-				class="space-y-5 max-w-[800px] w-full markdown-content text-lg
+				class="space-y-5 max-w-[800px] w-full markdown-content text-base
 			"
 			>
 				<svelte:component this={data.content} />
