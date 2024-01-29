@@ -69,7 +69,7 @@
 	<meta
 		name="twitter:image"
 		content={data.meta?.thumbnail ??
-			`${$page.url.origin}/og?message=${encodeURIComponent(data.meta.title)}`}
+			`https://yaqeen.me/og?message=${encodeURIComponent(data.meta.title)}`}
 	/>
 
 	{#if data.meta?.published}
