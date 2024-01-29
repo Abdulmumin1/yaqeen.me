@@ -11,27 +11,27 @@ export async function GET({ fetch, url }) {
         xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     >
-    <url>
-    <loc>https://www.yaqeen.me/about</loc>
+  <url>
+    <loc>https://yaqeen.me</loc>
+  </url>
+  <url>
+    <loc>https://yaqeen.me/about</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
   <url>
-    <loc>https://www.yaqeen.me/blog</loc>
+    <loc>https://yaqeen.me/blog</loc>
   </url>
+ 
   <url>
-    <loc>https://www.yaqeen.me</loc>
+    <loc>https://yaqeen.me/neuroodyssey</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
   <url>
-    <loc>https://www.yaqeen.me/neuroodyssey</loc>
+    <loc>https://yaqeen.me/projects</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
   <url>
-    <loc>https://www.yaqeen.me/projects</loc>
-    <lastmod>2024-01-17</lastmod>
-  </url>
-  <url>
-    <loc>https://www.yaqeen.me/wallpapers</loc>
+    <loc>https://yaqeen.me/wallpapers</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
     ${posts
