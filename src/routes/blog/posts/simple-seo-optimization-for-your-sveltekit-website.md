@@ -21,9 +21,9 @@ Recently I’ve been putting a lot of work into SEO for my blog and also that of
 
 I then come to realize my website needs the `sitemap.xml` so Google can index them faster, and also a `robots.txt`. These makes the discovery and indexing process faster and more efficient.
 
-I thought It would be cool to share other like me, a simple method to step up your SEO game.
+My first thought was we can't have TXT files or XML files as route in Sveltekit, turned out I was thinking the wrong way and the solution is much more simpler.
 
-My first thought was we can have TXT files or XML files as route in Sveltekit, turned out I was thinking the wrong way and the solution is much more simpler.
+I thought It would be cool to share other like me, this method to step up your SEO game.
 
 So, the first thing we’re going to tackle is the `robots.txt` file, this file tells the search engine crawlers which part of your site it should be crawled or not. A `robots.txt` file is used primarily to manage crawler traffic to your site, and _usually_ to keep a file off Google.
 
@@ -155,14 +155,18 @@ export async function GET({ fetch, url }) {
 
         <!-- Rest of the site map -->
 
-        ${posts.map((post) => `
+        ${posts
+					.map(
+						(post) => `
           <url>
             <loc>${url.origin}/blog/${post.slug}</loc>
             <lastmod>${post?.lastmod}</lastmod>
           </url>
-            `).join('')}
+            `
+					)
+					.join('')}
         </urlset>`.trim();
-        
+
 	return new Response(xml, {
 		headers: {
 			'Content-Type': 'application/xml'
