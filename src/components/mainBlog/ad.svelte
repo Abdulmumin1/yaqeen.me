@@ -17,7 +17,7 @@
 				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
 		</div>
-		<div class="flex flex-col gap-2">
+		<!-- <div class="flex flex-col gap-2">
 			<p class="font-semibold">SleekScroll</p>
 			<p class="text-sm">Make Ugly Chromium scrollbars look cool!</p>
 			<a
@@ -25,6 +25,16 @@
 				target="_blank"
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
 				>Get Browser Extension <Fa icon={faRightLong} /></a
+			>
+		</div> -->
+		<div class="flex flex-col gap-2">
+			<p class="font-semibold">Kbar-svelte-mini</p>
+			<p class="text-sm">Setup cmd+k/ctrl+k for your svelte app with breeze 🌬️</p>
+			<a
+				href="https://www.npmjs.com/package/kbar-svelte-mini"
+				target="_blank"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
+				>Get npm package <Fa icon={faRightLong} /></a
 			>
 		</div>
 	</div>
