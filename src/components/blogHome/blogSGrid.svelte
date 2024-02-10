@@ -40,10 +40,10 @@
 						<Fa icon={faCalendar} />
 						{formatDate(posts[0]?.date)}
 					</div>
-					<div class="flex flex-col">
+					<div class="flex flex-col gap-3">
 						<a
 							href={`/blog/${posts[0]?.slug}`}
-							class="text-[2rem] lg:text-[4rem] font-visby_bold font-bold"
+							class="text-[2rem] md:text-[3rem] lg:text-[4rem] font-visby_bold font-bold"
 							><h1 class="leading-none text-orang dark:text-dark">
 								{posts[0]?.title}
 							</h1></a

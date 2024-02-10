@@ -25,7 +25,7 @@
 				>
 			</div>
 			<p
-				class="lg:text-6xl text-4xl text-center font-visby_bold font-bold text-orang dark:text-dark"
+				class="lg:text-6xl md:text-5xl text-4xl text-center font-visby_bold font-bold text-orang dark:text-dark"
 			>
 				I'm Abdulmumin
 			</p>

@@ -104,12 +104,16 @@
 					<button
 						on:click={prev}
 						disabled={mutePrev}
+						class:border-0={mutePrev}
+						class:border-b-0={mutePrev}
 						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
 						><Fa icon={faAngleLeft} /> prev</button
 					>
 					<button
 						on:click={next}
 						disabled={muteNext}
+						class:border-0={muteNext}
+						class:border-b-0={muteNext}
 						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
 						><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></button
 					>
