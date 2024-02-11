@@ -13,7 +13,7 @@
 			description={'npm package for svelte to integrate cmd+k/ctrl+k in your website'}
 			link={'Abdulmumin1/kbar-svelte-mini'}
 		/>
-		<<MiniProject
+		<MiniProject
 			title={'CSS-Faster'}
 			description={'a vscode extenstion that allows you to write vanilla css faster, using tailwind classes as snippets'}
 			link={'Abdulmumin1/css-faster'}
