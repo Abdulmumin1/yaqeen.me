@@ -9,10 +9,15 @@
 	<h1 class="text-4xl font-bold text-orang dark:text-dark">MINI Projects</h1>
 	<div class="flex flex-col items-center justify-center gap-6 w-full iss p-1 py-6">
 		<MiniProject
+			title={'kbar-svelte-mini'}
+			description={'npm package for svelte to integrate cmd+k/ctrl+k in your website'}
+			link={'Abdulmumin1/kbar-svelte-mini'}
+		/>
+		<<MiniProject
 			title={'CSS-Faster'}
 			description={'a vscode extenstion that allows you to write vanilla css faster, using tailwind classes as snippets'}
 			link={'Abdulmumin1/css-faster'}
-		/>
+		/>>
 		<MiniProject
 			title={'TailwindPie'}
 			description={'A python package that makes it easier to setup and use tailwind in any python project'}

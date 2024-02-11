@@ -21,8 +21,7 @@
 			<span class="text-base md:text-lg font-bold font-visby_bold"
 				><a href="https://kbar-mini.vercel.app" target="_blank">-- kbar-svelte-mini</a>
 			</span>
-			- A Lite version of
-			<a href="https://kbar.vercel.app" target="_blank">kbar</a> ported to Svelte
+			npm package for svelte to integrate cmd+k/ctrl+k in your website
 		</li>
 		<li class="bg-orange-200 p-2 lg:p-4 rounded-lg dark:bg-stone-800">
 			<span class="text-base md:text-lg font-bold font-visby_bold">-- CSS faster</span> - a vscode snippet
