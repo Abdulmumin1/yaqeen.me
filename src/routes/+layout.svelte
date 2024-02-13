@@ -115,6 +115,3 @@
 		--shadow={'0px 0px 0px black'}
 	/>
 {/if}
-
-<style>
-</style>

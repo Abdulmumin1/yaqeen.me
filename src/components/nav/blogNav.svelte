@@ -48,9 +48,9 @@
 <div
 	transition:slide
 	class:visible={showNav}
-	class="bottom-nav max-w-[1600px] z-50 fixed bg-orange-100 border-b-2 border-orang dark:border-dark dark:bg-stone-900 w-full flex items-center justify-center"
+	class="bottom-nav w-[200vw] z-50 fixed bg-orange-100 border-b-2 border-orang dark:border-dark dark:bg-stone-900 flex items-center justify-center"
 >
-	<ul class=" w-full flex justify-between py-6 px-3 items-center mt-12">
+	<ul class=" w-screen flex justify-between py-6 px-3 md:px-6 items-center mt-12">
 		<li>
 			<a href="/blog" class="relative font-bold flex items-center justify-center">
 				<h1>Home</h1>
