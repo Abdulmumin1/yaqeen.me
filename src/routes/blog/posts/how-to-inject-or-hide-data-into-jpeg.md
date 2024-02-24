@@ -46,7 +46,7 @@ def inject(image, data):
     image_file.close()
 ```
 
-What we have here is a very simple function, that takes the image and the data we want to append to the JPEG. Very straight forward stuff; we opened the Image in `**ab**` mode, appending bytes mode.
+What we have here is a very simple function, that takes the image and the data we want to append to the JPEG. Very straight forward stuff; we opened the Image in `ab` mode, appending bytes mode.
 
 ### Adding hello world;
 
