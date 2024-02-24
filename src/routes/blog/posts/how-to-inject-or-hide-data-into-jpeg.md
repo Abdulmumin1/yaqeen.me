@@ -33,7 +33,7 @@ We will be taking advantage of the end marker i.e. FFD9, and add whatever we wan
 
 First, let's try adding a hello world to an Image, I will be using this example image (I promise it is not bugged 😀, you can trust me 🙂) for this demo. It is safe to download.
 
-![Naruto and his teacher jiraiya share a stick sweet. Abdulmumin yaqeen](https://paper-attachments.dropboxusercontent.com/s_EA202B613A1B366F3BBE06A9229C822665469C9FB6A5409DBB17EDEEBCBD6156_1708366286608_image.jpg align="left")
+![Naruto and his teacher jiraiya share a stick sweet. Abdulmumin yaqeen](https://paper-attachments.dropboxusercontent.com/s_EA202B613A1B366F3BBE06A9229C822665469C9FB6A5409DBB17EDEEBCBD6156_1708366286608_image.jpg)
 
 ### Create a new Python file.
 
@@ -103,7 +103,7 @@ print(data)
 
 There you have it: our Hello World and Image, both clean and Intact.
 
-![Abdulmumin yaqeen naruto yaqeen.me blog](https://paper-attachments.dropboxusercontent.com/s_EA202B613A1B366F3BBE06A9229C822665469C9FB6A5409DBB17EDEEBCBD6156_1708783901971_Screenshot+from+2024-02-24+15-10-05.png align="left")
+![Abdulmumin yaqeen naruto yaqeen.me blog](https://paper-attachments.dropboxusercontent.com/s_EA202B613A1B366F3BBE06A9229C822665469C9FB6A5409DBB17EDEEBCBD6156_1708783901971_Screenshot+from+2024-02-24+15-10-05.png)
 
 ### A Problem 🤨;
 
@@ -150,7 +150,7 @@ with open('somevid.mp4', 'rb') as media:
 
 You can see that after appending the video into the image, the size have increased:
 
-![Abdulmumin yaqeen naruto yaqeen.me blog](https://paper-attachments.dropboxusercontent.com/s_EA202B613A1B366F3BBE06A9229C822665469C9FB6A5409DBB17EDEEBCBD6156_1708784631122_editnow.png align="left")
+![Abdulmumin yaqeen naruto yaqeen.me blog](https://paper-attachments.dropboxusercontent.com/s_EA202B613A1B366F3BBE06A9229C822665469C9FB6A5409DBB17EDEEBCBD6156_1708784631122_editnow.png)
 
 We can easily fetch our video using:
 
