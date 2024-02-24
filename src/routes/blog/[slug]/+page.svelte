@@ -75,6 +75,8 @@
 	{#if data.meta?.published}
 		<meta name="robots" content="index, follow" />
 	{/if}
+
+	<link rel="canonical" href={url} />
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2 article">
