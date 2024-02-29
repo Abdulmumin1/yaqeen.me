@@ -36,7 +36,7 @@
 		"@vercel/analytics": "^1.1.2",
 		"gemini-scrollbar": "^1.5.3",
 		"gray-matter": "^4.0.3",
-		"kbar-svelte-mini": "^0.0.21",
+		"kbar-svelte-mini": "^0.1.0",
 		"node-html-parser": "^6.1.12",
 		"puppeteer": "^21.6.1",
 		"shiki": "^0.14.3",
