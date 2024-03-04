@@ -43,6 +43,7 @@
 	}
 
 	let encodedTitle = convertLinkToRequestReadable(data.meta.title);
+	url = url.replace('www.', '');
 </script>
 
 <svelte:head>
