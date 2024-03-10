@@ -142,7 +142,7 @@
 				<li class="px-3 py-2">
 					- Writing ✏️
 					<p class="pl-3 py-2 my-2 border-l-4 border-orang dark:border-dark">
-						I love writing, and have been using sharing my thoughts on this platform and others(<a
+						I love writing, and have been sharing my thoughts on this platform and others(<a
 							target="_blank"
 							class="text-orang dark:text-dark"
 							href="https://dev.to/abdulmuminyqn">dev.to</a
