@@ -40,7 +40,7 @@ export const project_data = readable([
 		description:
 			'A fast and secure desktop app that allows you to share files across multiple devices',
 		links: {
-			study: 'httpsgithub.com/Abdulmumin1/drop',
+			study: 'https://github.com/Abdulmumin1/drop',
 			page: 'github.com/Abdulmumin1/drop'
 		},
 		color: 'bg-orange-400 dark:bg-orange-500'
