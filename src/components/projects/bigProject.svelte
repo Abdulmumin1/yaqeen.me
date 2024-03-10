@@ -42,14 +42,14 @@
 	<div>
 		{description}
 	</div>
-	<p class="text-xl flex gap-2 items-center"><Fa icon={faLayerGroup} />Stack</p>
-	<ul class="flex gap-2 flex-wrap text-black">
+	<!-- <p class="text-xl flex gap-2 items-center"><Fa icon={faLayerGroup} />Stack</p> -->
+	<!-- <ul class="flex gap-2 flex-wrap text-black">
 		{#each stack as st}
 			<li class=" text-black bg-orang dark:bg-dark p-1 rounded-2xl">
 				<a href={$stackLinks[st.toLowerCase()]} class="p-1">{st}</a>
 			</li>
 		{/each}
-	</ul>
+	</ul> -->
 </div>
 <dialog id="vidModal" bind:this={modal} class="bg-orange-200">
 	<div class="flex flex-col gap-2">

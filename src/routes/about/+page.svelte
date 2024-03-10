@@ -1,6 +1,12 @@
 <script>
 	import me from '$lib/images/abdul.jpg';
-	import { faGithub, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+	import {
+		faGithub,
+		faLinkedin,
+		faLinkedinIn,
+		faTwitter,
+		faYoutube
+	} from '@fortawesome/free-brands-svg-icons';
 	import Fa from 'svelte-fa';
 	import { fly, scale, slide } from 'svelte/transition';
 	import { mylinks } from '$lib/utils/randomstore.js';
@@ -28,101 +34,143 @@
 </svelte:head>
 
 <div in:scale out:slide class="min-h-screen flex justify-center p-4">
-	<div class="  max-w-[500px] flex flex-col items-center">
-		<div class="rounded-full relative tinted-image">
-			<img src={me} alt="Abdulmumin Yaqeen" width="150px" class="rounded-full" />
-		</div>
-		<div class="flex gap-2 p-2">
-			<a href={$mylinks.github}>
-				<Fa icon={faGithub} />
-			</a>
-			<a href={$mylinks.linkedin}>
-				<Fa icon={faLinkedinIn} />
-			</a>
-			<a href={$mylinks.twitter}>
-				<Fa icon={faTwitter} />
-			</a>
-			<a href={$mylinks.youtube}>
-				<Fa icon={faYoutube} />
-			</a>
-		</div>
-		<h1 class="text-3xl font-visby_mid font-bold w-fit pb-4 text-orang dark:text-dark">About me</h1>
-		<div class="text-md lg:text-lg flex flex-col space-y-2">
-			<p>
-				I'm Abdulmumin Yaqeen Abdulkarim, navigating an exhilarating journey over the past few
-				years.
-			</p>
-			<p>
-				I write lots of Python and Javascript code, and have worked in various field spanning web,
-				mobile and cloud computing.
-			</p>
-			<p>
-				I have a deep fascination for computer science and gaining a deeper knowledge on
-				computational paradigms.
-			</p>
-			<p>
-				One of the pivotal decisions in my career was embracing the art of writing. I find immense
-				joy in articulating complex tech concepts in a way that's accessible to everyone. This has
-				undeniably become one of the crowning achievements of my journey, making the fusion of
-				technology and writing an integral part of my professional narrative.
-			</p>
+	<div class="  max-w-[700px] flex flex-col gap-10">
+		<div class="flex flex-col md:flex-row pt-10 items-center justify-center gap-10">
+			<div class="flex flex-col items-center flex-1">
+				<div
+					class="rounded-xl border-orang relative tinted-image before:border-2 before:rounded-lg before:border-[#473436] dark:before:bg-dark before:absolute before:top-0 before:w-full before:h-full before:bg-orang"
+				>
+					<img
+						src={me}
+						alt="Abdulmumin Yaqeen"
+						class="w-[200px] md:w-[500px] -rotate-6 rounded-xl"
+					/>
+				</div>
+				<div class="flex gap-2 p-2 text-xl mt-2">
+					<a href={$mylinks.github}>
+						<Fa icon={faGithub} />
+					</a>
+					<a href={$mylinks.linkedin}>
+						<Fa icon={faLinkedin} />
+					</a>
+					<a href={$mylinks.twitter}>
+						<Fa icon={faTwitter} />
+					</a>
+					<a href={$mylinks.youtube}>
+						<Fa icon={faYoutube} />
+					</a>
+				</div>
+			</div>
+			<div class=" flex flex-col flex-1">
+				<div class=" text-base space-y-4 text-balance">
+					<h1 class="text-3xl font-visby_mid font-bold w-fit text-orang dark:text-dark">
+						About me
+					</h1>
+					<p>
+						I'm Abdulmumin Yaqeen Abdulkarim, Currently a part time <span
+							class="border-b border-orang dark:border-dark">Technical Writer</span
+						>
+						and pursuing my
+						<span class="border-b border-orang dark:border-dark">Cyber Security</span> degree.
+					</p>
+					<p>
+						I write lots of Python and Javascript code, and have worked in various field spanning
+						web, mobile and cloud computing.
+					</p>
+					<p>
+						I have a deep fascination for computer science and gaining a deeper knowledge on
+						computational paradigms.
+					</p>
+				</div>
+				<!-- <p>
+					One of the pivotal decisions in my career was embracing the art of writing. I find immense
+					joy in articulating complex tech concepts in a way that's accessible to everyone. This has
+					undeniably become one of the crowning achievements of my journey, making the fusion of
+					technology and writing an integral part of my professional narrative.
+				</p> -->
 
-			<h3 class="text-2xl font-bold text-orang dark:text-dark">Technologies I Use</h3>
+				<!-- <h3 class="text-2xl font-bold text-orang dark:text-dark">Technologies I Use</h3>
+	
+				<ul class="grid grid-cols-2 gap-4">
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Python</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Javascript</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Svelte/Sveltekit</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Flask</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Django</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Supabase</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Prisma</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">MongoDB</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Tailwind CSS</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">AWS</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">Bash & Linux</span>
+					</li>
+					<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
+						<span class="text-lg font-bold">PyQt</span>
+					</li>
+				</ul> -->
 
-			<ul class="grid grid-cols-2 gap-4">
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Python</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Javascript</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Svelte/Sveltekit</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Flask</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Django</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Supabase</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Prisma</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">MongoDB</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Tailwind CSS</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">AWS</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">Bash & Linux</span>
-				</li>
-				<li class="bg-orange-200 dark:bg-stone-800 p-4 rounded-md">
-					<span class="text-lg font-bold">PyQt</span>
-				</li>
-			</ul>
+				<!-- <h3 class="text-2xl font-bold text-orang dark:text-dark">Recent Experience</h3> -->
+			</div>
+		</div>
+
+		<div class="space-y-5 text-balance">
 			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
 			<ul
 				class="space-y-3 py-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center flex-col list-none"
 			>
-				<li class="px-3 py-2">Writing ✏️</li>
-				<li class="px-3 py-2">Drawing 🎨</li>
-				<li class="px-3 py-2">Photography 📸</li>
+				<li class="px-3 py-2">
+					- Writing ✏️
+					<p class="pl-3 py-2 my-2 border-l-4 border-orang dark:border-dark">
+						I love writing, and have been using sharing my thoughts on this platform and others(<a
+							target="_blank"
+							class="text-orang dark:text-dark"
+							href="https://dev.to/abdulmuminyqn">dev.to</a
+						>,
+						<a target="_blank" class="text-orang dark:text-dark" href="https://avdurr.hashnode.com"
+							>hashnode.com</a
+						>) for quite a while.
+					</p>
+				</li>
+				<li class="px-3 py-2">
+					- Drawing 🎨
+					<p class="pl-3 py-2 my-2 border-l-4 border-orang dark:border-dark">
+						Not a pro, mostly just doodling away.
+					</p>
+				</li>
+				<li class="px-3 py-2">
+					- Photography 📸
+					<!-- <p class="pl-3 py-2 my-2 border-l-4 border-orang dark:border-dark">My plan B.</p> -->
+				</li>
 				<li class="px-3 py-2">Alone time 🔇</li>
 				<li class="px-3 py-3">
-					& Of course, <span class="font-bold">Space!! 🌌</span> It such a beauty.
-					<p class="pl-3 py-3 my-2 text-dark rounded-lg dark:text-black bg-orange-200 dark:bg-dark">
-						The state of constant wonder, is just exciting to me!!
+					- & Of course, <span class="font-bold">Nature!! 🌌</span>
+					<p class="pl-3 py-2 my-2 border-l-4 border-orang dark:border-dark">
+						I love universe and the creator, nature and all of It beauty. The state of constant
+						"awe", is just exciting to me!!
 					</p>
 				</li>
 			</ul>
-			<!-- <h3 class="text-2xl font-bold text-orang dark:text-dark">Recent Experience</h3> -->
 		</div>
 	</div>
 </div>

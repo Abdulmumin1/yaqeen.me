@@ -1,11 +1,8 @@
 <script>
-	import { slide } from 'svelte/transition';
 	import MiniProject from './miniProject.svelte';
 </script>
 
-<div
-	class="flex flex-col w-full items-center gap-6 bg-orange-100 dark:bg-stone-900 mt-2 p-4 py-6 lg:p-8 rounded-3xl"
->
+<div class="flex flex-col w-full items-center gap-6 mt-2 p-4 py-6 lg:p-8 rounded-3xl">
 	<h1 class="text-4xl font-bold text-orang dark:text-dark">MINI Projects</h1>
 	<div class="flex flex-col items-center justify-center gap-6 w-full iss p-1 py-6">
 		<MiniProject
@@ -14,10 +11,15 @@
 			link={'Abdulmumin1/kbar-svelte-mini'}
 		/>
 		<MiniProject
+			title={'Liseen'}
+			description={'Listen to youtube videos as audio'}
+			link={'Abdulmumin1/liseen'}
+		/>
+		<MiniProject
 			title={'CSS-Faster'}
 			description={'a vscode extenstion that allows you to write vanilla css faster, using tailwind classes as snippets'}
 			link={'Abdulmumin1/css-faster'}
-		/>>
+		/>
 		<MiniProject
 			title={'TailwindPie'}
 			description={'A python package that makes it easier to setup and use tailwind in any python project'}

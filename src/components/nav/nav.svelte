@@ -12,7 +12,7 @@
 	{#if !isBlog}
 		<ul
 			transition:slide
-			class="flex top-1 gap-1 lg:gap-5 font-medium border px-2 border-orange-600 dark:border-dark border-b-2 md:border-b-4 space-x-2 rounded-2xl items-center justify-center"
+			class="flex top-1 gap-1 lg:gap-3 font-medium border px-2 border-orange-600 dark:border-dark border-b-2 rounded-3xl items-center justify-center"
 		>
 			<NavItem data={{ name: 'Home', href: '/' }} />
 			<!-- <p>·</p> -->

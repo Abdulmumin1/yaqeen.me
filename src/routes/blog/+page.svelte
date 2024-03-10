@@ -8,7 +8,7 @@
 
 	let latest = data.posts[0];
 	data.posts.shift();
-	let pagelength = 6;
+	let pagelength = 8;
 	let showPagination = data.posts && data.posts.length > pagelength; // Updated condition for showPagination
 	let currentPage = 0;
 	let currentPageData = [];
@@ -122,10 +122,10 @@
 		</div>
 
 		<div class="flex flex-col gap-6 px-6">
-			<h4 class="text-sm">
-				Visual powered blog - Get the best learning experience with interactive elements to showcase
-				concepts 🫶.
-			</h4>
+			<!-- <h4 class="text-sm">
+				Visual powered blog - Get the best learning experience with interactive elements that
+				showcase concepts 🫶.
+			</h4> -->
 
 			<!-- <div
 				class="p-12 max-w-3xl bg-orange-100 dark:bg-stone-900 flex items-center justify-center flex-col gap-2 rounded-xl border-2 border-orange-200 dark:border-stone-800"

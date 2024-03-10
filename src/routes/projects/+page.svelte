@@ -93,8 +93,8 @@
 				</div>
 			{/each}
 		</div> -->
-		<MiniSection />
 		<BigSection />
+		<MiniSection />
 	</div>
 
 	<!--

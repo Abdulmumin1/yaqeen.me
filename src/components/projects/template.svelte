@@ -1,10 +1,16 @@
 <script>
 	import { scale } from 'svelte/transition';
 
-	import { faAngleRight, faFolder, faFolderBlank } from '@fortawesome/free-solid-svg-icons';
+	import {
+		faAngleRight,
+		faArrowRightLong,
+		faFolder,
+		faFolderBlank
+	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	export let details;
 	import { stackLinks } from '$lib/utils/stackLookup.js';
+	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 	//{'name':"Project Name", 'stack':['Stack1', 'Stack2', 'Stack3'], 'description':"a short sentence that gives a overall picture of the project"}
 
 	// let stack_dict = {};
@@ -21,7 +27,7 @@
 
 <div
 	in:scale
-	class="border rounded-2xl border-orang gap-2 border-b-2 dark:border-dark p-6 flex flex-col w-full max-h-screen hover:border-b-4 transition-all duration-100 bg-orange-100 dark:bg-stone-900"
+	class="border rounded-2xl border-orang gap-2 border-b-2 dark:border-dark p-6 flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-100 dark:bg-stone-900"
 >
 	<div class="flex gap-2 items-center">
 		<p class="text-4xl lg:text-5xl">{details.name}</p>
@@ -29,12 +35,12 @@
 			<Fa icon={faFolderBlank} />
 		</p> -->
 	</div>
-	<div class="space-x-3 grid lg:grid-cols-2 grid-cols-1 items-center">
+	<div class="space-x-3 grid grid-cols-1 items-center">
 		<!-- <div>
 			<img src={edit} alt="" class="h-full rounded-md" />
 		</div> -->
 		<div class="space-y-3">
-			<p class="text-stone-900 dark:text-orange-100">{details.description}</p>
+			<p class="text-stone-900 max-w-[15rem] dark:text-orange-100">{details.description}</p>
 			<!-- <ul class="flex gap-2 flex-wrap text-black">
 				{#each details.stack as stack}
 					<li class=" text-orang dark:text-dark bg-orang dark:bg-dark p-1 rounded-md">
@@ -45,15 +51,15 @@
 
 			<div class="flex space-x-2">
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg border hover_link_fill border-orang dark:border-dark"
+					class="flex items-center w-fit space-x-2 p-1 rounded-lg hover_link_fill border-orang dark:border-dark"
 				>
-					<a href={details.links.study} class="">Github </a>
+					<a href={details.links.study} class=""><Fa icon={faGithub} /> </a>
 				</div>
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg border border-orang hover_link_fill dark:border-dark"
+					class="flex items-center justify-center w-fit space-x-2 px-2 rounded-lg border border-orang hover_link_fill text-sm dark:border-dark"
 				>
-					<a href={details.links.page} class="">Visit</a>
-					<Fa icon={faAngleRight} />
+					<a target="_blank" href="https://{details.links.page}">{details.links.page}</a>
+					<Fa icon={faArrowRightLong} />
 				</div>
 			</div>
 		</div>

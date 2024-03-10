@@ -11,7 +11,7 @@
 			<p class="font-semibold">Signup for DevCanvas</p>
 			<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant previews!</p>
 			<a
-				href="https://snippet-bice.vercel.app/play/try"
+				href="https://devcanvas.art/play/try"
 				target="_blank"
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
 				>Try DevCanvas <Fa icon={faRightLong} /></a

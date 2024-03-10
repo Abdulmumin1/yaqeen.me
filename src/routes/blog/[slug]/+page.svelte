@@ -33,6 +33,7 @@
 		scrollToTopSmooth();
 		url = window.location.href;
 		insertCopyButton(faCopy);
+		url = url.replace('www.', '');
 	});
 
 	function convertLinkToRequestReadable(link) {
@@ -43,7 +44,6 @@
 	}
 
 	let encodedTitle = convertLinkToRequestReadable(data.meta.title);
-	url = url.replace('www.', '');
 </script>
 
 <svelte:head>

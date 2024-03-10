@@ -112,6 +112,6 @@
 		--bg={!$darkMode ? '#ffedd5' : '#1c1917'}
 		--kbar-primary={$darkMode ? '#c04310' : '#f97316'}
 		--kbar-gray={'#1c1917'}
-		--shadow={'0px 0px 0px black'}
+		--shadow={`0px .2px .2px ${$darkMode ? '#c04310' : '#f97316'}`}
 	/>
 {/if}
