@@ -75,7 +75,7 @@ export const project_data_main = readable([
 		description: 'Online Code Editor, to paint, build and share cool html/css/js creations',
 		links: {
 			study: 'https://github.com/Abdulmumin1/devCanvas',
-			page: 'devcanvas.art'
+			page: 'https://devcanvas.art'
 		},
 		color: 'bg-sky-400'
 	},
