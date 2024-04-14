@@ -151,15 +151,15 @@ But, like shadcn, know that the port is by a different developer. And it’s sti
 
 [Skeleton UI](https://www.skeleton.dev) is another open-source toolkit built using Svelte and [Tailwind CSS](https://tailwindcss.com/). It is one of the more stable and popular Svelte component libraries out there. It’s got themes and design tokens that you can use to tweak the looks of your themes and UI. Skeleton is also built on Tailwind CSS so customization will be a lot easier.
 
-# Markdown In Svelte
+## Markdown In Svelte
 
 If you’re planning on writing content in Markdown in a Svelte app, then you’ll need some way to preprocess it on build so it parses as HTML. It’s not like there’s a shortage of options here, but [mdsvex](https://mdsvex.com/) is the one I keep coming back to. I’m not sure there’s something you’d need that it doesn’t have, but you might consider other popular options, like [svelte-markdoc-preprocess](https://svelte-markdoc-preprocess.pages.dev/documentation) and [svelte-markdown](https://github.com/pablo-abc/svelte-markdown) (which is a markdown parser rather than a preprocessor).
 
-# Writing CSS In Svelte
+## CSS In Svelte
 
 Svelte offers several methods to enhance the appearance of your components within a Svelte application, and you can even mix and match these methods for a customized approach.
 
-## CSS in Svelte Component
+### 1. CSS in Svelte Component
 
 Indeed, the design of Svelte encourages a streamlined approach by allowing you to consolidate your JavaScript, HTML, and CSS within a single component file. This design language promotes modularity, making it easier to manage and understand the structure of your components.
 
@@ -192,7 +192,7 @@ Here's an example of how you can combine JavaScript, HTML, and CSS in a Svelte c
 
 The styles defined within the `<style>` tag are scoped to this particular component. This means that the styles for `h1` and `p` will only affect elements within this component and won't leak out to affect other parts of your application. This scoped styling helps maintain modularity and prevents unintended style conflicts across different components.
 
-## Global CSS
+### 2. Global CSS
 
 Svelte allows global CSS directly in components through importing, or you can opt for the conventional method of linking CSS to HTML for styling purposes.
 
@@ -242,7 +242,7 @@ Note that the Node adapter makes it practically possible to deploy anywhere. And
 
 That’s actually what you’ll get from other services, too. What makes Vercel great is everything it does for you _in addition_ to deployments, things like access to analytics, backups, reverting deployments, cache control, security, and the list goes on. My personal favorite feature is being able to [preview the branch](https://vercel.com/features/previews) before it is formally deployed.
 
-As as setting things up, I recommend using the `[@sveltejs/adapter-auto](https://github.com/sveltejs/kit/tree/main/packages/adapter-auto)` adapter with the `[@sveltejs/adapter-vercel](https://kit.svelte.dev/docs/adapter-vercel)` adapter. The auto adapter does what it says and attempts to choose the right adapter for you based on where you are deploying, which can give you a little more stability and flexibility as far as what service you use. But it doesn’t accept options, you’ll need pair it with the Vercel adapter if you want to take advantage of more exciting Vercel features, such as [edge functions](https://vercel.com/products/managed-infrastructure).
+As as setting things up, I recommend using the [@sveltejs/adapter-auto](https://github.com/sveltejs/kit/tree/main/packages/adapter-auto) adapter with the [@sveltejs/adapter-vercel](https://kit.svelte.dev/docs/adapter-vercel) adapter. The auto adapter does what it says and attempts to choose the right adapter for you based on where you are deploying, which can give you a little more stability and flexibility as far as what service you use. But it doesn’t accept options, you’ll need pair it with the Vercel adapter if you want to take advantage of more exciting Vercel features, such as [edge functions](https://vercel.com/products/managed-infrastructure).
 
 ```js
 // svelte.config.js
