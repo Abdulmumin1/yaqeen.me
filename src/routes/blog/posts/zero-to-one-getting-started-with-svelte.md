@@ -1,5 +1,5 @@
 ---
-title: 'Zero to One: Getting Started with Svelte'
+title: 'Zero to One: Svelte essentials and tooling'
 
 description: 'in this article, my idea is to share a handful of the Svelte tools that I have discovered and become dependent on for my work. Some of the tools you undoubtedly know.'
 
@@ -18,7 +18,7 @@ categories:
 
 visual: false
 
-published: false
+published: true
 ---
 
 Many JavaScript frameworks are designed in such a way that a wrapper somehow has to read code in a specific syntax rather than writing vanilla JavaScript. In Svelte, however, JavaScript is a first-class citizen that _generally_ has no need for further abstraction.
