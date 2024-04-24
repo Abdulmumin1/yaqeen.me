@@ -32,9 +32,9 @@
 				class="flex gap-2 hover:gap-4 text-base transition-all duration-300 items-center"
 				>Continue Reading <Fa icon={faArrowRightLong} /></a
 			>
-			{#if details?.visual}
+			{#if details?.label}
 				<div class="text-sm bg-orange-200 dark:bg-stone-800 rounded-3xl w-fit px-2">
-					Interactive Blog
+					{@html details.label}
 				</div>
 			{/if}
 		</div>
@@ -47,9 +47,9 @@
 			{details.title}</a
 		>
 		<p>{formatDate(details.date)}</p>
-		{#if details?.visual}
+		{#if details?.label}
 			<div class="text-sm bg-orange-200 dark:bg-stone-800 rounded-3xl w-fit px-2">
-				Interactive Blog
+				{@html details.label}
 			</div>
 		{/if}
 	{/if}

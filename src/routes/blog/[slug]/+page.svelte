@@ -34,6 +34,7 @@
 		url = window.location.href;
 		insertCopyButton(faCopy);
 		url = url.replace('www.', '');
+		console.log(data);
 	});
 
 	function convertLinkToRequestReadable(link) {
@@ -106,22 +107,8 @@
 		</div>
 	</hgroup>
 	<section class="flex w-full flex-col lg:flex-row">
-		<div class="w-full">
-			<div class="flex gap-3 flex-wrap mb-4">
-				{#each data.meta.categories as tag}
-					<span class="px-3 py-1 text-sm text-black rounded-lg bg-orang dark:bg-dark"
-						><a href="/category/{tag}">&num;&nbsp;{tag}</a></span
-					>
-				{/each}
-			</div>
+		<svelte:component this={data.content} />
 
-			<div
-				class="space-y-5 max-w-[800px] w-full markdown-content text-base
-			"
-			>
-				<svelte:component this={data.content} />
-			</div>
-		</div>
 		<aside class="relative w-[400px] hidden md:hidden lg:flex">
 			<Ad />
 		</aside>

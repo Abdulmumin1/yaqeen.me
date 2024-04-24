@@ -14,7 +14,7 @@ categories:
 
 thumbnail: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705306342282/203b7eb8-84fe-470a-949b-0df7288f6ce3.png'
 
-visual: true
+label: 'Interactive blog'
 
 published: true
 ---

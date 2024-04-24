@@ -11,10 +11,12 @@ date: '2023-12-27'
 lastmod: '2024-01-12'
 
 categories:
-
+- product launch
 - chrome
 - extension
 - js
+
+label: '<a href="/category/product%20launch">product launch</a>'
 
 thumbnail: "https://cdn.hashnode.com/res/hashnode/image/upload/v1703704767703/f10479c5-a422-4b08-897f-57ff35b98bc2.png"
 

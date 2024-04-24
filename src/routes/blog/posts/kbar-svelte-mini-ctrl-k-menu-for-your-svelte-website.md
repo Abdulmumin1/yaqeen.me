@@ -8,12 +8,12 @@ date: '2024-02-10'
 lastmod: '2024-02-10'
 
 categories:
+  - product launch
   - sveltekit
   - npm
-  - cmdk
   - kbar
 
-visual: false
+label: 'Product launch'
 
 published: true
 ---

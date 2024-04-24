@@ -16,6 +16,8 @@ categories:
 - version control
 - cdl tools
 
+label: 'mini course'
+
 thumbnail: "https://cdn.hashnode.com/res/hashnode/image/upload/v1670257472877/Pg48r2kfi.png"
 
 published: true

@@ -55,17 +55,17 @@ export const project_data = readable([
 			page: 'editss.vercel.app'
 		},
 		color: 'bg-white'
-	}
+	},
 
-	// {
-	// 	name: 'Neuro Odyssey',
-	// 	stack: ['Python', 'CSS3', 'PyQt5'],
-	// 	description: 'Excell in you thinking ability with curated brain exercises',
-	// 	links: {
-	// 		study: '',
-	// 		page: '/neuroodyssey'
-	// 	}
-	// }
+	{
+		name: 'Liseen',
+		stack: ['Svelte', 'Tailwind'],
+		description: 'Listen to youtube videos as audio',
+		links: {
+			study: 'https://github.com/Abdulmumin1/liseen',
+			page: 'liseen.vercel.app'
+		}
+	}
 ]);
 
 export const project_data_main = readable([
