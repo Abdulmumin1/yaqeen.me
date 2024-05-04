@@ -3,9 +3,9 @@ title: 'How to stream a YouTube video as audio - Introducing Liseen'
 
 description: 'Liseen helps you to listen to youtube videos as audio, it a really cool solution and a small effort to fix your focus, while enjoying your favorite content that is only available on YouTube.'
 
-date: '2024-05-14'
+date: '2024-04-24'
 
-lastmod: '2024-05-14'
+lastmod: '2024-04-24'
 
 categories:
   - product launch

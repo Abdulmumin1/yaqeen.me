@@ -3,9 +3,9 @@ title: 'CSS Faster 🚀'
 
 description: 'The extension aims to provide a comprehensive set of utility classes inspired by Tailwind CSS to enhance your CSS development experience, when you're developing without any design principles.'
 
-date: '2024-06-04'
+date: '2024-05-04'
 
-lastmod: '2024-06-04'
+lastmod: '2024-05-04'
 
 categories:
   - product launch

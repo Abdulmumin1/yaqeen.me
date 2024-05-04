@@ -3,9 +3,9 @@ title: 'Zero to One: Svelte essentials and tooling'
 
 description: 'in this article, my idea is to share a handful of the Svelte tools that I have discovered and become dependent on for my work. Some of the tools you undoubtedly know.'
 
-date: '2024-05-14'
+date: '2024-04-14'
 
-lastmod: '2024-05-14'
+lastmod: '2024-04-14'
 
 categories:
   - svelte
