@@ -27,7 +27,9 @@ const config = {
 		}
 	},
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)]
+	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
+	// Enable incremental builds
+	inlineEntryPoints: false
 };
 
 export default config;
