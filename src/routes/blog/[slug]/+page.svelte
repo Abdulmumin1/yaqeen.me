@@ -88,6 +88,9 @@
 		<div class="flex max-w-md md:max-w-[800px] flex-col md:items-center gap-2 justify-center">
 			<h1 class="text-5xl md:text-6xl md:text-center">{data.meta.title}</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
+			{#if data.meta.date != data.meta.lastmod}
+				<p>Edited {formatDate(data.meta.lastmod)}</p>
+			{/if}
 			<div class="flex md:items-center">
 				<div class="flex gap-2">
 					<a href={$mylinks.github}>

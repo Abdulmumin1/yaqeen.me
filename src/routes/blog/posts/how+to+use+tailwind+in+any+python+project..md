@@ -4,13 +4,15 @@ description: 'In this article, I present to you a solution to your problem, that
 
 date: '2023-07-18'
 
-lastmod: '2024-01-12'
+lastmod: '2024-05-10'
 
 categories:
   - python
   - tailwindcss
   - css
   - flask
+
+label: 'Product launch'
 
 published: true
 ---
