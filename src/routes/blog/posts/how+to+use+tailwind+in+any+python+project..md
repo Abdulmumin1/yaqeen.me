@@ -7,12 +7,13 @@ date: '2023-07-18'
 lastmod: '2024-05-10'
 
 categories:
+  - product launch
   - python
-  - tailwindcss
+  - tailwind css
   - css
   - flask
 
-label: 'Product launch'
+label: 'product launch'
 
 published: true
 ---
