@@ -5,14 +5,17 @@ export function formatDate(date, dateStyle = 'medium', locales = 'en') {
 
 export function insertCopyButton(icon) {
 	let pre = document.querySelectorAll('pre');
+
 	pre.forEach((element) => {
-		let div = document.createElement('div');
-		div.classList =
-			'w-full flex items-center justify-end bg-orange-200 p-2 dark:bg-stone-800 rounded-xl';
-		div.style.marginBottom = '-23px';
 		let copyButton = document.createElement('button');
 		copyButton.innerText = 'copy';
-		copyButton.classList = ' px-4 rounded-t-lg  text-sm w-fit z-9999';
+		copyButton.classList.add('px-4', 'rounded-t-lg', 'text-sm', 'w-fit', 'z-9999');
+		element.style.position = 'relative';
+		copyButton.style.position = 'absolute';
+		copyButton.style.color = 'white';
+		copyButton.style.top = '2px';
+		copyButton.style.right = '0';
+
 		copyButton.onclick = () => {
 			copyUrlToClipboard(element.lastElementChild.innerText);
 			copyButton.innerText = 'copied';
@@ -20,9 +23,8 @@ export function insertCopyButton(icon) {
 				copyButton.innerText = 'copy';
 			}, 2000);
 		};
-		div.appendChild(copyButton);
-		element.classList.add('relative');
-		element.insertAdjacentElement('beforebegin', div);
+
+		element.appendChild(copyButton);
 	});
 }
 
