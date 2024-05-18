@@ -3,9 +3,9 @@ title: 'Migrating your Sveltekit app from Nodejs to Bunjs'
 
 description: 'To migrate your SvelteKit project from using Node.js to Bun, you can follow these steps, which align with the best practices and examples provided in the Bun and SvelteKit documentation.'
 
-date: '2024-05-10'
+date: '2024-05-12'
 
-lastmod: '2024-05-10'
+lastmod: '2024-05-18'
 
 categories:
   - snippets
