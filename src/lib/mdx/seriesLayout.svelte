@@ -50,7 +50,9 @@
 			</h3>
 		</a>
 
-		<SeriesEpisodes {series} highlight={episode} />
+		<div class="mt-16">
+			<SeriesEpisodes {series} highlight={episode} />
+		</div>
 	</div>
 </div>
 
