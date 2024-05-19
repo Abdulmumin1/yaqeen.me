@@ -8,7 +8,10 @@ const config = {
 	highlight: {
 		highlighter
 	},
-	layout: join(__dirname, './src/lib/mdx/MarkdownLayout.svelte')
+	layout: {
+		series: join(__dirname, './src/lib/mdx/seriesLayout.svelte'),
+		_: join(__dirname, './src/lib/mdx/MarkdownLayout.svelte')
+	}
 };
 
 export default config;

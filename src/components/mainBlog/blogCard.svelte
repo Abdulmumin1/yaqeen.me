@@ -17,11 +17,11 @@
 	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 md:hover:scale-105"
 >
 	{#if latest}
-		<div class="max-w-md flex flex-col gap-3">
+		<div class=" flex flex-col gap-3 w-full">
 			<a
 				href={`/blog/${details.slug}`}
 				title={details.title}
-				class="text-5xl lg:text-6xl hover:opacity-80 text-orang dark:text-dark max-w-md capitalize"
+				class="text-5xl lg:text-6xl hover:opacity-80 text-orang dark:text-dark text-balance w-full capitalize"
 			>
 				{details.title}</a
 			>

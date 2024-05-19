@@ -6,11 +6,16 @@
 </script>
 
 <script>
+	import Fa from 'svelte-fa';
+	import SeriesEpisodes from '../../components/mainBlog/seriesEpisodes.svelte';
 	import './styles.css';
+	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 
 	// import '@fontsource/ibm-plex-mono/latin.css';
 
 	export let categories;
+	export let series;
+	export let episode;
 </script>
 
 <!-- <svelte:head>
@@ -29,7 +34,6 @@
 			>
 		{/each}
 	</div>
-
 	<div
 		class="space-y-5 max-w-[800px] w-full markdown-content text-base
 	"
@@ -38,6 +42,15 @@
 			<!-- <h1 class="heading">SvelteKit Shiki Code Highlighting</h1> -->
 			<slot />
 		</main>
+
+		<a href="/blog/series/{series}">
+			<h3 class="text-black dark:text-orange-200 flex gap-2">
+				<span class="uppercase">{series}</span> Series
+				<span class="text-sm"><Fa icon={faExternalLink} /></span>
+			</h3>
+		</a>
+
+		<SeriesEpisodes {series} highlight={episode} />
 	</div>
 </div>
 

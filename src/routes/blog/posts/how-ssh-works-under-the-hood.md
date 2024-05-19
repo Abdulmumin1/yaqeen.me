@@ -16,6 +16,12 @@ categories:
 
 label: 'under the hood series'
 
+series: 'uth'
+
+episode: 2
+
+layout: series
+
 published: true
 ---
 
