@@ -1,7 +1,7 @@
 ---
 title: 'How SSH Works - Under The Hood'
 
-description: 'To migrate your SvelteKit project from using Node.js to Bun, you can follow these steps, which align with the best practices and examples provided in the Bun and SvelteKit documentation.'
+description: 'Up until it appearance, other services like Telnet, rlogin or RSH, where used to achieve this purpose. Although, they got quite a problem, i.e they transmits all information including usernames and passwords in plaintext, so it is not recommended for security-sensitive applications'
 
 date: '2024-05-18'
 
