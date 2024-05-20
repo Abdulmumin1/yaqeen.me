@@ -195,7 +195,7 @@
 			'Courier New', monospace;
 		@apply text-sm lg:text-base;
 	}
-	.markdown-content a {
+	.markdown-content a:not(.skip) {
 		@apply hover:border-b border-orang dark:border-dark text-orang dark:text-dark;
 	}
 

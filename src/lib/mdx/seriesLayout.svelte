@@ -43,14 +43,14 @@
 			<slot />
 		</main>
 
-		<a href="/blog/series/{series}">
-			<h3 class="text-black dark:text-orange-200 flex gap-2">
-				<span class="uppercase">{series}</span> Series
-				<span class="text-sm"><Fa icon={faExternalLink} /></span>
-			</h3>
-		</a>
+		<div class="pt-6 flex gap-3 flex-col">
+			<a href="/blog/series/{series}" class="skip">
+				<h3 class=" flex gap-2">
+					<span class="uppercase">{series}</span> Series
+					<span class="text-sm"><Fa icon={faExternalLink} /></span>
+				</h3>
+			</a>
 
-		<div class="mt-16">
 			<SeriesEpisodes {series} highlight={episode} />
 		</div>
 	</div>

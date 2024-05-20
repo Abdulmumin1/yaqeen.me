@@ -47,9 +47,10 @@
 >
 	{#if !loading}
 		{#each posts as episode}
-			<a href="/blog/{episode.slug}" class="px-3 py-4 flex items-center gap-2">
+			<a href="/blog/{episode.slug}" class="skip px-3 py-4 flex items-center gap-2">
 				<div
-					class="text-black dark:text-orange-200 bg-orange-100 dark:bg-stone-900 h-10 w-10 items-center justify-center flex rounded-full"
+					class="text-black dark:text-orange-200 bg-orange-100 dark:bg-stone-900 min-h-10 min-w-10 items-center justify-center flex rounded-full"
+					class:highlight={highlight == count}
 				>
 					{episodeNumber()}
 				</div>
@@ -58,3 +59,9 @@
 		{/each}
 	{/if}
 </div>
+
+<style>
+	.highlight {
+		background-color: orange;
+	}
+</style>
