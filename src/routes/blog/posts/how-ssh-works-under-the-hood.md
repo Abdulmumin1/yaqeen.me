@@ -5,7 +5,7 @@ description: 'Up until it appearance, other services like Telnet, rlogin or RSH,
 
 date: '2024-05-18'
 
-lastmod: '2024-05-18'
+lastmod: '2024-05-21'
 
 categories:
   - under the hood series
@@ -49,9 +49,9 @@ We will look at all process involve in successfully establishing an SSH connecti
 
 When you initialize an SSH connection with a SSH server, A three way (SYN, SYN-ACK, ACK) handshake occurs between the client and server to establish a TCP connection on port **22**.
 
-> Handshake, if you’re not familiar with it, is a process by which the client and server ensures that both are ready for communication. In case of the three-way handshake - the client sends SYN (synchronization) with a packet containing a number X, then the server acknowledges (ACK) that, by responding with an increment X+1 i.e and also it own synchronization (SYN) packet containing a number Y, by which the client acknowledges that by sending over Y+1.
+> Handshake, if you’re not familiar with it, is a process by which the client and server ensures that both are ready for communication. In case of the three-way handshake - the client sends SYN (synchronization) with a packet containing a number X, then the server acknowledges (ACK) that, by responding with an increment X+1 and also it own synchronization (SYN) packet containing a number Y, by which the client acknowledges (ACK) that by sending over Y+1. Thus, completing the handshake (SYN, SYN-ACK, ACK)
 
-**Then**, a version exchange occurs between the client and server, where they verify whether or not, they are able to communicate based on there version numbers, In case of any compatibility issues.
+**Then**, a version exchange occurs between the client and server, where they verify whether or not, they are able to communicate based on their version numbers, In case of any compatibility issues.
 
 ## Algorithm negotiation.
 
@@ -77,13 +77,11 @@ I think one of the most simplified explanation and visual, will be that of the c
 
 ![](https://paper-attachments.dropboxusercontent.com/s_ED4A03F1900B4A123CECA802B644C7BA40B660FB6A23CAA3446E5C1CFC04CDD5_1716004397619_originally+form+wikipedia.png)
 
-Further learning
+Further learning Resources:
 
-https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation
+- [Diffie–Hellman key exchange (#Cryptographic explanation)](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation)
 
-https://www.youtube.com/watch?v=NmM9HA2MQGI&
-
-[https://youtu.be/NmM9HA2MQGI](https://youtu.be/NmM9HA2MQGI)
+- [ Secret Key Exchange (Diffie-Hellman) - Computerphile ](https://www.youtube.com/watch?v=NmM9HA2MQGI&)
 
 ## Authentication
 

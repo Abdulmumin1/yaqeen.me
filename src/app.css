@@ -136,7 +136,7 @@
 		width: 100%;
 	}
 	.article blockquote {
-		@apply border-orang p-2  md:p-4 rounded-r-md border-l-2 bg-orange-200 dark:bg-stone-900 dark:border-dark w-fit font-mono;
+		@apply border-orang p-2  md:p-4 rounded-r-md border-l-2 bg-orange-100 dark:bg-stone-900 dark:border-dark w-fit font-mono;
 	}
 	/* Hide the default scrollbar */
 	.article pre::-webkit-scrollbar {
@@ -196,7 +196,7 @@
 		@apply text-sm lg:text-base;
 	}
 	.markdown-content a:not(.skip) {
-		@apply hover:border-b border-orang dark:border-dark text-orang dark:text-dark;
+		@apply hover:underline underline-offset-1  text-orang dark:text-dark;
 	}
 
 	.tinted-background::before {

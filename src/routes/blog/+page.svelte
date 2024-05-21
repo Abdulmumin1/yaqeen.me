@@ -28,6 +28,11 @@
 	});
 
 	function updateCurrentPageData() {
+		if (currentPage - pagelength < 0) {
+			mutePrev = true;
+		} else if (currentPage + pagelength >= data.posts.length) {
+			muteNext = true;
+		}
 		currentPageData = data.posts.slice(currentPage, currentPage + pagelength);
 
 		scrollToTopSmooth();
@@ -37,8 +42,6 @@
 		if (currentPage + pagelength < data.posts.length) {
 			currentPage += pagelength;
 			updateCurrentPageData();
-		} else {
-			muteNext = true; // Disable next button when at the last page
 		}
 		mutePrev = false; // Reset mutePrev when navigating to the next page
 	}
@@ -47,8 +50,6 @@
 		if (currentPage - pagelength >= 0) {
 			currentPage -= pagelength;
 			updateCurrentPageData();
-		} else {
-			mutePrev = true; // Disable prev button when at the first page
 		}
 		muteNext = false; // Reset muteNext when navigating to the previous page
 	}
@@ -106,7 +107,7 @@
 						disabled={mutePrev}
 						class:border-0={mutePrev}
 						class:border-b-0={mutePrev}
-						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+						class="bg-orange-200 dark:bg-stone-900 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
 						><Fa icon={faAngleLeft} /> prev</button
 					>
 					<button
@@ -114,7 +115,7 @@
 						disabled={muteNext}
 						class:border-0={muteNext}
 						class:border-b-0={muteNext}
-						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+						class="bg-orange-200 dark:bg-stone-900 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
 						><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></button
 					>
 				</div>

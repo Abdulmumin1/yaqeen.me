@@ -4,7 +4,7 @@
 	// console.log(data);
 </script>
 
-<div class="article">
+<div class="article flex flex-col gap-4">
 	<h1>Under the Hood Series</h1>
 
 	<p>

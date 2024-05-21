@@ -10,7 +10,7 @@
 	import SeriesEpisodes from '../../components/mainBlog/seriesEpisodes.svelte';
 	import './styles.css';
 	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
-
+	// Codeblock
 	// import '@fontsource/ibm-plex-mono/latin.css';
 
 	export let categories;

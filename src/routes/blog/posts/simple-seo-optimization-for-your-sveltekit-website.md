@@ -5,7 +5,7 @@ description: 'So, the first thing we’re going to tackle is the robots.txt file
 
 date: '2024-02-04'
 
-lastmod: '2024-02-04'
+lastmod: '2024-05-21'
 
 categories:
   - sveltekit
@@ -35,7 +35,9 @@ The way we’re going to create this `robots.txt` file for our Sveltekit website
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ url }) {
 	return new Response(
-		`User-agent: *
+		`
+
+User-agent: *
 Allow: /
 
 # Google adsbot ignores robots.txt unless specifically named!
@@ -45,7 +47,8 @@ Allow: /
 
 User-agent: GPTBot
 Disallow: /
-`.trim()
+   
+  `.trim()
 	);
 }
 ```
@@ -56,7 +59,9 @@ Having the `robots.txt` file alone does not mean the search engine crawler under
 
 As you can see in the `robots.txt`, we’re are blocking the `GPTBot` from crawling our website, it probably does not have much effect, but it good to have.
 
-**Sitemap;**
+> Thanks to one of our readers for letting me know about this tool [websiteplanet.com/webtools/robots-txt](https://websiteplanet.com/webtools/robots-txt) for verifying your `robots.txt` file.
+
+### Sitemap;
 
 A sitemap enable search engine crawlers to find pages that are present in your website, which changed and when, so it can index your site accordingly.
 
@@ -69,12 +74,12 @@ export async function GET() {
 	const xml = `
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset
-        xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="https://www.w3.org/1999/xhtml"
-        xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="https://www.w3.org/1999/xhtml"
+  xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0"
+  xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 >
 <url>
   <loc>https://yaqeen.me</loc>
@@ -94,7 +99,10 @@ export async function GET() {
   <loc>https://yaqeen.me/wallpapers</loc>
   <lastmod>2024-01-17</lastmod>
 </url>
-</urlset>`.trim();
+</urlset>
+
+`.trim();
+
 	return new Response(xml, {
 		headers: {
 			'Content-Type': 'application/xml'
@@ -113,26 +121,28 @@ We can then finally update our robots.txt file to point to our sitemap.
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ url }) {
 	return new Response(
-		`User-agent: *
-Allow: /
+		`
+  User-agent: *
+  Allow: /
 
-# Google adsbot ignores robots.txt unless specifically named!
-User-agent: AdsBot-Google
-Allow: /
+  # Google adsbot ignores robots.txt unless specifically named!
+  User-agent: AdsBot-Google
+  Allow: /
 
 
-User-agent: GPTBot
-Disallow: /
+  User-agent: GPTBot
+  Disallow: /
 
-Sitemap: ${url.origin}/sitemap.xml
-`.trim()
+  Sitemap: ${url.origin}/sitemap.xml
+
+    `.trim()
 	);
 }
 ```
 
 Notice that we’re using `url.origin`, this is just to make it easier for us when we’re updating maybe our domain or we’re in dev mode, we don’t have to manage that.
 
-**Tip;**
+### Tip;
 
 In my website, I have a blog, and I need to be able to dynamically update the sitemap. I think most of us can agree it no easy task to do this manually for all your pages.
 
@@ -148,24 +158,21 @@ export async function GET({ fetch, url }) {
 	const response = await fetch('blog/get/posts/all');
 	const posts = await response.json();
 	const xml = `
-        <!-- Rest of the site map -->
-        <url>
-          <loc>https://yaqeen.me</loc>
-        </url>
 
-        <!-- Rest of the site map -->
+      <!-- Rest of the site map -->
+      <url>
+        <loc>https://yaqeen.me</loc>
+      </url>
 
-        ${posts
-					.map(
-						(post) => `
-          <url>
-            <loc>${url.origin}/blog/${post.slug}</loc>
-            <lastmod>${post?.lastmod}</lastmod>
-          </url>
-            `
-					)
-					.join('')}
-        </urlset>`.trim();
+      <!-- Rest of the site map -->
+
+      ${posts.map(post) =>
+      `<url>
+          <loc>${url.origin}/blog/${post.slug}</loc>
+          <lastmod>${post?.lastmod}</lastmod>
+        </url>`.join('')}
+
+      </urlset>`.trim();
 
 	return new Response(xml, {
 		headers: {
@@ -177,4 +184,4 @@ export async function GET({ fetch, url }) {
 
 I use this method on this blog and it works like magic. You could use similar method for your websites as well.
 
-**Peace** ✌️
+#### Stay super awesome ✌️
