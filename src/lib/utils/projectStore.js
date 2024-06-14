@@ -11,7 +11,15 @@ export const project_data = readable([
 		},
 		color: 'bg-sky-400'
 	},
-
+	{
+		name: 'Liseen',
+		stack: ['Svelte', 'Tailwind'],
+		description: 'Listen to youtube videos as audio',
+		links: {
+			study: 'https://github.com/Abdulmumin1/liseen',
+			page: 'liseen.xyz'
+		}
+	},
 	{
 		name: 'Kbar-svelte-mini',
 		stack: ['svelte'],
@@ -55,16 +63,6 @@ export const project_data = readable([
 			page: 'editss.vercel.app'
 		},
 		color: 'bg-white'
-	},
-
-	{
-		name: 'Liseen',
-		stack: ['Svelte', 'Tailwind'],
-		description: 'Listen to youtube videos as audio',
-		links: {
-			study: 'https://github.com/Abdulmumin1/liseen',
-			page: 'liseen.vercel.app'
-		}
 	}
 ]);
 
