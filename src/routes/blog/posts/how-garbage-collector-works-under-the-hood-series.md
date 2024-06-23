@@ -117,7 +117,8 @@ In summary, the garbage collector does:
 ## Generations
 
 That not the whole story though, in other to maximize efficiency and reduce performance overhead, modern algorithms includes generations.
-Typically, the GC Algorithm makes several assumptions, on of which is "Newer objects have shorter lifetimes, and older objects have longer lifetimes". Hence, three (3) generations are available 1, 2, and 3.
+
+Typically, the GC Algorithm makes several assumptions, one of which is "Newer objects have shorter lifetimes, and older objects have longer lifetimes". Hence, three (3) generations are available 1, 2, and 3.
 
 - Larger Objects occupy Generation 3, collection rounds does not come around often.
 - Generation 2 contains objects that survives the Generation 0 collection round, hence promoted. When Collection round comes by this generation, it includes those in 3 as well.
