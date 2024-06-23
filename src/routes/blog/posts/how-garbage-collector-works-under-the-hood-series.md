@@ -90,6 +90,7 @@ All unreachable objects at this point are considered garbage. The collector scan
 Then, it uses a momery-copying function to compact the reachable objects in memory.
 
 **Note**
+
 Memory compaction is a process where the garbage collector moves all the reachable (live) objects to one contiguous area of memory, eliminating the gaps left by unreachable (dead) objects. This process has two main benefits:
 
 1. It frees up larger blocks of continuous memory, making it easier to allocate new objects.
@@ -103,10 +104,13 @@ Memory compaction is a process where the garbage collector moves all the reachab
 ### 4. Updates Pointers.
 
 The final process of the collection is to correct all pointers so it points to the new locations of the reachable objects.
+
 The heap pointer is also adjusted, positioned after the last reachable object.
 
 **Note**
+
 The heap pointer, also known as the "free space pointer" or "allocation pointer," indicates where the next object will be allocated in the managed heap. After compaction, this pointer is moved to the end of the last reachable object. This ensures that new allocations will occur in the contiguous free space, promoting efficient memory usage.
+
 In summary, the garbage collector does:
 
 ![Garbage Collector in summary](https://paper-attachments.dropboxusercontent.com/s_0D93CE3324AFDB62F49B8CA5CBF3FAB80B10D6353DD4EC6DB71D6B0C521057D5_1719162037291_Screenshot+2024-06-23+at+18-00-28+Online+FlowChart++Diagrams+Editor+-+Mermaid+Live+Editor.png)
@@ -116,7 +120,7 @@ In summary, the garbage collector does:
 That not the whole story though, in other to maximize efficiency and reduce performance overhead, modern algorithms includes generations.
 Typically, the GC Algorithm makes several assumptions, on of which is "Newer objects have shorter lifetimes, and older objects have longer lifetimes". Hence, three (3) generations are available 1, 2, and 3.
 
-- Larger Objects occupy Generation 3, are collection rounds does not come around often.
+- Larger Objects occupy Generation 3, collection rounds does not come around often.
 - Generation 2 contains objects that survives the Generation 0 collection round, hence promoted. When Collection round comes by this generation, it includes those in 3 as well.
 - Generation 1 is where all newly created objects are considered. most object here don't survive the collection round, and are promoted to Generation 2 if they did.
 
