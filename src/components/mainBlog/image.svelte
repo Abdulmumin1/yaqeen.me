@@ -19,7 +19,7 @@
 		on:keypress={toggleModal}
 		tabindex="0"
 		on:click={toggleModal}
-		class="thumbnail"
+		class="thumbnail rounded-md"
 	/>
 	{#if alt}
 		<p class="caption">{alt}</p>
