@@ -56,6 +56,7 @@
 		text-align: center;
 		font-style: italic;
 		margin-top: 0.5em;
+		font-size: 13px;
 	}
 
 	.modal {
