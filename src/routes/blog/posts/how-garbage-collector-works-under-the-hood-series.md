@@ -52,7 +52,7 @@ Some of which are:
   A dangling pointer is a pointer that references a memory space that has been freed (deallocated) and is not set to **NULL** afterwards. This makes our program buggy and might crash unpredictably.
 - Other kinds of human errors are inevitable in such scenario. such as failing to free up memory, which becomes unreachable, **memory leak** is sure the right term.
 
-These reasons might not exactly be the why Garbage Collector was first created. Either way, it first appeared around 1959, by the same guy the coined the word "Artificial Intelligence (AI)" - [John McCarthy](<https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)>) to simplify the memory management in [Lisp](<https://en.wikipedia.org/wiki/Lisp_(programming_language)>), the language he designed.
+These reasons might not exactly be the why Garbage Collector was first created. Either way, it first appeared around 1959, by the same guy that coined the word "Artificial Intelligence (AI)" - [John McCarthy](<https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)>) to simplify the memory management in [Lisp](<https://en.wikipedia.org/wiki/Lisp_(programming_language)>), the language he designed. John McCarthy is often refered to has the father of "Artificial Intelligence".
 
 ![John mcCarthy](https://static.independent.co.uk/s3fs-public/thumbnails/image/2011/10/31/20/48-John-McCarthy-AP.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp)
 
