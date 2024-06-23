@@ -1,7 +1,7 @@
 ---
 title: 'How Garbage Collector works - Under The Hood series'
 
-description: 'A garbage collector is a that automatically free up memory space allocated to objects that are no longer need to further the execution of the program.'
+description: 'A garbage collector is a program that automatically free up memory space allocated to objects that are no longer need to further the execution of the program.'
 
 date: '2024-05-18'
 
@@ -35,7 +35,8 @@ Importantly, how It works.
 
 ## What is Garbage Collection
 
-A garbage collector is a that automatically free up memory space allocated to objects that are no longer need to further the execution of the program.
+A garbage collector is a program that automatically free up memory space allocated to objects that are no longer need to further the execution of the program.
+
 In essence, Garbage collector helps manage allocation and release of memory, ensuring the application never exceeds it memory quota.
 
 ### Why?
