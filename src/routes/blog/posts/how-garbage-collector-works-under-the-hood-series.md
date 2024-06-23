@@ -27,8 +27,7 @@ in this week _under the hood series_, I want to look into something I've heard o
 
 And of course, frequency of the buzz among superiors makes you curious just like myself, you also want to understand and relate to these conversations.
 
-In this article, I will try my best to explain In simple terms, what It Is and does, why It exists and most i
-Importantly, how It works.
+In this article, I will try my best to explain In simple terms, what It Is and does, why It exists and most Importantly, how It works.
 
 > Catch the previous episode here:
 > [How SSH Works - Under The Hood](https://www.yaqeen.me/blog/how-ssh-works-under-the-hood)
