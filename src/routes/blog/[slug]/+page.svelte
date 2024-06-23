@@ -86,7 +86,9 @@
 		class="md:h-[400px] justify-center mb-4 flex items-center rounded-lg w-full flex-col gap-3"
 	>
 		<div class="flex max-w-md md:max-w-[800px] flex-col md:items-center gap-2 justify-center">
-			<h1 class="text-4xl text-balance font-bold md:text-6xl md:text-center">{data.meta.title}</h1>
+			<h1 class="text-4xl text-balance font-extrabold md:text-6xl md:text-center">
+				{data.meta.title}
+			</h1>
 			<p>Published {formatDate(data.meta.date)}</p>
 			{#if data.meta.date != data.meta.lastmod}
 				<p>Edited {formatDate(data.meta.lastmod)}</p>
