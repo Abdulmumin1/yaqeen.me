@@ -58,7 +58,7 @@ These reasons might not exactly be the why Garbage Collector was first created. 
 
 ![John mcCarthy at work in his artificial intelligence laboratory at Stanford](https://static.independent.co.uk/s3fs-public/thumbnails/image/2011/10/31/20/48-John-McCarthy-AP.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp)
 
-Other languages soon follow suite, baking garbage collectors into the language's runtime or compiler.
+Other languages soon follow suit, baking garbage collectors into the language's runtime or compiler.
 
 ### Why not?
 
