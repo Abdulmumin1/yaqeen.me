@@ -29,7 +29,7 @@
 {#if showModal}
 	<div class="modal">
 		<button
-			class="fixed top-[12px] p-3 flex items-center justify-center rounded-full text-2xl aspect-square right-[12px] bg-orang dark:bg-dark text-black"
+			class="fixed top-[12px] p-2 flex items-center justify-center rounded-full text-2xl aspect-square right-[12px] bg-orang dark:bg-dark text-black"
 			on:click={toggleModal}><Fa icon={faClose} /></button
 		>
 		<div class="modal-content">
@@ -65,7 +65,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: #632a0263;
 		backdrop-filter: blur(8px);
 		display: flex;
 		justify-content: center;
