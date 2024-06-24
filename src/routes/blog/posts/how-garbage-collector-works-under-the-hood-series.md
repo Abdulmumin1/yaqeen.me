@@ -12,6 +12,8 @@ categories:
 
   - garbage collector
 
+  - under the hood series
+
 label: 'under the hood series'
 
 series: 'uth'
