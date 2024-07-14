@@ -1,5 +1,5 @@
 ---
-title: 'Fisher Yates - How the popular shuffling Algorithm Works - Under the hood series'
+title: 'Fisher Yates - How the popular shuffling Algorithm Works - Under The Hood'
 
 description: 'There goes the algorithm visually, with all this information in check, we can implement this algorithm quite easily. I will be doing that with JavaScript, even though it not the most elegant language for a demo.'
 

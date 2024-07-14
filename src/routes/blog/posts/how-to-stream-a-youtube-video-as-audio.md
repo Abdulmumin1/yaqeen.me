@@ -27,7 +27,7 @@ That's how **Liseen** came to live, it a really cool solution and a small effort
 
 I put quite an effort to make it more fun to use, with a really clean UI and subtle animation touches.
 
-If you're curious to how I was able to pull audio out of a YouTube videos, then read further! Otherwise, start listening already 🎧. [liseen](https://liseen.vercel.app)
+If you're curious to how I was able to pull audio out of a YouTube videos, then read further! Otherwise, start listening already 🎧. [liseen](https://www.liseen.xyz)
 
 ## How it works.
 

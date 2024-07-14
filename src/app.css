@@ -92,11 +92,11 @@
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
 		text-transform: capitalize;
-		@apply leading-none text-3xl md:text-4xl py-2 md:py-4;
+		@apply leading-none text-3xl md:text-4xl py-2 md:py-3;
 	}
 	.article h1 {
 		font-weight: theme(fontWeight.bold);
-		@apply leading-none text-4xl md:text-5xl py-3 md:py-5;
+		@apply leading-none text-4xl md:text-5xl py-3 md:py-3;
 		/* color: theme(colors.orang); */
 		/* text-transform: t; */
 	}
@@ -104,12 +104,17 @@
 	.article h3 {
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
-		@apply leading-none text-xl md:text-2xl py-1 md:py-3;
+		@apply leading-none text-xl md:text-2xl py-1 md:py-2;
 	}
 	.article h4 {
 		font-weight: theme(fontWeight.bold);
 		/* color: theme(colors.orang); */
-		@apply leading-none text-lg md:text-xl py-1 md:py-3;
+		@apply leading-none text-lg md:text-xl py-1 md:py-2;
+	}
+	.article h5 {
+		font-weight: theme(fontWeight.bold);
+		/* color: theme(colors.orang); */
+		@apply leading-none text-base md:text-lg py-1 md:py-2;
 	}
 	.article pre {
 		padding: theme(padding.2);

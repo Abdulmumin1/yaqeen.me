@@ -1,5 +1,5 @@
 ---
-title: 'How Garbage Collector works - Under The Hood series'
+title: 'How Garbage Collector works - Under The Hood'
 
 description: 'A garbage collector is a program that automatically free up memory space allocated to objects that are no longer needed to further the execution of the program.'
 
@@ -25,7 +25,7 @@ layout: series
 published: true
 ---
 
-in this week _under the hood series_, I want to look into something I've heard over and over again from systems engineers and seniors, - **Garbage Collector**. You've probably also heard the buzz as well - some say they love garbage collected languages, other say the are fine with It and some trash on It.
+in this week's _under the hood series_, I want to look into something I've heard over and over again from systems engineers and seniors, - **Garbage Collector**. You've probably also heard of it as well - some say they love garbage collected languages, other say the are fine with It and some trash on It.
 
 And of course, frequency of the buzz among superiors makes you curious just like myself, you also want to understand and relate to these conversations.
 

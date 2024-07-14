@@ -32,11 +32,18 @@
 		return count--;
 	}
 
+	$: page = 6;
+
+	function loadMorePage() {
+		page += 6;
+	}
+
 	onMount(async () => {
 		try {
 			let res = await loadSeries();
 			posts = res.posts;
 			count = posts.length;
+
 			loading = false;
 		} catch (error) {}
 	});
@@ -46,17 +53,21 @@
 	class="flex flex-col bg-orange-200 dark:bg-stone-800 border-2 rounded-lg border-orang dark:border-dark divide-y-2 divide-orang dark:divide-dark"
 >
 	{#if !loading}
-		{#each posts as episode}
+		{#each posts.slice(0, page) as episode}
 			<a href="/blog/{episode.slug}" class="skip px-3 py-4 flex items-center gap-2">
 				<div
 					class="text-black dark:text-orange-200 bg-orange-100 dark:bg-stone-900 min-h-10 min-w-10 items-center justify-center flex rounded-full"
-					class:highlight={highlight == count}
 				>
 					{episodeNumber()}
 				</div>
+
 				<div class="text-black dark:text-orange-200">{episode.title}</div>
 			</a>
 		{/each}
+
+		{#if posts.length > page}
+			<button class="py-2" on:click={loadMorePage}>Load More ...</button>
+		{/if}
 	{/if}
 </div>
 

@@ -65,8 +65,8 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #632a0263;
-		backdrop-filter: blur(8px);
+		background-color: #111111c7;
+		backdrop-filter: blur(9px);
 		display: flex;
 		justify-content: center;
 		align-items: center;
