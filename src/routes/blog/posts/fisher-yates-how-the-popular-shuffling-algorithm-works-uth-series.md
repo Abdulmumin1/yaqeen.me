@@ -5,7 +5,7 @@ description: 'There goes the algorithm visually, with all this information in ch
 
 date: '2024-05-10'
 
-lastmod: '2024-05-10'
+lastmod: '2024-07-17'
 
 categories:
   - under the hood series
@@ -180,7 +180,7 @@ Then when `i` is `7`:
 
 ![randomly select from 0 - 7; fisher yates knuth’s variant.](https://paper-attachments.dropboxusercontent.com/s_03F60933FA393E3D4E7330BB1E2EFE2A8F83B9B12C58C30595B17EBEB06CAB9D_1715193268921_4.png)
 
-Until the end.
+...Until the end.
 
 That effectively sums up the Fisher Yates algorithm and also this weeks Under the wood episode.
 
