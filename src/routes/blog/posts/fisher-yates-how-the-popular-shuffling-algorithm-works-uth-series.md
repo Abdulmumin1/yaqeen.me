@@ -131,7 +131,7 @@ This makes the time complexity O(n2), which is not great, adding to the fact tha
 
 ## Donald Knuth’s Solution
 
-While following the same principle as the Fisher Yates, Knuth’s variant makes the algorithm more efficient, getting read of the additional arrays required in the process, also reducing the time complexity to just O(n).
+While following the same principle as the Fisher Yates, Knuth’s variant makes the algorithm more efficient, getting rid of the additional arrays required in the process, also reducing the time complexity to just `O(n)`.
 
 Knuth’s variant looks like this:
 
