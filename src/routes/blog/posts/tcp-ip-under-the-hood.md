@@ -3,9 +3,9 @@ title: 'TCP/IP - Under The Hood'
 
 description: 'The model describes how data is transmitted over the network, ensuring the smoothest communication between networked devices. It describes how data should be broken into packets, routed, transmitted and received at the destination.'
 
-date: '2024-06-14'
+date: '2024-07-14'
 
-lastmod: '2024-06-14'
+lastmod: '2024-07-14'
 
 categories:
   - cyber security
@@ -164,8 +164,8 @@ Once the frame is prepared, it's passed to the physical layer, which handles the
 
 **Before you go:**
 
-I'm building [commentrig](https://www.commentrig.com), a platform that allow you to integrate a robust comment system to your website. Offering a package for all your favorite frameworks.
+I'm building [commentrig](https://www.commentrig.com), a platform that allow you to integrate a robust comment system to your website. Offering a natic package for all your favorite frameworks.
 
-Join the waitlist here: [commentrig.com/waitlist](https://commentrig.com/waitlist)
+Join the waitlist here: [commentrig.com/waitlist](https://www.commentrig.com/waitlist)
 
 **Stay super awesome 🫶🏾.**
