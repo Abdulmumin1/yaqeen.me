@@ -7,7 +7,7 @@
 		unique_id: 'commentrig-demo-page',
 		rich: true,
 		page: 100,
-		domain: 'https://yaqeen.me'
+		domain: 'https://www.yaqeen.me'
 	};
 </script>
 
