@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@commentrig/svelte": "^0.0.21",
 		"@fortawesome/free-brands-svg-icons": "^6.4.0",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"@vercel/analytics": "^1.1.2",
@@ -37,6 +38,7 @@
 		"kbar-svelte-mini": "^0.1.0",
 		"mdsvex": "^0.11.0",
 		"node-html-parser": "^6.1.13",
+		"quill": "^2.0.2",
 		"shiki": "^0.14.3",
 		"svelte-fa": "^3.0.4"
 	}

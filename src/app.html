@@ -24,9 +24,22 @@
 				scroll-behavior: smooth;
 				font-family: 'visby';
 			}
+			html:not(.dark) {
+				--rig-text-color: black;
+				--rig-background-color: #fff7ed;
+				--rig-color-primary: #f97316;
+				--rig-inactive-color: #78716c;
+			}
+
+			html.dark {
+				--rig-text-color: black;
+				--rig-background-color: #0c0a09;
+				--rig-color-primary: #c2410c;
+				--rig-inactive-color: #78716c;
+			}
 		</style>
 	</head>
-	<body data-sveltekit-preload-data="hover" class="no-scrollbar">
+	<body data-sveltekit-preload-data="hover" class="no-scrollbar bg-dark">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

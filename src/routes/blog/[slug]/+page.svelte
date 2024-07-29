@@ -7,6 +7,17 @@
 	// import { faGithub, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 	import Fa from 'svelte-fa';
+
+	// import { Comment } from '@commentrig/svelte';
+	// let entities = {
+	// 	title: data.meta.title,
+	// 	email: 'abdulmuminyqn@gmail.com',
+	// 	unique_id: data.meta.slug,
+	// 	rich: true,
+	// 	page: 100,
+	// 	domain: 'yaqeen.me'
+	// };
+
 	import {
 		faFacebook,
 		faHackerNews,
@@ -168,4 +179,8 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- <div>
+		<Comment {entities} />
+	</div> -->
 </article>
