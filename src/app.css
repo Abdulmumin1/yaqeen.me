@@ -117,10 +117,12 @@
 		@apply leading-none text-base md:text-lg py-1 md:py-2;
 	}
 	.article pre {
+		border-width: 4px;
 		padding: theme(padding.2);
 		overflow: scroll;
 		font-size: theme(fontSize.base);
-		@apply border-2 dark:border border-[#1f1f1f]   rounded-lg  border-orang dark:border-dark;
+
+		@apply dark:border border-[#1f1f1f]   rounded-2xl  border-orang dark:border-dark;
 	}
 	.article table {
 		@apply bg-orange-100 dark:bg-stone-900;
