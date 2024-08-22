@@ -8,15 +8,13 @@
 
 	import Fa from 'svelte-fa';
 
-	// import { Comment } from '@commentrig/svelte';
-	// let entities = {
-	// 	title: data.meta.title,
-	// 	email: 'abdulmuminyqn@gmail.com',
-	// 	unique_id: data.meta.slug,
-	// 	rich: true,
-	// 	page: 100,
-	// 	domain: 'yaqeen.me'
-	// };
+	import { Comment } from '@commentrig/svelte';
+	let entities = {
+		title: data.meta.title,
+		email: 'abdulmuminyqn@gmail.com',
+		rich: true,
+		domain: 'https://yaqeen.me'
+	};
 
 	import {
 		faFacebook,
@@ -180,7 +178,7 @@
 		</div>
 	</div>
 
-	<!-- <div>
+	<div>
 		<Comment {entities} />
-	</div> -->
+	</div>
 </article>
