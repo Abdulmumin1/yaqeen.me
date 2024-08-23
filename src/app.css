@@ -86,6 +86,14 @@
 		/* box-shadow: inset 200px 0 0 0 rgb(255 247 237/1); */;
 	}
 
+	.comment-rig * {
+		font-family: Arial, Helvetica, sans-serif;
+		/* font-family: 'Courier New', Courier, monospace; */
+		/* background-color: orange !important; */
+	}
+	.ql-editor {
+		font-size: 1rem;
+	}
 	/* Presentational styles */
 
 	.article h2 {

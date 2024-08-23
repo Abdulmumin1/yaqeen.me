@@ -16,6 +16,7 @@
 		domain: 'https://yaqeen.me'
 	};
 
+	let commentCount;
 	import {
 		faFacebook,
 		faHackerNews,
@@ -179,6 +180,9 @@
 	</div>
 
 	<div>
-		<Comment {entities} />
+		<h3 class="text-2xl md:text-3xl font-extrabold font-sans mb-6">Comments</h3>
+		{#key data}
+			<Comment bind:commentLength={commentCount} {entities} />
+		{/key}
 	</div>
 </article>
