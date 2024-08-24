@@ -4,6 +4,8 @@
 	import {
 		faAngleRight,
 		faArrowRightLong,
+		faExternalLink,
+		faExternalLinkAlt,
 		faFolder,
 		faFolderBlank
 	} from '@fortawesome/free-solid-svg-icons';
@@ -30,10 +32,10 @@
 	class="border rounded-2xl border-orang gap-2 border-b-2 dark:border-dark p-6 flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-100 dark:bg-stone-900"
 >
 	<div class="flex gap-2 items-center">
-		<p class="text-3xl lg:text-4xl">{details.name}</p>
-		<!-- <p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
-			<Fa icon={faFolderBlank} />
-		</p> -->
+		<p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
+			<img height="50px" width="50px" src={details.svg} alt="" />
+		</p>
+		<p class="text-3xl lg:text-4xl mb-1 text-orang font-bold dark:text-dark">{details.name}</p>
 	</div>
 	<div class="space-x-3 grid grid-cols-1 items-center">
 		<!-- <div>
@@ -51,17 +53,19 @@
 
 			<div class="flex space-x-2">
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg hover_link_fill border-orang dark:border-dark"
-				>
-					<a href={details.links.study} class=""><Fa icon={faGithub} /> </a>
-				</div>
-				<div
-					class="flex items-center justify-center w-fit space-x-2 px-2 rounded-lg border border-orang hover_link_fill text-sm dark:border-dark"
+					class="flex items-center justify-center w-fit space-x-2 font-extrabold rounded-lg text-orang text-sm dark:text-dark"
 				>
 					<a target="_blank" href="https://{details.links.page}">{details.links.page}</a>
-					<Fa icon={faArrowRightLong} />
+					<Fa icon={faExternalLinkAlt} />
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<!-- 
+<style>
+    #f97316
+    #ea580c
+    #c2410c
+</style> -->

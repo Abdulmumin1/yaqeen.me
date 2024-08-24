@@ -31,8 +31,8 @@
 			</p>
 			<p>
 				Technical writer & FullStack engineer. <br />Currently building
-				<a href="https://devcanvas.art" target="_blank" class="text-orang dark:text-dark"
-					>devcanvas.art</a
+				<a href="https://www.commentrig.com" target="_blank" class="text-orang dark:text-dark"
+					>commentrig.com</a
 				>
 			</p>
 			<div

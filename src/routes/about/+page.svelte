@@ -10,6 +10,8 @@
 	import Fa from 'svelte-fa';
 	import { fly, scale, slide } from 'svelte/transition';
 	import { mylinks } from '$lib/utils/randomstore.js';
+	import SassGrid from '../../components/projects/sassGrid.svelte';
+	import SassGridAbout from '../../components/projects/sassGridAbout.svelte';
 </script>
 
 <svelte:head>
@@ -172,6 +174,9 @@
 				</li>
 			</ul>
 		</div>
+		<!-- <h3 class="text-3xl font-bold text-orang dark:text-dark">Sass</h3>
+
+		<SassGridAbout /> -->
 	</div>
 </div>
 

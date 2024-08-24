@@ -1,6 +1,17 @@
 import { readable } from 'svelte/store';
 
-export const project_data = readable([
+export const sass_projects = readable([
+	{
+		name: 'CommentRig',
+		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
+		description: 'A seemless, powerfull modern comment management for websites',
+		links: {
+			study: 'https://github.com/Abdulmumin1/devcanvas',
+			page: 'www.commentrig.com'
+		},
+		color: 'bg-sky-400',
+		svg: '/commentrig.svg'
+	},
 	{
 		name: 'DevCanvas',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
@@ -9,8 +20,11 @@ export const project_data = readable([
 			study: 'https://github.com/Abdulmumin1/devcanvas',
 			page: 'devcanvas.art'
 		},
-		color: 'bg-sky-400'
-	},
+		color: 'bg-sky-400',
+		svg: '/devcanvas.svg'
+	}
+]);
+export const project_data = readable([
 	{
 		name: 'Liseen',
 		stack: ['Svelte', 'Tailwind'],
@@ -63,6 +77,15 @@ export const project_data = readable([
 			page: 'editss.vercel.app'
 		},
 		color: 'bg-white'
+	},
+	{
+		name: 'Numbertime',
+		stack: ['Python', 'CSS3', 'PyQt5'],
+		description: 'Excell in you thinking ability with curated brain exercises',
+		links: {
+			study: '',
+			page: '/neuroodyssey'
+		}
 	}
 ]);
 
