@@ -12,26 +12,26 @@ export async function GET({ fetch, url }) {
         xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     >
   <url>
-    <loc>https://yaqeen.me</loc>
+    <loc>https://www.yaqeen.me</loc>
   </url>
   <url>
-    <loc>https://yaqeen.me/about</loc>
+    <loc>https://www.yaqeen.me/about</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
   <url>
-    <loc>https://yaqeen.me/blog</loc>
+    <loc>https://www.yaqeen.me/blog</loc>
   </url>
  
   <url>
-    <loc>https://yaqeen.me/neuroodyssey</loc>
+    <loc>https://www.yaqeen.me/neuroodyssey</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
   <url>
-    <loc>https://yaqeen.me/projects</loc>
+    <loc>https://www.yaqeen.me/projects</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
   <url>
-    <loc>https://yaqeen.me/wallpapers</loc>
+    <loc>https://www.yaqeen.me/wallpapers</loc>
     <lastmod>2024-01-17</lastmod>
   </url>
     ${posts
@@ -39,7 +39,7 @@ export async function GET({ fetch, url }) {
 				(post) => `
             <url>
                
-                <loc>${url.origin}/blog/${post.slug}</loc>
+                <loc>https://www.yaqeen.me/blog/${post.slug}</loc>
                 <lastmod>${post?.lastmod || new Date()}</lastmod>
             </url>
         `
