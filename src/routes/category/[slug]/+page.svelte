@@ -91,7 +91,7 @@
 	<article class="<w-full flex justify-center items-center flex-col">
 		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
 			<div class="text-4xl flex flex-col gap-3">
-				<p>Newest Article Tagged - {$page.params.slug}</p>
+				<p class="font-extrabold font-visby_bold capitalize">{$page.params.slug}</p>
 				<BlogCard details={latest} latest={true} />
 			</div>
 			<div class=" grid grid-cols-1 md:grid-cols-2 gap-5">

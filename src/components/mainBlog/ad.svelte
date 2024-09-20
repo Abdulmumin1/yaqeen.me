@@ -13,8 +13,18 @@
 			<a
 				href="https://devcanvas.art/play/try"
 				target="_blank"
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
 				>Try DevCanvas <Fa icon={faRightLong} /></a
+			>
+		</div>
+		<div class="flex flex-col gap-2">
+			<p class="font-semibold">Get CommentRig</p>
+			<p class="text-sm">Get the best modern comment management for your website.</p>
+			<a
+				href="https://www.commentrig.com"
+				target="_blank"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
+				>Get Commentrig <Fa icon={faRightLong} /></a
 			>
 		</div>
 		<!-- <div class="flex flex-col gap-2">
@@ -33,7 +43,7 @@
 			<a
 				href="https://www.npmjs.com/package/kbar-svelte-mini"
 				target="_blank"
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang justify-center dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
 				>Get npm package <Fa icon={faRightLong} /></a
 			>
 		</div>

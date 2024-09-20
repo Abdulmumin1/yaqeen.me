@@ -3,12 +3,12 @@
 title: 'Git: Beginners Guide'
 
 description: "If you are just starting out, you might be wondering what exactly is git 🤔 and why the heck is it everywhere.
-
+tied
 Most of the time, you are working on building simple projects, and the code base doesn't get too complex. Hence, easy to maintain."
 
 date: '2022-12-7'
 
-lastmod: '2024-01-12'
+lastmod: '2024-09-20'
 
 categories:
 
@@ -24,25 +24,25 @@ published: true
 
 ---
 
-If you are just starting out, you might be wondering what exactly is git 🤔 and why the heck is it everywhere.
+If you are just starting out, you might be wondering what exactly is Git 🤔 and why the it everywhere.
 
 Most of the time, you are working on building simple projects, and the code base doesn't get too complex. Hence, easy to maintain.
 
-But there is a catch, What if you want to collaborate? What if you need to version your code? What if you need to revert back to a point in your project? And What if... Trust me, it can get really messy.
+But there is a catch, What if you want to show off your work? What if you can to deploy to production? What if you want to collaborate? What if you need to version your code? What if you need to revert back to a point in your project? And What if... Trust me bro, it can get really messy.
 
-Thus, git helps us solve this problem.
+Thus, Git helps us solve this problem.
 
-# What is Git
+### What is Git
 
 Git is a free and open source version control software that helps you manage and maintain your codebase.
 
-Versioning becomes easy, collaboration can't get easier, managing and scaling your software comes in handy.
+With Git, Versioning becomes easy, collaboration can't get easier, managing and scaling your software comes in handy.
 
-# A journey to learn Git
+### A journey to learn Git
 
-So, we set out to build a beautiful landing page. But we just realise we don't have git installed on our machine yet 😅.
+So, we set out to build a beautiful landing page. But we just realise we don't have Git installed on our machine yet 😅.
 
-### Installing git
+### Installing Git
 
 - on Windows
   Download installer [here](https://git-scm.com/download/win)
@@ -59,11 +59,11 @@ sudo apt install git
 brew install git
 ```
 
-Learn more installing git [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+Learn more installing Git [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-### Initialize a git repository
+### Initialize a Git repository
 
-A git repository/repo just as it sounds, is a repository where git store changes and manages our tracked files 📂(files we've added to our repo) .
+A Git repository/repo just as it sounds, is a repository where Git store changes and manages our tracked files 📂(files we've added to our repo) .
 
 In our landing page project root directory we run
 
@@ -73,25 +73,27 @@ In terminal/cmd
 git init
 ```
 
-_Congratulations_ 🎊, we now have a git repo in our project, but we are not tracking any of our project files 📂.
+_Congratulations_ 🎊, we now have a Git repo in our project, but we are not tracking any of our project files 📂 yet.
 
 ### Adding files to our repo
 
-First, we want to know the status of our landing page git repo, that is, the files in the repo, tracked and untracked files.
+First, we want to know the status of our landing page Git repo, that is, the files in the repo, tracked and untracked files, etcetera.
 
-run in terminal/cmd
+Run this in terminal/cmd:
 
 ```bash
 git status
 ```
 
-looks like no files in our git repo, so now we decided to add the project files we are working on to the repo.
+looks like no files in our Git repo, so now we decided to add the project files we are working on to the repo.
 
 ```bash
 git add index.html main.css index.js
 ```
 
-**Greate**, but there is a problem though, what if our project has lots of files, manually adding each of them is a stupid thing to do, what we can do is run
+we have a simple stack, hence our project files does not look like some baobab tree 😅.
+
+**Greate**, but the catch here is that, what if our project has lots of files, manually adding each of them is not the way we go about things as programmers, what we can do is run:
 
 ```bash
 git add .
@@ -101,11 +103,11 @@ Now, that makes alot of sense, all the files have been added, like allll 😱.
 
 ### .gitignore
 
-We are in trouble, all the _node_modules_ files and folders are now in our repo.
+We are in trouble, let say we're using more modern js framework. Like all the _node_modules_ files and folders are now in our REPO??! That like 250 MEGABYTES crap!!!
 
-We need to be able to **git add .** without getting worried that the images, files or other assets we have in our directory that are not suppose to be in our repo are been tracked.
+We need to be able to **git add .** without getting worried that the images, files or other large assets that are just for local development and would'nt be needed in anywhere in production ends up in our repo.
 
-The **.gitignore** file allow to specify folders, files or files with specific extensions in our working directory we don't want to track.
+The **.gitignore** file allows to specify folders, files or specific extensions types we want to exempt from been tracked.
 
 To achieve this, we create a **.gitignore** file in our project root directory and we can specify the following.
 
@@ -125,9 +127,9 @@ That makes much more sense now, but we have only added our project files though,
 
 ### Remove files
 
-Maybe we mistakingly added all those files we are not suppose to track, or maybe we don't need some files anymore.
+Maybe we mistakingly added all those files we are not suppose to track, or maybe we don't need some files to be tracked anymore.
 
-we can remove files with:
+we can remove those files with:
 
 ```bash
 git rm FILENAME/FOLDER
@@ -135,9 +137,9 @@ git rm FILENAME/FOLDER
 
 > add `-r` to recursively remove if it a folder
 
-The problem with this though is that, it completely delete that file from git and in our directory.
+The problem with this though is that, it completely delete that file from Git and in our directory.
 
-But, if we want to untrack file we mistakenly track or we don't want to track anymore. We can add `--cache` flag to only remove that file from the git repo.
+But, if we want to untrack file we mistakenly track or we don't want to track anymore. We can add `--cache` flag to only remove that file from the Git repo.
 
 ```bash
 git rm --cached FILENAME/FOLDER
@@ -149,17 +151,15 @@ git rm --cached FILENAME/FOLDER
 
 A commit is the state of our project files at a point in time.
 
-Our landing is coming together already, we've added the nav, and the hero text we came up with looks great in the header 😋.
+Let imagine our landing coming together already, we've added the nav, and the hero text we came up with looks great in the header 😋.
 
 Perfect moment to capture 😁✌.
 
 #### To commit
 
-- first we add changed files for staging
+- First we add changed files for staging:
 
 We can either **git add .** or **manually** add the files we made changes to.
-
-Then
 
 ```bash
 git commit -m "page hero text and nav"
@@ -168,6 +168,12 @@ git commit -m "page hero text and nav"
 > **\-m** flags message.
 
 **Note:** make sure to use meaningful commit messages
+
+If no new file is created though just like in our case, we did'nt introduce new file whatsoever. We can opt for the shortcut:
+
+```bash
+git commit -am "page hero text and nav"
+```
 
 ### Log
 
@@ -195,11 +201,11 @@ git reset --hard HEAD
 
 Let don't freak out, **HEAD** holds the reference to our latest commit.
 
-If we want to resert to other commit, we replace the HEAD with the commit SHA key.
+If we want to reset to other commit, we replace the HEAD with the commit SHA key.
 
 ### Branches
 
-When we first initize a git repo in our project, git automatically creates a new branch for our project, this is usually called main or master.
+When we first initize a Git repo in our project, Git automatically creates a new branch for our project, this is usually called master (open sourceres don't like this though, main is preferred).
 
 Branches are like folders and are movable
 
@@ -261,14 +267,24 @@ Maybe we are done with the animation branch, we can delete with:
 git branch -d animation
 ```
 
+### Blame
+
+Just want to leave this cool one here, if you want to find the guy that push the changes that broke production:
+
+```bash
+git blame
+```
+
+![](https://miro.medium.com/v2/resize:fit:640/format:webp/0*SAC52XAcLA0TNsvI.jpg)
+
 ## Conclusion
 
-Git is a tool every developer should learn, it saves tons of time and makes managing your codebase easier (not the coding part 😅).
+Git is a tool every developer should learn, it saves tons of time and makes managing your codebase easier (would'nt help you write better code though 😅).
 
-Although collaboration with git is mostly tied to GitHub, which we didn't cover in our short journey.
+Although collaboration with Git is mostly tied to a home like GitHub, which we didn't cover in our short journey.
 
 > if you get stuck, remember there is always Google to pick you up 😅.
 
-Anyways take care and stay tuned.
+Anyways take care and stay subtle.
 
 ### Bye 👋

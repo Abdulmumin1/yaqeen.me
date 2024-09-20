@@ -77,9 +77,17 @@
 	];
 
 	let loaded = false;
-
+	let canonical = null;
 	onMount(async () => {
 		let result = await fetchPosts();
+		let url = window.location.hostname;
+		// insertCopyButton(faCopy);
+		if (url.startsWith('www.')) {
+			canonical = window.location.href.replace('www.', '');
+		} else {
+			canonical = 'https://www.' + window.location.hostname + window.location.pathname;
+		}
+
 		result.forEach((element) => {
 			posts = [
 				...posts,
@@ -95,6 +103,12 @@
 		loaded = true;
 	});
 </script>
+
+<svelte:head>
+	{#if canonical}
+		<link rel="canonical" href={canonical} />
+	{/if}
+</svelte:head>
 
 <div
 	class="w-screen bg-orange-50 dark:text-orange-200 font-visby dark:bg-stone-950 relative transition-colors duration-500"

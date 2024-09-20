@@ -50,7 +50,7 @@
 	class:visible={showNav}
 	class="bottom-nav w-[200vw] z-50 fixed bg-orange-100 border-b-2 border-orang dark:border-dark dark:bg-stone-900 flex items-center justify-center"
 >
-	<ul class=" w-screen flex justify-between py-6 px-3 md:px-6 items-center mt-12">
+	<ul class=" w-screen flex justify-between py-6 px-3 pr-5 md:px-6 items-center mt-12">
 		<li>
 			<a href="/blog" class="relative font-bold flex items-center justify-center">
 				<h1>Home</h1>
@@ -60,15 +60,17 @@
 		<li>
 			<ul class="flex gap-2 items-center justify-center">
 				<li
-					class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-2 px-3 rounded-full text-black text-sm"
+					class="bg-orange-200 hidden md:block dark:bg-stone-800 dark:text-orange-300 p-2 px-3 rounded-full text-black text-sm"
 				>
 					<button on:click={toggleKbar}> Search <span class="">Ctrl+K</span></button>
 				</li>
-				<li class="flex items-center justify-center">
+				<li
+					class="flex rounded-full items-center justify-center bg-orange-50 border border-orang dark:border-dark dark:bg-stone-950 px-2 py-1"
+				>
 					<a href="/about ">About</a>
 				</li>
 				<li class="flex items-center justify-center">
-					<div class="w-full flex items-center justify-center gap-2">
+					<div class="w-full rounded-full flex items-center justify-center gap-2">
 						<!-- <input
 							value="search - alpha"
 							class="bg-inherit border p-2 border-b-2 rounded-xl border-orang dark:border-dark"

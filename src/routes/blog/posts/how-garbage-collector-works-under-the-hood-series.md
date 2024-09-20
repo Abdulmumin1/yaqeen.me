@@ -5,7 +5,7 @@ description: 'A garbage collector is a program that automatically free up memory
 
 date: '2024-05-18'
 
-lastmod: '2024-05-21'
+lastmod: '2024-09-20'
 
 categories:
   - systems
@@ -27,7 +27,7 @@ published: true
 
 in this week's _under the hood series_, I want to look into something I've heard over and over again from systems engineers and seniors, - **Garbage Collector**. You've probably also heard of it as well - some say they love garbage collected languages, other say the are fine with It and some trash on It.
 
-And of course, frequency of the buzz among superiors makes you curious just like myself, you also want to understand and relate to these conversations.
+And of course, such controversy makes you wonder what your stance might be, It makes you curious just like myself, you also want to understand and relate to these conversations.
 
 In this article, I will try my best to explain In simple terms, what It Is and does, why It exists and most Importantly, how It works.
 

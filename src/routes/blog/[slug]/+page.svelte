@@ -41,10 +41,8 @@
 
 	onMount(() => {
 		scrollToTopSmooth();
-		url = window.location.href;
-		// insertCopyButton(faCopy);
-		url = url.replace('www.', '');
-		console.log(data);
+
+		// console.log(data);
 	});
 
 	function convertLinkToRequestReadable(link) {
@@ -59,13 +57,13 @@
 
 <svelte:head>
 	<title>{data.meta.title}</title>
-	<meta name="description" content={data.meta?.description} />
+	<meta name="description" content={data.meta?.description.slice(0, 300)} />
 
 	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content="https://www.yaqeen.me/blog" />
+	<meta property="og:url" content={$page.url} />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={data.meta.title} />
-	<meta property="og:description" content={data.meta?.description} />
+	<meta property="og:description" content={data.meta?.description.slice(0, 300)} />
 	<meta
 		property="og:image"
 		content={data.meta?.thumbnail ??
@@ -77,7 +75,10 @@
 	<meta property="twitter:domain" content="yaqeen.me" />
 	<meta property="twitter:url" content="https://www.yaqeen.me" />
 	<meta name="twitter:title" content={data.meta.title} />
-	<meta name="twitter:description" content={data.meta?.description || data.meta.title} />
+	<meta
+		name="twitter:description"
+		content={data.meta?.description.slice(0, 300) || data.meta.title}
+	/>
 	<meta
 		name="twitter:image"
 		content={data.meta?.thumbnail ??
@@ -88,7 +89,9 @@
 		<meta name="robots" content="index, follow" />
 	{/if}
 
-	<link rel="canonical" href={url} />
+	{#if data.meta?.canonical}
+		<link rel="canonical" href={data.meta?.canonical} />
+	{/if}
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2">

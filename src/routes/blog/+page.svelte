@@ -2,7 +2,7 @@
 	import { scale, slide } from 'svelte/transition';
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
 	import Fa from 'svelte-fa';
-	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+	import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	export let data;
 
@@ -90,6 +90,21 @@
 <section in:scale class="min-h-screen mt-20">
 	<article class="<w-full flex justify-center items-center flex-col">
 		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
+			<div class="flex flex-wrap gap-4">
+				<a
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					href="/blog/series/uth">Under the hood series <Fa icon={faArrowRight} /></a
+				>
+
+				<a
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					href="/category/product launch">Product Lauches</a
+				>
+				<a
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					href="/blog/git+for+beginners">Git Crash Course</a
+				>
+			</div>
 			<div class="text-4xl flex flex-col gap-3">
 				<p>Latest post</p>
 				<BlogCard details={latest} latest={true} />
