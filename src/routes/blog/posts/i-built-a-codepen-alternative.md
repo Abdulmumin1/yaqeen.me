@@ -31,12 +31,11 @@ A platform for storing code snippets, an idea I conceived while helping someone 
 
 Snippetland early twitter posts:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Most pages for snippets are coming together greate 💪 , including the editor page 😁!<br><br>Happy Weekends 😪 ! <a href="https://t.co/jv1CsD8Gle">pic.twitter.com/jv1CsD8Gle</a></p>&mdash; Abdulmumin Yaqeen (@abdulmuminyqn) <a href="https://twitter.com/abdulmuminyqn/status/1690427906751651841?ref_src=twsrc%5Etfw">August 12, 2023</a></blockquote> 
+![](https://paper-attachments.dropboxusercontent.com/s_DDD6D2B338E4CBBF14FF9A9AD7E8FDAF3F25B78364C5817500612BBD417A94F1_1726696577573_tweet_1690427906751651841_20240918_225354_via_10015_io.png)
+
 The current form, which is a full-fledged online editor with cool features was just an experimentation. I first demoed it on twitter a long time ago.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shipped so so many new features to SnippetLand during the weekend.<br><br>- New Look<br>- Snippets Preview<br>- HTML/CSS Playground embed<br>- User Profiles<br><br>At this point, it not a prototype anymore 🤭. <br>Give it a try 🧡. Link below 👇<a href="https://twitter.com/hashtag/buildinpublic?src=hash&amp;ref_src=twsrc%5Etfw">#buildinpublic</a> <a href="https://t.co/HleJ4RSqEB">pic.twitter.com/HleJ4RSqEB</a></p>&mdash; Abdulmumin Yaqeen (@abdulmuminyqn) <a href="https://twitter.com/abdulmuminyqn/status/1703859320478212173?ref_src=twsrc%5Etfw">September 18, 2023</a></blockquote>
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shipped so so many new features to SnippetLand during the weekend.<br><br>- New Look<br>- Snippets Preview<br>- HTML/CSS Playground embed<br>- User Profiles<br><br>At this point, it not a prototype anymore 🤭. <br>Give it a try 🧡. Link below 👇<a href="https://twitter.com/hashtag/buildinpublic?src=hash&amp;ref_src=twsrc%5Etfw">#buildinpublic</a> <a href="https://t.co/HleJ4RSqEB">pic.twitter.com/HleJ4RSqEB</a></p>&mdash; Abdulmumin Yaqeen (@abdulmuminyqn) <a href="https://twitter.com/abdulmuminyqn/status/1703859320478212173?ref_src=twsrc%5Etfw">September 18, 2023</a></blockquote>
+![](https://paper-attachments.dropboxusercontent.com/s_DDD6D2B338E4CBBF14FF9A9AD7E8FDAF3F25B78364C5817500612BBD417A94F1_1726696723556_image.png)
 
 Seeing these again, devcanvas has definitely come a really long way.
 

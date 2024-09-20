@@ -3,7 +3,7 @@
 function filterObjectsByTagKey(objects, tagKey, query) {
 	return objects.filter((object) => {
 		// Ensure case-insensitive matching and handle potential undefined values:
-		return object?.[tagKey]?.includes(query.toLowerCase());
+		return object?.[tagKey]?.includes(query);
 	});
 }
 

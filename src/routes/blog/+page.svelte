@@ -93,7 +93,8 @@
 			<div class="flex flex-wrap gap-4">
 				<a
 					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
-					href="/blog/series/uth">Under the hood series <Fa icon={faArrowRight} /></a
+					href="/blog/series/uth"
+					>Under the hood series <span class="-rotate-12"><Fa icon={faArrowRight} /></span></a
 				>
 
 				<a
