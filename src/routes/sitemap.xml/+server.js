@@ -21,6 +21,9 @@ export async function GET({ fetch, url }) {
   <url>
     <loc>https://www.yaqeen.me/blog</loc>
   </url>
+ <url>
+    <loc>https://www.yaqeen.me/blog/series/uth</loc>
+  </url>
  
   <url>
     <loc>https://www.yaqeen.me/neuroodyssey</loc>
