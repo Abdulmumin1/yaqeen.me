@@ -8,7 +8,7 @@ Most of the time, you are working on building simple projects, and the code base
 
 date: '2022-12-7'
 
-lastmod: '2024-09-20'
+lastmod: '2024-09-21'
 
 categories:
 
@@ -24,7 +24,7 @@ published: true
 
 ---
 
-If you are just starting out, you might be wondering what exactly is Git 🤔 and why the it everywhere.
+If you are just starting out, you might be wondering what exactly is Git 🤔 and why is it everywhere.
 
 Most of the time, you are working on building simple projects, and the code base doesn't get too complex. Hence, easy to maintain.
 
@@ -36,11 +36,13 @@ Thus, Git helps us solve this problem.
 
 Git is a free and open source version control software that helps you manage and maintain your codebase.
 
-With Git, Versioning becomes easy, collaboration can't get easier, managing and scaling your software comes in handy.
+With Git, Versioning becomes easy, collaboration can't get easier, managing and scaling your codebase comes in handy.
 
 ### A journey to learn Git
 
-So, we set out to build a beautiful landing page. But we just realise we don't have Git installed on our machine yet 😅.
+So, let say we set out to build a beautiful landing page, we're pumped to use Git, then we realise we don't have Git installed on our machine yet 😅.
+
+> I will try my best to create an ideal imaginative workflow of working with Git as a beginner, so you can learn and relate properly.
 
 ### Installing Git
 
