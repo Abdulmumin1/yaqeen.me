@@ -8,11 +8,11 @@
 	import { scale } from 'svelte/transition';
 	import { darkMode } from '$lib/utils/darkmode.js';
 
-	$: {
-		if (browser) {
-			console.log(localStorage.theme);
-			localStorage.setItem('theme', $darkMode ? 'dark' : 'light');
+	let mounted = false;
 
+	let darkModeSubscribe = darkMode.subscribe((data) => {
+		if (browser && mounted) {
+			localStorage.setItem('theme', data ? 'dark' : 'light');
 			if (
 				localStorage.theme === 'dark' ||
 				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -22,7 +22,7 @@
 				document.documentElement.classList.remove('dark');
 			}
 		}
-	}
+	});
 	function handleSwitchDarkMode() {
 		darkMode.update((cur) => {
 			return !cur;
@@ -32,6 +32,11 @@
 	onMount(() => {
 		let isdark = localStorage.theme == 'dark';
 		darkMode.set(isdark);
+		mounted = true;
+
+		return () => {
+			darkModeSubscribe();
+		};
 	});
 </script>
 

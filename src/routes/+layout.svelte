@@ -8,6 +8,7 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { darkMode } from '$lib/utils/darkmode.js';
+	import { fly, slide } from 'svelte/transition';
 
 	setKbarState();
 	$: isBlog = false;
@@ -78,7 +79,41 @@
 
 	let loaded = false;
 	let canonical = null;
+	let isDarkMode;
+	let showBannerVar = false;
+	let bannerTimeout;
+	let intialPass = false;
+
+	function showBanner() {
+		console.log('dark mode is better.');
+		clearTimeout(bannerTimeout);
+		showBannerVar = true;
+		bannerTimeout = setTimeout(() => {
+			showBannerVar = false;
+		}, 4000);
+	}
+
+	let unsubscribe = darkMode.subscribe((data) => {
+		if (data && intialPass) {
+			showBanner();
+		} else if (showBannerVar) {
+			showBannerVar = false;
+		}
+	});
+
 	onMount(async () => {
+		intialPass = true;
+		isDarkMode =
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+		if (isDarkMode) {
+			showBanner();
+			setTimeout(() => {
+				darkMode.set(false);
+			}, 2000);
+		}
+
 		let result = await fetchPosts();
 		let url = window.location.hostname;
 		// insertCopyButton(faCopy);
@@ -101,6 +136,10 @@
 			];
 		});
 		loaded = true;
+
+		return () => {
+			unsubscribe();
+		};
 	});
 </script>
 
@@ -120,6 +159,30 @@
 	<Footer />
 	<!-- bg-[#08090a] -->
 </div>
+
+{#if showBannerVar}
+	<div transition:fly={{ y: 20 }} class="assistant">
+		<div class="speech-bubble">
+			<p>Light mode is better</p>
+		</div>
+		<div class="clippy">
+			<!-- <span class="eyes" />
+			<span class="body" /> -->
+			<img
+				src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExejl2b3VkaXBqbHJpeWUzdng4Z3RvYXEzaWkwanIyOTQ4Ym00b2VudiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s1AxxupkX45GsPQVHL/giphy.gif"
+				alt=""
+				srcset=""
+			/>
+		</div>
+		<button
+			class="dismiss"
+			on:click={() => {
+				clearTimeout(bannerTimeout);
+				showBannerVar = false;
+			}}>✖</button
+		>
+	</div>
+{/if}
 {#if loaded}
 	<KDialog
 		{actions}
@@ -129,3 +192,91 @@
 		--shadow={`0px .2px .2px ${$darkMode ? '#c04310' : '#f97316'}`}
 	/>
 {/if}
+
+<style>
+	.assistant {
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		display: flex;
+		align-items: flex-end;
+		font-family: Arial, sans-serif;
+		background-color: transparent;
+	}
+
+	.speech-bubble {
+		position: absolute;
+		z-index: 999;
+		width: 100%;
+		color: white;
+		font-weight: bolder;
+		font-size: 30px;
+		left: 50%;
+		bottom: 0;
+		transform: translateX(-50%);
+		text-align: center;
+		-webkit-text-fill-color: white; /*Will override color (regardless of order)*/
+		-webkit-text-stroke: 1px black;
+	}
+
+	.clippy {
+		width: 300px;
+		/* height: 60px; */
+
+		background: #ccc;
+		border: 2px solid #000;
+		border-radius: 0 0 50% 50%;
+		position: relative;
+		border-radius: 1.125rem;
+	}
+	.clippy img {
+		border-radius: 1.125rem;
+	}
+
+	.eyes::before,
+	.eyes::after {
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background: #000;
+		border-radius: 50%;
+		top: 15px;
+	}
+
+	.eyes::before {
+		left: 15px;
+	}
+	.eyes::after {
+		right: 15px;
+	}
+
+	.body::before {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 30px;
+		background: #000;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	button {
+		background: #f0f0f0;
+		border: 1px solid #ccc;
+		padding: 5px 10px;
+		margin-top: 10px;
+		cursor: pointer;
+	}
+
+	.dismiss {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: none;
+		border: none;
+		font-size: 16px;
+		cursor: pointer;
+	}
+</style>

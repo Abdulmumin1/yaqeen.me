@@ -105,6 +105,11 @@
 					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
 					href="/blog/git+for+beginners">Git Crash Course</a
 				>
+
+				<a
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					href="https://devcanvas.art/blog">CSS articles</a
+				>
 			</div>
 			<div class="text-4xl flex flex-col gap-3">
 				<p>Latest post</p>

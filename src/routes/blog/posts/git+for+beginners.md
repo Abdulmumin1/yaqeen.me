@@ -107,7 +107,7 @@ Now, that makes alot of sense, all the files have been added, like allll 😱.
 
 We are in trouble, let say we're using more modern js framework. Like all the _node_modules_ files and folders are now in our REPO??! That like 250 MEGABYTES crap!!!
 
-We need to be able to **git add .** without getting worried that the images, files or other large assets that are just for local development and would'nt be needed in anywhere in production ends up in our repo.
+We need to be able to **git add .** without getting worried that the images, files or other large assets that are just for local development and wouldn't be needed in anywhere in production ends up in our repo.
 
 The **.gitignore** file allows to specify folders, files or specific extensions types we want to exempt from been tracked.
 
