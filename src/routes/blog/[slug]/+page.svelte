@@ -31,6 +31,7 @@
 	import { scale, slide } from 'svelte/transition';
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import { page } from '$app/stores';
+	import Seo from '../../../components/general/seo.svelte';
 	let url;
 	function scrollToTopSmooth() {
 		window.scrollTo({
@@ -56,42 +57,11 @@
 </script>
 
 <svelte:head>
-	<title>{data.meta.title}</title>
-	<meta name="description" content={data.meta?.description.slice(0, 300)} />
-
-	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content={$page.url} />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={data.meta.title} />
-	<meta property="og:description" content={data.meta?.description.slice(0, 300)} />
-	<meta
-		property="og:image"
-		content={data.meta?.thumbnail ??
-			`${$page.url.origin}/og?message=${encodeURIComponent(data.meta.title)}`}
+	<Seo
+		title={data.meta?.title}
+		description={data.meta?.description}
+		published={data.meta?.published}
 	/>
-
-	<!-- Twitter Meta Tags -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="yaqeen.me" />
-	<meta property="twitter:url" content="https://www.yaqeen.me" />
-	<meta name="twitter:title" content={data.meta.title} />
-	<meta
-		name="twitter:description"
-		content={data.meta?.description.slice(0, 300) || data.meta.title}
-	/>
-	<meta
-		name="twitter:image"
-		content={data.meta?.thumbnail ??
-			`https://yaqeen.me/og?message=${encodeURIComponent(data.meta.title)}`}
-	/>
-
-	{#if data.meta?.published}
-		<meta name="robots" content="index, follow" />
-	{/if}
-
-	{#if data.meta?.canonical}
-		<link rel="canonical" href={data.meta?.canonical} />
-	{/if}
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2">

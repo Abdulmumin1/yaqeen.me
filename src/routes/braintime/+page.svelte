@@ -2,6 +2,7 @@
 	import { scale, slide } from 'svelte/transition';
 	import Fa from 'svelte-fa';
 	import { faApple, faWindows, faLinux } from '@fortawesome/free-brands-svg-icons';
+	import Seo from '../../components/general/seo.svelte';
 
 	let imagelist = [
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331689/Screenshot_from_2024-09-26_07-16-45_fcufmv.png',
@@ -13,6 +14,14 @@
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331980/Screenshot_from_2024-09-26_07-25-39_vbxjrq.png'
 	];
 </script>
+
+<svelte:head>
+	<Seo
+		title="BrainTime"
+		description="Excell in you thinking ability with curated brain exercises"
+		image={imagelist[0]}
+	/>
+</svelte:head>
 
 <div class="min-h-screen p-3 max-w-[1200px] mx-auto" in:slide>
 	<article class="flex w-full p-6 h-[80vh] gap-4 justify-between items-center flex-col md:flex-row">

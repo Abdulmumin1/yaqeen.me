@@ -7,6 +7,7 @@
 	import MiniSection from '../../components/projects/miniSection.svelte';
 	import ProSection from '../../components/projects/proSection.svelte';
 	import BigSection from '../../components/projects/bigSection.svelte';
+	import Seo from '../../components/general/seo.svelte';
 
 	let alternate = true;
 	let projectData = $project_data;
@@ -38,6 +39,10 @@
 		console.log(projectData);
 	}
 </script>
+
+<svelte:head>
+	<Seo title="Projects" description="A collection of the projects i've completed over the years" />
+</svelte:head>
 
 <!-- <p class="text-center">Under Construction</p> -->
 <div class="grid place-items-center w-full p-4">

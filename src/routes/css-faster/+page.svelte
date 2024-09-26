@@ -2,6 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import Fa from 'svelte-fa';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
+	import Seo from '../../components/general/seo.svelte';
 
 	const project = {
 		name: 'CSS-Faster',
@@ -19,6 +20,10 @@
 		demoGif: '/css-faster/vid.gif' // Replace with actual demo GIF URL
 	};
 </script>
+
+<svelte:head>
+	<Seo title={project.name} description={project.description} />
+</svelte:head>
 
 <div class="min-h-screen p-6 text-gray-900 dark:text-white" in:slide>
 	<header class="text-center mb-12 flex flex-col gap-4">

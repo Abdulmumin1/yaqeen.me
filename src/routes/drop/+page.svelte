@@ -2,6 +2,7 @@
 	import { scale, slide } from 'svelte/transition';
 	import Fa from 'svelte-fa';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
+	import Seo from '../../components/general/seo.svelte';
 
 	const project = {
 		name: 'Drop',
@@ -20,6 +21,10 @@
 		]
 	};
 </script>
+
+<svelte:head>
+	<Seo title={project.name} description={project.description} image={project.imagelist[0]} />
+</svelte:head>
 
 <div class="min-h-screen p-3 max-w-[1200px] mx-auto" in:slide>
 	<article
