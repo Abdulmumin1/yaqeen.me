@@ -9,7 +9,11 @@
 	import { onMount } from 'svelte';
 	import { darkMode } from '$lib/utils/darkmode.js';
 	import { fly, slide } from 'svelte/transition';
+	import { setModalContext, setCurrentProjectInModal } from '$lib/utils/projectStore';
+	import ProjectOverviewModal from '../components/projects/projectOverviewModal.svelte';
 
+	setModalContext();
+	setCurrentProjectInModal();
 	setKbarState();
 	$: isBlog = false;
 	$: {
@@ -192,6 +196,8 @@
 		--shadow={`0px .2px .2px ${$darkMode ? '#c04310' : '#f97316'}`}
 	/>
 {/if}
+
+<ProjectOverviewModal />
 
 <style>
 	.assistant {

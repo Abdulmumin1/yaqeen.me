@@ -1,24 +1,18 @@
 <script>
 	import { scale } from 'svelte/transition';
+	import { getModalContext, getCurrentProjectInModal } from '$lib/utils/projectStore';
 
-	import {
-		faAngleRight,
-		faArrowRightLong,
-		faExternalLink,
-		faExternalLinkAlt,
-		faFolder,
-		faFolderBlank
-	} from '@fortawesome/free-solid-svg-icons';
+	import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	export let details;
-	import { stackLinks } from '$lib/utils/stackLookup.js';
-	import { faGithub } from '@fortawesome/free-brands-svg-icons';
-	//{'name':"Project Name", 'stack':['Stack1', 'Stack2', 'Stack3'], 'description':"a short sentence that gives a overall picture of the project"}
 
-	// let stack_dict = {};
+	let modalContext = getModalContext();
+	let currentProject = getCurrentProjectInModal();
 
-	// const unsubscribe_stack = stackLinks.subscribe((data) => (stack_dict = data));
-	// unsubscribe_stack();
+	function openModal() {
+		$currentProject = details;
+		$modalContext = true;
+	}
 	function getRandomColor() {
 		const colors = ['bg-orange-300'];
 
@@ -58,6 +52,7 @@
 					<a target="_blank" href="https://{details.links.page}">{details.links.page}</a>
 					<Fa icon={faExternalLinkAlt} />
 				</div>
+				<button class="" on:click={openModal}> Learn more </button>
 			</div>
 		</div>
 	</div>

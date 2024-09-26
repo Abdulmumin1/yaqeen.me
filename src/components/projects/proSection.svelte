@@ -6,7 +6,7 @@
 	import SassGrid from './sassGrid.svelte';
 </script>
 
-<div class=" md:rounded-2xl space-y-5 p-1 py-6 lg:p-6 flex flex-col" id="projects">
+<div class="w-full md:rounded-2xl space-y-5 p-1 py-6 lg:p-6 flex flex-col" id="projects">
 	<h2
 		class="lg:text-5xl text-4xl text-center font-visby_bold font-bold pb-3 text-orang dark:text-dark"
 	>

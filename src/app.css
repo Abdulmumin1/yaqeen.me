@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer utilities {
+	dialog {
+		margin: auto !important;
+	}
 	body {
 		overflow-x: hidden;
 	}

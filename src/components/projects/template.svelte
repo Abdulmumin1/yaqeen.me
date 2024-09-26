@@ -1,22 +1,24 @@
 <script>
 	import { scale } from 'svelte/transition';
+	import { getModalContext, getCurrentProjectInModal } from '$lib/utils/projectStore';
 
-	import {
-		faAngleRight,
-		faArrowRightLong,
-		faFolder,
-		faFolderBlank
-	} from '@fortawesome/free-solid-svg-icons';
+	import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	export let details;
-	import { stackLinks } from '$lib/utils/stackLookup.js';
-	import { faGithub } from '@fortawesome/free-brands-svg-icons';
 	//{'name':"Project Name", 'stack':['Stack1', 'Stack2', 'Stack3'], 'description':"a short sentence that gives a overall picture of the project"}
 
 	// let stack_dict = {};
 
 	// const unsubscribe_stack = stackLinks.subscribe((data) => (stack_dict = data));
 	// unsubscribe_stack();
+
+	let modalContext = getModalContext();
+	let currentProject = getCurrentProjectInModal();
+
+	function openModal() {
+		$currentProject = details;
+		$modalContext = true;
+	}
 	function getRandomColor() {
 		const colors = ['bg-orange-300'];
 
@@ -51,16 +53,16 @@
 
 			<div class="flex space-x-2">
 				<div
-					class="flex items-center w-fit space-x-2 p-1 rounded-lg hover_link_fill border-orang dark:border-dark"
-				>
-					<a href={details.links.study} class=""><Fa icon={faGithub} /> </a>
-				</div>
-				<div
 					class="flex items-center justify-center w-fit space-x-2 px-2 rounded-lg border border-orang hover_link_fill text-sm dark:border-dark"
 				>
-					<a target="_blank" href="https://{details.links.page}">{details.links.page}</a>
+					<a
+						target={details?.onpage ? '_self' : '_blank'}
+						href="{details?.onpage ? '' : 'https://'}{details.links.page}"
+						>Visit {details.name.toLowerCase()}</a
+					>
 					<Fa icon={faArrowRightLong} />
 				</div>
+				<button class="" on:click={openModal}>Learn more</button>
 			</div>
 		</div>
 	</div>

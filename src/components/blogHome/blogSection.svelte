@@ -4,6 +4,6 @@
 	import { slide } from 'svelte/transition';
 </script>
 
-<div class="flex flex-col h-full p-2 m-1" id="blog">
+<div class="w-full flex flex-col h-full p-2 m-1" id="blog">
 	<BlogSGrid />
 </div>
