@@ -62,6 +62,9 @@
 		description={data.meta?.description}
 		published={data.meta?.published}
 	/>
+	{#if data.meta?.canonical}
+		<link rel="canonical" href="{data.meta?.canonical}}" />
+	{/if}
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2">
