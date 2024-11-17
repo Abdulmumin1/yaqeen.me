@@ -10,6 +10,8 @@ lastmod: '2024-11-17'
 categories:
   - product launch
 
+label: '<a href="/category/product%20launch">product launch</a>'
+
 published: true
 ---
 
@@ -116,7 +118,5 @@ Questions? Drop them in the comments or hit me up on
 
 Twitter: https://twitter.com/@abdulmuminyqn.
 Bluesky: https://bsky.app/profile/yaqeen.me
-
----
 
 Would love the the community feedback on this 🫶🏾!
