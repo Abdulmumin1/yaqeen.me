@@ -119,4 +119,4 @@ Bluesky: https://bsky.app/profile/yaqeen.me
 
 ---
 
-Would love the the community feedback on this 🫶🏾
+Would love the the community feedback on this 🫶🏾!
