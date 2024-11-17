@@ -74,7 +74,7 @@ We're keeping it simple and affordable for bootstrappers and indie hackers - no 
 
 ### The Technical Bits You'll Care About
 
-- <2kb script size (your users won't even notice it)
+- Less than 2kb script size (your users won't even notice it)
 - No cookies (GDPR-friendly)
 - First-party data collection (no third-party trackers)
 
