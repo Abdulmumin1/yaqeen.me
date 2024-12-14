@@ -14,9 +14,9 @@
 		/>
 		<script defer src="https://cdn.littlestats.click/embed/ilei2nc1shxp58w"></script>
 		<script>
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-				? document.documentElement.classList.add('dark')
+			localStorage.theme === 'dark'
+				? // (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				  document.documentElement.classList.add('dark')
 				: document.documentElement.classList.remove('dark');
 		</script>
 		%sveltekit.head%

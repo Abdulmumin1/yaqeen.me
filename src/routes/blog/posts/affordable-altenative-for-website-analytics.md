@@ -48,7 +48,7 @@ I looked around for alternatives:
 
 So I built Littlestats with a simple promise:
 
-**Everything you actually need from analytics, for the price of a coffee (or maybe two coffee now 😅).**
+**Everything you actually need from analytics, for the price of a coffee.**
 
 ### What do MicroSaaS founders actually need?
 
@@ -66,9 +66,9 @@ So I built Littlestats with a simple promise:
 - Enterprise-grade features we'll never use
 - Adding mediocre AI features to justify the price
 
-### Why $7
+### Why $4
 
-While most analytics tools charge $9-29/month for just 10k-30k hits per month, we're giving you 50k monthly hits for $7. Simple as that.
+While most analytics tools charge $9-29/month for just 10k-30k hits per month, we're giving you Unlimited monthly hits for $4. Simple as that.
 
 We're keeping it simple and affordable for bootstrappers and indie hackers - no complicated tiers, no enterprise bloat, just clean analytics that help you make better decisions.
 
@@ -90,15 +90,15 @@ We're keeping it simple and affordable for bootstrappers and indie hackers - no 
 Let's be real:
 
 - If you need enterprise features, this isn't for you
-- If you're doing >50k hits/month, you've outgrown us
+- If you're doing >1M hits/month, you've outgrown us
 - If you need ML-powered predictions, look elsewhere
 
 ### The Price Breakdown You Actually Care About
 
-$7/month gets you:
+$4/month gets you:
 
 - 5 websites (will increase in the future)
-- 50k hits/month
+- Unlimited hits/month
 - All features included
 - No upsells or hidden fees
 
@@ -117,6 +117,7 @@ I built this because I needed it. If you're running small SaaS products or websi
 Questions? Drop them in the comments or hit me up on
 
 Twitter: https://twitter.com/@abdulmuminyqn.
+
 Bluesky: https://bsky.app/profile/yaqeen.me
 
 Would love the the community feedback on this 🫶🏾!

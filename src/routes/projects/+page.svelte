@@ -46,7 +46,7 @@
 
 <!-- <p class="text-center">Under Construction</p> -->
 <div class="grid place-items-center w-full p-4">
-	<div class="flex gap-4 flex-col max-w-[800px] w-full relative">
+	<div class="flex gap-4 flex-col max-w-[1200px] w-full relative">
 		<!-- <div
 			class="w-[399px] hidden md:flex sticky top-[100px] h-fit mt-[150px] bg-orange-100 dark:bg-stone-900 rounded-2xl"
 		>

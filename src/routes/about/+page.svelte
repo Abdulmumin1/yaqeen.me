@@ -139,7 +139,7 @@
 		<div class="space-y-5 text-balance">
 			<h3 class="text-2xl font-bold text-orang dark:text-dark">Things I Enjoy</h3>
 			<ul
-				class="space-y-3 py-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800 divide-y flex justify-center flex-col list-none"
+				class="space-y-3 py-3 divide-orang dark:divide-dark list-inside rounded-xl bg-orange-100 dark:bg-stone-800/40 divide-y flex justify-center flex-col list-none"
 			>
 				<li class="px-3 py-2">
 					- Writing ✏️

@@ -1,6 +1,7 @@
 <script>
 	import { scale } from 'svelte/transition';
 	import { getModalContext, getCurrentProjectInModal } from '$lib/utils/projectStore';
+	import { darkMode } from '$lib/utils/darkmode.js';
 
 	import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
@@ -27,7 +28,11 @@
 >
 	<div class="flex gap-2 items-center">
 		<p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
-			<img height="50px" width="50px" src={details.svg} alt="" />
+			{#if $darkMode}
+				<img height="50px" width="50px" src={details.svgdark} alt="" />
+			{:else}
+				<img height="50px" width="50px" src={details.svg} alt="" />
+			{/if}
 		</p>
 		<p class="text-3xl lg:text-4xl mb-1 text-orang font-bold dark:text-dark">{details.name}</p>
 	</div>

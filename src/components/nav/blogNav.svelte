@@ -60,12 +60,12 @@
 		<li>
 			<ul class="flex gap-2 items-center justify-center">
 				<li
-					class="bg-orange-200 hidden md:block dark:bg-stone-800 dark:text-orange-300 p-2 px-3 rounded-full text-black text-sm"
+					class="bg-orange-200/50 hidden md:block dark:bg-stone-800 dark:text-orange-200 p-2 px-3 rounded-full text-black text-sm"
 				>
 					<button on:click={toggleKbar}> Search <span class="">Ctrl+K</span></button>
 				</li>
 				<li
-					class="flex rounded-full items-center justify-center bg-orange-50 border border-orang dark:border-dark dark:bg-stone-950 px-2 py-1"
+					class="bg-orange-200/50 hidden md:block dark:bg-stone-800 dark:text-orange-200 p-2 px-3 rounded-full text-black text-sm"
 				>
 					<a href="/about ">About</a>
 				</li>

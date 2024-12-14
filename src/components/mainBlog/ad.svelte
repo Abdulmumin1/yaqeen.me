@@ -8,6 +8,16 @@
 		class="sticky top-[120px] bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
 	>
 		<div class="flex flex-col gap-2">
+			<p class="font-semibold">Littlestats</p>
+			<p class="text-sm">Analytics tool the cost a fixed $4/month</p>
+			<a
+				href="https://littlestats.click"
+				target="_blank"
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
+				>Start for free <Fa icon={faRightLong} /></a
+			>
+		</div>
+		<div class="flex flex-col gap-2">
 			<p class="font-semibold">Signup for DevCanvas</p>
 			<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant previews!</p>
 			<a
@@ -37,7 +47,7 @@
 				>Get Browser Extension <Fa icon={faRightLong} /></a
 			>
 		</div> -->
-		<div class="flex flex-col gap-2">
+		<!-- <div class="flex flex-col gap-2">
 			<p class="font-semibold">Kbar-svelte-mini</p>
 			<p class="text-sm">Setup cmd+k/ctrl+k for your svelte app with breeze 🌬️</p>
 			<a
@@ -46,7 +56,7 @@
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang justify-center dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
 				>Get npm package <Fa icon={faRightLong} /></a
 			>
-		</div>
+		</div> -->
 	</div>
 </div>
 

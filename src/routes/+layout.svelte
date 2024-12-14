@@ -164,14 +164,13 @@
 	<!-- bg-[#08090a] -->
 </div>
 
-{#if showBannerVar}
+<!-- {#if showBannerVar}
 	<div transition:fly={{ y: 20 }} class="assistant">
 		<div class="speech-bubble">
 			<p>Light mode is better</p>
 		</div>
 		<div class="clippy">
-			<!-- <span class="eyes" />
-			<span class="body" /> -->
+
 			<img
 				src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExejl2b3VkaXBqbHJpeWUzdng4Z3RvYXEzaWkwanIyOTQ4Ym00b2VudiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s1AxxupkX45GsPQVHL/giphy.gif"
 				alt=""
@@ -186,7 +185,7 @@
 			}}>✖</button
 		>
 	</div>
-{/if}
+{/if} -->
 {#if loaded}
 	<KDialog
 		{actions}

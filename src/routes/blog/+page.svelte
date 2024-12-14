@@ -92,22 +92,22 @@
 		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
 			<div class="flex flex-wrap gap-4">
 				<a
-					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-900/60 border-orang dark:border-dark"
 					href="/blog/series/uth"
 					>Under the hood series <span class="-rotate-12"><Fa icon={faArrowRight} /></span></a
 				>
 
 				<a
-					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-900/60 border-orang dark:border-dark"
 					href="/category/product launch">Product Lauches</a
 				>
 				<a
-					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-900/60 border-orang dark:border-dark"
 					href="/blog/git+for+beginners">Git Crash Course</a
 				>
 
 				<a
-					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-800 border-orang dark:border-dark"
+					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-900/60 border-orang dark:border-dark"
 					href="https://devcanvas.art/blog">CSS articles</a
 				>
 			</div>
@@ -128,7 +128,7 @@
 						disabled={mutePrev}
 						class:border-0={mutePrev}
 						class:border-b-0={mutePrev}
-						class="bg-orange-200 dark:bg-stone-900 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+						class="bg-orange-200 dark:bg-stone-900/60 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
 						><Fa icon={faAngleLeft} /> prev</button
 					>
 					<button
@@ -136,7 +136,7 @@
 						disabled={muteNext}
 						class:border-0={muteNext}
 						class:border-b-0={muteNext}
-						class="bg-orange-200 dark:bg-stone-900 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+						class="bg-orange-200 dark:bg-stone-900/60 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
 						><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></button
 					>
 				</div>

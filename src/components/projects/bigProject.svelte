@@ -24,7 +24,7 @@
 </script>
 
 <div
-	class="bg-orange-100 flex flex-col gap-2 border border-b-2 dark:bg-stone-900 dark:border-dark border-orang rounded-3xl p-6 w-full"
+	class="bg-orange-100 flex flex-col gap-2 dark:bg-stone-900 dark:border-dark border-orang rounded-3xl p-6 w-full"
 >
 	<div>
 		<div class="flex justify-between items-center">
@@ -36,7 +36,7 @@
 			</h4>
 			<a href="https://github.com/{link}"><Fa icon={faGithub} /></a>
 		</div>
-		<a href={link} class="text-stone-800 dark:text-stone-500 text-sm">{link}</a>
+		<a href={link} class="text-stone-800 dark:text-orange-200/70 text-sm">{link}</a>
 	</div>
 
 	<div>

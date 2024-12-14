@@ -21,6 +21,24 @@ export function getCurrentProjectInModal() {
 
 export const sass_projects = readable([
 	{
+		name: 'Littlestats',
+		stack: ['Sveltekit', 'Clickhouse', 'Pocketbase', 'AWS'],
+		description: 'Affordable Analytics - Your analytics needs without breaking the bank',
+		links: {
+			page: 'Littlestats.click'
+		},
+		color: 'bg-sky-400',
+		svg: '/littlestats.svg',
+		svgdark: '/littlestatsdark.svg',
+		imagelist: [
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329005/Screenshot_2024-09-26_at_06-36-29_CommentRig_wqy4mn.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-40-35_Form_Validation_with_Only_HTML5_and_CSS_w2d5ii.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-41-12_2_Dashboard_-_CommentRig_llvtb5.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-41-58_2_Notification_dijf1z.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
+		]
+	},
+	{
 		name: 'CommentRig',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'A seemless, powerfull modern comment management for websites',
@@ -29,6 +47,7 @@ export const sass_projects = readable([
 		},
 		color: 'bg-sky-400',
 		svg: '/commentrig.svg',
+		svgdark: '/commentrigdark.svg',
 		imagelist: [
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329005/Screenshot_2024-09-26_at_06-36-29_CommentRig_wqy4mn.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-40-35_Form_Validation_with_Only_HTML5_and_CSS_w2d5ii.png',
@@ -37,6 +56,7 @@ export const sass_projects = readable([
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
 		]
 	},
+
 	{
 		name: 'DevCanvas',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
@@ -47,6 +67,7 @@ export const sass_projects = readable([
 		},
 		color: 'bg-sky-400',
 		svg: '/devcanvas.svg',
+		svgdark: '/devcanvasdark.svg',
 		imagelist: [
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-43_DevCanvas_-_Super_Fast_Online_Editor_pyfm5u.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-52_DevCanvas_-_Super_Fast_Online_Editor_bgippq.png',

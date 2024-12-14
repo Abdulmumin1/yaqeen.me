@@ -14,7 +14,7 @@
 
 <div
 	in:scale
-	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 md:hover:scale-105"
+	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900/60 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 md:hover:scale-105"
 >
 	{#if latest}
 		<div class=" flex flex-col gap-3 w-full">

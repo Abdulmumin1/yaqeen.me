@@ -31,8 +31,8 @@
 			</p>
 			<p>
 				Technical writer & FullStack engineer. <br />Currently building
-				<a href="https://www.commentrig.com" target="_blank" class="text-orang dark:text-dark"
-					>commentrig.com</a
+				<a href="https://littlestats.click" target="_blank" class="text-orang dark:text-dark"
+					>littlestats.click</a
 				>
 			</p>
 			<div
