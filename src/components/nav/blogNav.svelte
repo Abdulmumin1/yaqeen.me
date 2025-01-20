@@ -2,7 +2,7 @@
 	import { slide } from 'svelte/transition';
 
 	import Fa from 'svelte-fa';
-	import { faRss } from '@fortawesome/free-solid-svg-icons';
+	import { faRss, faSearch } from '@fortawesome/free-solid-svg-icons';
 	import { getKbarState } from 'kbar-svelte-mini';
 	import { onMount, onDestroy } from 'svelte';
 	import Darkmode from './Darkmode.svelte';
@@ -47,10 +47,11 @@
 
 <div
 	transition:slide
-	class:visible={showNav}
-	class="bottom-nav w-[200vw] z-50 fixed bg-orange-100 border-b-2 border-orang dark:border-dark dark:bg-stone-900 flex items-center justify-center"
+	class=" z-50 border-orang dark:border-dark w-full flex items-center justify-center"
 >
-	<ul class=" w-screen flex justify-between py-6 px-3 pr-5 md:px-6 items-center mt-12">
+	<ul
+		class="w-full max-w-[800px] bg-orange-100 border-orang dark:border-dark border-b-2 rounded-full dark:bg-stone-800/50 flex justify-between py-6 px-3 pr-5 md:px-6 items-center mt-3"
+	>
 		<li>
 			<a href="/blog" class="relative font-bold flex items-center justify-center">
 				<h1>Home</h1>
@@ -58,15 +59,13 @@
 			</a>
 		</li>
 		<li>
-			<ul class="flex gap-2 items-center justify-center">
-				<li
-					class="bg-orange-200/50 hidden md:block dark:bg-stone-800 dark:text-orange-200 p-2 px-3 rounded-full text-black text-sm"
-				>
-					<button on:click={toggleKbar}> Search <span class="">Ctrl+K</span></button>
+			<ul class="flex gap-5 items-center justify-center">
+				<li class=" hidden md:block">
+					<button on:click={toggleKbar} class="flex items-center gap-2">
+						<span class="">Ctrl+K</span> <Fa icon={faSearch} /></button
+					>
 				</li>
-				<li
-					class="bg-orange-200/50 hidden md:block dark:bg-stone-800 dark:text-orange-200 p-2 px-3 rounded-full text-black text-sm"
-				>
+				<li class=" hidden md:block">
 					<a href="/about ">About</a>
 				</li>
 				<li class="flex items-center justify-center">

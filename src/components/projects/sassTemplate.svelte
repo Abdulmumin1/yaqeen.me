@@ -24,17 +24,17 @@
 
 <div
 	in:scale
-	class="border rounded-2xl border-orang gap-2 border-b-2 dark:border-dark p-6 flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-100 dark:bg-stone-900"
+	class="rounded-2xl border-orang gap-2 dark:border-dark flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-50 p-5 dark:bg-stone-800/50"
 >
 	<div class="flex gap-2 items-center">
-		<p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
+		<!-- <p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
 			{#if $darkMode}
 				<img height="50px" width="50px" src={details.svgdark} alt="" />
 			{:else}
 				<img height="50px" width="50px" src={details.svg} alt="" />
 			{/if}
-		</p>
-		<p class="text-3xl lg:text-4xl mb-1 text-orang font-bold dark:text-dark">{details.name}</p>
+		</p> -->
+		<p class="text-2xl lg:text-xl mb-1 text-orang font-bold dark:text-dark">{details.name}</p>
 	</div>
 	<div class="space-x-3 grid grid-cols-1 items-center">
 		<!-- <div>

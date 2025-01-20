@@ -29,10 +29,10 @@
 
 <div
 	in:scale
-	class="border rounded-2xl border-orang gap-2 border-b-2 dark:border-dark p-6 flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-100 dark:bg-stone-900"
+	class=" rounded-2xl border-orang gap-2 dark:border-dark flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-50 p-5 dark:bg-stone-800/50"
 >
 	<div class="flex gap-2 items-center">
-		<p class="text-3xl lg:text-4xl">{details.name}</p>
+		<p class="text-3xl">{details.name}</p>
 		<!-- <p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
 			<Fa icon={faFolderBlank} />
 		</p> -->
@@ -52,7 +52,7 @@
 			</ul> -->
 
 			<div class="flex space-x-2">
-				<div
+				<!-- <div
 					class="flex items-center justify-center w-fit space-x-2 px-2 rounded-lg border border-orang hover_link_fill text-sm dark:border-dark"
 				>
 					<a
@@ -61,7 +61,7 @@
 						>Visit {details.name.toLowerCase()}</a
 					>
 					<Fa icon={faArrowRightLong} />
-				</div>
+				</div> -->
 				<button class="" on:click={openModal}>Learn more</button>
 			</div>
 		</div>

@@ -68,18 +68,18 @@
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2">
-	<hgroup
-		class="md:h-[400px] justify-center mb-4 flex items-center rounded-lg w-full flex-col gap-3"
-	>
-		<div class="flex max-w-md md:max-w-[800px] flex-col md:items-center gap-2 justify-center">
-			<h1 class="text-5xl text-balance font-extrabold md:text-6xl md:text-center">
+	<hgroup class=" mb-4 flex items-center rounded-lg w-full flex-col gap-3">
+		<div class="flex max-w-md items-center md:max-w-[800px] flex-col gap-2">
+			<h1 class="text-5xl text-center text-balance font-extrabold md:text-6xl">
 				{data.meta.title}
 			</h1>
-			<p>Published {formatDate(data.meta.date)}</p>
-			{#if data.meta.date != data.meta.lastmod}
-				<p>Edited {formatDate(data.meta.lastmod)}</p>
-			{/if}
-			<div class="flex md:items-center">
+			<div class="text-sm">
+				<p>Published {formatDate(data.meta.date)}</p>
+				{#if data.meta.date != data.meta.lastmod}
+					<p>Edited {formatDate(data.meta.lastmod)}</p>
+				{/if}
+			</div>
+			<!-- <div class="flex md:items-center">
 				<div class="flex gap-2">
 					<a href={$mylinks.github}>
 						<Fa icon={faGithub} />
@@ -94,7 +94,7 @@
 						<Fa icon={faYoutube} />
 					</a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</hgroup>
 	<section class="flex w-full flex-col lg:flex-row article">
