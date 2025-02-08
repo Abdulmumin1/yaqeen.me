@@ -18,17 +18,17 @@
 			>
 		</div>
 		<div class="flex flex-col gap-2">
-			<p class="font-semibold">Signup for DevCanvas</p>
-			<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant previews!</p>
+			<p class="font-semibold">DevCanvas</p>
+			<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant - super fast previews!</p>
 			<a
-				href="https://devcanvas.art/play/try"
+				href="https://devcanvas.dev/play/try"
 				target="_blank"
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
 				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
 		</div>
 		<div class="flex flex-col gap-2">
-			<p class="font-semibold">Get CommentRig</p>
+			<p class="font-semibold">CommentRig</p>
 			<p class="text-sm">Get the best modern comment management for your website.</p>
 			<a
 				href="https://www.commentrig.com"
