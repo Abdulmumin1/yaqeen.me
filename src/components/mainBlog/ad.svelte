@@ -13,6 +13,11 @@
 			<a
 				href="https://littlestats.click"
 				target="_blank"
+				on:click={()=>{
+					window.trackEvent('Littlestats Ad', {
+						page:document.title
+					});
+				}}
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
 				>Start for free <Fa icon={faRightLong} /></a
 			>
@@ -23,6 +28,11 @@
 			<a
 				href="https://devcanvas.dev/play/try"
 				target="_blank"
+				on:click={()=>{
+					window.trackEvent('Devcanvas Ad', {
+						page:document.title
+					});
+				}}
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
 				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
@@ -33,6 +43,11 @@
 			<a
 				href="https://www.commentrig.com"
 				target="_blank"
+				on:click={()=>{
+					window.trackEvent('CommentRig Ad', {
+						page:document.title
+					});
+				}}
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
 				>Get Commentrig <Fa icon={faRightLong} /></a
 			>

@@ -47,10 +47,10 @@
 
 <div
 	transition:slide
-	class=" z-50 border-orang dark:border-dark w-full flex items-center justify-center"
+	class=" z-50 px-4 border-orang dark:border-dark w-full flex items-center justify-center"
 >
 	<ul
-		class="w-full max-w-[800px] bg-orange-100 border-orang dark:border-dark border-b-2 rounded-full dark:bg-stone-800/50 flex justify-between py-6 px-3 pr-5 md:px-6 items-center mt-3"
+		class="w-full max-w-[800px] bg-orange-100 border-orang dark:border-dark border-b-2 rounded-full dark:bg-stone-800/50 flex justify-between py-4 px-3 pr-5 md:px-6 items-center mt-3"
 	>
 		<li>
 			<a href="/blog" class="relative font-bold flex items-center justify-center">
