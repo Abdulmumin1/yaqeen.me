@@ -8,8 +8,10 @@ date: '2025-04-18'
 lastmod: '2025-04-18'
 
 categories:
-  - product launch
-
+  - auth
+  - python
+  - nodejs
+  
 label: '<a href="/category/product%20launch">product launch</a>'
 
 published: true
