@@ -32,7 +32,7 @@
 			<p>
 				Technical writer & FullStack engineer. <br />Currently building
 				<a href="https://littlestats.click" target="_blank" class="text-orang dark:text-dark"
-					>littlestats.click</a
+					>thirdpen.app</a
 				>
 			</p>
 			<div

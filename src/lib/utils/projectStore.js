@@ -21,6 +21,24 @@ export function getCurrentProjectInModal() {
 
 export const sass_projects = readable([
 	{
+		name: 'Thirdpen',
+		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
+		description: 'Interactive learning with AI',
+		links: {
+			page: 'thirdpen.app'
+		},
+		color: 'bg-sky-400',
+		svg: '/thirdpen.svg',
+		svgdark: '/thirdpen.svg',
+		imagelist: [
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329005/Screenshot_2024-09-26_at_06-36-29_CommentRig_wqy4mn.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-40-35_Form_Validation_with_Only_HTML5_and_CSS_w2d5ii.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-41-12_2_Dashboard_-_CommentRig_llvtb5.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-41-58_2_Notification_dijf1z.png',
+			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
+		]
+	},
+	{
 		name: 'Littlestats',
 		stack: ['Sveltekit', 'Clickhouse', 'Pocketbase', 'AWS'],
 		description: 'Affordable Analytics - Your analytics needs without breaking the bank',
@@ -36,6 +54,28 @@ export const sass_projects = readable([
 			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-41-12_2_Dashboard_-_CommentRig_llvtb5.png',
 			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-41-58_2_Notification_dijf1z.png',
 			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
+		]
+	},
+	{
+		name: 'DevCanvas',
+		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
+		description: 'Build anything you want with AI!',
+		links: {
+			study: 'https://github.com/Abdulmumin1/devcanvas',
+			page: 'devcanvas.dev'
+		},
+		color: 'bg-sky-400',
+		svg: '/devcanvas.svg',
+		svgdark: '/devcanvasdark.svg',
+		imagelist: [
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-43_DevCanvas_-_Super_Fast_Online_Editor_pyfm5u.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-52_DevCanvas_-_Super_Fast_Online_Editor_bgippq.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-46-03_DevCanvas_-_Super_Fast_Online_Editor_hjzktu.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-46-25_Explore_vvrutt.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-46-59_Retro_UI_-_Windows_95_With_HMTL_CSS_hknwhh.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-47-50_qcvv2u.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-48-06_m7ia0m.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329791/Screenshot_2024-09-26_at_06-49-35_Devcanvas_-_How_I_ended_up_building_it_ic0xtd.png'
 		]
 	},
 	{
@@ -57,28 +97,7 @@ export const sass_projects = readable([
 		]
 	},
 
-	{
-		name: 'DevCanvas',
-		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description: 'Online Code Editor, to paint, build and share cool html/css/js creations',
-		links: {
-			study: 'https://github.com/Abdulmumin1/devcanvas',
-			page: 'devcanvas.dev'
-		},
-		color: 'bg-sky-400',
-		svg: '/devcanvas.svg',
-		svgdark: '/devcanvasdark.svg',
-		imagelist: [
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-43_DevCanvas_-_Super_Fast_Online_Editor_pyfm5u.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-52_DevCanvas_-_Super_Fast_Online_Editor_bgippq.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-46-03_DevCanvas_-_Super_Fast_Online_Editor_hjzktu.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-46-25_Explore_vvrutt.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-46-59_Retro_UI_-_Windows_95_With_HMTL_CSS_hknwhh.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-47-50_qcvv2u.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329709/Screenshot_2024-09-26_at_06-48-06_m7ia0m.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329791/Screenshot_2024-09-26_at_06-49-35_Devcanvas_-_How_I_ended_up_building_it_ic0xtd.png'
-		]
-	}
+	
 ]);
 export const project_data = readable([
 	{
