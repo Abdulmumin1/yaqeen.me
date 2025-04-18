@@ -1,7 +1,7 @@
 ---
-title: 'How to do Google OAuth without any framework'
+title: 'How to implement Google OAuth from scratch: No Libraries, Just APIs'
 
-description: 'OAUTH is fairly easy to configure, and this article will be walking you through the entire process without using any packages, wrappers or helpers.'
+description: 'Google OAUTH is fairly easy to configure, and this article will be walking you through the entire process without using any packages, wrappers or helpers.'
 
 date: '2025-04-18'
 
