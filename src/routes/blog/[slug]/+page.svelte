@@ -3,20 +3,6 @@
 	import { formatDate, insertCopyButton, copyUrlToClipboard } from '$lib/js/utils.js';
 	import { mylinks } from '$lib/utils/randomstore.js';
 	import me from '$lib/images/abdul.jpg';
-	// import { faGithub, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-
-	import Fa from 'svelte-fa';
-
-	//import { Comment } from '@commentrig/svelte';
-	
-	let entities = {
-		title: data.meta.title,
-		email: 'abdulmuminyqn@gmail.com',
-		rich: true,
-		domain: 'https://yaqeen.me'
-	};
-
-	let commentCount = $state();
 	import {
 		faFacebook,
 		faHackerNews,
@@ -32,7 +18,21 @@
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import { page } from '$app/stores';
 	import Seo from '../../../components/general/seo.svelte';
+	import Fa from 'svelte-fa';
+
+	//import { Comment } from '@commentrig/svelte';
+
+	// let entities = {
+	// 	title: data.meta.title,
+	// 	email: 'abdulmuminyqn@gmail.com',
+	// 	rich: true,
+	// 	domain: 'https://yaqeen.me'
+	// };
+
+	// let commentCount = $state();
+	
 	let { data } = $props();
+	
 	let url;
 	function scrollToTopSmooth() {
 		window.scrollTo({

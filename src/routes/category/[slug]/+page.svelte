@@ -5,6 +5,7 @@
 	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	
 	let { data } = $props();
 
 	let latest = data.posts[0];

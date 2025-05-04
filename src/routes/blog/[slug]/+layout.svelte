@@ -1,5 +1,4 @@
 <script>
-	import { fade, scale, slide } from 'svelte/transition';
 	/**
 	 * @typedef {Object} Props
 	 * @property {import('svelte').Snippet} [children]
