@@ -3,10 +3,10 @@
 	import { onMount } from 'svelte';
 	import { fade, fly, scale, slide } from 'svelte/transition';
 
-	export let imageList;
+	let { imageList } = $props();
 
-	let newImage = 0;
-	$: currentImage = imageList[newImage];
+	let newImage = $state(0);
+	let currentImage = $derived(imageList[newImage]);
 
 	let interval;
 
@@ -50,7 +50,7 @@
 			<div
 				role="button"
 				class="h-full w-full overflow-hidden rounded-lg border-orang dark:border-dark transition-all duration-300"
-				on:click={() => {
+				onclick={() => {
 					switchImage(img);
 				}}
 				class:border-2={currentImage == img}

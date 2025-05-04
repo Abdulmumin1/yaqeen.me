@@ -16,10 +16,10 @@
 			page: 'your-project-url.com'
 		}
 	};
-	let details = dummy;
+	let details = $state(dummy);
 
 	let toggler = getModalContext();
-	let modal;
+	let modal = $state();
 
 	function openModal() {
 		$toggler = true;
@@ -51,7 +51,7 @@
 	});
 
 	let dummyImages = ['/dummy.png', '/dummy.png', '/dummy.png', '/dummy.png'];
-	let list = dummyImages;
+	let list = $state(dummyImages);
 </script>
 
 <dialog
@@ -61,7 +61,7 @@
 	<div class="flex justify-between items-center mb-4">
 		<h2 class="text-3xl lg:text-4xl font-visby_bold font-extrabold">{details.name}</h2>
 		<button
-			on:click={closeModal}
+			onclick={closeModal}
 			class="text-stone-600 hover:text-stone-800 dark:text-orange-300 dark:hover:text-orange-100"
 		>
 			<Fa icon={faXmark} />

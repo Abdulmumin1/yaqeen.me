@@ -4,16 +4,16 @@
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
-	export let data;
+	let { data } = $props();
 
 	let latest = data.posts[0];
 	data.posts.shift();
 	let pagelength = 8;
 	let showPagination = data.posts && data.posts.length > pagelength; // Updated condition for showPagination
 	let currentPage = 0;
-	let currentPageData = [];
-	let muteNext = false;
-	let mutePrev = true;
+	let currentPageData = $state([]);
+	let muteNext = $state(false);
+	let mutePrev = $state(true);
 
 	function scrollToTopSmooth() {
 		window.scrollTo({
@@ -124,7 +124,7 @@
 			{#if showPagination}
 				<div class="flex justify-between w-full">
 					<button
-						on:click={prev}
+						onclick={prev}
 						disabled={mutePrev}
 						class:border-0={mutePrev}
 						class:border-b-0={mutePrev}
@@ -132,7 +132,7 @@
 						><Fa icon={faAngleLeft} /> prev</button
 					>
 					<button
-						on:click={next}
+						onclick={next}
 						disabled={muteNext}
 						class:border-0={muteNext}
 						class:border-b-0={muteNext}

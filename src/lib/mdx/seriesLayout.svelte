@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	import a from '../../components/mainBlog/link.svelte';
 	import img from '../../components/mainBlog/image.svelte';
 
@@ -11,11 +11,23 @@
 	import './styles.css';
 	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 	// Codeblock
-	// import '@fontsource/ibm-plex-mono/latin.css';
+	
 
-	export let categories;
-	export let series;
-	export let episode;
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} categories - import '@fontsource/ibm-plex-mono/latin.css';
+	 * @property {any} series
+	 * @property {any} episode
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let {
+		categories,
+		series,
+		episode,
+		children
+	} = $props();
 </script>
 
 <!-- <svelte:head>
@@ -40,7 +52,7 @@
 	>
 		<main class="container">
 			<!-- <h1 class="heading">SvelteKit Shiki Code Highlighting</h1> -->
-			<slot />
+			{@render children?.()}
 		</main>
 
 		<div class="pt-6 flex gap-3 flex-col">

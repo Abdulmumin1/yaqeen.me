@@ -4,7 +4,7 @@
 	import { stackLinks } from '$lib/utils/stackLookup.js';
 	import { faLayerGroup, faVideo } from '@fortawesome/free-solid-svg-icons';
 
-	let modal;
+	let modal = $state();
 	function openModal() {
 		document.startViewTransition(() => {
 			modal.showModal();
@@ -17,10 +17,12 @@
 		});
 	}
 
-	export let title;
-	export let description;
-	export let link;
-	export let stack;
+	let {
+		title,
+		description,
+		link,
+		stack
+	} = $props();
 </script>
 
 <div
@@ -54,7 +56,7 @@
 <dialog id="vidModal" bind:this={modal} class="bg-orange-200">
 	<div class="flex flex-col gap-2">
 		<h1 class="title text-xl font-visby_bold font-semibold flex justify-between">
-			{title} <button on:click={closeModal}>Close</button>
+			{title} <button onclick={closeModal}>Close</button>
 		</h1>
 		<!-- <video src="/css-faster.mp4" controls class="w-full h-full rounded-2xl">
 			<track kind="captions" />

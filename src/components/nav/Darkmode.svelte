@@ -45,7 +45,7 @@
 		<button
 			in:scale
 			class=" cursor-pointer self-center hover-animate"
-			on:click={handleSwitchDarkMode}
+			onclick={handleSwitchDarkMode}
 		>
 			<Fa icon={faMoon} class="self-center" />
 		</button>
@@ -53,7 +53,7 @@
 		<button
 			in:scale
 			class=" cursor-pointer self-center hover-animate"
-			on:click={handleSwitchDarkMode}
+			onclick={handleSwitchDarkMode}
 		>
 			<Fa icon={faSun} class="self-center" />
 		</button>

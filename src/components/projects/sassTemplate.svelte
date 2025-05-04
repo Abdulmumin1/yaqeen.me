@@ -5,7 +5,7 @@
 
 	import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	export let details;
+	let { details } = $props();
 
 	let modalContext = getModalContext();
 	let currentProject = getCurrentProjectInModal();
@@ -57,7 +57,7 @@
 					<a target="_blank" href="https://{details.links.page}">{details.links.page}</a>
 					<Fa icon={faExternalLinkAlt} />
 				</div>
-				<button class="" on:click={openModal}> Learn more </button>
+				<button class="" onclick={openModal}> Learn more </button>
 			</div>
 		</div>
 	</div>

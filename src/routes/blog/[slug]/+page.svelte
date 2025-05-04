@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	export let data;
 	import { formatDate, insertCopyButton, copyUrlToClipboard } from '$lib/js/utils.js';
 	import { mylinks } from '$lib/utils/randomstore.js';
 	import me from '$lib/images/abdul.jpg';
@@ -16,7 +15,7 @@
 		domain: 'https://yaqeen.me'
 	};
 
-	let commentCount;
+	let commentCount = $state();
 	import {
 		faFacebook,
 		faHackerNews,
@@ -32,6 +31,7 @@
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import { page } from '$app/stores';
 	import Seo from '../../../components/general/seo.svelte';
+	let { data } = $props();
 	let url;
 	function scrollToTopSmooth() {
 		window.scrollTo({
@@ -98,7 +98,7 @@
 		</div>
 	</hgroup>
 	<section class="flex w-full flex-col lg:flex-row article">
-		<svelte:component this={data.content} />
+		<data.content />
 
 		<aside class="relative w-[400px] hidden md:hidden lg:flex">
 			<Ad />
@@ -111,7 +111,7 @@
 			<span>Love it? Share it!</span>
 			<div class="flex space-x-3 items-center justify-center">
 				<button
-					on:click={() => {
+					onclick={() => {
 						copyUrlToClipboard(url);
 					}}><Fa icon={faCopy} /></button
 				>

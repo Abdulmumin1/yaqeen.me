@@ -15,12 +15,12 @@
 		return numbersArray;
 	}
 
-	var data = dataValues.slice();
+	var data = $state(dataValues.slice());
 	// var dataCopy = data.slice();
-	let chartContainer;
+	let chartContainer = $state();
 	let maxValue = Math.max(...data);
 
-	let useAnimateFlip = false;
+	let useAnimateFlip = $state(false);
 
 	function renderChart(arr) {
 		// data = arr;
@@ -125,8 +125,8 @@
 	</div>
 
 	<div class="btn-container">
-		<button id="start-button" class="bg-orang dark:bg-dark" on:click={startAnim}>start </button>
-		<button id="restartBtn" class="bg-orang dark:bg-dark" on:click={restart}
+		<button id="start-button" class="bg-orang dark:bg-dark" onclick={startAnim}>start </button>
+		<button id="restartBtn" class="bg-orang dark:bg-dark" onclick={restart}
 			><Fa icon={faCircle} /></button
 		>
 	</div>

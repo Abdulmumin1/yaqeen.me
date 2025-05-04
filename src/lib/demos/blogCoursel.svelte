@@ -9,7 +9,7 @@
 	];
 
 	let currentIndex = 0;
-	let image = images[currentIndex];
+	let image = $state(images[currentIndex]);
 	let interval;
 	onMount(() => {
 		// Start the carousel
@@ -23,7 +23,7 @@
 	onDestroy(() => {
 		clearInterval(interval);
 	});
-	let cAnim = 'slidey';
+	let cAnim = $state('slidey');
 
 	function change(event, anim) {
 		console.log(event.target);
@@ -48,26 +48,26 @@
 			<div class="flex flex-col gap-2">
 				<button
 					class="bg-orang dark:bg-dark rounded-xl text-black"
-					on:click={(e) => {
+					onclick={(e) => {
 						change(e, 'slidex');
 					}}>Slide X</button
 				>
 				<button
 					class="bg-orang dark:bg-dark rounded-xl text-black"
-					on:click={(e) => {
+					onclick={(e) => {
 						change(e, 'slidey');
 					}}>Slide Y</button
 				>
 				<button
 					class="bg-orang dark:bg-dark rounded-xl text-black"
-					on:click={(e) => {
+					onclick={(e) => {
 						change(e, 'scale');
 					}}>Scale in</button
 				>
 
 				<button
 					class="bg-orang dark:bg-dark rounded-xl text-black"
-					on:click={(e) => {
+					onclick={(e) => {
 						change(e, 'fade');
 					}}>Fade in</button
 				>

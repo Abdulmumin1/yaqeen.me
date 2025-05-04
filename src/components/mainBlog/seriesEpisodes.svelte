@@ -1,11 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
 
-	export let series;
-	export let highlight;
+	let { series, highlight } = $props();
 
-	let loading = true;
-	$: posts = [];
+	let loading = $state(true);
+	let posts = $derived([]);
 	// import { error } from '@sveltejs/kit';
 
 	function filterObjectsByTagKey(objects, tagKey, query) {
@@ -32,7 +31,8 @@
 		return count--;
 	}
 
-	$: page = 6;
+	let page = $state(6);
+	
 
 	function loadMorePage() {
 		page += 6;
@@ -66,7 +66,7 @@
 		{/each}
 
 		{#if posts.length > page}
-			<button class="py-2" on:click={loadMorePage}>Load More ...</button>
+			<button class="py-2" onclick={loadMorePage}>Load More ...</button>
 		{/if}
 	{/if}
 </div>

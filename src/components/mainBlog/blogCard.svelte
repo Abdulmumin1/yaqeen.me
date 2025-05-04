@@ -7,9 +7,15 @@
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import { fade, scale, slide } from 'svelte/transition';
-	// import { slide } from 'svelte/transition';
-	export let details;
-	export let latest;
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} details - import { slide } from 'svelte/transition';
+	 * @property {any} latest
+	 */
+
+	/** @type {Props} */
+	let { details, latest } = $props();
 </script>
 
 <div

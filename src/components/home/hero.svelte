@@ -20,7 +20,7 @@
 			<div
 				class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-1 px-2 rounded-full text-black text-sm"
 			>
-				<button on:click={toggleKbar}>
+				<button onclick={toggleKbar}>
 					Try <span class="">Ctrl+K</span> my latest npm project</button
 				>
 			</div>

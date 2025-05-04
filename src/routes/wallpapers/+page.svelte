@@ -5,7 +5,7 @@
 	import Seo from '../../components/general/seo.svelte';
 	import { onMount } from 'svelte';
 
-	let containerRef;
+	let containerRef = $state();
 
 	function adjustGrid() {
 		if (containerRef) {

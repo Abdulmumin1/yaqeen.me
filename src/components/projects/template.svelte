@@ -4,7 +4,7 @@
 
 	import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	export let details;
+	let { details } = $props();
 	//{'name':"Project Name", 'stack':['Stack1', 'Stack2', 'Stack3'], 'description':"a short sentence that gives a overall picture of the project"}
 
 	// let stack_dict = {};
@@ -62,7 +62,7 @@
 					>
 					<Fa icon={faArrowRightLong} />
 				</div> -->
-				<button class="" on:click={openModal}>Learn more</button>
+				<button class="" onclick={openModal}>Learn more</button>
 			</div>
 		</div>
 	</div>

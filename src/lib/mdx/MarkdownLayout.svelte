@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	import a from '../../components/mainBlog/link.svelte';
 	import img from '../../components/mainBlog/image.svelte';
 
@@ -8,9 +8,16 @@
 <script>
 	import './styles.css';
 
-	// import '@fontsource/ibm-plex-mono/latin.css';
+	
 
-	export let categories;
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} categories - import '@fontsource/ibm-plex-mono/latin.css';
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { categories, children } = $props();
 </script>
 
 <!-- <svelte:head>
@@ -36,7 +43,7 @@
 	>
 		<main class="container">
 			<!-- <h1 class="heading">SvelteKit Shiki Code Highlighting</h1> -->
-			<slot />
+			{@render children?.()}
 		</main>
 	</div>
 </div>

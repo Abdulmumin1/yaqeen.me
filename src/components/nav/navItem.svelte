@@ -1,5 +1,5 @@
 <script>
-	export let data;
+	let { data } = $props();
 </script>
 
 <li class="cursor-pointer p-1 dark:border-dark rounded">

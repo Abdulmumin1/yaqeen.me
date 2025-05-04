@@ -2,10 +2,16 @@
 	import { faClose } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 
-	export let src = '';
-	export let alt = '';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [src]
+	 * @property {string} [alt]
+	 */
 
-	let showModal = false;
+	/** @type {Props} */
+	let { src = '', alt = '' } = $props();
+
+	let showModal = $state(false);
 
 	function toggleModal() {
 		showModal = !showModal;
@@ -16,9 +22,9 @@
 	<img
 		{src}
 		{alt}
-		on:keypress={toggleModal}
+		onkeypress={toggleModal}
 		tabindex="0"
-		on:click={toggleModal}
+		onclick={toggleModal}
 		class="thumbnail rounded-md"
 	/>
 	{#if alt}
@@ -30,7 +36,7 @@
 	<div class="modal">
 		<button
 			class="fixed top-[12px] p-2 flex items-center justify-center rounded-full text-2xl aspect-square right-[12px] bg-orang dark:bg-dark text-black"
-			on:click={toggleModal}><Fa icon={faClose} /></button
+			onclick={toggleModal}><Fa icon={faClose} /></button
 		>
 		<div class="modal-content">
 			<img {src} {alt} />

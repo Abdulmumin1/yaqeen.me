@@ -3,7 +3,7 @@
 	import Fa from 'svelte-fa';
 	import { createEventDispatcher } from 'svelte';
 
-	export let wall;
+	let { wall } = $props();
 
 	const dispatch = createEventDispatcher();
 
@@ -31,7 +31,7 @@
 		}
 	}
 
-	let imageLoaded = false;
+	let imageLoaded = $state(false);
 </script>
 
 <div
@@ -45,18 +45,18 @@
 			alt="Wallpaper"
 			class="object-cover w-full h-full transition-opacity duration-300"
 			class:opacity-0={!imageLoaded}
-			on:load={() => (imageLoaded = true)}
+			onload={() => (imageLoaded = true)}
 		/>
 	</div>
 	<div class="flex space-x-2 items-center justify-end text-xl">
 		<button
-			on:click={downloadFile}
+			onclick={downloadFile}
 			class="border hover:bg-orang dark:hover:bg-stone-800 px-5 py-2 rounded-lg border-orang dark:border-dark transition-colors duration-200"
 		>
 			<Fa icon={faDownload} />
 		</button>
 		<button
-			on:click={shareWallpaper}
+			onclick={shareWallpaper}
 			class="border hover:bg-orang dark:hover:bg-stone-800 px-5 py-2 rounded-lg border-orang dark:border-dark transition-colors duration-200"
 		>
 			<Fa icon={faShareAlt} />

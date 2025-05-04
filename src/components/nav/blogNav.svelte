@@ -61,7 +61,7 @@
 		<li>
 			<ul class="flex gap-5 items-center justify-center">
 				<li class=" hidden md:block">
-					<button on:click={toggleKbar} class="flex items-center gap-2">
+					<button onclick={toggleKbar} class="flex items-center gap-2">
 						<span class="">Ctrl+K</span> <Fa icon={faSearch} /></button
 					>
 				</li>

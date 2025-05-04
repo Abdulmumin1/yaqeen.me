@@ -5,7 +5,7 @@
 	import BlogNav from './blogNav.svelte';
 	import Darkmode from './Darkmode.svelte';
 
-	export let isBlog;
+	let { isBlog } = $props();
 </script>
 
 <nav class="w-full font-medium flex justify-center items-center pt-3 flex-col relative">

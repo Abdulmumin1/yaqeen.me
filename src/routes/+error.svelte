@@ -2,7 +2,7 @@
 </script>
 
 <div class="h-screen flex items-center justify-center">
-	<h1>{$page.status}: {$page.error?.message}</h1>
+	<h1>{page.status}: {page.error?.message}</h1>
 </div> -->
 
 <script>
@@ -10,9 +10,9 @@
 	import { faHome, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 
-	import { page } from '$app/stores';
-	let status = $page.status;
-	let error = $page.error;
+	import { page } from '$app/state';
+	let status = page.status;
+	let error = page.error;
 </script>
 
 <div class="flex items-center justify-center min-h-screen">
@@ -32,7 +32,7 @@
 				<span>Go Home</span>
 			</a>
 			<button
-				on:click={() => history.back()}
+				onclick={() => history.back()}
 				class="flex items-center space-x-2 bg-orange-200 dark:bg-stone-700 hover:bg-orange-300 dark:hover:bg-stone-600 text-stone-800 dark:text-orange-100 font-bold py-2 px-4 rounded-lg transition duration-300"
 			>
 				<Fa icon={faArrowLeft} />

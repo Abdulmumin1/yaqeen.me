@@ -11,14 +11,18 @@
 	import { fly, slide } from 'svelte/transition';
 	import { setModalContext, setCurrentProjectInModal } from '$lib/utils/projectStore';
 	import ProjectOverviewModal from '../components/projects/projectOverviewModal.svelte';
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
 
 	setModalContext();
 	setCurrentProjectInModal();
 	setKbarState();
-	$: isBlog = false;
-	$: {
-		isBlog = $page.url.pathname.startsWith('/blog') || $page.url.pathname.startsWith('/category');
-	}
+	let isBlog = $derived($page.url.pathname.startsWith('/blog') || $page.url.pathname.startsWith('/category'));
 
 	let r = ['rounded-t-xl'];
 
@@ -31,9 +35,9 @@
 	function changeTheme(value) {
 		darkMode.set(value);
 	}
-	let posts = [];
+	let posts = $state([]);
 
-	$: actions = [
+	let actions = $derived([
 		{
 			title: 'Home',
 			callback: () => {
@@ -79,10 +83,10 @@
 			title: 'Search Blog',
 			nested: posts
 		}
-	];
+	]);
 
-	let loaded = false;
-	let canonical = null;
+	let loaded = $state(false);
+	let canonical = $state(null);
 	let isDarkMode;
 	let showBannerVar = false;
 	let bannerTimeout;
@@ -159,7 +163,7 @@
 	<!-- dark:bg-[#040200] -->
 
 	<Nav {isBlog} />
-	<slot />
+	{@render children?.()}
 	<Footer />
 	<!-- bg-[#08090a] -->
 </div>

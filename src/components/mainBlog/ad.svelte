@@ -13,7 +13,7 @@
 			<a
 				href="https://littlestats.click"
 				target="_blank"
-				on:click={()=>{
+				onclick={()=>{
 					window.trackEvent('Littlestats Ad', {
 						page:document.title
 					});
@@ -28,7 +28,7 @@
 			<a
 				href="https://devcanvas.dev/play/try"
 				target="_blank"
-				on:click={()=>{
+				onclick={()=>{
 					window.trackEvent('Devcanvas Ad', {
 						page:document.title
 					});
@@ -43,7 +43,7 @@
 			<a
 				href="https://www.commentrig.com"
 				target="_blank"
-				on:click={()=>{
+				onclick={()=>{
 					window.trackEvent('CommentRig Ad', {
 						page:document.title
 					});

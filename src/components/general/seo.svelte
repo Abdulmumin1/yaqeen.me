@@ -1,17 +1,32 @@
 <script>
 	import { page } from '$app/stores';
 
-	export let title = '';
-	export let description = '';
-	export let image = '';
-	export let canonical = '';
-	export let published = true;
-	export let type = 'website';
-	export let twitterHandle = '@abdulmuminyqn';
-	export let siteName = 'Abdulmumin Yaqeen';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [title]
+	 * @property {string} [description]
+	 * @property {string} [image]
+	 * @property {string} [canonical]
+	 * @property {boolean} [published]
+	 * @property {string} [type]
+	 * @property {string} [twitterHandle]
+	 * @property {string} [siteName]
+	 */
 
-	$: truncatedDescription = description.slice(0, 300);
-	$: ogImage = image || `${$page.url.origin}/og?message=${encodeURIComponent(title)}`;
+	/** @type {Props} */
+	let {
+		title = '',
+		description = '',
+		image = '',
+		canonical = '',
+		published = true,
+		type = 'website',
+		twitterHandle = '@abdulmuminyqn',
+		siteName = 'Abdulmumin Yaqeen'
+	} = $props();
+
+	let truncatedDescription = $derived(description.slice(0, 300));
+	let ogImage = $derived(image || `${$page.url.origin}/og?message=${encodeURIComponent(title)}`);
 </script>
 
 <svelte:head>

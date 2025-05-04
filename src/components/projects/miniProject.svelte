@@ -1,9 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
-	export let title;
-	export let description;
-	export let link;
+	let { title, description, link } = $props();
 </script>
 
 <div

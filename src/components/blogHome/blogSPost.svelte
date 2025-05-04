@@ -3,10 +3,12 @@
 	import Fa from 'svelte-fa';
 	import { formatDate } from '$lib/js/utils.js';
 
-	export let title;
-	export let link;
-	export let date;
-	export let visual;
+	let {
+		title,
+		link,
+		date,
+		visual
+	} = $props();
 </script>
 
 <div

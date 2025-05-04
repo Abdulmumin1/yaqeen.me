@@ -1,5 +1,11 @@
 <script>
-    export let message = 'Blog - Abdulmumin yaqeen';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [message]
+	 */
+
+	/** @type {Props} */
+	let { message = 'Blog - Abdulmumin yaqeen' } = $props();
   </script>
 
 
