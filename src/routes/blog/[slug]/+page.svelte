@@ -8,6 +8,7 @@
 	import Fa from 'svelte-fa';
 
 	//import { Comment } from '@commentrig/svelte';
+	
 	let entities = {
 		title: data.meta.title,
 		email: 'abdulmuminyqn@gmail.com',

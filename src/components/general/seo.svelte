@@ -26,7 +26,10 @@
 	} = $props();
 
 	let truncatedDescription = $derived(description.slice(0, 300));
-	let ogImage = $derived(image || `${$page.url.origin}/og?message=${encodeURIComponent(title)}`);
+	let urlOrigin = $page.url?.origin || '';
+	let ogImage = $derived(image || `${urlOrigin}/og?message=${encodeURIComponent(title)}`);
+
+	// let ogImage = $derived(image || `${$page.url.origin}/og?message=${encodeURIComponent(title)}`);
 </script>
 
 <svelte:head>

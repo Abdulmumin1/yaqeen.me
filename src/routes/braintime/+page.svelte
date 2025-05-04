@@ -4,7 +4,8 @@
 	import { faApple, faWindows, faLinux } from '@fortawesome/free-brands-svg-icons';
 	import Seo from '../../components/general/seo.svelte';
 
-	let imagelist = [
+	let imagelist = $state(
+		[
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331689/Screenshot_from_2024-09-26_07-16-45_fcufmv.png',
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331688/Screenshot_from_2024-09-26_07-16-51_umw5on.png',
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331686/Screenshot_from_2024-09-26_07-17-10_ekyrqm.png',
@@ -12,7 +13,8 @@
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331682/Screenshot_from_2024-09-26_07-17-28_mf1dlm.png',
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331682/Screenshot_from_2024-09-26_07-17-42_biiqxb.png',
 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331980/Screenshot_from_2024-09-26_07-25-39_vbxjrq.png'
-	];
+	]
+	);
 </script>
 
 <svelte:head>
