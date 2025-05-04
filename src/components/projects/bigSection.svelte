@@ -1,5 +1,4 @@
 <script>
-	import { slide } from 'svelte/transition';
 	import { project_data_main } from '$lib/utils/projectStore.js';
 	import BigProject from './bigProject.svelte';
 </script>

@@ -1,10 +1,8 @@
 <script>
 	import Fa from 'svelte-fa';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
-	import { stackLinks } from '$lib/utils/stackLookup.js';
-	import { faLayerGroup, faVideo } from '@fortawesome/free-solid-svg-icons';
 
-	let modal = $state();
+	let modal = $state(null);
 	function openModal() {
 		document.startViewTransition(() => {
 			modal.showModal();
