@@ -1,6 +1,5 @@
 
 name = "yaqeen"
-main = ".svelte-kit/cloudflare/_worker.js"
 pages_build_output_dir = ".svelte-kit/cloudflare"
 
 compatibility_date = "2025-04-12"
