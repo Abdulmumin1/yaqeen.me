@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/state';
 
 	/**
 	 * @typedef {Object} Props
@@ -37,7 +36,6 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content={type} />
-	<meta property="og:url" content={$page.url} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={truncatedDescription} />
 	<meta property="og:image" content={ogImage} />
