@@ -1,39 +1,43 @@
 import { json } from '@sveltejs/kit';
-import fs from 'node:fs/promises';
-import path from 'node:path';
-
-// import matter from 'gray-matter';
+import matter from 'gray-matter';
 
 async function getPosts(series) {
+	const allFiles = import.meta.glob(`/src/routes/blog/posts/${series}/*.md`, {
+		as: 'raw',
+	});
+
 	let posts = [];
-	// const paths = import.meta.glob(`../../posts/${series}/*.md`);
-	// const posts: Post[] = []
-	const postPath = path.resolve(`src/routes/blog/posts/${series}`);
-	const paths = await fs.readdir(postPath);
-	console.log(paths);
+	let about = null;
 
-	const aboutFilePath = path.join(postPath, `about.md`);
-	const aboutContent = await fs.readFile(aboutFilePath, 'utf-8');
+	for (const [path, loader] of Object.entries(allFiles)) {
+		const content = await loader();
+		const parsed = matter(content);
 
-	const about = matter(aboutContent);
+		const slug = path
+			.split('/')
+			.at(-1)
+			.replace('.md', '');
 
-	for (const pathd in paths.filter((p) => p !== 'about.md')) {
-		// const file = paths[path];
-		// let slug = path.split('/').at(-1)?.replace('.md', '');
-		// const metadata = file.metadata;
-		// const post = { ...metadata, slug };
-		// post.published && posts.push(post);
+		if (slug === 'about') {
+			about = parsed;
+			continue;
+		}
+
+		if (parsed.data.published) {
+			posts.push({ ...parsed.data, slug });
+		}
 	}
 
-	// posts = posts.sort(
-	// 	(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
-	// );
+	// Optional: Sort posts by date
+	posts.sort(
+		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+	);
 
-	return [];
+	return { posts, about };
 }
+
 export async function GET({ url }) {
-	let series = url.searchParams.get('series');
-	// console.log(series, 'some thing es');
-	const posts = await getPosts(series);
+	const series = url.searchParams.get('series');
+	const { posts } = await getPosts(series);
 	return json(posts);
 }
