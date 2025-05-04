@@ -1,22 +1,17 @@
 <script>
 	import { onMount } from 'svelte';
-	import { formatDate, insertCopyButton, copyUrlToClipboard } from '$lib/js/utils.js';
-	import { mylinks } from '$lib/utils/randomstore.js';
-	import me from '$lib/images/abdul.jpg';
+	import { formatDate, copyUrlToClipboard } from '$lib/js/utils.js';
 	import {
 		faFacebook,
 		faHackerNews,
 		faLinkedin,
 		faReddit,
 		faTwitter,
-		faWhatsapp,
-		faGithub,
-		faYoutube
+		faWhatsapp
 	} from '@fortawesome/free-brands-svg-icons';
-	import { faCopy, faRightLong } from '@fortawesome/free-solid-svg-icons';
-	import { scale, slide } from 'svelte/transition';
+	import { faCopy } from '@fortawesome/free-solid-svg-icons';
+	import { scale } from 'svelte/transition';
 	import Ad from '../../../components/mainBlog/ad.svelte';
-	import { page } from '$app/stores';
 	import Seo from '../../../components/general/seo.svelte';
 	import Fa from 'svelte-fa';
 
@@ -32,7 +27,7 @@
 	// let commentCount = $state();
 	
 	let { data } = $props();
-	
+
 	let url;
 	function scrollToTopSmooth() {
 		window.scrollTo({
