@@ -1,8 +1,7 @@
 ---
 title: 'How to use Sass or Scss in Svelte/Sveltekit'
 
-description: "SASS has a pretty strong fan base, It was something beautiful that Introduced a feature that was never needed but definitely desired and cool to have. This is why sass is not widely adopted and frameworks only do a little to make sure it works out of the box or seamlessly.
-"
+description: "SASS has a pretty strong fan base, It was something beautiful that Introduced a feature that was never needed but definitely desired and cool to have. This is why sass is not widely adopted and frameworks only do a little to make sure it works out of the box or seamlessly."
 
 date: '2024-01-13'
 
@@ -92,7 +91,7 @@ To enable Sass/Scss in scoped styles, all you have to do is add `lang="scss"` in
 **Example**
 
 ```html
-<style lang="scss">
+<styl lang="scss">
 	$primary-color: #3498db;
 	$secondary-color: #2ecc71;
 
@@ -107,7 +106,7 @@ To enable Sass/Scss in scoped styles, all you have to do is add `lang="scss"` in
 			background-color: darken($primary-color, 10%);
 		}
 	}
-</style>
+</styl>
 ```
 
 Following these steps, you can now harness the power of Scss and Svelte altogether.
