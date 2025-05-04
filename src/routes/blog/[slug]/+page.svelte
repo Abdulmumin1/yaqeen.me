@@ -7,7 +7,7 @@
 
 	import Fa from 'svelte-fa';
 
-	import { Comment } from '@commentrig/svelte';
+	//import { Comment } from '@commentrig/svelte';
 	let entities = {
 		title: data.meta.title,
 		email: 'abdulmuminyqn@gmail.com',
@@ -157,8 +157,8 @@
 
 	<div>
 		<h3 class="text-2xl md:text-3xl font-extrabold font-sans mb-6">Comments</h3>
-		{#key data}
+		<!-- {#key data}
 			<Comment bind:commentLength={commentCount} {entities} />
-		{/key}
+		{/key} -->
 	</div>
 </article>
