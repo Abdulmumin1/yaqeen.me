@@ -8,8 +8,6 @@
 <script>
 	import './styles.css';
 
-	
-
 	/**
 	 * @typedef {Object} Props
 	 * @property {any} categories - import '@fontsource/ibm-plex-mono/latin.css';

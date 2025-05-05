@@ -18,7 +18,24 @@
 	}
 </script>
 
-<div class="image-container">
+<!-- <div class="image-container"> -->
+
+<!-- <img
+		{src}
+		{alt}
+		onkeypress={toggleModal}
+		tabindex="0"
+		onclick={toggleModal}
+		class="thumbnail rounded-md"
+	/>
+	{#if alt}
+		<p class="caption">{alt}</p>
+	{/if} -->
+
+<!-- </div> -->
+
+
+<span class="image-container">
 	<img
 		{src}
 		{alt}
@@ -30,7 +47,8 @@
 	{#if alt}
 		<p class="caption">{alt}</p>
 	{/if}
-</div>
+</span>
+
 
 {#if showModal}
 	<div class="modal">
@@ -45,7 +63,7 @@
 			{/if}
 		</div>
 	</div>
-{/if}
+{/if} 
 
 <style>
 	.image-container {

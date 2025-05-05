@@ -4,6 +4,3 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 
 compatibility_date = "2025-04-12"
 compatibility_flags = ["nodejs_compat_v2"]
-
-[env]
-NODE_VERSION = 20

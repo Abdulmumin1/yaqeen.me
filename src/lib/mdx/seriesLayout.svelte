@@ -10,8 +10,6 @@
 	import SeriesEpisodes from '../../components/mainBlog/seriesEpisodes.svelte';
 	import './styles.css';
 	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
-	// Codeblock
-	
 
 	/**
 	 * @typedef {Object} Props
@@ -30,13 +28,6 @@
 	} = $props();
 </script>
 
-<!-- <svelte:head>
-	<title>SvelteKit Shiki Syntax Highlighting: Markdown Codeblocks</title>
-	<meta
-		name="description"
-		content="SvelteKit Shiki syntax highlighting: use any VSCode colour theme to accessibly syntax highlight code on your SvelteKit app with line numbers."
-	/>
-</svelte:head> -->
 
 <div class="w-full">
 	<div class="flex gap-3 flex-wrap mb-4">

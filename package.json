@@ -39,6 +39,7 @@
 		"node-html-parser": "^6.1.13",
 		"quill": "^2.0.2",
 		"shiki": "^0.14.3",
-		"svelte-fa": "^3.0.4"
+		"svelte-fa": "^3.0.4",
+		"unist-util-visit": "^5.0.0"
 	}
 }

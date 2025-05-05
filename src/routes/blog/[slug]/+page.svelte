@@ -40,8 +40,6 @@
 
 	onMount(() => {
 		scrollToTopSmooth();
-
-		// console.log(data);
 	});
 
 	function convertLinkToRequestReadable(link) {
@@ -59,10 +57,8 @@
 		title={data.meta?.title}
 		description={data.meta?.description}
 		published={data.meta?.published}
+		canonical={data.meta?.canonical}
 	/>
-	{#if data.meta?.canonical}
-		<link rel="canonical" href="{data.meta?.canonical}}" />
-	{/if}
 </svelte:head>
 
 <article in:scale class="mx-auto flex flex-col gap-2">
@@ -77,22 +73,7 @@
 					<p>Edited {formatDate(data.meta.lastmod)}</p>
 				{/if}
 			</div>
-			<!-- <div class="flex md:items-center">
-				<div class="flex gap-2">
-					<a href={$mylinks.github}>
-						<Fa icon={faGithub} />
-					</a>
-					<a href={$mylinks.linkedin}>
-						<Fa icon={faLinkedin} />
-					</a>
-					<a href={$mylinks.twitter}>
-						<Fa icon={faTwitter} />
-					</a>
-					<a href={$mylinks.youtube}>
-						<Fa icon={faYoutube} />
-					</a>
-				</div>
-			</div> -->
+			
 		</div>
 	</hgroup>
 	<section class="flex w-full flex-col lg:flex-row article">

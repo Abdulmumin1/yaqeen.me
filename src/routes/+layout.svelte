@@ -3,7 +3,7 @@
 	import '../app.css';
 	import Nav from '../components/nav/nav.svelte';
 	import Footer from '../components/home/footer.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { KDialog, setKbarState } from 'kbar-svelte-mini';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -22,7 +22,8 @@
 	setModalContext();
 	setCurrentProjectInModal();
 	setKbarState();
-	let isBlog = $derived($page.url.pathname.startsWith('/blog') || $page.url.pathname.startsWith('/category'));
+	// console.log(page)
+	let isBlog = $derived(page.url.pathname.startsWith('/blog') || page.url.pathname.startsWith('/category'));
 
 	let r = ['rounded-t-xl'];
 
