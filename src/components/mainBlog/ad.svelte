@@ -7,6 +7,21 @@
 	<div
 		class="sticky top-[120px] bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
 	>
+	<div class="flex flex-col gap-2">
+		<p class="font-semibold">Thirdpen</p>
+		<p class="text-sm">Personalised Interactive learning with AI</p>
+		<a
+			href="https://thirdpen.app"
+			target="_blank"
+			onclick={()=>{
+				window.trackEvent('Thirdpen Ad', {
+					page:document.title
+				});
+			}}
+			class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
+			>Start Learning <Fa icon={faRightLong} /></a
+		>
+	</div>
 		<div class="flex flex-col gap-2">
 			<p class="font-semibold">Littlestats</p>
 			<p class="text-sm">Analytics tool the cost a fixed $4/month</p>
@@ -24,7 +39,7 @@
 		</div>
 		<div class="flex flex-col gap-2">
 			<p class="font-semibold">DevCanvas</p>
-			<p class="text-sm">An online HTML/CSS/JS Editor with fast and instant - super fast previews!</p>
+			<p class="text-sm">Build websites fast with AI!</p>
 			<a
 				href="https://devcanvas.dev/play/try"
 				target="_blank"
@@ -37,21 +52,7 @@
 				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
 		</div>
-		<div class="flex flex-col gap-2">
-			<p class="font-semibold">CommentRig</p>
-			<p class="text-sm">Get the best modern comment management for your website.</p>
-			<a
-				href="https://www.commentrig.com"
-				target="_blank"
-				onclick={()=>{
-					window.trackEvent('CommentRig Ad', {
-						page:document.title
-					});
-				}}
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
-				>Get Commentrig <Fa icon={faRightLong} /></a
-			>
-		</div>
+		
 		<!-- <div class="flex flex-col gap-2">
 			<p class="font-semibold">SleekScroll</p>
 			<p class="text-sm">Make Ugly Chromium scrollbars look cool!</p>
