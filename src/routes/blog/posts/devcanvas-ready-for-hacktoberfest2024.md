@@ -14,7 +14,7 @@ categories:
 
 published: true
 
-canonical: 'https://devcanvas.art/blog/devcanvas-ready-for-hacktoberfest2024'
+canonical: 'https://devcanvas.dev/blog/devcanvas-ready-for-hacktoberfest2024'
 ---
 
 The summer of open source is here! It's that magical time of year when contributions flow in like never before, and the open-source community buzzes with excitement. The month where maintainers and open source enthusiast go nuts, either from too much spam contributions, or really good contributions accelerating the software at an unprecedented speed. Either way, Devcanvas is here for it (not for the spams though 🫠).

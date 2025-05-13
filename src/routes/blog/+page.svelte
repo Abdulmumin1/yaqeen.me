@@ -108,7 +108,7 @@
 
 				<a
 					class="bg-orange-100 border flex gap-2 items-center justify-center w-fit py-2 px-3 rounded-full dark:bg-stone-900/60 border-orang dark:border-dark"
-					href="https://devcanvas.art/blog">CSS articles</a
+					href="https://devcanvas.dev/blog">CSS articles</a
 				>
 			</div>
 			<div class="text-4xl flex flex-col gap-3">

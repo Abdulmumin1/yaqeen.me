@@ -17,7 +17,7 @@ visual: false
 published: true
 ---
 
-Recently I’ve been putting a lot of work into SEO for my blog and also that of [devcanvas](http://devcanvas.art/blog), but I then realized a big problem, most of my pages are not even on google yet. This is indeed a very huge problem.
+Recently I’ve been putting a lot of work into SEO for my blog and also that of [devcanvas](http://devcanvas.dev/blog), but I then realized a big problem, most of my pages are not even on google yet. This is indeed a very huge problem.
 
 I then come to realize my website needs the `sitemap.xml` so Google can index them faster, and also a `robots.txt`. These makes the discovery and indexing process faster and more efficient.
 

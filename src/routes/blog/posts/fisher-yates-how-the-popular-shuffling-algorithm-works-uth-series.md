@@ -190,6 +190,6 @@ Super hope you learn something new and interesting as I did.
 
 **DevCanvas** - an online editor with super powers, fast preview, plugins and super cool library of cool Frontend creations for your inspiration.
 
-Try devcanvas @ [devcanvas.art/new](https://devcanvas.art/new)
+Try devcanvas @ [devcanvas.dev/new](https://devcanvas.dev/new)
 
 **Stay super awesome 🫶🏾.**

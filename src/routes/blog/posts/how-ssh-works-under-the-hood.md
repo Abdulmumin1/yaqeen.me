@@ -121,9 +121,9 @@ Super hoped you learned something new as I did.
 
 #### What I’m currently working on:
 
-[devcanvas.art](http://devcanvas.art) - an online frontend editor with super powers; fast preview, plugins and an amazing library of cool frontend creations for your inspiration and learning.
+[devcanvas.dev](http://devcanvas.dev) - an online frontend editor with super powers; fast preview, plugins and an amazing library of cool frontend creations for your inspiration and learning.
 
-Try devcanvas @ [devcanvas.art/new](http://devcanvas.art/new)
+Try devcanvas @ [devcanvas.dev/new](http://devcanvas.dev/new)
 
 #### Further reading:
 

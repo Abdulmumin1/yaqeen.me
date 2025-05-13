@@ -143,7 +143,7 @@ Here is the final result of the visualizer, again if you’re on an unsupported 
 
 <iframe
                 title="embed"
-                src="https://devcanvas.art/play/Obw8iQ/embed"
+                src="https://devcanvas.dev/play/Obw8iQ/embed"
                 frameborder="0"
                 height="600px"
                 width="100%"

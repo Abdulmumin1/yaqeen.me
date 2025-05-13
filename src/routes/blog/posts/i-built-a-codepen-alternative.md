@@ -21,7 +21,7 @@ published: true
 
 </svelte:head> -->
 
-DevCanvas (devcanvas.art) began as a fun experiment born from my journey learning SvelteKit and Supabase. What started as a simple platform for storing code snippets quickly evolved into something much more cooler: _an online editor that makes it easy to prototype and share ideas quickly and effortlessly._
+DevCanvas (devcanvas.dev) began as a fun experiment born from my journey learning SvelteKit and Supabase. What started as a simple platform for storing code snippets quickly evolved into something much more cooler: _an online editor that makes it easy to prototype and share ideas quickly and effortlessly._
 
 ### The Evolution
 
@@ -102,7 +102,7 @@ DevCanvas is proudly open source, even though, It has always just been me buildi
 
 Have questions, suggestions, critique or feedback, I'd love to hear from you!
 
-**Visit [https://devcanvas.art](https://devcanvas.art)**
+**Visit [https://devcanvas.dev](https://devcanvas.dev)**
 
 Also checkout my next product CommentRig (www.commentrig.com) - A modern comment management for websites.
 
