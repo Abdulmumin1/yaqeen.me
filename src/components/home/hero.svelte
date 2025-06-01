@@ -31,7 +31,7 @@
 			</p>
 			<p>
 				Technical writer & FullStack engineer. <br />Currently building
-				<a href="https://littlestats.click" target="_blank" class="text-orang dark:text-dark"
+				<a href="https://thirdpen.app" target="_blank" class="text-orang dark:text-dark"
 					>thirdpen.app</a
 				>
 			</p>

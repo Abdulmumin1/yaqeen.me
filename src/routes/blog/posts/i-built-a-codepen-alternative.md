@@ -1,11 +1,11 @@
 ---
-title: 'I built an open source Codepen alternative - Devcanvas'
+title: 'Devcanvas'
 
 description: "Though not the coolest or hardest product to build or make money from, The process of building it was incredibly enjoyable, and using it is just as fun – hence the tagline, 'The Editor with Super Powers'"
 
-date: '2024-09-11'
+date: '2024-05-11'
 
-lastmod: '2024-09-11'
+lastmod: '2024-05-11'
 
 categories:
   - product launch

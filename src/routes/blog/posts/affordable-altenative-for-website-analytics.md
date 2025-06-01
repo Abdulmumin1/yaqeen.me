@@ -1,11 +1,11 @@
 ---
-title: 'Stop Overpaying for Website analytics - Introducing Littlestats'
+title: 'Building Littlestats'
 
 description: 'I built an analytics tool Littlestats, and this is the story of why I built yet another analytics tool (I know, I know - but stick with me here).'
 
-date: '2024-11-17'
+date: '2024-10-17'
 
-lastmod: '2024-11-17'
+lastmod: '2024-10-17'
 
 categories:
   - product launch
