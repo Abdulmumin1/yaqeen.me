@@ -70,18 +70,17 @@
 					</h1>
 					<p>
 						I'm Abdulmumin Yaqeen Abdulkarim, Currently a part time <span
-							class="border-b border-orang dark:border-dark">Technical Writer</span
+							class="border-b border-orang dark:border-dark">Fullstack Developer</span
 						>
 						and pursuing my
 						<span class="border-b border-orang dark:border-dark">Cyber Security</span> degree.
 					</p>
 					<p>
 						I write lots of Python and Javascript code, and have worked in various field spanning
-						web, mobile and cloud computing.
+						web, mobile and cloud.
 					</p>
 					<p>
-						I have a deep fascination for computer science and gaining a deeper knowledge on
-						computational paradigms.
+						I love to seek knowledge... maybe a bit too much sometimes.
 					</p>
 				</div>
 				<!-- <p>
