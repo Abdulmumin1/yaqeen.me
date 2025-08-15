@@ -9,9 +9,9 @@ export default {
 				dark: 'theme(colors.orange.700)'
 			},
 			fontFamily: {
-				visby: ['visby', 'roboto'],
-				visby_mid: ['visby', 'roboto'],
-				visby_bold: ['visby', 'roboto']
+				visby: ['DM sans', 'roboto'],
+				visby_mid: ['DM sans', 'roboto'],
+				visby_bold: ['DM sans','roboto']
 			}
 		}
 	},
