@@ -53,7 +53,7 @@
 		class="w-full max-w-[800px] bg-orange-100 border-orang dark:border-dark border-b-2 rounded-full dark:bg-stone-800/50 flex justify-between py-4 px-3 pr-5 md:px-6 items-center mt-3"
 	>
 		<li>
-			<a href="/blog" class="relative font-bold flex items-center justify-center">
+			<a href="/" class="relative font-bold flex items-center justify-center">
 				<h1>Home</h1>
 				<!-- <img src="/signature.png " alt="logo" width="80" class="colorize" /> -->
 			</a>

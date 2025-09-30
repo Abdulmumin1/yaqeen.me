@@ -82,6 +82,9 @@
 					<p>
 						I love to seek knowledge... maybe a bit too much sometimes.
 					</p>
+					<p>
+						Use to run a youtube channel a few years ago: <a href="https://youtube.com/@abdulmuminyqn" class="text-orang dark:text-dark">https://youtube.com/@abdulmuminyqn</a>
+					</p>
 				</div>
 				<!-- <p>
 					One of the pivotal decisions in my career was embracing the art of writing. I find immense
