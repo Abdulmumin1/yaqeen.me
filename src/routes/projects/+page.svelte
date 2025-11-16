@@ -28,7 +28,7 @@
 			name: 'Filesafe',
 			description:
 				'a secure file storage commandline tool to hide/encrypt files. (In a weird way 😀)',
-			links: { study: 'https://github.com/Abdulmumin1/filesafe' },
+			links: { study: 'https://github.com/Abdulmumin1/Yt-filesafe' },
 			imagelist: []
 		},
 		{
@@ -39,9 +39,9 @@
 			imagelist: []
 		},
 		{
-			name: 'TCP-chat',
-			description: 'A command line tool to chat with others on the same network',
-			links: { study: 'https://github.com/Abdulmumin1/tcp-chat' },
+			name: 'Mini Discord - Desktop app',
+			description: 'A Discord kind off chat room built with socket and PyQt5',
+			links: { study: 'https://github.com/Abdulmumin1/ChatDesktopApp' },
 			imagelist: []
 		}
 	];

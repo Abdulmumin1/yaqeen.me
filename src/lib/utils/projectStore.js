@@ -175,21 +175,21 @@ export const project_data = readable([
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330395/Screenshot_2024-09-26_at_06-59-07_Data_Structure_ysqdtq.png'
 		]
 	},
-	// {
-	// 	name: 'Habitud',
-	// 	stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-	// 	description: 'Habit tracking app with passkeys integration',
-	// 	links: {
-	// 		study: 'https://github.com/Abdulmumin1/habitud',
-	// 		page: 'habitud.vercel.app'
-	// 	},
-	// 	color: 'bg-orange-200',
-	// 	imagelist: [
-	// 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331162/Screenshot_2024-09-26_at_07-12-00_x1f24k.png',
-	// 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331162/Screenshot_2024-09-26_at_07-12-15_z70y7k.png',
-	// 		'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331163/Screenshot_2024-09-26_at_07-12-24_vg8wlf.png'
-	// 	]
-	// },
+	{
+		name: 'Habitud',
+		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
+		description: 'Habit tracking app with passkeys integration',
+		links: {
+			study: 'https://github.com/Abdulmumin1/habitud',
+			page: 'habitud.yaqeen.me'
+		},
+		color: 'bg-orange-200',
+		imagelist: [
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331162/Screenshot_2024-09-26_at_07-12-00_x1f24k.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331162/Screenshot_2024-09-26_at_07-12-15_z70y7k.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331163/Screenshot_2024-09-26_at_07-12-24_vg8wlf.png'
+		]
+	},
 
 	{
 		name: 'Drop',
@@ -215,7 +215,7 @@ export const project_data = readable([
 		image: '$lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/edit',
-			page: 'editss.vercel.app'
+			page: 'editss.yaqeen.me'
 		},
 		color: 'bg-white',
 		imagelist: [
@@ -261,7 +261,7 @@ export const project_data_main = readable([
 		description: 'Habit tracking app with passkeys integration',
 		links: {
 			study: 'https://github.com/Abdulmumin1/habitud',
-			page: 'https://habitud.vercel.app'
+			page: 'https://habitud.yaqeen.me'
 		},
 		color: 'bg-orange-200'
 	},
@@ -284,7 +284,7 @@ export const project_data_main = readable([
 		image: '$lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/edit',
-			page: 'https://editss.vercel.app'
+			page: 'https://editss.yaqeen.me'
 		},
 		color: 'bg-white'
 	},
