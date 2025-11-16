@@ -15,7 +15,7 @@
 	import Seo from '../../../components/general/seo.svelte';
 	import Fa from 'svelte-fa';
 
-	import { Comment } from '@commentrig/svelte';
+	// import { Comment } from '@commentrig/svelte';
 	
 	let { data } = $props();
 
@@ -134,10 +134,10 @@
 		</div>
 	</div>
 
-	<div>
+	<!-- <div>
 		<h3 class="text-2xl md:text-3xl font-extrabold font-sans mb-6">Comments</h3>
 		{#key data}
 			<Comment bind:commentLength={commentCount} {entities} />
 		{/key}
-	</div>
+	</div> -->
 </article>

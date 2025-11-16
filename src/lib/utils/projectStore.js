@@ -31,11 +31,12 @@ export const sass_projects = readable([
 		svg: '/thirdpen.svg',
 		svgdark: '/thirdpen.svg',
 		imagelist: [
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329005/Screenshot_2024-09-26_at_06-36-29_CommentRig_wqy4mn.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-40-35_Form_Validation_with_Only_HTML5_and_CSS_w2d5ii.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-41-12_2_Dashboard_-_CommentRig_llvtb5.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-41-58_2_Notification_dijf1z.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.51.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.16.21.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.24.png",
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.23.29.png',
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.22.31.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.20.09.png",
 		]
 	},
 	{
@@ -49,11 +50,11 @@ export const sass_projects = readable([
 		svg: '/littlestats.svg',
 		svgdark: '/littlestatsdark.svg',
 		imagelist: [
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329005/Screenshot_2024-09-26_at_06-36-29_CommentRig_wqy4mn.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-40-35_Form_Validation_with_Only_HTML5_and_CSS_w2d5ii.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-41-12_2_Dashboard_-_CommentRig_llvtb5.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-41-58_2_Notification_dijf1z.png',
-			// 'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.44.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.55.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.04.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.15.png",
+			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.49.png",
 		]
 	},
 	{
