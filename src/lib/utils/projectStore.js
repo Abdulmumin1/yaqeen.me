@@ -83,7 +83,7 @@ export const sass_projects = readable([
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'A seemless, powerfull modern comment management for websites',
 		links: {
-			page: 'www.commentrig.com'
+			page: 'commentrig'
 		},
 		color: 'bg-sky-400',
 		svg: '/commentrig.svg',
@@ -101,6 +101,32 @@ export const sass_projects = readable([
 ]);
 export const project_data = readable([
 	{
+		name: 'LMFetch',
+		stack: ['Python', 'Coroutines', 'Thread pool'],
+		description: 'The perfect web scrape sdk for crawling webpage as context for llm',
+		links: {
+			study: 'https://github.com/Abdulmumin1/lmfetch',
+			page: ''
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.49.41.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.50.15.png'
+			
+		]
+	},
+	{
+		name: 'Dear Future self',
+		stack: ['Svelte', 'Tailwind'],
+		description: 'A portal to visit your future self',
+		links: {
+			page: 'dearfutureself.me'
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.41.47.png',
+			'https://rawcontent.dearfutureself.me/portfolio/annotely_image%20(1).jpeg'
+		]
+	},
+	{
 		name: 'Yochat',
 		stack: ['Svelte', 'Tailwind'],
 		description: 'Your fastest way to an llm - a cli tool that lets you chat with an llm at the speed of executing terminal commands',
@@ -109,7 +135,8 @@ export const project_data = readable([
 			page: 'yochat.yaqeen.me'
 		},
 		imagelist: [
-			
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.32.46.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.34.33.png'
 		]
 	},
 	{
@@ -118,7 +145,7 @@ export const project_data = readable([
 		description: 'Listen to youtube videos as audio',
 		links: {
 			study: 'https://github.com/Abdulmumin1/liseen',
-			page: 'liseen.xyz'
+			page: 'liseen.vercel.app'
 		},
 		imagelist: [
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-04-03_Liseen_ivbjzg.png',

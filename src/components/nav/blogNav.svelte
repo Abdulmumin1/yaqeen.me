@@ -78,9 +78,9 @@
 						<a href="/rss.xml"> RSS</a>
 					</div>
 				</li>
-				<li class=" py-2 flex items-center justify-center">
+				<!-- <li class=" py-2 flex items-center justify-center">
 					<Darkmode />
-				</li>
+				</li> -->
 			</ul>
 		</li>
 	</ul>

@@ -12,10 +12,8 @@
 
 	let darkModeSubscribe = darkMode.subscribe((data) => {
 		if (browser && mounted) {
-			localStorage.setItem('theme', data ? 'dark' : 'light');
 			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				data
 			) {
 				document.documentElement.classList.add('dark');
 			} else {
