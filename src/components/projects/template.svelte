@@ -11,6 +11,7 @@
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';
+	import { onDestroy } from 'svelte';
 	let { details } = $props();
 	//{'name':"Project Name", 'stack':['Stack1', 'Stack2', 'Stack3'], 'description':"a short sentence that gives a overall picture of the project"}
 
@@ -32,6 +33,10 @@
 		const randomIndex = Math.floor(Math.random() * colors.length);
 		return colors[randomIndex];
 	}
+
+	onDestroy(()=>{
+		$modalContext = false;
+	})
 </script>
 
 <div
@@ -94,6 +99,7 @@
 				{#each details.imagelist as img, index}
 					<img
 						alt={`Project image ${index + 1}`}
+						onclick={openModal}
 						src={img}
 						class="w-[330px] border-4 border-orange-200 dark:border-dark object-contain rounded-xl"
 					/>

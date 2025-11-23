@@ -102,12 +102,27 @@ export const sass_projects = readable([
 ]);
 export const project_data = readable([
 	{
+		name: 'onlocal.dev',
+		stack: ['bunjs', 'cloudflare', 'websockets'],
+		description: 'A tunnel server to expose your localhost to the internet. My take on ngrok.',
+		links: {
+			study: 'https://github.com/Abdulmumin1/onlocal',
+			page: ''
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.32.33.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.28.27.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.29.52.png'
+			
+		]
+	},
+	{
 		name: 'LMFetch',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
 		description: 'The perfect web scrape sdk for crawling webpage as context for llm',
 		links: {
 			study: 'https://github.com/Abdulmumin1/lmfetch',
-			page: ''
+			page: 'onlocal.dev'
 		},
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.49.41.png',
@@ -141,24 +156,9 @@ export const project_data = readable([
 		]
 	},
 	{
-		name: 'Liseen',
-		stack: ['Svelte', 'Tailwind'],
-		description: 'Listen to youtube videos as audio',
-		links: {
-			study: 'https://github.com/Abdulmumin1/liseen',
-			page: 'liseen.vercel.app'
-		},
-		imagelist: [
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-04-03_Liseen_ivbjzg.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330847/Screenshot_2024-09-26_at_07-07-15_Liseen_gumnxd.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-06-04_Liseen_vqsdny.png',
-			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-06-23_Liseen_ejogdd.png'
-		]
-	},
-	{
 		name: 'kbar-svelte-mini',
 		stack: ['svelte'],
-		description: 'Svelte NPM package for setting up cmdk menu on your website',
+		description: 'A port of react kbar for svelte. hit cmd+k on this website to see it in action',
 		image: '$lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/edit',
@@ -188,6 +188,22 @@ export const project_data = readable([
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331162/Screenshot_2024-09-26_at_07-12-00_x1f24k.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331162/Screenshot_2024-09-26_at_07-12-15_z70y7k.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331163/Screenshot_2024-09-26_at_07-12-24_vg8wlf.png'
+		]
+	},
+
+		{
+		name: 'Liseen',
+		stack: ['Svelte', 'Tailwind'],
+		description: 'Listen to youtube videos as audio',
+		links: {
+			study: 'https://github.com/Abdulmumin1/liseen',
+			page: 'liseen.vercel.app'
+		},
+		imagelist: [
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-04-03_Liseen_ivbjzg.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330847/Screenshot_2024-09-26_at_07-07-15_Liseen_gumnxd.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-06-04_Liseen_vqsdny.png',
+			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727330805/Screenshot_2024-09-26_at_07-06-23_Liseen_ejogdd.png'
 		]
 	},
 
