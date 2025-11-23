@@ -107,7 +107,7 @@ export const project_data = readable([
 		description: 'A tunnel server to expose your localhost to the internet. My take on ngrok.',
 		links: {
 			study: 'https://github.com/Abdulmumin1/onlocal',
-			page: ''
+			page: 'onlocal.dev'
 		},
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.32.33.png',
@@ -122,7 +122,6 @@ export const project_data = readable([
 		description: 'The perfect web scrape sdk for crawling webpage as context for llm',
 		links: {
 			study: 'https://github.com/Abdulmumin1/lmfetch',
-			page: 'onlocal.dev'
 		},
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.49.41.png',
