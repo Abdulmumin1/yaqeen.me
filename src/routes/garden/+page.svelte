@@ -25,7 +25,7 @@
 		return result;
 	}
 
-	const rivetClient = createClient("https://yaqeen-garden-rivet-actor.avdorr12345.workers.dev");
+	const rivetClient = createClient("https://yaqeen-garden-rivet-actor.avdorr12345.workers.dev/rivet");
 
 	let { drawings = [], onDrawingsChange = () => {} } = $props();
 

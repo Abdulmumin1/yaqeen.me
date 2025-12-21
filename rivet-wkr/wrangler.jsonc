@@ -10,9 +10,7 @@
 	"compatibility_flags": ["nodejs_compat"],
 	"migrations": [
 		{
-			"new_sqlite_classes": [
-				"ActorHandler"
-			],
+			"new_sqlite_classes": ["ActorHandler"],
 			"tag": "v1"
 		}
 	],
@@ -28,16 +26,16 @@
 		"enabled": true
 	},
 	"env": {
-    "production": {
-      "routes": [
-        { "pattern": "rivet-actor.yaqeen.me", "zone_name": "yaqeen.me", "custom_domain": true }
-      ]
-    }
-  },
+		"production": {
+			"routes": [
+				{ "pattern": "rivet-actor.yaqeen.me", "zone_name": "yaqeen.me", "custom_domain": true }
+			]
+		}
+	},
 	"kv_namespaces": [
-    {
-      "binding": "ACTOR_KV",
-      "id": "956dac8fa711487db7b2cfebdd48b375"
-    }
-  ]
+		{
+			"binding": "ACTOR_KV",
+			"id": "956dac8fa711487db7b2cfebdd48b375"
+		}
+	]
 }
