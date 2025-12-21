@@ -30,7 +30,7 @@
 	"env": {
     "production": {
       "routes": [
-        { "pattern": "rivet-actor.yaqeen.me", "zone_name": "yaqeen.me" }
+        { "pattern": "rivet-actor.yaqeen.me", "zone_name": "yaqeen.me", "custom_domain": true }
       ]
     }
   },
