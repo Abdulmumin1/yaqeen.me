@@ -26,8 +26,6 @@
 		return result;
 	}
 
-    console.log(env)
-
 	const rivetClient = createClient(env.PUBLIC_RIVET_WORKER_URL);
 
 	let { drawings = [], onDrawingsChange = () => {} } = $props();
