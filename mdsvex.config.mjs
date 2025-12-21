@@ -4,19 +4,17 @@ import highlighter from './src/lib/codeHighlighter.mjs';
 import { visit } from 'unist-util-visit';
 
 function unwrapComponents() {
-  return (tree) => {
-    visit(tree, 'paragraph', (node, index, parent) => {
-      const isComponentOnly =
-        node.children.length === 1 &&
-        node.children[0].type === 'mdxJsxFlowElement';
+	return (tree) => {
+		visit(tree, 'paragraph', (node, index, parent) => {
+			const isComponentOnly =
+				node.children.length === 1 && node.children[0].type === 'mdxJsxFlowElement';
 
-      if (isComponentOnly) {
-        parent.children.splice(index, 1, node.children[0]);
-      }
-    });
-  };
+			if (isComponentOnly) {
+				parent.children.splice(index, 1, node.children[0]);
+			}
+		});
+	};
 }
-
 
 const __dirname = resolve();
 

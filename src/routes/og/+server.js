@@ -64,7 +64,6 @@ import { json } from '@sveltejs/kit';
 // 	// return new Response();
 // }
 
-
 export async function GET({ url }) {
-	return json({url})
+	return json({ url });
 }

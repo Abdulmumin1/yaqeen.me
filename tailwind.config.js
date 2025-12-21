@@ -11,7 +11,7 @@ export default {
 			fontFamily: {
 				visby: ['DM sans', 'roboto'],
 				visby_mid: ['DM sans', 'roboto'],
-				visby_bold: ['DM sans','roboto']
+				visby_bold: ['DM sans', 'roboto']
 			}
 		}
 	},

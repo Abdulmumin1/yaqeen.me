@@ -7,7 +7,7 @@
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import { fade, scale, slide } from 'svelte/transition';
-	
+
 	/**
 	 * @typedef {Object} Props
 	 * @property {any} details - import { slide } from 'svelte/transition';

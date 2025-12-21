@@ -21,7 +21,9 @@ import { mdsvex } from 'mdsvex';
 
 const config = {
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			entry: 'src/worker.js'
+		}),
 		alias: {
 			$components: 'src/components'
 		}

@@ -11,7 +11,7 @@ const THEME = 'min-dark';
 function escapeHtml(code) {
 	return code.replace(
 		/[{}`]/g,
-		(character) => ({ '{': '&lbrace;', '}': '&rbrace;', '`': '&grave;' }[character])
+		(character) => ({ '{': '&lbrace;', '}': '&rbrace;', '`': '&grave;' })[character]
 	);
 }
 

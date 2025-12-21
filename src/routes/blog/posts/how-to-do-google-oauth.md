@@ -11,7 +11,7 @@ categories:
   - auth
   - python
   - nodejs
-  
+
 label: '<a href="/category/product%20launch">product launch</a>'
 
 published: true
@@ -136,22 +136,22 @@ The setup is pretty much done with this, and what we can do is just construct th
 
 ```html
 <main class="container">
-  <h1>Sign In</h1>
-  <button class="google-button" onclick="signInWithGoogle()">
-    <img
-      src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-      alt="Google logo"
-      class="google-logo"
-    />
-    Sign in with Google
-  </button>
+	<h1>Sign In</h1>
+	<button class="google-button" onclick="signInWithGoogle()">
+		<img
+			src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+			alt="Google logo"
+			class="google-logo"
+		/>
+		Sign in with Google
+	</button>
 </main>
 
 <script>
-  function signInWithGoogle() {
-    const URL = `https://accounts.google.com/o/oauth2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=email%20profile&access_type=offline`;
-  }
-  window.location.href = URL;
+	function signInWithGoogle() {
+		const URL = `https://accounts.google.com/o/oauth2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=email%20profile&access_type=offline`;
+	}
+	window.location.href = URL;
 </script>
 ```
 
@@ -216,7 +216,7 @@ At this point, we’re already good to go. And the last step is to have the user
 To get the userinfo:
 URL: https://www.googleapis.com/oauth2/v2/userinfo
 Method: GET
-headers:  Authorization: `Bearer ${access token gotten from the previous response`
+headers: Authorization: `Bearer ${access token gotten from the previous response`
 
 To put all of this together. our final function will look like this:
 
@@ -352,15 +352,15 @@ So I’m using this self calling function to get the token, and redirect user to
 
 ```js
 (function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get("token") || localStorage.getItem("auth_token");
-  if (token) {
-    localStorage.setItem("auth_token", token);
-    // Optional: Redirect to a dashboard or another page
-    window.location.href = "/dashboard";
-  } else {
-    document.getElementById("signin-container").style.display = "block";
-  }
+	const urlParams = new URLSearchParams(window.location.search);
+	const token = urlParams.get('token') || localStorage.getItem('auth_token');
+	if (token) {
+		localStorage.setItem('auth_token', token);
+		// Optional: Redirect to a dashboard or another page
+		window.location.href = '/dashboard';
+	} else {
+		document.getElementById('signin-container').style.display = 'block';
+	}
 })();
 ```
 
@@ -428,22 +428,21 @@ hence we could do something like this in our Frontend:
 
 ```js
 try {
-  const token = localStorage.getItem("auth_token");
-  const res = await fetch("http://localhost:8000/user/details", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+	const token = localStorage.getItem('auth_token');
+	const res = await fetch('http://localhost:8000/user/details', {
+		headers: {
+			Authorization: `Bearer ${token}`
+		}
+	});
 
-  if (!res.ok) {
-    throw new Error("Invalid token");
-  }
-  const data = await res.json();
-  document.getElementById(
-    "user-info"
-  ).textContent = `Hello, ${data.user.name} (${data.user.email})`;
+	if (!res.ok) {
+		throw new Error('Invalid token');
+	}
+	const data = await res.json();
+	document.getElementById('user-info').textContent =
+		`Hello, ${data.user.name} (${data.user.email})`;
 } catch (err) {
-  console.error(err);
+	console.error(err);
 }
 ```
 

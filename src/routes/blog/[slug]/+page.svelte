@@ -16,9 +16,8 @@
 	import Fa from 'svelte-fa';
 
 	// import { Comment } from '@commentrig/svelte';
-	
-	let { data } = $props();
 
+	let { data } = $props();
 
 	let entities = {
 		title: data.meta.title,
@@ -28,7 +27,6 @@
 	};
 
 	let commentCount = $state();
-	
 
 	let url;
 	function scrollToTopSmooth() {
@@ -73,7 +71,6 @@
 					<p>Edited {formatDate(data.meta.lastmod)}</p>
 				{/if}
 			</div>
-			
 		</div>
 	</hgroup>
 	<section class="flex w-full flex-col lg:flex-row article">

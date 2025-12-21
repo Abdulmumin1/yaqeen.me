@@ -32,7 +32,6 @@
 	}
 
 	let page = $state(6);
-	
 
 	function loadMorePage() {
 		page += 6;

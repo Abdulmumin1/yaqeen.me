@@ -58,7 +58,7 @@ src/routes/blog/[slug]
 
 ```
 
-This route will match any URL where ` [``slug``] ` can be any string. The actual path of files is on disk; there’s a `[slug].ts` file on disk inside of the ` /``blog ` folder, which itself is inside of the ` /``routes ` folder
+This route will match any URL where `[``slug``]` can be any string. The actual path of files is on disk; there’s a `[slug].ts` file on disk inside of the `/``blog` folder, which itself is inside of the `/``routes` folder
 
 SvelteKit routing also includes support for nested routes, prefetching and prerendering, and route transitions. Even though I am tempted to talk about each one of those, I’ll point you to the SvelteKit documentation where you can [dive into the specifics of routing](https://kit.svelte.dev/docs/routing).
 

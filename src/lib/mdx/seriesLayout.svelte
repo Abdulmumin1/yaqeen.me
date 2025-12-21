@@ -20,14 +20,8 @@
 	 */
 
 	/** @type {Props} */
-	let {
-		categories,
-		series,
-		episode,
-		children
-	} = $props();
+	let { categories, series, episode, children } = $props();
 </script>
-
 
 <div class="w-full">
 	<div class="flex gap-3 flex-wrap mb-4">

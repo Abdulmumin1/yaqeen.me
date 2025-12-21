@@ -34,9 +34,9 @@
 		return colors[randomIndex];
 	}
 
-	onDestroy(()=>{
+	onDestroy(() => {
 		$modalContext = false;
-	})
+	});
 </script>
 
 <div
@@ -96,23 +96,22 @@
 
 			{#if details.imagelist.length}
 				<div class=" h-0 animate-h group-hover:h-48 gap-4 flex overflow-x-auto mb-6">
-				{#each details.imagelist as img, index}
-					<img
-						alt={`Project image ${index + 1}`}
-						onclick={openModal}
-						src={img}
-						class="w-[330px] border-4 border-orange-200 dark:border-dark object-contain rounded-xl"
-					/>
-				{/each}
-			</div>
+					{#each details.imagelist as img, index}
+						<img
+							alt={`Project image ${index + 1}`}
+							onclick={openModal}
+							src={img}
+							class="w-[330px] border-4 border-orange-200 dark:border-dark object-contain rounded-xl"
+						/>
+					{/each}
+				</div>
 			{/if}
 		</div>
 	</div>
 </div>
 
-
 <style>
-	.animate-h{
-		  transition: height 0.5s cubic-bezier(.34,1.56,.64,1);
+	.animate-h {
+		transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 </style>

@@ -1,7 +1,7 @@
 ---
 title: 'How to use Sass or Scss in Svelte/Sveltekit'
 
-description: "SASS has a pretty strong fan base, It was something beautiful that Introduced a feature that was never needed but definitely desired and cool to have. This is why sass is not widely adopted and frameworks only do a little to make sure it works out of the box or seamlessly."
+description: 'SASS has a pretty strong fan base, It was something beautiful that Introduced a feature that was never needed but definitely desired and cool to have. This is why sass is not widely adopted and frameworks only do a little to make sure it works out of the box or seamlessly.'
 
 date: '2024-01-13'
 
@@ -11,7 +11,7 @@ categories:
   - svelte
   - sass
   - css
-  
+
 thumbnail: 'https://cdn.hashnode.com/res/hashnode/image/upload/v1705166371720/9944b8fe-5a7f-4920-b6c1-bca9d499b52b.png'
 
 published: true
@@ -92,20 +92,9 @@ To enable Sass/Scss in scoped styles, all you have to do is add `lang="scss"` in
 
 ```html
 <styl lang="scss">
-	$primary-color: #3498db;
-	$secondary-color: #2ecc71;
-
-	.button {
-		background-color: $primary-color;
-		color: white;
-		padding: 10px 20px;
-		border-radius: 5px;
-		transition: background-color 0.3s ease;
-
-		&:hover {
-			background-color: darken($primary-color, 10%);
-		}
-	}
+	$primary-color: #3498db; $secondary-color: #2ecc71; .button { background-color: $primary-color;
+	color: white; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease;
+	&:hover { background-color: darken($primary-color, 10%); } }
 </styl>
 ```
 

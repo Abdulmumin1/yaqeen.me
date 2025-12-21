@@ -7,30 +7,30 @@
 	<div
 		class="sticky top-[120px] bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
 	>
-	<div class="flex flex-col gap-2">
-		<p class="font-semibold">Thirdpen</p>
-		<p class="text-sm">Personalised Interactive learning with AI</p>
-		<a
-			href="https://thirdpen.app"
-			target="_blank"
-			onclick={()=>{
-				window.trackEvent('Thirdpen Ad', {
-					page:document.title
-				});
-			}}
-			class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
-			>Start Learning <Fa icon={faRightLong} /></a
-		>
-	</div>
+		<div class="flex flex-col gap-2">
+			<p class="font-semibold">Thirdpen</p>
+			<p class="text-sm">Personalised Interactive learning with AI</p>
+			<a
+				href="https://thirdpen.app"
+				target="_blank"
+				onclick={() => {
+					window.trackEvent('Thirdpen Ad', {
+						page: document.title
+					});
+				}}
+				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
+				>Start Learning <Fa icon={faRightLong} /></a
+			>
+		</div>
 		<div class="flex flex-col gap-2">
 			<p class="font-semibold">Littlestats</p>
 			<p class="text-sm">Analytics tool the cost a fixed $4/month</p>
 			<a
 				href="https://littlestats.click"
 				target="_blank"
-				onclick={()=>{
+				onclick={() => {
 					window.trackEvent('Littlestats Ad', {
-						page:document.title
+						page: document.title
 					});
 				}}
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
@@ -43,16 +43,16 @@
 			<a
 				href="https://devcanvas.dev/play/try"
 				target="_blank"
-				onclick={()=>{
+				onclick={() => {
 					window.trackEvent('Devcanvas Ad', {
-						page:document.title
+						page: document.title
 					});
 				}}
 				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
 				>Try DevCanvas <Fa icon={faRightLong} /></a
 			>
 		</div>
-		
+
 		<!-- <div class="flex flex-col gap-2">
 			<p class="font-semibold">SleekScroll</p>
 			<p class="text-sm">Make Ugly Chromium scrollbars look cool!</p>

@@ -31,12 +31,12 @@ export const sass_projects = readable([
 		svg: '/thirdpen.svg',
 		svgdark: '/thirdpen.svg',
 		imagelist: [
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.51.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.16.21.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.24.png",
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.51.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.16.21.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.24.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.23.29.png',
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.22.31.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.20.09.png",
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.22.31.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.20.09.png'
 		]
 	},
 	{
@@ -50,11 +50,11 @@ export const sass_projects = readable([
 		svg: '/littlestats.svg',
 		svgdark: '/littlestatsdark.svg',
 		imagelist: [
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.44.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.55.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.04.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.15.png",
-			"https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.49.png",
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.44.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.55.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.04.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.15.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.28.49.png'
 		]
 	},
 	{
@@ -96,9 +96,7 @@ export const sass_projects = readable([
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-41-58_2_Notification_dijf1z.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328523/Screenshot_2024-09-25_at_14-42-10_2_Notification_q8u15c.png'
 		]
-	},
-
-	
+	}
 ]);
 export const project_data = readable([
 	{
@@ -113,7 +111,6 @@ export const project_data = readable([
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.32.33.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.28.27.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-23%20at%2021.29.52.png'
-			
 		]
 	},
 	{
@@ -121,12 +118,11 @@ export const project_data = readable([
 		stack: ['Python', 'Coroutines', 'Thread pool'],
 		description: 'The perfect web scrape sdk for crawling webpage as context for llm',
 		links: {
-			study: 'https://github.com/Abdulmumin1/lmfetch',
+			study: 'https://github.com/Abdulmumin1/lmfetch'
 		},
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.49.41.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.50.15.png'
-			
 		]
 	},
 	{
@@ -144,7 +140,8 @@ export const project_data = readable([
 	{
 		name: 'Yochat',
 		stack: ['Svelte', 'Tailwind'],
-		description: 'Your fastest way to an llm - a cli tool that lets you chat with an llm at the speed of executing terminal commands',
+		description:
+			'Your fastest way to an llm - a cli tool that lets you chat with an llm at the speed of executing terminal commands',
 		links: {
 			study: 'https://github.com/Abdulmumin1/yochat',
 			page: 'yochat.yaqeen.me'
@@ -190,7 +187,7 @@ export const project_data = readable([
 		]
 	},
 
-		{
+	{
 		name: 'Liseen',
 		stack: ['Svelte', 'Tailwind'],
 		description: 'Listen to youtube videos as audio',

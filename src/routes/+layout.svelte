@@ -40,7 +40,7 @@
 	}
 	let posts = $state([]);
 
-	let actions = $derived([
+	let actions = $state([
 		{
 			title: 'Home',
 			callback: () => {
@@ -161,13 +161,15 @@
 </svelte:head>
 
 <div
-	class="w-screen overflow-x-hideen  bg-orange-50 dark:text-orange-200 font-visby dark:bg-stone-950 relative transition-colors duration-500 "
+	class="w-screen overflow-x-hideen bg-orange-50 dark:text-orange-200 font-visby dark:bg-stone-950 relative transition-colors duration-500"
 >
 	<!-- dark:bg-[#040200] -->
 
 	<Nav {isBlog} />
 	{@render children?.()}
-	<Footer />
+	{#if !['/garden'].includes(page.url.pathname)}
+		<Footer />
+	{/if}
 	<!-- bg-[#08090a] -->
 </div>
 
@@ -243,7 +245,7 @@
 
 		<svg
 			viewBox="0 -0.5 151 151"
-			class="size-6 md:size-32 absolute right-12 bottom-12 fill-orange-600/10 "
+			class="size-6 md:size-32 absolute right-12 bottom-12 fill-orange-600/10"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>

@@ -15,12 +15,7 @@
 		});
 	}
 
-	let {
-		title,
-		description,
-		link,
-		stack
-	} = $props();
+	let { title, description, link, stack } = $props();
 </script>
 
 <div

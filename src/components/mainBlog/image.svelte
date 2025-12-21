@@ -34,7 +34,6 @@
 
 <!-- </div> -->
 
-
 <span class="image-container">
 	<img
 		{src}
@@ -49,7 +48,6 @@
 	{/if}
 </span>
 
-
 {#if showModal}
 	<div class="modal">
 		<button
@@ -63,7 +61,7 @@
 			{/if}
 		</div>
 	</div>
-{/if} 
+{/if}
 
 <style>
 	.image-container {

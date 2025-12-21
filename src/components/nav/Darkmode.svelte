@@ -12,9 +12,7 @@
 
 	let darkModeSubscribe = darkMode.subscribe((data) => {
 		if (browser && mounted) {
-			if (
-				data
-			) {
+			if (data) {
 				document.documentElement.classList.add('dark');
 			} else {
 				document.documentElement.classList.remove('dark');

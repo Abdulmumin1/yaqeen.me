@@ -209,8 +209,9 @@
 	}
 	.article pre > code {
 		background-color: inherit !important;
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-			'Courier New', monospace;
+		font-family:
+			ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+			monospace;
 		@apply text-sm lg:text-base;
 	}
 	.markdown-content a:not(.skip) {
