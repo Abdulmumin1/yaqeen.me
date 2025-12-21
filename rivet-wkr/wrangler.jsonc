@@ -27,6 +27,13 @@
 	"observability": {
 		"enabled": true
 	},
+	"env": {
+    "production": {
+      "routes": [
+        { "pattern": "rivet-actor.yaqeen.me", "zone_name": "yaqeen.me" }
+      ]
+    }
+  },
 	"kv_namespaces": [
     {
       "binding": "ACTOR_KV",

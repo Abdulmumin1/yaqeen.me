@@ -12,7 +12,7 @@
 
 	import { createClient } from 'rivetkit/client';
 	import { onMount } from 'svelte';
-	import { env } from '$env/dynamic/public';
+	import { env } from "$env/dynamic/public";
 
 	export function generateRandomKey(length = 32) {
 		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
@@ -26,7 +26,7 @@
 		return result;
 	}
 
-	const rivetClient = createClient(env.PUBLIC_RIVET_WORKER_URL);
+	const rivetClient = createClient(env.PUBLIC_RIVET_URL);
 
 	let { drawings = [], onDrawingsChange = () => {} } = $props();
 
