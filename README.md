@@ -1,38 +1,47 @@
-# create-svelte
+# Yaqeen.me
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A personal portfolio website showcasing my work as a developer and writer. Built with SvelteKit, featuring a visual-powered blog, interactive projects, and a clean, responsive design.
 
-## Creating a project
+## About
 
-If you're seeing this, you've probably already done this step. Congrats!
+Hi, I'm Abdulmumin. I just do stuff, exploring algorithms, and sharing knowledge through writing. When I'm not coding, you'll find me doodling, taking photos of nature, or sipping coffee.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Connect with me: [LinkedIn](https://linkedin.com/in/abdulmuminyqn) | [GitHub](https://github.com/abdulmumin1) | [Twitter](https://twitter.com/abdulmuminyqn)
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Featured Projects
 
-## Developing
+Here are some highlights from my recent work:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### onlocal.dev
 
-```bash
-npm run dev
+A tunnel server to expose your localhost to the internet—my take on ngrok. Built with Bun.js, Cloudflare, and WebSockets. Visit [onlocal.dev](https://onlocal.dev).
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
 
-## Building
+### tiny.authenticator
 
-To create a production version of your app:
+A TOTP client for the CLI. Manage your two-factor authentication tokens from the command line. On GitHub: [tiny.authenticator](https://github.com/Abdulmumin1/tiny.authenticator).
 
-```bash
-npm run build
-```
+### kbar-svelte-mini
 
-You can preview the production build with `npm run preview`.
+A Svelte port of react-kbar for command palettes. Hit Cmd+K on this site to see it in action. Available at [kbar-mini.vercel.app](https://kbar-mini.vercel.app).
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### LMFetch
+
+The perfect web scraping SDK for crawling webpages as context for LLMs. Built with Python, coroutines, and thread pools. On GitHub: [LMFetch](https://github.com/Abdulmumin1/lmfetch).
+
+
+### DevCanvas
+
+Online code editor to paint, build, and share cool HTML/CSS/JS creations. Built with Svelte, Tailwind, and Supabase. Check it out at [devcanvas.dev](https://devcanvas.dev).
+
+
+## Tech Stack
+
+This portfolio is built with:
+
+- **Framework**: SvelteKit
+- **Styling**: Tailwind CSS
+- **Content**: MDsveX for blog posts
+- **Deployment**: Cloudflare Workers
+- **Interactivity**: kbar-svelte-mini for command palette, custom components for demos
+- **Tools**: Vite, ESLint, Prettier
