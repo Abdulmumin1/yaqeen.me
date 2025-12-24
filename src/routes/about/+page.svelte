@@ -35,12 +35,12 @@
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
 </svelte:head>
 
-<div in:scale out:slide class="min-h-screen flex justify-center p-4">
+<div class="min-h-screen flex justify-center p-4">
 	<div class="  max-w-[700px] flex flex-col gap-10">
 		<div class="flex flex-col md:flex-row pt-10 items-center justify-center gap-10">
 			<div class="flex flex-col items-center flex-1">
 				<div
-					class="rounded-xl border-orang relative tinted-image before:border-2 before:rounded-lg before:border-[#473436] dark:before:bg-dark before:absolute before:top-0 before:w-full before:h-full before:bg-orang"
+					class="rounded-xl border-orang relative tinted-image before:border-2 before:rounded-lg before:border-orang dark:before:bg-dark before:absolute before:top-0 before:w-full before:h-full before:bg-orange-200"
 				>
 					<img
 						src={me}

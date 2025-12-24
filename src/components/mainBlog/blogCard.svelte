@@ -19,15 +19,14 @@
 </script>
 
 <div
-	in:scale
-	class="w-full min-w-[300px] space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900/60 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 md:hover:scale-105"
+	class="w-full min-w-[300px] space-y-3 h-full p-5 bg-orange-50 dark:bg-stone-950 dark:text-orange-200"
 >
 	{#if latest}
 		<div class=" flex flex-col gap-3 w-full">
 			<a
 				href={`/blog/${details.slug}`}
 				title={details.title}
-				class="text-5xl lg:text-6xl hover:opacity-80 text-orang dark:text-dark text-balance w-full capitalize"
+				class="text-5xl lg:text-6xl hover:text-orange-600 dark:hover:text-orange-300 text-orang dark:text-dark text-balance w-full capitalize"
 			>
 				{details.title}</a
 			>
@@ -48,7 +47,7 @@
 		<a
 			href={`/blog/${details.slug}`}
 			title={details.title}
-			class="text-2xl lg:text-3xl hover:opacity-80"
+			class="text-2xl lg:text-3xl hover:text-orange-600 dark:hover:text-orange-300"
 		>
 			{details.title}</a
 		>

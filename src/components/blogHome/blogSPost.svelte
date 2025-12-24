@@ -6,10 +6,10 @@
 	let { title, link, date, visual } = $props();
 </script>
 
-<div
-	class="w-full space-y-3 border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark transition-all duration-200 md:hover:scale-105"
->
-	<a href={link} class="text-2xl lg:text-3xl hover:opacity-80"> {title}</a>
+<div class="w-full space-y-3 h-full p-5 bg-orange-50 dark:bg-stone-950 dark:text-orange-200">
+	<a href={link} class="text-2xl lg:text-3xl hover:text-orange-600 dark:hover:text-orange-300">
+		{title}</a
+	>
 	<p>Published {formatDate(date)}</p>
 	{#if visual}
 		<div class="text-sm bg-orange-200 dark:bg-stone-800 rounded-3xl w-fit px-2">

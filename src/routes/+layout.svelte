@@ -134,7 +134,8 @@
 			canonical = 'https://www.' + window.location.hostname + window.location.pathname;
 		}
 
-		result.forEach((element) => {
+
+		result.posts.forEach((element) => {
 			posts = [
 				...posts,
 				{

@@ -59,7 +59,7 @@
 	/>
 </svelte:head>
 
-<article in:scale class="mx-auto flex flex-col gap-2">
+<article  class="mx-auto flex flex-col gap-2">
 	<hgroup class=" mb-4 flex items-center rounded-lg w-full flex-col gap-3">
 		<div class="flex max-w-md items-center md:max-w-[800px] flex-col gap-2">
 			<h1 class="text-5xl text-center text-balance font-extrabold md:text-6xl">

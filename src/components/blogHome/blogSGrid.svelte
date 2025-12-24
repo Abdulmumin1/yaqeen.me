@@ -26,16 +26,16 @@
 </script>
 
 <div class=" h-full w-full">
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full flex-col md:flex-row w-full">
+	<div
+		class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full flex-col w-full [&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg"
+	>
 		{#await loadPost()}
 			<p>loading</p>
 		{:then posts}
 			<div class="w-full h-full flex flex-col">
-				<h2 class="lg:text-4xl text-3xl font-visby_bold font-bold mt-6 mb-4">Latest Post</h2>
+				<!-- <h2 class="lg:text-4xl text-xl font-visby_bold font-bold mt-2 mb-0 px-2  md:mt-6 md:mb-4">Latest Post</h2> -->
 
-				<div
-					class="w-full gap-4 flex justify-between flex-col border rounded-xl border-b-2 h-full p-5 bg-orange-100 dark:bg-stone-900 dark:text-orange-200 border-orang dark:border-dark"
-				>
+				<div class="w-full gap-4 flex justify-between flex-col h-full p-2 md:p-5">
 					<div class="flex items-center gap-2">
 						<Fa icon={faCalendar} />
 						{formatDate(posts[0]?.date)}
@@ -43,7 +43,7 @@
 					<div class="flex flex-col gap-3">
 						<a
 							href={`/blog/${posts[0]?.slug}`}
-							class="text-[2rem] md:text-[3rem] lg:text-[4rem] font-visby_bold font-bold"
+							class="text-[2rem] md:text-[3rem] lg:text-[4rem] font-visby_bold font-bold hover:text-orange-600 dark:hover:text-orange-300"
 							><h1 class="leading-none text-orang dark:text-dark">
 								{posts[0]?.title}
 							</h1></a
@@ -66,13 +66,13 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col gap-4">
+			<div class="flex flex-col">
 				<p
-					class="mt-6 mb-4 visby_bold text-2xl lg:text-4xl border-b-2 w-fit border-orang dark:border-dark"
+					class="mb-4 visby_bold text-lg md:text-2xl border-b-2 w-fit border-orang dark:border-dark"
 				>
 					Recent
 				</p>
-				{#each posts.slice(1, 4) as post}
+				{#each posts.slice(1, 5) as post}
 					<BlogSPost
 						title={post.title}
 						link={`/blog/${post.slug}`}

@@ -24,7 +24,7 @@
 
 <div
 	in:scale
-	class="rounded-2xl border-orang gap-2 dark:border-dark flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-50 p-5 dark:bg-stone-800/50"
+	class="rounded border-orang gap-2 dark:border-dark flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-50 p-5 dark:bg-stone-800/50"
 >
 	<div class="flex gap-2 items-center">
 		<!-- <p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">

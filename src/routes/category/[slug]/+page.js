@@ -12,7 +12,7 @@ export async function load({ fetch, params }) {
 	const response = await fetch('/blog/api/posts');
 	let posts = await response.json();
 	// console.log(posts);
-	posts = filterObjectsByTagKey(posts, 'categories', params.slug);
+	posts = filterObjectsByTagKey(posts.posts, 'categories', params.slug);
 	return { posts };
 	// throw error(404, 'Not found');
 }

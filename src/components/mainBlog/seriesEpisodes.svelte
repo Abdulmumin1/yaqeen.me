@@ -19,7 +19,7 @@
 		let posts = await response.json();
 		// console.log(posts);
 		// console.log(params.slug);
-		posts = filterObjectsByTagKey(posts, 'series', series);
+		posts = filterObjectsByTagKey(posts.posts, 'series', series);
 		// console.log(posts);
 		return { posts };
 		// throw error(404, 'Not found');
@@ -49,7 +49,7 @@
 </script>
 
 <div
-	class="flex flex-col bg-orange-200 dark:bg-stone-800 border-2 rounded-lg border-orang dark:border-dark divide-y-2 divide-orang dark:divide-dark"
+	class="flex flex-col bg-orange-50 dark:bg-stone-800  rounded outline-[15px] outline outline-orange-200 divide-y-2 divide-orange-200 dark:divide-dark"
 >
 	{#if !loading}
 		{#each posts.slice(0, page) as episode}

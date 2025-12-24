@@ -60,8 +60,8 @@
 	{/if}
 </svelte:head>
 
-<section in:scale class="min-h-screen mt-20">
-	<article class="<w-full flex justify-center items-center flex-col">
+<section class="min-h-screen mt-20">
+	<article class="w-full flex justify-center items-center flex-col">
 		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
 			<div class="flex flex-wrap gap-4">
 				<a
@@ -88,8 +88,10 @@
 				<p>Latest post</p>
 				<BlogCard details={latest} latest={true} />
 			</div>
-			<div class=" grid grid-cols-1 md:grid-cols-2 gap-5">
-				{#each currentPageData as post (post.slug)}
+			<div
+				class="grid bg-orange-100 grid-cols-1 rounded-lg divide-y divide-y-3 divide-orange-300 dark:divide-stone-700 overflow-hidden p-2 lg:p-5 dark:bg-stone-900 [&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg"
+			>
+				{#each currentPageData as post}
 					<BlogCard details={post} />
 				{/each}
 			</div>
