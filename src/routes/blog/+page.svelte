@@ -1,57 +1,23 @@
 <script>
-	import { scale, slide } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 	let { data } = $props();
 
-	let latest = data.posts[0];
-	data.posts.shift();
-	let pagelength = 8;
-	let showPagination = data.posts && data.posts.length > pagelength; // Updated condition for showPagination
-	let currentPage = 0;
-	let currentPageData = $state([]);
-	let muteNext = $state(false);
-	let mutePrev = $state(true);
+	let latest = data.latest;
+	let currentPage = $state(data.currentPage);
+	let postsStore = writable(data.posts);
+	let currentPageData = $derived($postsStore);
+	let showPagination = data.totalPages > 1;
 
-	function scrollToTopSmooth() {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
-	}
-
-	onMount(() => {
-		// scrollToTopSmooth();
-		updateCurrentPageData(); // Move the logic to update current page data into a function
-	});
-
-	function updateCurrentPageData() {
-		if (currentPage - pagelength < 0) {
-			mutePrev = true;
-		} else if (currentPage + pagelength >= data.posts.length) {
-			muteNext = true;
-		}
-		currentPageData = data.posts.slice(currentPage, currentPage + pagelength);
-
-		scrollToTopSmooth();
-	}
-
-	function next() {
-		if (currentPage + pagelength < data.posts.length) {
-			currentPage += pagelength;
-			updateCurrentPageData();
-		}
-		mutePrev = false; // Reset mutePrev when navigating to the next page
-	}
-
-	function prev() {
-		if (currentPage - pagelength >= 0) {
-			currentPage -= pagelength;
-			updateCurrentPageData();
-		}
-		muteNext = false; // Reset muteNext when navigating to the previous page
+	async function loadPage(page) {
+		const response = await fetch(`/blog/api/posts?page=${page}`);
+		const newData = await response.json();
+		postsStore.set(newData.posts);
+		currentPage = page;
+		window.history.pushState({}, '', `/blog?page=${page}`);
 	}
 </script>
 
@@ -85,6 +51,13 @@
 		content="Visual powered blog - Get the best learning experience with interactive elements to showcase concepts"
 	/>
 	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
+
+	{#if data.hasPrev}
+		<link rel="prev" href="/blog?page={data.currentPage - 1}" />
+	{/if}
+	{#if data.hasNext}
+		<link rel="next" href="/blog?page={data.currentPage + 1}" />
+	{/if}
 </svelte:head>
 
 <section in:scale class="min-h-screen mt-20">
@@ -123,22 +96,26 @@
 
 			{#if showPagination}
 				<div class="flex justify-between w-full">
-					<button
-						onclick={prev}
-						disabled={mutePrev}
-						class:border-0={mutePrev}
-						class:border-b-0={mutePrev}
-						class="bg-orange-200 dark:bg-stone-900/60 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
-						><Fa icon={faAngleLeft} /> prev</button
-					>
-					<button
-						onclick={next}
-						disabled={muteNext}
-						class:border-0={muteNext}
-						class:border-b-0={muteNext}
-						class="bg-orange-200 dark:bg-stone-900/60 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
-						><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></button
-					>
+					{#if currentPage > 1}
+						<a
+							href="/blog?page={currentPage - 1}"
+							onclick={() => loadPage(currentPage - 1)}
+							class="bg-orange-200 dark:bg-stone-900/60 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+							><Fa icon={faAngleLeft} /> prev</a
+						>
+					{:else}
+						<span class="w-32"></span>
+					{/if}
+					{#if currentPage < data.totalPages}
+						<a
+							href="/blog?page={currentPage + 1}"
+							onclick={() => loadPage(currentPage + 1)}
+							class="bg-orange-200 dark:bg-stone-900/60 border border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
+							><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></a
+						>
+					{:else}
+						<span class="w-32"></span>
+					{/if}
 				</div>
 			{/if}
 		</div>

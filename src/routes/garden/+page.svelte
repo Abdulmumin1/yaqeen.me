@@ -25,7 +25,9 @@
 		return result;
 	}
 
-	const rivetClient = createClient("https://yaqeen-garden-rivet-actor.avdorr12345.workers.dev/rivet");
+	const rivetClient = createClient(
+		'https://yaqeen-garden-rivet-actor.avdorr12345.workers.dev/rivet'
+	);
 
 	let { drawings = [], onDrawingsChange = () => {} } = $props();
 
@@ -659,7 +661,7 @@
 
 <main class="h-screen w-screen">
 	<!-- Sidebar -->
-	<div class="fixed bottom-10  left-1/2 -translate-x-1/2">
+	<div class="fixed bottom-10 left-1/2 -translate-x-1/2">
 		<div class="w-full max-w-4xl relative p-5 flex flex-col">
 			<!-- Small drawing canvas -->
 			<div class="mx-auto">

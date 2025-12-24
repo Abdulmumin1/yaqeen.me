@@ -49,37 +49,29 @@ In this article, We're going to go through scrollbars and their properties that 
 Scrollbars can be styled and customized using CSS properties, although the level of customization varies across different browsers and their versions. Here are some of the properties that can be edited or styled for scrollbars:
 
 1. **Scrollbar Width and Height:**
-
    - `width` and `height` properties to adjust the size of the scrollbar.
 
 2. **Scrollbar Colors:**
-
    - `scrollbar-color` or `-webkit-scrollbar-color` to set the color of the scrollbar thumb (not widely supported).
 
 3. **Scrollbar Track and Thumb:**
-
    - `scrollbar-track-color` or `-webkit-scrollbar-track-color` to set the color of the scrollbar track.
    - `scrollbar-thumb-color` or `-webkit-scrollbar-thumb-color` to set the color of the scrollbar thumb.
 
 4. **Scrollbar Corner:**
-
    - `scrollbar-corner` or `-webkit-scrollbar-corner` to set the color of the scrollbar corner (where horizontal and vertical bars meet).
 
 5. **Scrollbar Shadow:**
-
    - `scrollbar-shadow-color` or `-webkit-scrollbar-shadow-color` to set the color of the scrollbar shadow.
 
 6. **Scrollbar Borders:**
-
    - `scrollbar-width` or `-webkit-scrollbar-width` to set the width of the scrollbar.
    - `scrollbar-border-color` or `-webkit-scrollbar-border-color` to set the color of the scrollbar border.
 
 7. **Scrollbar Behavior:**
-
    - `scrollbar-autohide` or `-webkit-scrollbar-autohide` to control the auto-hiding behavior of the scrollbar.
 
 8. **Scrollbar Pseudo-elements:**
-
    - `::-webkit-scrollbar` pseudo-element to target the entire scrollbar.
    - `::-webkit-scrollbar-thumb` pseudo-element to target the scrollbar thumb.
    - `::-webkit-scrollbar-track` pseudo-element to target the scrollbar track.

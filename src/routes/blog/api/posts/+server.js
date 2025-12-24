@@ -19,7 +19,26 @@ async function getPosts() {
 
 	return posts;
 }
-export async function GET() {
+export async function GET({ url }) {
 	const posts = await getPosts();
-	return json(posts);
+	const latest = posts[0];
+	const allPosts = posts.slice(1); // posts without latest
+	const limit = parseInt(url.searchParams.get('limit')) || 8;
+	const page = parseInt(url.searchParams.get('page')) || 1;
+	const totalPosts = allPosts.length;
+	const totalPages = Math.ceil(totalPosts / limit);
+
+	const startIndex = (page - 1) * limit;
+	const endIndex = startIndex + limit;
+	const paginatedPosts = allPosts.slice(startIndex, endIndex);
+
+	return json({
+		latest,
+		posts: paginatedPosts,
+		totalPosts,
+		totalPages,
+		currentPage: page,
+		hasNext: page < totalPages,
+		hasPrev: page > 1
+	});
 }

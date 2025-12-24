@@ -114,19 +114,19 @@ export const project_data = readable([
 		]
 	},
 
-		{
+	{
 		name: 'tiny.auth',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'A TOTP client for the CLI',
 		links: {
-			study: 'https://github.com/Abdulmumin1/tiny.authenticator',
+			study: 'https://github.com/Abdulmumin1/tiny.authenticator'
 		},
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/tiny-uth-image-2.png',
-			'https://rawcontent.dearfutureself.me/portfolio/tiny.auth-image-1.png',
+			'https://rawcontent.dearfutureself.me/portfolio/tiny.auth-image-1.png'
 		]
 	},
-	
+
 	{
 		name: 'LMFetch',
 		stack: ['Python', 'Coroutines', 'Thread pool'],

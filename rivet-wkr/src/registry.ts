@@ -34,10 +34,10 @@ export const drawing = actor({
 			let drawing: Drawing = c.state.drawings.find(
 				(d: Drawing) => d.id === drawing_id && d.sessionId == sessionId
 			);
-            console.log(drawing)
+			console.log(drawing);
 			if (drawing) {
-				const index = c.state.drawings.findIndex((d:Drawing) => d.id === drawing_id);
-				 c.state.drawings.splice(index, 1);
+				const index = c.state.drawings.findIndex((d: Drawing) => d.id === drawing_id);
+				c.state.drawings.splice(index, 1);
 				c.broadcast('drawingDeleted', drawing_id);
 				return drawing_id;
 			}
