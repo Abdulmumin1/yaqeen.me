@@ -1,5 +1,4 @@
 <script>
-	import { scale } from 'svelte/transition';
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';

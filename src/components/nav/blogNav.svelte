@@ -67,10 +67,10 @@
 				<li class=" hidden md:block">
 					<a href="/about ">About</a>
 				</li>
-				<li class=" hidden md:block">
+				<li class=" ">
 					<a href="/blog ">Writing</a>
 				</li>
-				<li class=" hidden md:block">
+				<li class=" ">
 					<a href="/projects ">Work</a>
 				</li>
 				<li class="flex items-center justify-center">
