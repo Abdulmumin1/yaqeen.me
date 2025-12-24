@@ -51,9 +51,9 @@
 	<Seo title="Projects" description="A collection of the projects i've completed over the years" />
 </svelte:head>
 
-<div class="grid place-items-center w-full p-4 md:px-0">
+<div class="grid place-items-center w-full px-2 py-4 md:px-0">
 	<div class="flex gap-4 flex-col max-w-[1200px] w-full relative">
-		<div class="w-full md:rounded-2xl space-y-5 p-1 py-6 lg:p-6 flex flex-col" id="projects">
+		<div class="w-full md:rounded-2xl space-y-5 p-0 md:p-1 py-6 lg:p-6 flex flex-col" id="projects">
 			<h2
 				class="lg:text-5xl text-4xl text-center font-visby_bold font-bold pb-3 text-orang dark:text-dark"
 			>
