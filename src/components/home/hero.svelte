@@ -21,7 +21,7 @@
 				class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-1 px-2 rounded-full text-black text-sm"
 			>
 				<a href="https://thirdpen.app/read" target="_blank">
-					 <span class="">Ctrl+K</span> Introducting Thirdpen Read</a
+					 Introducting Thirdpen Read {" "}<span class="">&rAarr;</span> </a
 				>
 			</div>
 			<p
