@@ -35,7 +35,7 @@
 		"@rivetkit/cloudflare-workers": "^2.0.29",
 		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"gray-matter": "^4.0.3",
-		"kbar-svelte-mini": "^0.1.0",
+		"kbar-svelte-mini": "^0.1.2",
 		"mdsvex": "^0.11.2",
 		"node-html-parser": "^6.1.13",
 		"perfect-freehand": "^1.2.2",

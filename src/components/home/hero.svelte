@@ -20,8 +20,8 @@
 			<div
 				class="bg-orange-200 dark:bg-stone-800 dark:text-orange-300 p-1 px-2 rounded-full text-black text-sm"
 			>
-				<button onclick={toggleKbar}>
-					Try <span class="">Ctrl+K</span> my latest npm project</button
+				<a href="https://thirdpen.app/read" target="_blank">
+					 <span class="">Ctrl+K</span> Introducting Thirdpen Read</a
 				>
 			</div>
 			<p

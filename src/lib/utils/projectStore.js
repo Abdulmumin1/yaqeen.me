@@ -172,7 +172,7 @@ export const project_data = readable([
 		image: '$lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/edit',
-			page: 'kbar-mini.vercel.app'
+			page: 'kbar.yaqeen.me'
 		},
 		color: 'bg-white',
 		imagelist: [
