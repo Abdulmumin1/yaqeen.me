@@ -30,7 +30,7 @@
 				I'm Abdulmumin
 			</p>
 			<p>
-				Technical writer & FullStack engineer. <br />Currently building
+				FullStack & Toolings engineer. <br />Currently building
 				<a href="https://thirdpen.app" target="_blank" class="text-orang dark:text-dark"
 					>thirdpen.app</a
 				>

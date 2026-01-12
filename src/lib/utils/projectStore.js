@@ -100,6 +100,22 @@ export const sass_projects = readable([
 ]);
 export const project_data = readable([
 	{
+		name: 'ai-query.dev',
+		stack: ['python', 'ai-http', 'websockets'],
+		description: 'A python sdk for building stateful AI Agents',
+		links: {
+			study: 'https://github.com/Abdulmumin1/ai-query',
+			page: 'ai-query.dev'
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.06.14.png',
+			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.06.29.png',
+			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.02.png',
+			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.13.png',
+			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.29.png',
+		]
+	},
+	{
 		name: 'onlocal.dev',
 		stack: ['bunjs', 'cloudflare', 'websockets'],
 		description: 'A tunnel server to expose your localhost to the internet. My take on ngrok.',
