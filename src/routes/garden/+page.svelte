@@ -1,12 +1,5 @@
 <script>
-	import {
-		faAdd,
-		faBroom,
-		faBroomBall,
-		faDeleteLeft,
-		faPlus,
-		faTrash
-	} from '@fortawesome/free-solid-svg-icons';
+	import { faAdd, faBroom, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 	import getStroke from 'perfect-freehand';
 	import Fa from 'svelte-fa';
 
@@ -32,9 +25,7 @@
 	let { drawings = [], onDrawingsChange = () => {} } = $props();
 
 	let sessionId = $state(null);
-
 	let drawing = $state(false);
-
 	let currentPoints = $state([]);
 	let strokes = $state([]);
 
@@ -48,10 +39,9 @@
 	let lastPanX = $state(0);
 	let lastPanY = $state(0);
 
-	let currentColor = $state('#000000');
+	let currentColor = $state('#1c1917');
 	let currentSize = $state(4);
 
-	// New state for placed drawings
 	let placedDrawings = $state(drawings);
 	let selectedDrawing = $state(null);
 	let dragging = $state(false);
@@ -63,20 +53,19 @@
 	let initialAngle = $state(0);
 	let currentCursor = $state('default');
 
-	let count = $state(0);
 	let rivetConnection = $state(null);
 
 	const colors = [
-		'#1c1917', // Warm Ink Black (Stone-900) - Softer than pure black
-		'#ef4444', // Vermilion Red - Energetic but not eye-bleeding
-		'#10b981', // Emerald Green - Natural and lush
-		'#3b82f6', // Royal Blue - clear and crisp
-		'#f59e0b', // Deep Amber - Standard yellow is invisible on orange-50; this is readable
-		'#d946ef', // Fuchsia Orchid - Playful purple/pink
-		'#06b6d4', // Cyan Teal - A nice tropical water color
-		'#f97316' // Burnt Orange - distinct enough from the background
+		'#1c1917', // Warm Ink Black
+		'#ef4444', // Vermilion Red
+		'#10b981', // Emerald Green
+		'#3b82f6', // Royal Blue
+		'#f59e0b', // Deep Amber
+		'#d946ef', // Fuchsia Orchid
+		'#06b6d4', // Cyan Teal
+		'#f97316' // Burnt Orange
 	];
-	const sizes = [4, 8, 16, 32, 64];
+	const sizes = [2, 4, 8, 16, 32];
 
 	function getPoint(e, canvasElement) {
 		const rect = canvasElement.getBoundingClientRect();
@@ -87,12 +76,10 @@
 		const screenY = clientY - rect.top;
 
 		if (canvasElement === canvas) {
-			// For big canvas, apply transformations
 			const worldX = (screenX - offsetX) / scale;
 			const worldY = (screenY - offsetY) / scale;
 			return { x: worldX, y: worldY };
 		} else {
-			// For small canvas, use screen coordinates directly
 			return { x: screenX, y: screenY };
 		}
 	}
@@ -100,12 +87,8 @@
 	function handleDrawingStart(e) {
 		const targetCanvas = e.currentTarget;
 		selectedDrawing = null;
-		if (targetCanvas === canvas) {
-			// Big canvas - selection is handled in handleCanvasMouseDown
-			return;
-		}
+		if (targetCanvas === canvas) return;
 
-		// Small canvas - start drawing
 		drawing = true;
 		const { x, y } = getPoint(e, targetCanvas);
 		currentPoints = [[x, y]];
@@ -116,11 +99,7 @@
 	function handleDrawingMove(e) {
 		e.preventDefault();
 		const targetCanvas = e.currentTarget;
-
-		if (targetCanvas === canvas) {
-			// Big canvas interactions (dragging, etc.)
-			return;
-		}
+		if (targetCanvas === canvas) return;
 
 		if (!drawing) return;
 		const { x, y } = getPoint(e, targetCanvas);
@@ -142,14 +121,8 @@
 			thinning: 0.5,
 			streamline: 0.5,
 			easing: (t) => t,
-			start: {
-				taper: 0,
-				cap: true
-			},
-			end: {
-				taper: 0,
-				cap: true
-			}
+			start: { taper: 0, cap: true },
+			end: { taper: 0, cap: true }
 		};
 		strokes.forEach((points) => {
 			const stroke = getStroke(points, options);
@@ -216,14 +189,13 @@
 			});
 		});
 
-		// Add some padding
 		const padding = 10;
 		const centerX = (minX + maxX) / 2;
 		const centerY = (minY + maxY) / 2;
 		return {
 			width: maxX - minX + padding * 2,
 			height: maxY - minY + padding * 2,
-			offsetX: -centerX, // Offset to center the drawing
+			offsetX: -centerX,
 			offsetY: -centerY
 		};
 	}
@@ -239,7 +211,6 @@
 		const halfHeight = bounds.height / 2;
 		const rotationOffset = 10;
 
-		// Transform point to local space
 		const dx = worldX - drawing.x;
 		const dy = worldY - drawing.y;
 		const cosR = Math.cos(-drawing.rotation);
@@ -249,7 +220,6 @@
 		const unscaledX = rotatedX / drawing.scale;
 		const unscaledY = rotatedY / drawing.scale;
 
-		// Check rotation handles first
 		const rotationHandles = [
 			{ x: -halfWidth - rotationOffset, y: -halfHeight - rotationOffset },
 			{ x: halfWidth + rotationOffset, y: -halfHeight - rotationOffset },
@@ -262,7 +232,6 @@
 			if (dist < 8) return 'alias';
 		}
 
-		// Check resize handles
 		const resizeHandles = [
 			{ x: -halfWidth, y: -halfHeight, cursor: 'nw-resize' },
 			{ x: halfWidth, y: -halfHeight, cursor: 'ne-resize' },
@@ -276,7 +245,6 @@
 			}
 		}
 
-		// Check if inside drawing bounds
 		if (Math.abs(unscaledX) < halfWidth && Math.abs(unscaledY) < halfHeight) {
 			return 'move';
 		}
@@ -290,7 +258,7 @@
 		const newDrawing = {
 			id: Date.now(),
 			strokes: [...strokes],
-			x: Math.random() * 400 + 100, // Random position on big canvas
+			x: Math.random() * 400 + 100,
 			y: Math.random() * 300 + 100,
 			scale: 1,
 			rotation: 0,
@@ -300,7 +268,7 @@
 		};
 
 		placedDrawings.push(newDrawing);
-		selectedDrawing = newDrawing.id; // Auto-select the newly added drawing
+		selectedDrawing = newDrawing.id;
 		clearSmallCanvas();
 		drawPlacedDrawings();
 		onDrawingsChange([...placedDrawings]);
@@ -308,6 +276,7 @@
 			await rivetConnection.addDrawing(newDrawing);
 		}
 	}
+
 	function drawPlacedDrawings() {
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d');
@@ -315,7 +284,6 @@
 
 		placedDrawings.forEach((drawing) => {
 			ctx.save();
-			// 1. Move to the drawing's position, scale, and rotate
 			ctx.translate(drawing.x, drawing.y);
 			ctx.scale(drawing.scale, drawing.scale);
 			ctx.rotate(drawing.rotation);
@@ -331,10 +299,6 @@
 			};
 
 			const bounds = getDrawingBounds(drawing);
-
-			// --- START FIX ---
-			// We wrap the stroke drawing in its own save/restore block.
-			// This applies the centering offset ONLY to the strokes, not the selection box.
 			ctx.save();
 			ctx.translate(bounds.offsetX, bounds.offsetY);
 
@@ -349,26 +313,16 @@
 				}
 			});
 			ctx.restore();
-			// Context is now back to (0,0) being the center of the object
-			// --- END FIX ---
 
-			// Draw selection outline and handles if selected
 			if (selectedDrawing === drawing.id) {
-				// The bounds width/height calculation is correct
 				const halfWidth = bounds.width / 2;
 				const halfHeight = bounds.height / 2;
-
 				ctx.strokeStyle = '#007bff';
-				ctx.lineWidth = 2 / drawing.scale; // Optional: Keep line width consistent regardless of scale
-
-				// This draws centered at (0,0), which now correctly aligns with the visual center
+				ctx.lineWidth = 1 / drawing.scale;
 				ctx.strokeRect(-halfWidth, -halfHeight, bounds.width, bounds.height);
 
-				// Draw resize handles (squares)
 				ctx.fillStyle = '#007bff';
-				const handleSize = 6 / drawing.scale; // Optional: Keep handles consistent size
-
-				// Corner handles for resize
+				const handleSize = 4 / drawing.scale;
 				ctx.fillRect(
 					-halfWidth - handleSize / 2,
 					-halfHeight - handleSize / 2,
@@ -393,50 +347,23 @@
 					handleSize,
 					handleSize
 				);
-
-				// Draw rotation handles (circles)
-				ctx.fillStyle = '#ff6b6b';
-				const rotationOffset = 10 / drawing.scale;
-				const radius = 4 / drawing.scale;
-
-				const drawCircle = (x, y) => {
-					ctx.beginPath();
-					ctx.arc(x, y, radius, 0, 2 * Math.PI);
-					ctx.fill();
-				};
-
-				drawCircle(-halfWidth - rotationOffset, -halfHeight - rotationOffset);
-				drawCircle(halfWidth + rotationOffset, -halfHeight - rotationOffset);
-				drawCircle(-halfWidth - rotationOffset, halfHeight + rotationOffset);
-				drawCircle(halfWidth + rotationOffset, halfHeight + rotationOffset);
 			}
-
 			ctx.restore();
 		});
 	}
 
 	function hitTestPoint(px, py, drawing) {
-		// Transform point from world space to drawing's local space
-		// Reverse: translate by drawing position, rotate back, unscale
 		const dx = px - drawing.x;
 		const dy = py - drawing.y;
-
-		// Rotate back by -rotation
 		const cosR = Math.cos(-drawing.rotation);
 		const sinR = Math.sin(-drawing.rotation);
 		const rotatedX = dx * cosR - dy * sinR;
 		const rotatedY = dx * sinR + dy * cosR;
-
-		// Unscale
 		const unscaledX = rotatedX / drawing.scale;
 		const unscaledY = rotatedY / drawing.scale;
-
-		// Get bounds (which are centered at origin)
 		const bounds = getDrawingBounds(drawing);
 		const halfWidth = bounds.width / 2;
 		const halfHeight = bounds.height / 2;
-
-		// Now check if point is within the centered bounds
 		return Math.abs(unscaledX) < halfWidth && Math.abs(unscaledY) < halfHeight;
 	}
 
@@ -444,52 +371,19 @@
 		const rect = canvas.getBoundingClientRect();
 		const x = e.clientX - rect.left;
 		const y = e.clientY - rect.top;
-
-		// Convert to world coordinates for hit detection
 		const worldX = (x - offsetX) / scale;
 		const worldY = (y - offsetY) / scale;
 
-		// Check if clicking on rotation handles first (outer circles)
 		for (let i = placedDrawings.length - 1; i >= 0; i--) {
 			const drawing = placedDrawings[i];
 			if (selectedDrawing === drawing.id && drawing.sessionId === sessionId) {
 				const bounds = getDrawingBounds(drawing);
 				const halfWidth = bounds.width / 2;
 				const halfHeight = bounds.height / 2;
-				const rotationOffset = 10;
 
-				// Transform handle positions to world space accounting for rotation and scale
 				const cosR = Math.cos(drawing.rotation);
 				const sinR = Math.sin(drawing.rotation);
 
-				// Rotation handle positions in local space
-				const rotationLocalHandles = [
-					{ x: -halfWidth - rotationOffset, y: -halfHeight - rotationOffset },
-					{ x: halfWidth + rotationOffset, y: -halfHeight - rotationOffset },
-					{ x: -halfWidth - rotationOffset, y: halfHeight + rotationOffset },
-					{ x: halfWidth + rotationOffset, y: halfHeight + rotationOffset }
-				];
-
-				for (const handle of rotationLocalHandles) {
-					// Transform to world space
-					const scaledX = handle.x * drawing.scale;
-					const scaledY = handle.y * drawing.scale;
-					const worldHandleX = scaledX * cosR - scaledY * sinR + drawing.x;
-					const worldHandleY = scaledX * sinR + scaledY * cosR + drawing.y;
-
-					const dx = worldX - worldHandleX;
-					const dy = worldY - worldHandleY;
-					if (Math.sqrt(dx * dx + dy * dy) < 8) {
-						rotating = true;
-						initialRotation = drawing.rotation;
-						initialAngle = Math.atan2(worldY - drawing.y, worldX - drawing.x);
-						lastPanX = e.clientX;
-						lastPanY = e.clientY;
-						return;
-					}
-				}
-
-				// Resize handle positions in local space
 				const resizeLocalHandles = [
 					{ x: -halfWidth, y: -halfHeight },
 					{ x: halfWidth, y: -halfHeight },
@@ -498,7 +392,6 @@
 				];
 
 				for (const handle of resizeLocalHandles) {
-					// Transform to world space
 					const scaledX = handle.x * drawing.scale;
 					const scaledY = handle.y * drawing.scale;
 					const worldHandleX = scaledX * cosR - scaledY * sinR + drawing.x;
@@ -518,7 +411,6 @@
 			}
 		}
 
-		// Check if clicking on a drawing
 		selectedDrawing = null;
 		for (let i = placedDrawings.length - 1; i >= 0; i--) {
 			const drawing = placedDrawings[i];
@@ -540,42 +432,18 @@
 		const worldX = (x - offsetX) / scale;
 		const worldY = (y - offsetY) / scale;
 
-		// Set cursor based on position
 		if (dragging) {
 			currentCursor = 'grabbing';
-		} else if (resizing) {
-			// Keep the resize cursor
-			currentCursor = getCursorAtPosition(worldX, worldY);
-		} else if (rotating) {
+		} else if (resizing || rotating) {
 			currentCursor = 'grabbing';
 		} else {
 			currentCursor = getCursorAtPosition(worldX, worldY);
 		}
 		canvas.style.cursor = currentCursor;
 
-		if (rotating && selectedDrawing) {
-			const drawing = placedDrawings.find((d) => d.id === selectedDrawing);
-			if (drawing && drawing.sessionId === sessionId) {
-				const rect = canvas.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
-				const worldX = (x - offsetX) / scale;
-				const worldY = (y - offsetY) / scale;
-				const currentAngle = Math.atan2(worldY - drawing.y, worldX - drawing.x);
-				const angleDelta = currentAngle - initialAngle;
-				updateDrawing(selectedDrawing, { rotation: initialRotation + angleDelta });
-			}
-			return;
-		}
-
 		if (resizing && selectedDrawing) {
 			const drawing = placedDrawings.find((d) => d.id === selectedDrawing);
 			if (drawing && drawing.sessionId === sessionId) {
-				const rect = canvas.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
-				const worldX = (x - offsetX) / scale;
-				const worldY = (y - offsetY) / scale;
 				const currentDistance = Math.sqrt((worldX - drawing.x) ** 2 + (worldY - drawing.y) ** 2);
 				const scaleFactor = currentDistance / initialDistance;
 				updateDrawing(selectedDrawing, {
@@ -602,154 +470,130 @@
 		dragging = false;
 		resizing = false;
 		rotating = false;
-		// canvas.style.cursor = 'crosshair';
-	}
-
-	function handleCanvasMouseLeave() {
-		// canvas.style.cursor = 'crosshair';
 	}
 
 	$effect(() => {
 		if (canvas) {
-			// Account for sidebar width (320px) and padding (40px total)
 			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight - 40;
-			// canvas.style.cursor = 'crosshair';
+			canvas.height = window.innerHeight;
 			drawPlacedDrawings();
 		}
 		if (smallCanvas) {
-			smallCanvas.width = 450;
-			smallCanvas.height = 200;
+			const containerWidth = Math.min(window.innerWidth - 32, 400);
+			smallCanvas.width = containerWidth;
+			smallCanvas.height = 120;
 			drawSmallCanvas();
 		}
 	});
 
 	onMount(async () => {
 		const myGarden = rivetClient.drawing.getOrCreate(['my-drawings']);
-
 		const connection = myGarden.connect();
 		connection.on('newDrawing', (newDrawing) => {
-			if (selectedDrawing != newDrawing.id) {
-				placedDrawings.push(newDrawing);
-			}
+			if (selectedDrawing != newDrawing.id) placedDrawings.push(newDrawing);
 		});
-
 		connection.on('updatedDrawing', (updatedDrawing) => {
 			if (selectedDrawing != updatedDrawing.id) {
-				// placedDrawings.push(newDrawing);
 				const drawing = placedDrawings.find((d) => d.id === updatedDrawing.id);
-				Object.assign(drawing, updatedDrawing);
+				if (drawing) Object.assign(drawing, updatedDrawing);
 			}
 		});
-
 		connection.on('drawingDeleted', (drawing_id) => {
-			const drawing = placedDrawings.find((d) => d.id === drawing_id);
-			if (drawing) {
-				const index = placedDrawings.findIndex((d) => d.id === selectedDrawing);
-				placedDrawings.splice(index, 1);
-			}
+			const index = placedDrawings.findIndex((d) => d.id === drawing_id);
+			if (index !== -1) placedDrawings.splice(index, 1);
 		});
 		rivetConnection = connection;
 		let fetchedDrawings = await connection.getDrawings();
 		placedDrawings = fetchedDrawings.filter(Boolean);
-
 		sessionId = sessionStorage.getItem('garden-session-id') || generateRandomKey();
 		sessionStorage.setItem('garden-session-id', sessionId);
-		//    console.log(placedDrawings)
 	});
 </script>
 
-<main class="h-screen w-screen">
-	<!-- Sidebar -->
-	<div class="fixed bottom-10 left-1/2 -translate-x-1/2">
-		<div class="w-full max-w-4xl relative p-5 flex flex-col">
-			<!-- Small drawing canvas -->
-			<div class="mx-auto">
-				<h3 class="text-lg text-text-main dark:text-text-main/80 mb-3 font-semibold">
-					Sketch here
-				</h3>
+<main class="h-screen w-screen overflow-hidden bg-surface">
+	<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] max-w-[400px]">
+		<div class="flex flex-col items-center gap-3 w-full">
+			<div
+				class="bg-surface-soft/40 backdrop-blur-sm border border-border/30 rounded-lg overflow-hidden animate-slide-up w-full relative"
+			>
+				{#if strokes.length === 0 && !drawing}
+					<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+						<p class="text-[10px] font-mono uppercase tracking-[0.2em] opacity-20">sketch here</p>
+					</div>
+				{/if}
 				<canvas
 					bind:this={smallCanvas}
-					class=" cursor-crosshair touch-none border-t border-x bg-surface bg-surface-soft rounded-t-lg"
+					class="cursor-crosshair touch-none block w-full"
 					onmousedown={handleDrawingStart}
 					onmousemove={handleDrawingMove}
 					onmouseup={handleDrawingEnd}
 					onmouseleave={handleDrawingEnd}
-					oncontextmenu={(e) => e.preventDefault()}
 					ontouchstart={handleDrawingStart}
 					ontouchmove={handleDrawingMove}
 					ontouchend={handleDrawingEnd}
 				></canvas>
 			</div>
 
-			<!-- Controls -->
-			<div class="flex gap-2 bg-primarye-100 rounded-full p-3 items-center justify-center">
-				<!-- Color picker -->
-				<div>
-					<div class="flex flex-wrap gap-3" role="group" aria-label="Color selection">
-						{#each colors as color}
-							<button
-								class="w-10 h-10 rounded-full transition-all duration-200 {currentColor === color
-									? 'border-black border-4 scale-110'
-									: 'border-primary hover:scale-105'}"
-								style="background-color: {color}"
-								aria-label="Select {color} color"
-								onclick={() => (currentColor = color)}
-							></button>
-						{/each}
-					</div>
+			<div
+				class="flex bg-surface-soft/90 backdrop-blur-md border border-border/40 rounded-full p-1.5 items-center shadow-lg w-full justify-between sm:justify-center overflow-hidden"
+			>
+				<div
+					class="flex gap-3 px-3 border-r border-border/50 items-center overflow-x-auto no-scrollbar mask-gradient py-2"
+				>
+					{#each colors as color}
+						<button
+							class="size-5 shrink-0 rounded-full transition-all duration-300 {currentColor ===
+							color
+								? 'scale-110 ring-2 ring-primary ring-offset-2 ring-offset-surface-soft'
+								: 'opacity-60 hover:opacity-100 hover:scale-105'}"
+							style="background-color: {color}"
+							onclick={() => (currentColor = color)}
+						></button>
+					{/each}
 				</div>
 
-				<!-- Size picker -->
-				<div>
-					<select
-						bind:value={currentSize}
-						class="w-full px-4 py-2 rounded-lg bg-surface-soft bg-surface-soft text-text-main dark:text-text-main/80 transition-all duration-200"
-					>
-						{#each sizes as size}
-							<option value={size}>{size}</option>
-						{/each}
-					</select>
-				</div>
-
-				<!-- Action buttons -->
-				<div class="flex gap-1">
+				<div class="flex items-center gap-2 shrink-0 px-2 pl-3">
 					<button
 						title="Add to Canvas"
-						class="w-full p-4 bg-surface-soft rounded-full"
+						class="size-9 flex items-center justify-center bg-primary text-white rounded-full hover:brightness-110 active:scale-90 transition-all shadow-md"
 						onclick={addDrawingToCanvas}
 					>
-						<Fa icon={faAdd} />
+						<Fa icon={faAdd} size="sm" />
 					</button>
 					<button
-						class="w-full p-4 bg-surface-soft rounded-full"
+						title={selectedDrawing ? 'Delete' : 'Clear'}
+						class="size-9 flex items-center justify-center bg-surface-muted text-text-main rounded-full hover:bg-surface-soft active:scale-90 transition-all border border-border/20 shadow-sm"
 						onclick={selectedDrawing ? deleteSelectedDrawing : clearSmallCanvas}
 					>
-						<Fa icon={selectedDrawing ? faTrash : faBroom} />
+						<Fa icon={selectedDrawing ? faTrash : faBroom} size="sm" />
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Main canvas area -->
-	<div class="">
-		<canvas
-			bind:this={canvas}
-			id="pad"
-			class="touch-none bg-surface-soft bg-surface-soft"
-			onmousedown={handleCanvasMouseDown}
-			onmousemove={handleCanvasMouseMove}
-			onmouseup={handleCanvasMouseUp}
-			onmouseleave={handleCanvasMouseLeave}
-			oncontextmenu={(e) => e.preventDefault()}
-		></canvas>
-	</div>
+	<canvas
+		bind:this={canvas}
+		id="pad"
+		class="touch-none block w-full h-full cursor-crosshair"
+		onmousedown={handleCanvasMouseDown}
+		onmousemove={handleCanvasMouseMove}
+		onmouseup={handleCanvasMouseUp}
+		oncontextmenu={(e) => e.preventDefault()}
+	></canvas>
 </main>
 
 <style>
-	/* Smooth transitions for interactive elements */
-	button {
-		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
 </style>
