@@ -76,19 +76,4 @@
 </div>
 
 <style>
-	.bottom-nav {
-		transform: translateY(-100%);
-		transition: transform 0.5s;
-	}
-
-	.visible {
-		transform: translateY(0);
-	}
-
-	.colorize {
-		filter: brightness(0) saturate(100%) hue-rotate(0deg) sepia(100%) invert(100%) brightness(100%)
-			contrast(100%);
-		mix-blend-mode: color;
-		background-color: rgb(255, 187, 110);
-	}
 </style>

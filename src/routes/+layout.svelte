@@ -40,7 +40,7 @@
 	}
 	let posts = $state([]);
 
-	let actions = $state([
+	let actions = $derived([
 		{
 			title: 'Home',
 			callback: () => {

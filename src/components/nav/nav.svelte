@@ -35,7 +35,4 @@
 </nav>
 
 <style>
-	.hover-animate {
-		transition: font-size 0.15s ease-in-out; /* Transition on font-size property */
-	}
 </style>
