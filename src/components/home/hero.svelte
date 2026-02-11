@@ -40,7 +40,7 @@
 		</div>
 
 		<nav class="flex gap-4 pt-2">
-			{#each ['about', 'blog', 'projects'] as link}
+			{#each ['about', 'blog', 'work'] as link}
 				<a
 					href="/{link}"
 					class="text-[9px] font-mono opacity-30 hover:opacity-100 hover:text-primary transition-all"
