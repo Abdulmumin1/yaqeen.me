@@ -36,6 +36,19 @@
 		--color-border: var(--color-orange-200);
 		--color-text-main: black;
 		--color-text-muted: var(--color-stone-500);
+
+		/* Shiki Light Theme */
+		--shiki-color-text: #24292e;
+		--shiki-color-background: transparent;
+		--shiki-token-constant: #005cc5;
+		--shiki-token-string: #032f62;
+		--shiki-token-comment: #6a737d;
+		--shiki-token-keyword: #d73a49;
+		--shiki-token-parameter: #24292e;
+		--shiki-token-function: #6f42c1;
+		--shiki-token-string-expression: #22863a;
+		--shiki-token-punctuation: #24292e;
+		--shiki-token-link: #005cc5;
 	}
 
 	.dark {
@@ -45,6 +58,19 @@
 		--color-border: var(--color-stone-700);
 		--color-text-main: var(--color-stone-200);
 		--color-text-muted: var(--color-stone-400);
+
+		/* Shiki Dark Theme */
+		--shiki-color-text: #e1e4e8;
+		--shiki-color-background: transparent;
+		--shiki-token-constant: #79b8ff;
+		--shiki-token-string: #9ecbff;
+		--shiki-token-comment: #6a737d;
+		--shiki-token-keyword: #f97583;
+		--shiki-token-parameter: #e1e4e8;
+		--shiki-token-function: #b392f0;
+		--shiki-token-string-expression: #85e89d;
+		--shiki-token-punctuation: #e1e4e8;
+		--shiki-token-link: #79b8ff;
 	}
 
 	body {
@@ -103,63 +129,90 @@
 	}
 
 	/* Article Typography */
-	.article {
+	.article,
+	.markdown-content {
 		@apply space-y-4;
 	}
 
-	.article h1 {
+	.article h1,
+	.markdown-content h1 {
 		@apply text-3xl font-bold leading-tight pt-6 pb-2;
 	}
 
-	.article h2 {
+	.article h2,
+	.markdown-content h2 {
 		@apply text-2xl font-bold leading-tight pt-5 pb-2 capitalize;
 	}
 
-	.article h3 {
+	.article h3,
+	.markdown-content h3 {
 		@apply text-xl font-bold leading-snug pt-4 pb-1;
 	}
 
-	.article h4 {
+	.article h4,
+	.markdown-content h4 {
 		@apply text-lg font-bold leading-snug pt-3;
 	}
 
-	.article p {
+	.article p,
+	.markdown-content p {
 		@apply leading-relaxed;
 	}
 
-	.article pre {
-		@apply my-6 p-4 rounded-xl border border-primary/10 overflow-x-auto text-sm;
-		background-color: var(--color-surface-soft);
+	.article pre,
+	.markdown-content pre {
+		@apply my-6 p-4 rounded-xl border border-primary/10 overflow-x-auto text-xs;
+		background-color: var(--color-surface-soft) !important;
 	}
 
-	.article code:not(pre code) {
+	.article pre > code,
+	.markdown-content pre > code {
+		background-color: transparent !important;
+		@apply text-text-main text-[11px];
+	}
+
+	.article pre code .line::before,
+	.markdown-content pre code .line::before {
+		display: none !important;
+	}
+
+	.article code:not(pre code),
+	.markdown-content code:not(pre code) {
 		@apply px-1.5 py-0.5 rounded text-xs font-mono;
 		background-color: var(--color-surface-muted);
 	}
 
-	.article blockquote {
+	.article blockquote,
+	.markdown-content blockquote {
 		@apply my-4 pl-4 border-l-2 border-primary italic opacity-80;
 	}
 
 	.article ul,
-	.article ol {
+	.markdown-content ul,
+	.article ol,
+	.markdown-content ol {
 		@apply my-4 space-y-2;
 	}
 
-	.article li {
+	.article li,
+	.markdown-content li {
 		@apply text-sm leading-relaxed;
 	}
 
-	.article table {
+	.article table,
+	.markdown-content table {
 		@apply w-full my-6 border-collapse text-sm;
 	}
 
 	.article th,
-	.article td {
+	.markdown-content th,
+	.article td,
+	.markdown-content td {
 		@apply p-3 border border-primary/10 text-left;
 	}
 
-	.article th {
+	.article th,
+	.markdown-content th {
 		background-color: var(--color-surface-muted);
 		@apply font-bold;
 	}

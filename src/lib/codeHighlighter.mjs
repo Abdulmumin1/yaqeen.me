@@ -1,7 +1,7 @@
 import { parse } from 'node-html-parser';
 import { getHighlighter } from 'shiki';
 
-const THEME = 'min-dark';
+const THEME = 'css-variables';
 
 /**
  * Returns code with curly braces and backticks replaced by HTML entity equivalents

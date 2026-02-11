@@ -1,8 +1,3 @@
-code {
-	counter-reset: step;
-	counter-increment: step 0;
-}
-
 .shiki {
 	/* border-radius: var(--spacing-1); */
 	/* padding: var(--spacing-6) var(--spacing-4); */
@@ -11,18 +6,6 @@ code {
 	overflow-x: auto;
 	max-width: var(--max-width-full);
 	/* color: wheat; */
-}
-
-.highlight-line {
-	display: inline-block;
-	background-color: #f974161c;
-	width: calc(var(--max-width-full) + var(--spacing-4));
-	border-left: 9px solid #f97316;
-	margin-left: calc(-1 * 9px);
-}
-
-:is(.dark .highlight-line) {
-	border-left: 9px solid #c2410c;
 }
 
 :root {
@@ -70,15 +53,4 @@ code {
 		-3.3px 3.3px 5.3px -0.8px hsl(var(--shadow-color) / 0.36),
 		-8.2px 8.2px 13px -1.7px hsl(var(--shadow-color) / 0.36),
 		-20px 20px 31.8px -2.5px hsl(var(--shadow-color) / 0.36);
-}
-
-code .line::before {
-	display: inline-block;
-	content: counter(step);
-	counter-increment: step;
-	width: var(--spacing-6);
-	margin-right: var(--spacing-6);
-	text-align: right;
-	font-variant-numeric: tabular-nums;
-	color: var(--colour-line-numbers, rgb(254 215 170));
 }
