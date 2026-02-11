@@ -10,7 +10,7 @@
 	<div class="flex items-baseline gap-2 justify-between">
 		<a
 			href={link}
-			class="text-sm font-bold text-orang dark:text-dark hover:underline underline-offset-2 transition-all"
+			class="text-sm font-bold text-primary hover:underline underline-offset-2 transition-all"
 		>
 			{title}
 		</a>

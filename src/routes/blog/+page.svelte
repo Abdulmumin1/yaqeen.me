@@ -2,19 +2,18 @@
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-	import { writable } from 'svelte/store';
+
 	let { data } = $props();
 
-	let latest = data.latest;
+	let latest = $derived(data.latest);
 	let currentPage = $state(data.currentPage);
-	let postsStore = writable(data.posts);
-	let currentPageData = $derived($postsStore);
-	let showPagination = data.totalPages > 1;
+	let posts = $state(data.posts);
+	let showPagination = $derived(data.totalPages > 1);
 
 	async function loadPage(page) {
 		const response = await fetch(`/blog/api/posts?page=${page}`);
 		const newData = await response.json();
-		postsStore.set(newData.posts);
+		posts = newData.posts;
 		currentPage = page;
 		window.history.pushState({}, '', `/blog?page=${page}`);
 	}
@@ -44,7 +43,6 @@
 
 <section class="max-w-2xl mx-auto px-6 py-8">
 	<div class="flex flex-col gap-6">
-
 		<div class="flex flex-col gap-4">
 			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">latest</p>
 			<BlogCard details={latest} latest={true} />
@@ -52,8 +50,8 @@
 
 		<div class="flex flex-col gap-4">
 			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">all-posts</p>
-			<div class="flex flex-col divide-y divide-orang/10 dark:divide-dark/10">
-				{#each currentPageData as post}
+			<div class="flex flex-col divide-y divide-primary/10">
+				{#each posts as post (post.slug)}
 					<BlogCard details={post} />
 				{/each}
 			</div>

@@ -1,90 +1,57 @@
 <script>
 	import Fa from 'svelte-fa';
-	import { faCopy, faRightLong } from '@fortawesome/free-solid-svg-icons';
+	import { faRightLong } from '@fortawesome/free-solid-svg-icons';
+
+	const products = [
+		{
+			name: 'Thirdpen',
+			desc: 'Personalised interactive learning with AI',
+			link: 'https://thirdpen.app',
+			label: 'learning'
+		},
+		{
+			name: 'Littlestats',
+			desc: 'Fixed-cost analytics for makers',
+			link: 'https://littlestats.click',
+			label: 'analytics'
+		},
+		{
+			name: 'DevCanvas',
+			desc: 'Build websites fast with AI',
+			link: 'https://devcanvas.dev/play/try',
+			label: 'editor'
+		}
+	];
+
+	function track(name) {
+		if (typeof window !== 'undefined' && window.trackEvent) {
+			window.trackEvent(`${name} Ad`, { page: document.title });
+		}
+	}
 </script>
 
-<div class="parent w-full h-full">
-	<div
-		class="sticky top-[120px] bg-orange-100 divide-y divide-orang dark:divide-dark dark:bg-stone-900 p-4 rounded-xl m-4 flex gap-4 flex-col"
-	>
-		<div class="flex flex-col gap-2">
-			<p class="font-semibold">Thirdpen</p>
-			<p class="text-sm">Personalised Interactive learning with AI</p>
-			<a
-				href="https://thirdpen.app"
-				target="_blank"
-				onclick={() => {
-					window.trackEvent('Thirdpen Ad', {
-						page: document.title
-					});
-				}}
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
-				>Start Learning <Fa icon={faRightLong} /></a
-			>
-		</div>
-		<div class="flex flex-col gap-2">
-			<p class="font-semibold">Littlestats</p>
-			<p class="text-sm">Analytics tool the cost a fixed $4/month</p>
-			<a
-				href="https://littlestats.click"
-				target="_blank"
-				onclick={() => {
-					window.trackEvent('Littlestats Ad', {
-						page: document.title
-					});
-				}}
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
-				>Start for free <Fa icon={faRightLong} /></a
-			>
-		</div>
-		<div class="flex flex-col gap-2">
-			<p class="font-semibold">DevCanvas</p>
-			<p class="text-sm">Build websites fast with AI!</p>
-			<a
-				href="https://devcanvas.dev/play/try"
-				target="_blank"
-				onclick={() => {
-					window.trackEvent('Devcanvas Ad', {
-						page: document.title
-					});
-				}}
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 justify-center rounded-xl w-fit"
-				>Try DevCanvas <Fa icon={faRightLong} /></a
-			>
-		</div>
+<div class="flex flex-col gap-6 py-8">
+	<div class="flex flex-col gap-1">
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/built-by-me</p>
+	</div>
 
-		<!-- <div class="flex flex-col gap-2">
-			<p class="font-semibold">SleekScroll</p>
-			<p class="text-sm">Make Ugly Chromium scrollbars look cool!</p>
-			<a
-				href="https://github.com/Abdulmumin1/sleek-scroll"
-				target="_blank"
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
-				>Get Browser Extension <Fa icon={faRightLong} /></a
-			>
-		</div> -->
-		<!-- <div class="flex flex-col gap-2">
-			<p class="font-semibold">Kbar-svelte-mini</p>
-			<p class="text-sm">Setup cmd+k/ctrl+k for your svelte app with breeze 🌬️</p>
-			<a
-				href="https://www.npmjs.com/package/kbar-svelte-mini"
-				target="_blank"
-				class="flex text-sm items-center gap-2 bg-orange-300 border border-orang justify-center dark:border-dark dark:bg-stone-950 p-2 rounded-xl w-fit"
-				>Get npm package <Fa icon={faRightLong} /></a
-			>
-		</div> -->
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		{#each products as product}
+			<div class="flex flex-col gap-2 group">
+				<div class="flex items-center justify-between">
+					<p class="text-[9px] font-mono opacity-30 uppercase tracking-widest">/{product.label}</p>
+				</div>
+				<h4 class="text-xs font-bold text-primary">{product.name}</h4>
+				<p class="text-[11px] opacity-60 leading-relaxed">{product.desc}</p>
+				<a
+					href={product.link}
+					target="_blank"
+					onclick={() => track(product.name)}
+					class="text-[10px] font-mono opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all flex items-center gap-1 mt-1"
+				>
+					visit <Fa icon={faRightLong} />
+				</a>
+			</div>
+		{/each}
 	</div>
 </div>
-
-<style>
-	.parent {
-		position: relative; /* Set the parent container as a positioning context */
-		/* Other styles for the parent container */
-	}
-
-	.fixed-item {
-		position: fixed; /* Fix the item in place */
-		top: 30%; /* Adjust top position */
-		/* Other styles for the fixed item */
-	}
-</style>

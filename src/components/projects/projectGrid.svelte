@@ -6,7 +6,7 @@
 	// unsubscribe_stack();
 </script>
 
-<div class="grid grid-cols-1 divide-y divide-orang/10 dark:divide-dark/10 w-full max-w-lg">
+<div class="grid grid-cols-1 divide-y divide-primary/10 w-full ">
 	{#each $project_data.slice(0, 7) as project (project.name)}
 		<Template details={project} />
 	{/each}

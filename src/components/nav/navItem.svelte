@@ -2,7 +2,7 @@
 	let { data } = $props();
 </script>
 
-<li class="cursor-pointer p-1 dark:border-dark rounded">
+<li class="cursor-pointer p-1  rounded">
 	<a href={data.href} class="font-visby_mid hover-animate md:hover:text-2xl">
 		{data.name}
 	</a>

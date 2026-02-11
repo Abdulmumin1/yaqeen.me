@@ -37,9 +37,9 @@
 	}
 </script>
 
-<div class="w-full px-4 py-2 rounded-xl bg-orange-100 dark:bg-stone-900">Interactive demo</div>
+<div class="w-full px-4 py-2 rounded-xl bg-primarye-100 bg-surface-soft">Interactive demo</div>
 <div
-	class="container relative bg-orange-100 flex items-center justify-center gap-4 flex-col dark:bg-stone-900 rounded-3xl"
+	class="container relative bg-primarye-100 flex items-center justify-center gap-4 flex-col bg-surface-soft rounded-3xl"
 >
 	<!-- some randome text -->
 	<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
@@ -47,26 +47,26 @@
 			<h4 class="title">Carousel Demo</h4>
 			<div class="flex flex-col gap-2">
 				<button
-					class="bg-orang dark:bg-dark rounded-xl text-black"
+					class="bg-primary rounded-xl text-text-main"
 					onclick={(e) => {
 						change(e, 'slidex');
 					}}>Slide X</button
 				>
 				<button
-					class="bg-orang dark:bg-dark rounded-xl text-black"
+					class="bg-primary rounded-xl text-text-main"
 					onclick={(e) => {
 						change(e, 'slidey');
 					}}>Slide Y</button
 				>
 				<button
-					class="bg-orang dark:bg-dark rounded-xl text-black"
+					class="bg-primary rounded-xl text-text-main"
 					onclick={(e) => {
 						change(e, 'scale');
 					}}>Scale in</button
 				>
 
 				<button
-					class="bg-orang dark:bg-dark rounded-xl text-black"
+					class="bg-primary rounded-xl text-text-main"
 					onclick={(e) => {
 						change(e, 'fade');
 					}}>Fade in</button

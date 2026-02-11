@@ -26,7 +26,7 @@
 <div class="w-full">
 	<div class="flex gap-3 flex-wrap mb-4">
 		{#each categories as tag}
-			<span class=" text-base rounded-lg text-orang dark:text-dark"
+			<span class=" text-base rounded-lg text-primary"
 				><a href="/category/{tag}">&num;&nbsp;{tag}</a></span
 			>
 		{/each}

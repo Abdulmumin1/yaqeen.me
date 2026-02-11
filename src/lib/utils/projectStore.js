@@ -82,7 +82,7 @@ export const sass_projects = readable([
 	{
 		name: 'CommentRig',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description: 'A seemless, powerfull modern comment management for websites',
+		description: 'A modern comment management for blogs and websites',
 		links: {
 			page: 'commentrig'
 		},
@@ -131,6 +131,19 @@ export const project_data = readable([
 	},
 
 	{
+		name: 'LMFetch',
+		stack: ['Python', 'Coroutines', 'Thread pool'],
+		description: "a tool (cli,mcp) that fetches, chunks, supports local codebase and GitHub repo, takes a query, ranks code context. It's designed to fit the most relevant code into a token budget",
+		links: {
+			study: 'https://github.com/Abdulmumin1/lmfetch'
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.49.41.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.50.15.png'
+		]
+	},
+	
+	{
 		name: 'tiny.auth',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'A TOTP client for the CLI',
@@ -143,18 +156,7 @@ export const project_data = readable([
 		]
 	},
 
-	{
-		name: 'LMFetch',
-		stack: ['Python', 'Coroutines', 'Thread pool'],
-		description: 'The perfect web scrape sdk for crawling webpage as context for llm',
-		links: {
-			study: 'https://github.com/Abdulmumin1/lmfetch'
-		},
-		imagelist: [
-			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.49.41.png',
-			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.50.15.png'
-		]
-	},
+	
 	{
 		name: 'Dear Future self',
 		stack: ['Svelte', 'Tailwind'],

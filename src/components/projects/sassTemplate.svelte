@@ -15,7 +15,7 @@
 		$modalContext = true;
 	}
 	function getRandomColor() {
-		const colors = ['bg-orange-300'];
+		const colors = ['bg-primarye-300'];
 
 		const randomIndex = Math.floor(Math.random() * colors.length);
 		return colors[randomIndex];
@@ -24,7 +24,7 @@
 
 <div class="flex flex-col gap-1 py-3 group w-full">
 	<div class="flex items-baseline gap-2">
-		<h3 class="text-sm font-bold text-orang dark:text-dark">
+		<h3 class="text-sm font-bold text-primary">
 			{details.name}
 		</h3>
 		<a

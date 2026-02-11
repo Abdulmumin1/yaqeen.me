@@ -26,7 +26,7 @@
 		<div class="flex flex-col gap-1">
 			<a
 				href="mailto:abdulmuminyqn@gmail.com"
-				class="hover:text-orang dark:hover:text-dark transition-colors"
+				class="hover:text-primary hover:text-primary transition-colors"
 			>
 				abdulmuminyqn@gmail.com
 			</a>

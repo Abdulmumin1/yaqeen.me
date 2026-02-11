@@ -16,7 +16,7 @@
 		<a
 			href={`/blog/${details.slug}`}
 			title={details.title}
-			class="text-sm font-bold text-orang dark:text-dark hover:opacity-60 transition-opacity"
+			class="text-sm font-bold text-primary hover:opacity-60 transition-opacity"
 		>
 			{details.title}
 		</a>
@@ -27,7 +27,7 @@
 		<a
 			href={`/blog/${details.slug}`}
 			title={details.title}
-			class="text-xs font-medium hover:text-orang dark:hover:text-dark transition-colors"
+			class="text-xs font-medium hover:text-primary hover:text-primary transition-colors"
 		>
 			{details.title}
 		</a>

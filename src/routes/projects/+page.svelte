@@ -55,7 +55,7 @@
 	<div class="flex flex-col gap-6">
 		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/all-projects</p>
 
-		<div class="flex flex-col divide-y divide-orang/10 dark:divide-dark/10">
+		<div class="flex flex-col divide-y divide-primary/10">
 			{#each [...$sass_projects, ...$project_data, ...mini_projects] as project (project.name)}
 				<Template details={project} />
 			{/each}

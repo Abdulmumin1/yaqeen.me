@@ -35,7 +35,7 @@
 				class="h-full p-4 w-full rounded-lg shadow-xl dark:shadow-lg dark:shadow-stone-700 flex flex-col justify-between items-center"
 			>
 				<div
-					class="border p-2 border-orang dark:border-dark rounded-lg flex justify-between items-center w-full"
+					class="border p-2 border-primary rounded-lg flex justify-between items-center w-full"
 				>
 					<p>Share files securely</p>
 					<Fa icon={faGithub} />
@@ -45,7 +45,7 @@
 					href={project.links.study}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="w-full bg-orang shadow dark:bg-dark p-2 rounded-lg text-center">View on GitHub</a
+					class="w-full bg-primary shadow  p-2 rounded-lg text-center">View on GitHub</a
 				>
 			</div>
 		</aside>
@@ -54,7 +54,7 @@
 			<p class="text-lg">{project.description}</p>
 			<div class="flex flex-wrap gap-2 mb-4">
 				{#each project.stack as tech}
-					<span class="px-2 py-1 bg-orange-200 dark:bg-stone-800 rounded-xl text-sm">{tech}</span>
+					<span class="px-2 py-1 bg-primarye-200 bg-surface-muted rounded-xl text-sm">{tech}</span>
 				{/each}
 			</div>
 		</section>
@@ -64,7 +64,7 @@
 			<img
 				alt={`Project image ${index + 1}`}
 				src={img}
-				class="w-[720px] border-4 border-orange-200 dark:border-dark object-contain rounded-xl"
+				class="w-[720px] border-4 border-primarye-200  object-contain rounded-xl"
 			/>
 		{/each}
 	</div>
@@ -77,7 +77,7 @@
 					href={project.links.study}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="bg-orang dark:bg-dark flex gap-2 items-center p-2 rounded-md"
+					class="bg-primary flex gap-2 items-center p-2 rounded-md"
 				>
 					Clone <Fa icon={faGithub} class="" />
 				</a>
@@ -88,7 +88,7 @@
 					href={project.links.page}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="bg-orang dark:bg-dark flex gap-2 items-center p-2 rounded-md"
+					class="bg-primary flex gap-2 items-center p-2 rounded-md"
 				>
 					Docs <Fa icon={faGithub} class="" />
 				</a>

@@ -28,7 +28,7 @@
 <div class="min-h-screen p-6 text-gray-900 dark:text-white" in:slide>
 	<header class="text-center mb-12 flex flex-col gap-4">
 		<h1 class="text-6xl font-bold mb-4 mt-6">{project.name}</h1>
-		<p class="text-2xl text-orang dark:text-dark">{project.tagline}</p>
+		<p class="text-2xl text-primary">{project.tagline}</p>
 	</header>
 
 	<main class="max-w-4xl mx-auto flex gap-6 flex-col">
@@ -39,7 +39,7 @@
 					href={project.vsCodeMarketplace}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="bg-orang dark:bg-dark flex gap-2 items-center p-3 rounded-lg text-white hover:opacity-90 transition-opacity"
+					class="bg-primary flex gap-2 items-center p-3 rounded-lg text-white hover:opacity-90 transition-opacity"
 				>
 					Install Extension
 				</a>
@@ -47,7 +47,7 @@
 					href={project.repoUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="bg-orange-200 dark:bg-stone-800 flex gap-2 items-center p-3 rounded-lg hover:opacity-90 transition-opacity"
+					class="bg-primarye-200 bg-surface-muted flex gap-2 items-center p-3 rounded-lg hover:opacity-90 transition-opacity"
 				>
 					<Fa icon={faGithub} /> View on GitHub
 				</a>
@@ -56,7 +56,7 @@
 
 		<section class="mb-16">
 			<h2 class="text-3xl font-semibold mb-6 text-center">How It Works</h2>
-			<div class="border-4 border-orange-200 dark:border-dark rounded-xl overflow-hidden">
+			<div class="border-4 border-primarye-200  rounded-xl overflow-hidden">
 				<img src={project.demoGif} alt="CSS-Faster demo" class="w-full" />
 			</div>
 		</section>
@@ -65,8 +65,8 @@
 			<h2 class="text-3xl font-semibold mb-6 text-center">Features</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				{#each project.features as feature}
-					<li class="bg-orange-100 dark:bg-stone-800 p-4 rounded-lg flex items-center">
-						<!-- <Fa icon={faVscode} class="text-orang dark:text-dark mr-3" /> -->
+					<li class="bg-primarye-100 bg-surface-muted p-4 rounded-lg flex items-center">
+						<!-- <Fa icon={faVscode} class="text-primary mr-3" /> -->
 						<span>{feature}</span>
 					</li>
 				{/each}
@@ -79,7 +79,7 @@
 				href={project.vsCodeMarketplace}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-block bg-orang dark:bg-dark p-3 rounded-lg text-white hover:opacity-90 transition-opacity"
+				class="inline-block bg-primary p-3 rounded-lg text-white hover:opacity-90 transition-opacity"
 			>
 				Install CSS-Faster
 			</a>

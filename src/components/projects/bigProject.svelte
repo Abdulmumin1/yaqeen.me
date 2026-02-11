@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="bg-orange-100 flex flex-col gap-2 dark:bg-stone-900 dark:border-dark border-orang rounded-3xl p-6 w-full"
+	class="bg-primarye-100 flex flex-col gap-2 bg-surface-soft  border-primary rounded-3xl p-6 w-full"
 >
 	<div>
 		<div class="flex justify-between items-center">
@@ -31,22 +31,22 @@
 			</h4>
 			<a href="https://github.com/{link}"><Fa icon={faGithub} /></a>
 		</div>
-		<a href={link} class="text-stone-800 dark:text-orange-200/70 text-sm">{link}</a>
+		<a href={link} class="text-stone-800 dark:text-text-main/70 text-sm">{link}</a>
 	</div>
 
 	<div>
 		{description}
 	</div>
 	<!-- <p class="text-xl flex gap-2 items-center"><Fa icon={faLayerGroup} />Stack</p> -->
-	<!-- <ul class="flex gap-2 flex-wrap text-black">
+	<!-- <ul class="flex gap-2 flex-wrap text-text-main">
 		{#each stack as st}
-			<li class=" text-black bg-orang dark:bg-dark p-1 rounded-2xl">
+			<li class=" text-text-main bg-primary p-1 rounded-2xl">
 				<a href={$stackLinks[st.toLowerCase()]} class="p-1">{st}</a>
 			</li>
 		{/each}
 	</ul> -->
 </div>
-<dialog id="vidModal" bind:this={modal} class="bg-orange-200">
+<dialog id="vidModal" bind:this={modal} class="bg-primarye-200">
 	<div class="flex flex-col gap-2">
 		<h1 class="title text-xl font-visby_bold font-semibold flex justify-between">
 			{title} <button onclick={closeModal}>Close</button>

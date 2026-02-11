@@ -49,7 +49,7 @@
 		{#each imageList as img}
 			<div
 				role="button"
-				class="h-full w-full overflow-hidden rounded-lg border-orang dark:border-dark transition-all duration-300"
+				class="h-full w-full overflow-hidden rounded-lg border-primary transition-all duration-300"
 				onclick={() => {
 					switchImage(img);
 				}}

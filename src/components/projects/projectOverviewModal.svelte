@@ -56,26 +56,26 @@
 
 <dialog
 	bind:this={modal}
-	class="w-full max-w-[90%] font-visby p-6 rounded-2xl border border-orang dark:border-dark bg-orange-100 dark:bg-stone-900 text-stone-900 dark:text-orange-100"
+	class="w-full max-w-[90%] font-visby p-6 rounded-2xl border border-primary bg-primarye-100 bg-surface-soft text-text-main dark:text-primarye-100"
 >
 	<div class="flex justify-between items-center mb-4">
 		<h2 class="text-3xl lg:text-4xl font-visby_bold font-extrabold">{details.name}</h2>
 		<button
 			onclick={closeModal}
-			class="text-stone-600 hover:text-stone-800 dark:text-orange-300 dark:hover:text-orange-100"
+			class="text-stone-600 hover:text-stone-800 dark:text-primarye-300 dark:hover:text-primarye-100"
 		>
 			<Fa icon={faXmark} />
 		</button>
 	</div>
 
-	<p class="text-stone-700 dark:text-orange-200 mb-4 max-w-[20rem]">{details.description}</p>
+	<p class="text-stone-700 dark:text-text-main mb-4 max-w-[20rem]">{details.description}</p>
 
 	<div class="flex space-x-4 mb-6">
 		{#if details.links?.study}
 			<a
 				target="_blank"
 				href={details.links.study}
-				class="flex items-center space-x-2 bg-orange-300 dark:bg-orange-700 hover:bg-orange-400 dark:hover:bg-orange-600 text-stone-900 dark:text-orange-100 font-bold py-2 px-4 rounded-lg"
+				class="flex items-center space-x-2 bg-primarye-300 dark:bg-primarye-700 hover:bg-primarye-400 dark:hover:bg-primarye-600 text-text-main dark:text-primarye-100 font-bold py-2 px-4 rounded-lg"
 			>
 				<Fa icon={faGithub} />
 				<span>View on GitHub</span>
@@ -84,7 +84,7 @@
 		<a
 			target={details?.onpage ? '_self' : '_blank'}
 			href="{details?.onpage ? '' : 'https://'}{details.links.page}"
-			class="flex items-center space-x-2 bg-orange-300 dark:bg-orange-700 hover:bg-orange-400 dark:hover:bg-orange-600 text-stone-900 dark:text-orange-100 font-bold py-2 px-4 rounded-lg"
+			class="flex items-center space-x-2 bg-primarye-300 dark:bg-primarye-700 hover:bg-primarye-400 dark:hover:bg-primarye-600 text-text-main dark:text-primarye-100 font-bold py-2 px-4 rounded-lg"
 		>
 			<span>Visit Website</span>
 			<Fa icon={faArrowRightLong} />
@@ -96,7 +96,7 @@
 			<img
 				alt={`Project image ${index + 1}`}
 				src={img}
-				class="w-[720px] border-4 border-orange-200 dark:border-dark object-contain rounded-xl"
+				class="w-[720px] border-4 border-primarye-200  object-contain rounded-xl"
 			/>
 		{/each}
 	</div>
@@ -106,7 +106,7 @@
 		<ul class="flex gap-2 flex-wrap">
 			{#each details.stack as stack}
 				<li
-					class="bg-orange-200 dark:bg-stone-700 text-stone-800 dark:text-orange-100 px-2 py-1 rounded-md text-sm"
+					class="bg-primarye-200 dark:bg-stone-700 text-stone-800 dark:text-primarye-100 px-2 py-1 rounded-md text-sm"
 				>
 					{stack}
 				</li>

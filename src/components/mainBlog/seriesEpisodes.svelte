@@ -49,18 +49,18 @@
 </script>
 
 <div
-	class="flex flex-col bg-orange-50 dark:bg-stone-800 rounded outline-[15px] outline outline-orange-200 divide-y-2 divide-orange-200 dark:divide-dark"
+	class="flex flex-col bg-surface-soft bg-surface-muted rounded outline-[15px] outline outline-orange-200 divide-y-2 divide-primary/10e-200 "
 >
 	{#if !loading}
 		{#each posts.slice(0, page) as episode}
 			<a href="/blog/{episode.slug}" class="skip px-3 py-4 flex items-center gap-2">
 				<div
-					class="text-black dark:text-orange-200 bg-orange-100 dark:bg-stone-900 min-h-10 min-w-10 items-center justify-center flex rounded-full"
+					class="text-text-main dark:text-text-main bg-primarye-100 bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
 				>
 					{episodeNumber()}
 				</div>
 
-				<div class="text-black dark:text-orange-200">{episode.title}</div>
+				<div class="text-text-main dark:text-text-main">{episode.title}</div>
 			</a>
 		{/each}
 

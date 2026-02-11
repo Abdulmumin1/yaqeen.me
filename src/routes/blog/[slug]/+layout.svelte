@@ -8,7 +8,7 @@
 	let { children } = $props();
 </script>
 
-<div class="w-full flex justify-center py-12 mt-20">
+<div class="w-full flex justify-center py-12 mt-10">
 	<section class="max-w-[1200px] w-full lg:text-xl px-4 md:p-12">
 		{@render children?.()}
 	</section>

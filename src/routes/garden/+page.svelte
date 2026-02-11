@@ -665,12 +665,12 @@
 		<div class="w-full max-w-4xl relative p-5 flex flex-col">
 			<!-- Small drawing canvas -->
 			<div class="mx-auto">
-				<h3 class="text-lg text-stone-900 dark:text-orange-200/80 mb-3 font-semibold">
+				<h3 class="text-lg text-text-main dark:text-text-main/80 mb-3 font-semibold">
 					Sketch here
 				</h3>
 				<canvas
 					bind:this={smallCanvas}
-					class=" cursor-crosshair touch-none border-t border-x bg-white dark:bg-stone-900 rounded-t-lg"
+					class=" cursor-crosshair touch-none border-t border-x bg-surface bg-surface-soft rounded-t-lg"
 					onmousedown={handleDrawingStart}
 					onmousemove={handleDrawingMove}
 					onmouseup={handleDrawingEnd}
@@ -683,7 +683,7 @@
 			</div>
 
 			<!-- Controls -->
-			<div class="flex gap-2 bg-orange-100 rounded-full p-3 items-center justify-center">
+			<div class="flex gap-2 bg-primarye-100 rounded-full p-3 items-center justify-center">
 				<!-- Color picker -->
 				<div>
 					<div class="flex flex-wrap gap-3" role="group" aria-label="Color selection">
@@ -691,7 +691,7 @@
 							<button
 								class="w-10 h-10 rounded-full transition-all duration-200 {currentColor === color
 									? 'border-black border-4 scale-110'
-									: 'border-orang dark:border-dark hover:scale-105'}"
+									: 'border-primary hover:scale-105'}"
 								style="background-color: {color}"
 								aria-label="Select {color} color"
 								onclick={() => (currentColor = color)}
@@ -704,7 +704,7 @@
 				<div>
 					<select
 						bind:value={currentSize}
-						class="w-full px-4 py-2 rounded-lg bg-orange-50 dark:bg-stone-900 text-stone-900 dark:text-orange-200/80 transition-all duration-200"
+						class="w-full px-4 py-2 rounded-lg bg-surface-soft bg-surface-soft text-text-main dark:text-text-main/80 transition-all duration-200"
 					>
 						{#each sizes as size}
 							<option value={size}>{size}</option>
@@ -716,13 +716,13 @@
 				<div class="flex gap-1">
 					<button
 						title="Add to Canvas"
-						class="w-full p-4 bg-orange-50 rounded-full"
+						class="w-full p-4 bg-surface-soft rounded-full"
 						onclick={addDrawingToCanvas}
 					>
 						<Fa icon={faAdd} />
 					</button>
 					<button
-						class="w-full p-4 bg-orange-50 rounded-full"
+						class="w-full p-4 bg-surface-soft rounded-full"
 						onclick={selectedDrawing ? deleteSelectedDrawing : clearSmallCanvas}
 					>
 						<Fa icon={selectedDrawing ? faTrash : faBroom} />
@@ -737,7 +737,7 @@
 		<canvas
 			bind:this={canvas}
 			id="pad"
-			class="touch-none bg-orange-50 dark:bg-stone-900"
+			class="touch-none bg-surface-soft bg-surface-soft"
 			onmousedown={handleCanvasMouseDown}
 			onmousemove={handleCanvasMouseMove}
 			onmouseup={handleCanvasMouseUp}

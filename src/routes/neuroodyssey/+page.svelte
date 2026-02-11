@@ -1,1 +1,1 @@
-<div class="h-screen bg-orang"></div>
+<div class="h-screen bg-primary"></div>

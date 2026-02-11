@@ -31,7 +31,7 @@
 			<div class="flex items-center gap-4">
 				<img src={me} alt="Abdulmumin Yaqeen" class="w-16 h-16 rounded-lg object-cover" />
 				<div>
-					<h1 class="text-sm font-bold text-orang dark:text-dark">Abdulmumin Yaqeen</h1>
+					<h1 class="text-sm font-bold text-primary">Abdulmumin Yaqeen</h1>
 					<p class="text-xs opacity-60">Fullstack Developer & Security Student</p>
 				</div>
 			</div>
@@ -56,9 +56,9 @@
 	<div class="flex flex-col gap-4 text-xs opacity-80 leading-relaxed">
 		<p>
 			I'm Abdulmumin Yaqeen Abdulkarim, Currently a part time <span
-				class="text-orang dark:text-dark">Fullstack Developer</span
+				class="text-primary">Fullstack Developer</span
 			>
-			and pursuing my <span class="text-orang dark:text-dark">Cyber Security</span> degree.
+			and pursuing my <span class="text-primary">Cyber Security</span> degree.
 		</p>
 		<p>
 			I write lots of Python and Javascript code, and have worked in various field spanning web,
@@ -69,20 +69,20 @@
 
 	<div class="flex flex-col gap-4">
 		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/interests</p>
-		<ul class="flex flex-col divide-y divide-orang/10 dark:divide-dark/10">
+		<ul class="flex flex-col divide-y divide-primary/10">
 			<li class="py-3 text-xs opacity-80">
-				<span class="text-orang dark:text-dark font-bold">Writing</span> — Sharing thoughts on dev, security,
+				<span class="text-primary font-bold">Writing</span> — Sharing thoughts on dev, security,
 				and tech.
 			</li>
 			<li class="py-3 text-xs opacity-80">
-				<span class="text-orang dark:text-dark font-bold">Drawing</span> — Not a pro, mostly just doodling
+				<span class="text-primary font-bold">Drawing</span> — Not a pro, mostly just doodling
 				away.
 			</li>
 			<li class="py-3 text-xs opacity-80">
-				<span class="text-orang dark:text-dark font-bold">Photography</span> — My plan B.
+				<span class="text-primary font-bold">Photography</span> — My plan B.
 			</li>
 			<li class="py-3 text-xs opacity-80">
-				<span class="text-orang dark:text-dark font-bold">Coffee</span> — Lots of it.
+				<span class="text-primary font-bold">Coffee</span> — Lots of it.
 			</li>
 		</ul>
 	</div>

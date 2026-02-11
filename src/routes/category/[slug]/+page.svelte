@@ -1,5 +1,5 @@
 <script>
-	import { scale, slide } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	import BlogCard from '$components/mainBlog/blogCard.svelte';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -8,14 +8,16 @@
 
 	let { data } = $props();
 
-	let latest = data.posts[0];
-	data.posts.shift();
+	let posts = $derived(data.posts);
+	let latest = $derived(posts[0]);
 	let pagelength = 6;
-	let showPagination = data.posts && data.posts.length > pagelength; // Updated condition for showPagination
-	let currentPage = 0;
-	let currentPageData = $state([]);
-	let muteNext = $state(false);
-	let mutePrev = $state(true);
+
+	let currentPage = $state(0);
+	let currentPageData = $derived(posts.slice(1).slice(currentPage, currentPage + pagelength));
+
+	let showPagination = $derived(posts.length - 1 > pagelength);
+	let muteNext = $derived(currentPage + pagelength >= posts.length - 1);
+	let mutePrev = $derived(currentPage === 0);
 
 	function scrollToTopSmooth() {
 		window.scrollTo({
@@ -24,123 +26,66 @@
 		});
 	}
 
-	onMount(() => {
-		// scrollToTopSmooth();
-		updateCurrentPageData(); // Move the logic to update current page data into a function
-	});
-
-	function updateCurrentPageData() {
-		currentPageData = data.posts.slice(currentPage, currentPage + pagelength);
-
-		scrollToTopSmooth();
-	}
-
 	function next() {
-		if (currentPage + pagelength < data.posts.length) {
+		if (!muteNext) {
 			currentPage += pagelength;
-			updateCurrentPageData();
-		} else {
-			muteNext = true; // Disable next button when at the last page
+			scrollToTopSmooth();
 		}
-		mutePrev = false; // Reset mutePrev when navigating to the next page
 	}
 
 	function prev() {
-		if (currentPage - pagelength >= 0) {
+		if (!mutePrev) {
 			currentPage -= pagelength;
-			updateCurrentPageData();
-		} else {
-			mutePrev = true; // Disable prev button when at the first page
+			scrollToTopSmooth();
 		}
-		muteNext = false; // Reset muteNext when navigating to the previous page
 	}
 </script>
 
 <svelte:head>
-	<!-- Meta Tags Generated via https://www.opengraph.xyz -->
-
-	<!-- HTML Meta Tags -->
 	<title>Blog - Abdulmumin Yaqeen</title>
-	<meta
-		name="description"
-		content="Visual powered blog - Get the best learning experience with interactive element to showcase concepts"
-	/>
-
-	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content="https://www.yaqeen.me" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Abdulmumin Yaqeen" />
-	<meta
-		property="og:description"
-		content="Visual powered blog - Get the best learning experience with interactive element to showcase concepts"
-	/>
-	<meta property="og:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
-
-	<!-- Twitter Meta Tags -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="yaqeen.me" />
-	<meta property="twitter:url" content="https://www.yaqeen.me" />
-	<meta name="twitter:title" content="Abdulmumin Yaqeen" />
-	<meta
-		name="twitter:description"
-		content="Visual powered blog - Get the best learning experience with interactive elements to showcase concepts"
-	/>
-	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
+	<meta name="description" content="Posts in category {$page.params.slug}" />
 </svelte:head>
 
-<section in:scale class="min-h-screen mt-20">
-	<article class="<w-full flex justify-center items-center flex-col">
-		<div class="max-w-[900px] flex flex-col w-full p-4 md:p-6 gap-4">
-			<div class="text-4xl flex flex-col gap-3">
-				<p class="font-extrabold font-visby_bold capitalize">{$page.params.slug}</p>
+<section in:scale class="max-w-2xl mx-auto px-6 py-8">
+	<div class="flex flex-col gap-6">
+		<div class="flex flex-col gap-2">
+			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">category</p>
+			<h1 class="text-sm font-bold text-primary uppercase tracking-widest">{$page.params.slug}</h1>
+		</div>
+
+		{#if latest}
+			<div class="flex flex-col gap-4">
+				<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">latest</p>
 				<BlogCard details={latest} latest={true} />
 			</div>
-			<div class=" grid grid-cols-1 md:grid-cols-2 gap-5">
+		{/if}
+
+		<div class="flex flex-col gap-4">
+			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">more-posts</p>
+			<div class="flex flex-col divide-y divide-primary/10">
 				{#each currentPageData as post (post.slug)}
 					<BlogCard details={post} />
 				{/each}
 			</div>
-
-			{#if showPagination}
-				<div class="flex justify-between w-full">
-					<button
-						onclick={prev}
-						disabled={mutePrev}
-						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
-						><Fa icon={faAngleLeft} /> prev</button
-					>
-					<button
-						onclick={next}
-						disabled={muteNext}
-						class="bg-orange-200 dark:bg-stone-900 border border-b-2 border-orang dark:border-dark w-32 py-2 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-300"
-						><span class="">next</span> &nbsp; <Fa icon={faAngleRight} /></button
-					>
-				</div>
-			{/if}
 		</div>
 
-		<div class="flex flex-col gap-6 px-6">
-			<!-- <div
-				class="p-12 max-w-3xl bg-orange-100 dark:bg-stone-900 flex items-center justify-center flex-col gap-2 rounded-xl border-2 border-orange-200 dark:border-stone-800"
-			>
-				<h4>Subscribe to my newsletter!</h4>
-				<p class="text-sm">* Every tips & tricks in your Inbox 🫶</p>
-				<form method="post" class="flex flex-col md:flex-row gap-3">
-					<input
-						type="email"
-						name="email"
-						placeholder="name@example.com"
-						class="p-2 bg-orange-200 dark:bg-stone-800 rounded-lg"
-					/>
-
-					<button
-						type="submit"
-						disabled="true"
-						class="bg-orang dark:bg-dark text-black px-2 rounded-lg"
-						>Subscribe
-					</button>
-				</form>
-			</div> -->
-		</div>
-	</article>
+		{#if showPagination}
+			<div class="flex justify-between items-center pt-4">
+				<button
+					onclick={prev}
+					disabled={mutePrev}
+					class="text-xs opacity-60 hover:opacity-100 disabled:opacity-20 transition-opacity flex items-center gap-1"
+				>
+					<Fa icon={faAngleLeft} /> prev
+				</button>
+				<button
+					onclick={next}
+					disabled={muteNext}
+					class="text-xs opacity-60 hover:opacity-100 disabled:opacity-20 transition-opacity flex items-center gap-1"
+				>
+					next <Fa icon={faAngleRight} />
+				</button>
+			</div>
+		{/if}
+	</div>
 </section>

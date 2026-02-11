@@ -16,12 +16,12 @@
 
 	let { data } = $props();
 
-	let entities = {
+	let entities = $derived({
 		title: data.meta.title,
 		email: 'abdulmuminyqn@gmail.com',
 		rich: true,
 		domain: 'https://yaqeen.me'
-	};
+	});
 
 	let url;
 	function scrollToTopSmooth() {
@@ -40,7 +40,7 @@
 		return encodedLink;
 	}
 
-	let encodedTitle = convertLinkToRequestReadable(data.meta.title);
+	let encodedTitle = $derived(convertLinkToRequestReadable(data.meta.title));
 </script>
 
 <svelte:head>
@@ -52,10 +52,9 @@
 	/>
 </svelte:head>
 
-<article class="max-w-2xl mx-auto px-6 flex flex-col gap-4">
-	<hgroup class="flex flex-col gap-2 pb-4 border-b border-orang/10 dark:border-dark/10">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/article</p>
-		<h1 class="text-xl font-bold text-orang dark:text-dark">
+<article class="max-w-2xl mx-auto px-2 md:px-6  flex flex-col gap-4">
+	<hgroup class="flex flex-col gap-2 pb-4 border-b border-primary/10">
+		<h1 class="text-xl font-bold text-primary">
 			{data.meta.title}
 		</h1>
 		<div class="flex gap-3 text-[10px] font-mono opacity-50">
@@ -66,16 +65,18 @@
 		</div>
 	</hgroup>
 
-	<section class="flex w-full flex-col lg:flex-row gap-8">
+	<section class="flex w-full flex-col gap-8">
 		<div class="flex-1">
 			<data.content />
 		</div>
-		<aside class="hidden lg:flex w-[200px]">
-			<Ad />
-		</aside>
 	</section>
 
-	<div class="pt-8 border-t border-orang/10 dark:border-dark/10 mt-8">
+	<!-- Redesigned Ad Section as Footer Built-by-Me -->
+	<div class="mt-12 border-t border-primary/10 pt-8">
+		<Ad />
+	</div>
+
+	<div class="pt-8 border-t border-primary/10 mt-8 mb-12">
 		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30 mb-3">/share</p>
 		<div class="flex gap-3 text-xs opacity-60">
 			<button onclick={() => copyUrlToClipboard(url)} class="hover:opacity-100 transition-opacity">

@@ -17,12 +17,12 @@
 </script>
 
 <div class="snap-mandatory h-[100dvh] p-2 md:p-12" id={details.name}>
-	<div class="   h-full border-orang dark:border-dark rounded-xl flex items-center justify-center">
+	<div class="   h-full border-primary rounded-xl flex items-center justify-center">
 		<div class="flex flex-col md:flex-row gap-10 items-start md:items-center justify-center p-12">
 			<ImageCarousel imageList={list} />
 			<div class="details max-w-md min-w-[300px]">
 				<h1
-					class="text-4xl font-bold font-visby_bold hover:text-orang hover:dark:text-dark transition-colors duration-300"
+					class="text-4xl font-bold font-visby_bold hover:text-primary hover: transition-colors duration-300"
 				>
 					<a href={details.links.page}>{details.name}</a>
 				</h1>

@@ -98,13 +98,13 @@
 	});
 </script>
 
-<div class="container bg-orange-100 dark:bg-stone-900 rounded-lg">
+<div class="container bg-primarye-100 bg-surface-soft rounded-lg">
 	<div bind:this={chartContainer} id="visual-container">
 		{#if useAnimateFlip}
 			{#each data as d (d)}
 				<div
 					animate:flip
-					class="bar bg-orang dark:bg-dark"
+					class="bar bg-primary"
 					style:--tag="bar-{d}"
 					style={`height: ${(d / maxValue) * 200}px;`}
 				>
@@ -114,7 +114,7 @@
 		{:else}
 			{#each data as d (d)}
 				<div
-					class="bar bg-orang dark:bg-dark"
+					class="bar bg-primary"
 					style:--tag="bar-{d}"
 					style={`height: ${(d / maxValue) * 200}px;`}
 				>
@@ -125,8 +125,8 @@
 	</div>
 
 	<div class="btn-container">
-		<button id="start-button" class="bg-orang dark:bg-dark" onclick={startAnim}>start </button>
-		<button id="restartBtn" class="bg-orang dark:bg-dark" onclick={restart}
+		<button id="start-button" class="bg-primary" onclick={startAnim}>start </button>
+		<button id="restartBtn" class="bg-primary" onclick={restart}
 			><Fa icon={faCircle} /></button
 		>
 	</div>

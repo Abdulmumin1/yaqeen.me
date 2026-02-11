@@ -35,31 +35,44 @@
 </script>
 
 <div
-	class="border space-y-3 border-b-4 bg-orange-200 border-orang dark:border-dark p-2 dark:bg-stone-900 transition-all duration-300 rounded-lg max-w-sm overflow-hidden"
+	class="flex flex-col gap-3 group transition-opacity duration-300"
 	class:opacity-50={!imageLoaded}
 >
-	<div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-		<!-- loading="lazy" -->
+	<div class="relative overflow-hidden rounded-lg bg-surface-muted">
 		<img
 			src={wall}
 			alt="Wallpaper"
-			class="object-cover w-full h-full transition-opacity duration-300"
+			class="w-full h-auto object-cover transition-all duration-700 group-hover:scale-[1.02]"
 			class:opacity-0={!imageLoaded}
 			onload={() => (imageLoaded = true)}
 		/>
+
+		<div
+			class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+		></div>
 	</div>
-	<div class="flex space-x-2 items-center justify-end text-xl">
-		<button
-			onclick={downloadFile}
-			class="border hover:bg-orang dark:hover:bg-stone-800 px-5 py-2 rounded-lg border-orang dark:border-dark transition-colors duration-200"
-		>
-			<Fa icon={faDownload} />
-		</button>
-		<button
-			onclick={shareWallpaper}
-			class="border hover:bg-orang dark:hover:bg-stone-800 px-5 py-2 rounded-lg border-orang dark:border-dark transition-colors duration-200"
-		>
-			<Fa icon={faShareAlt} />
-		</button>
+
+	<div class="flex items-center justify-between">
+		<div class="flex flex-col">
+			<p class="text-[10px] font-mono opacity-30 uppercase tracking-widest">/artwork</p>
+			<p class="text-xs opacity-60">Wallpaper Concept</p>
+		</div>
+
+		<div class="flex gap-2">
+			<button
+				onclick={downloadFile}
+				class="p-2 text-xs opacity-30 hover:opacity-100 hover:text-primary transition-all"
+				title="Download"
+			>
+				<Fa icon={faDownload} />
+			</button>
+			<button
+				onclick={shareWallpaper}
+				class="p-2 text-xs opacity-30 hover:opacity-100 hover:text-primary transition-all"
+				title="Share"
+			>
+				<Fa icon={faShareAlt} />
+			</button>
+		</div>
 	</div>
 </div>

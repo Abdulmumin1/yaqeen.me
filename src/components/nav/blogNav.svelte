@@ -47,7 +47,7 @@
 
 <div class="z-50 px-4 w-full flex items-center justify-center sticky top-0">
 	<ul
-		class="w-full max-w-2xl bg-orange-50/80 backdrop-blur-md dark:bg-stone-950/80 flex justify-between py-3 px-6 items-center transition-all"
+		class="w-full max-w-2xl bg-surface-soft/80 backdrop-blur-md bg-surface/80 flex justify-between py-3 px-6 items-center transition-all"
 	>
 		<li>
 			<a href="/" class="text-xs font-bold tracking-widest uppercase opacity-80 hover:opacity-100">

@@ -51,7 +51,7 @@
 {#if showModal}
 	<div class="modal">
 		<button
-			class="fixed top-[12px] p-2 flex items-center justify-center rounded-full text-2xl aspect-square right-[12px] bg-orang dark:bg-dark text-black"
+			class="fixed top-[12px] p-2 flex items-center justify-center rounded-full text-2xl aspect-square right-[12px] bg-primary text-text-main"
 			onclick={toggleModal}><Fa icon={faClose} /></button
 		>
 		<div class="modal-content">

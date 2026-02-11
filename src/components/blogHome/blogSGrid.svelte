@@ -25,7 +25,7 @@
 	// });
 </script>
 
-<div class="flex flex-col divide-y divide-orang/10 dark:divide-dark/10 w-full">
+<div class="flex flex-col divide-y divide-primary/10 w-full">
 	{#await loadPost()}
 		<p class="text-[9px] font-mono opacity-30">loading_posts...</p>
 	{:then posts}

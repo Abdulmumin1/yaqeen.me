@@ -30,7 +30,7 @@
 				class=" h-full p-4 w-full rounded-lg shadow-xl dark:shadow-lg dark:shadow-stone-700 flex flex-col justify-between items-center"
 			>
 				<div
-					class="border p-2 border-orang dark:border-dark rounded-lg flex justify-between items-center w-full"
+					class="border p-2 border-primary rounded-lg flex justify-between items-center w-full"
 				>
 					<p>HighScore: 24</p>
 					<p><Fa /></p>
@@ -38,7 +38,7 @@
 
 				<p>Numbers</p>
 
-				<button class="w-full bg-orang shadow dark:bg-dark p-2 rounded-lg">play</button>
+				<button class="w-full bg-primary shadow  p-2 rounded-lg">play</button>
 			</div>
 		</aside>
 		<section class="gap-2">
@@ -51,32 +51,32 @@
 			<img
 				alt={`Project image ${index + 1}`}
 				src={img}
-				class="w-[720px] border-4 border-orange-200 dark:border-dark object-contain rounded-xl"
+				class="w-[720px] border-4 border-primarye-200  object-contain rounded-xl"
 			/>
 		{/each}
 	</div>
-	<!-- <div class="border-2 border-dotted border-orang dark:border-dark my-8" /> -->
+	<!-- <div class="border-2 border-dotted border-primary my-8" /> -->
 	<div class="w-full px-4 flex flex-col justify-center items-center">
 		<h3 class="text-3xl">Download</h3>
 
 		<div class="flex justify-between text-xl py-5 flex-col max-w-lg md:flex-row">
 			<div class="flex flex-col items-center shadow-lg p-4 rounded-md gap-4">
 				<p>For Windows</p>
-				<button class="bg-orang dark:bg-dark flex gap-2 items-center p-2 rounded-md"
+				<button class="bg-primary flex gap-2 items-center p-2 rounded-md"
 					>Download <Fa icon={faWindows} class="" /></button
 				>
 			</div>
 
 			<div class="flex flex-col items-center shadow-lg p-4 rounded-md gap-4">
 				<p>For Mac</p>
-				<button class="bg-orang dark:bg-dark flex gap-2 items-center p-2 rounded-md"
+				<button class="bg-primary flex gap-2 items-center p-2 rounded-md"
 					>Download <Fa icon={faApple} class="" />
 				</button>
 			</div>
 
 			<div class="flex flex-col items-center shadow-lg p-4 rounded-md gap-4">
 				<p>For Linux</p>
-				<button class="bg-orang dark:bg-dark flex gap-2 items-center p-2 rounded-md"
+				<button class="bg-primary flex gap-2 items-center p-2 rounded-md"
 					>Download <Fa icon={faLinux} class="" /></button
 				>
 			</div>
