@@ -1,5 +1,5 @@
 <script>
-	import { slide } from 'svelte/transition';
+	// import { slide } from 'svelte/transition';
 
 	import Fa from 'svelte-fa';
 	import { faRss, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -45,47 +45,31 @@
 	}
 </script>
 
-<div
-	class=" z-50 px-4 border-orang dark:border-dark w-full flex items-center justify-center"
->
+<div class="z-50 px-4 w-full flex items-center justify-center sticky top-0">
 	<ul
-		class="w-full max-w-[800px] bg-orange-50  outline-8 outline-orange-100 outline rounded-full dark:bg-stone-800/50 flex justify-between py-4 px-3 pr-5 md:px-6 items-center mt-3"
+		class="w-full max-w-2xl bg-orange-50/80 backdrop-blur-md dark:bg-stone-950/80 flex justify-between py-3 px-6 items-center transition-all"
 	>
 		<li>
-			<a href="/" class="relative font-bold flex items-center justify-center">
-				<h1>Home</h1>
-				<!-- <img src="/signature.png " alt="logo" width="80" class="colorize" /> -->
+			<a href="/" class="text-xs font-bold tracking-widest uppercase opacity-80 hover:opacity-100">
+				home
 			</a>
 		</li>
 		<li>
-			<ul class="flex gap-5 items-center justify-center">
-				<li class=" hidden md:block">
+			<ul class="flex gap-6 items-center justify-center text-[10px] font-mono uppercase opacity-50">
+				<li class="hidden md:block hover:opacity-100 transition-opacity">
 					<button onclick={toggleKbar} class="flex items-center gap-2">
-						<span class="">Ctrl+K</span> <Fa icon={faSearch} /></button
+						Search <Fa icon={faSearch} /></button
 					>
 				</li>
-				<li class=" hidden md:block">
-					<a href="/about ">About</a>
+				<li class="hover:opacity-100 transition-opacity">
+					<a href="/blog">Blog</a>
 				</li>
-				<li class=" ">
-					<a href="/blog ">Writing</a>
+				<li class="hover:opacity-100 transition-opacity">
+					<a href="/projects">Work</a>
 				</li>
-				<li class=" ">
-					<a href="/projects ">Work</a>
+				<li class="flex items-center justify-center hover:opacity-100 transition-opacity">
+					<a href="/rss.xml" class="flex items-center gap-1">RSS</a>
 				</li>
-				<li class="flex items-center justify-center">
-					<div class="w-full rounded-full flex items-center justify-center gap-2">
-						<!-- <input
-							value="search - alpha"
-							class="bg-inherit border p-2 border-b-2 rounded-xl border-orang dark:border-dark"
-							/> -->
-						<Fa icon={faRss} />
-						<a href="/rss.xml"> RSS</a>
-					</div>
-				</li>
-				<!-- <li class=" py-2 flex items-center justify-center">
-					<Darkmode />
-				</li> -->
 			</ul>
 		</li>
 	</ul>

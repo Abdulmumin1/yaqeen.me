@@ -134,7 +134,6 @@
 			canonical = 'https://www.' + window.location.hostname + window.location.pathname;
 		}
 
-
 		result.posts.forEach((element) => {
 			posts = [
 				...posts,
@@ -174,6 +173,8 @@
 	<!-- bg-[#08090a] -->
 </div>
 
+
+
 <!-- {#if showBannerVar}
 	<div transition:fly={{ y: 20 }} class="assistant">
 		<div class="speech-bubble">
@@ -209,7 +210,7 @@
 <div class="h-screen top-0 fixed w-screen z-50 pointer-events-none">
 	<div class="relative h-full">
 		<svg
-			class="size-16 md:size-56 absolute left-12 top-36 -rotate-45 fill-orange-300/20"
+			class="size-16 md:size-23 absolute left-12 top-36 -rotate-45 fill-orange-300/20"
 			xmlns="http://www.w3.org/2000/svg"
 			version="1.1"
 			viewBox="0 0 100 100"
@@ -220,7 +221,7 @@
 		</svg>
 
 		<svg
-			class="size-11 md:size-24 absolute right-12 top-28 md:top-12 rotate-45 opacity-5 md:opacity-20 stroke-orange-300/20"
+			class="size-11 md:size-19 absolute right-12 top-28 md:top-12 rotate-45 opacity-5 md:opacity-20 stroke-orange-300/20"
 			viewBox="0 -2.5 160 160"
 			xmlns="http://www.w3.org/2000/svg"
 		>
@@ -246,7 +247,7 @@
 
 		<svg
 			viewBox="0 -0.5 151 151"
-			class="size-6 md:size-32 absolute right-12 bottom-12 fill-orange-600/10"
+			class="size-6 md:size-18 absolute right-12 bottom-12 fill-orange-600/10"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>

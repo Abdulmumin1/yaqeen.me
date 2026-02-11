@@ -10,12 +10,9 @@
 		faWhatsapp
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faCopy } from '@fortawesome/free-solid-svg-icons';
-	import { scale } from 'svelte/transition';
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import Seo from '../../../components/general/seo.svelte';
 	import Fa from 'svelte-fa';
-
-	// import { Comment } from '@commentrig/svelte';
 
 	let { data } = $props();
 
@@ -25,8 +22,6 @@
 		rich: true,
 		domain: 'https://yaqeen.me'
 	};
-
-	let commentCount = $state();
 
 	let url;
 	function scrollToTopSmooth() {
@@ -41,9 +36,7 @@
 	});
 
 	function convertLinkToRequestReadable(link) {
-		// Encode the link using encodeURIComponent
 		var encodedLink = encodeURIComponent(link);
-
 		return encodedLink;
 	}
 
@@ -59,82 +52,69 @@
 	/>
 </svelte:head>
 
-<article  class="mx-auto flex flex-col gap-2">
-	<hgroup class=" mb-4 flex items-center rounded-lg w-full flex-col gap-3">
-		<div class="flex max-w-md items-center md:max-w-[800px] flex-col gap-2">
-			<h1 class="text-5xl text-center text-balance font-extrabold md:text-6xl">
-				{data.meta.title}
-			</h1>
-			<div class="text-sm">
-				<p>Published {formatDate(data.meta.date)}</p>
-				{#if data.meta.date != data.meta.lastmod}
-					<p>Edited {formatDate(data.meta.lastmod)}</p>
-				{/if}
-			</div>
+<article class="max-w-2xl mx-auto px-6 flex flex-col gap-4">
+	<hgroup class="flex flex-col gap-2 pb-4 border-b border-orang/10 dark:border-dark/10">
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/article</p>
+		<h1 class="text-xl font-bold text-orang dark:text-dark">
+			{data.meta.title}
+		</h1>
+		<div class="flex gap-3 text-[10px] font-mono opacity-50">
+			<span>{formatDate(data.meta.date)}</span>
+			{#if data.meta.date != data.meta.lastmod}
+				<span>edited {formatDate(data.meta.lastmod)}</span>
+			{/if}
 		</div>
 	</hgroup>
-	<section class="flex w-full flex-col lg:flex-row article">
-		<data.content />
 
-		<aside class="relative w-[400px] hidden md:hidden lg:flex">
+	<section class="flex w-full flex-col lg:flex-row gap-8">
+		<div class="flex-1">
+			<data.content />
+		</div>
+		<aside class="hidden lg:flex w-[200px]">
 			<Ad />
 		</aside>
 	</section>
-	<div class="w-full flex items-center justify-center p-3">
-		<div
-			class="w-full mt-12 flex justify-between max-w-md items-center border border-b-2 rounded-2xl bg-orange-300 dark:bg-black border-orang dark:border-dark p-4"
-		>
-			<span>Love it? Share it!</span>
-			<div class="flex space-x-3 items-center justify-center">
-				<button
-					onclick={() => {
-						copyUrlToClipboard(url);
-					}}><Fa icon={faCopy} /></button
-				>
-				<a
-					href="https://twitter.com/share?url={convertLinkToRequestReadable(
-						url
-					)}%3Fref%3Dtwitter-share&amp;text={encodedTitle}"
-					target="_blank"
-					rel="noopener"
-				>
-					<span><Fa icon={faTwitter} /></span>
-				</a>
-				<a
-					href="http://www.reddit.com/submit?url={url}&amp;title={encodedTitle}"
-					target="_blank"
-					rel="noopener"
-				>
-					<span><Fa icon={faReddit} /></span>
-				</a>
-				<a href="https://www.linkedin.com/cws/share?url={url}" target="_blank" rel="noopener">
-					<span><Fa icon={faLinkedin} /></span>
-				</a>
-				<a
-					href="http://news.ycombinator.com/submitlink?u={url}&amp;t={encodedTitle}"
-					target="_blank"
-					rel="noopener"
-				>
-					<Fa icon={faHackerNews} />
-				</a>
-				<a href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_blank" rel="noopener">
-					<Fa icon={faFacebook} />
-				</a>
-				<a
-					href="https://api.whatsapp.com/send?text={encodedTitle}%20{url}"
-					target="_blank"
-					rel="noopener"
-				>
-					<Fa icon={faWhatsapp} />
-				</a>
-			</div>
+
+	<div class="pt-8 border-t border-orang/10 dark:border-dark/10 mt-8">
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30 mb-3">/share</p>
+		<div class="flex gap-3 text-xs opacity-60">
+			<button onclick={() => copyUrlToClipboard(url)} class="hover:opacity-100 transition-opacity">
+				<Fa icon={faCopy} />
+			</button>
+			<a
+				href="https://twitter.com/share?url={convertLinkToRequestReadable(
+					url
+				)}%3Fref%3Dtwitter-share&amp;text={encodedTitle}"
+				target="_blank"
+				rel="noopener"
+				class="hover:opacity-100 transition-opacity"
+			>
+				<Fa icon={faTwitter} />
+			</a>
+			<a
+				href="http://www.reddit.com/submit?url={url}&amp;title={encodedTitle}"
+				target="_blank"
+				rel="noopener"
+				class="hover:opacity-100 transition-opacity"
+			>
+				<Fa icon={faReddit} />
+			</a>
+			<a
+				href="https://www.linkedin.com/cws/share?url={url}"
+				target="_blank"
+				rel="noopener"
+				class="hover:opacity-100 transition-opacity"
+			>
+				<Fa icon={faLinkedin} />
+			</a>
+			<a
+				href="http://news.ycombinator.com/submitlink?u={url}&amp;t={encodedTitle}"
+				target="_blank"
+				rel="noopener"
+				class="hover:opacity-100 transition-opacity"
+			>
+				<Fa icon={faHackerNews} />
+			</a>
 		</div>
 	</div>
-
-	<!-- <div>
-		<h3 class="text-2xl md:text-3xl font-extrabold font-sans mb-6">Comments</h3>
-		{#key data}
-			<Comment bind:commentLength={commentCount} {entities} />
-		{/key}
-	</div> -->
 </article>

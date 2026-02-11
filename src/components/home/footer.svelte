@@ -4,39 +4,40 @@
 	import { mylinks } from '$lib/utils/randomstore.js';
 </script>
 
-<footer class="bottom-0 w-full p-6 items-center justify-center flex flex-col s">
-	<p class="">Made with <span class="font-bold text-orang dark:text-dark"> Sveltekit</span> ♡</p>
-	<div class="flex space-x-2">
-		<a href={$mylinks.github}>
-			<Fa icon={faGithub} />
-		</a>
-		<a href={$mylinks.linkedin}>
-			<Fa icon={faLinkedin} />
-		</a>
-		<a href={$mylinks.twitter}>
-			<Fa icon={faTwitter} />
-		</a>
-		<a href={$mylinks.youtube}>
-			<Fa icon={faYoutube} />
-		</a>
-	</div>
-	<div>
-		<p>Gigs, or Need help? Email</p>
-		<a
-			href="mailto:abdulmuminyqn@gmail.com?subject=Hi%20Abdulmumin&body=Just%20saying%20hi!"
-			class="font-visby font-bold"
-			target="_blank">abdulmuminyqn@gmail.com</a
-		>
-	</div>
-	<p class="font-visby_bold font-bold text-2xl">Helpful links</p>
+<footer class="w-full py-6 px-6 flex flex-col gap-3 text-xs opacity-60">
+	<div class="max-w-2xl mx-auto w-full flex flex-col gap-3">
+	
 
-	<div class="flex space-x-2 flex-wrap">
-		<a href={$mylinks.hashnode}>Blog</a>
-		<p>|</p>
-		<a href={$mylinks.linkedin}>LinkedIn</a>
-		<p>|</p>
-		<a href={$mylinks.hashnode}>Resources</a>
-		<p>|</p>
-		<a href="/wallpapers">Wallpapers</a>
+		<div class="flex gap-3">
+			<a href={$mylinks.github} class="hover:opacity-100 transition-opacity">
+				<Fa icon={faGithub} />
+			</a>
+			<a href={$mylinks.linkedin} class="hover:opacity-100 transition-opacity">
+				<Fa icon={faLinkedin} />
+			</a>
+			<a href={$mylinks.twitter} class="hover:opacity-100 transition-opacity">
+				<Fa icon={faTwitter} />
+			</a>
+			<a href={$mylinks.youtube} class="hover:opacity-100 transition-opacity">
+				<Fa icon={faYoutube} />
+			</a>
+		</div>
+
+		<div class="flex flex-col gap-1">
+			<a
+				href="mailto:abdulmuminyqn@gmail.com"
+				class="hover:text-orang dark:hover:text-dark transition-colors"
+			>
+				abdulmuminyqn@gmail.com
+			</a>
+		</div>
+
+		<div class="flex gap-2 text-[10px]">
+			<a href={$mylinks.hashnode} class="hover:opacity-100 transition-opacity">blog</a>
+			<span>/</span>
+			<a href={$mylinks.linkedin} class="hover:opacity-100 transition-opacity">linkedin</a>
+			<span>/</span>
+			<a href="/wallpapers" class="hover:opacity-100 transition-opacity">wallpapers</a>
+		</div>
 	</div>
 </footer>

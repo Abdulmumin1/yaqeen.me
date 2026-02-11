@@ -22,45 +22,22 @@
 	}
 </script>
 
-<div
-	in:scale
-	class="rounded border-orang gap-2 dark:border-dark flex flex-col w-full max-h-screen transition-all duration-100 bg-orange-50 p-5 dark:bg-stone-800/50"
->
-	<div class="flex gap-2 items-center">
-		<!-- <p class="text-orang dark:text-dark text-2xl lg:text-[2.5rem]">
-			{#if $darkMode}
-				<img height="50px" width="50px" src={details.svgdark} alt="" />
-			{:else}
-				<img height="50px" width="50px" src={details.svg} alt="" />
-			{/if}
-		</p> -->
-		<p class="text-2xl lg:text-xl mb-1 text-orang font-bold dark:text-dark">{details.name}</p>
+<div class="flex flex-col gap-1 py-3 group w-full">
+	<div class="flex items-baseline gap-2">
+		<h3 class="text-sm font-bold text-orang dark:text-dark">
+			{details.name}
+		</h3>
+		<a
+			href="https://{details.links.page}"
+			target="_blank"
+			class="text-[9px] font-mono opacity-30 hover:opacity-100 transition-opacity"
+		>
+			{details.links.page}
+		</a>
 	</div>
-	<div class="space-x-3 grid grid-cols-1 items-center">
-		<!-- <div>
-			<img src={edit} alt="" class="h-full rounded-md" />
-		</div> -->
-		<div class="space-y-3">
-			<p class="text-stone-900 max-w-[15rem] dark:text-orange-100">{details.description}</p>
-			<!-- <ul class="flex gap-2 flex-wrap text-black">
-				{#each details.stack as stack}
-					<li class=" text-orang dark:text-dark bg-orang dark:bg-dark p-1 rounded-md">
-						<a href={$stackLinks[stack.toLowerCase()]} class="text-orang dark:text-dark">{stack}</a>
-					</li>
-				{/each}
-			</ul> -->
-
-			<div class="flex space-x-2">
-				<div
-					class="flex items-center justify-center w-fit space-x-2 font-extrabold rounded-lg text-orang text-sm dark:text-dark"
-				>
-					<a target="_blank" href="https://{details.links.page}">{details.links.page}</a>
-					<Fa icon={faExternalLinkAlt} />
-				</div>
-				<button class="" onclick={openModal}> Learn more </button>
-			</div>
-		</div>
-	</div>
+	<p class="text-xs opacity-60 leading-relaxed max-w-sm">
+		{details.description}
+	</p>
 </div>
 
 <!-- 

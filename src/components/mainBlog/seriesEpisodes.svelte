@@ -49,7 +49,7 @@
 </script>
 
 <div
-	class="flex flex-col bg-orange-50 dark:bg-stone-800  rounded outline-[15px] outline outline-orange-200 divide-y-2 divide-orange-200 dark:divide-dark"
+	class="flex flex-col bg-orange-50 dark:bg-stone-800 rounded outline-[15px] outline outline-orange-200 divide-y-2 divide-orange-200 dark:divide-dark"
 >
 	{#if !loading}
 		{#each posts.slice(0, page) as episode}

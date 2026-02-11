@@ -7,9 +7,7 @@
 	// unsubscribe_stack();
 </script>
 
-<div
-	class="grid rounded-lg bg-orange-100 dark:bg-stone-900 grid-cols-1 md:grid-cols-2 gap-3 overflow-hidden p-2 lg:p-5"
->
+<div class="flex flex-col divide-y divide-orang/10 dark:divide-dark/10 w-full">
 	{#each $sass_projects as project (project.name)}
 		<SassTemplate details={project} />
 	{/each}

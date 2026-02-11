@@ -18,29 +18,17 @@
 	let { categories, children } = $props();
 </script>
 
-<!-- <svelte:head>
-	<title>SvelteKit Shiki Syntax Highlighting: Markdown Codeblocks</title>
-	<meta
-		name="description"
-		content="SvelteKit Shiki syntax highlighting: use any VSCode colour theme to accessibly syntax highlight code on your SvelteKit app with line numbers."
-	/>
-</svelte:head> -->
-
-<div class="w-full">
-	<div class="flex gap-3 flex-wrap mb-4">
+<div class="w-full max-w-2xl mx-auto">
+	<div class="flex gap-2 flex-wrap mb-4">
 		{#each categories as tag}
-			<span class=" text-base rounded-lg text-orang dark:text-dark"
-				><a href="/category/{tag}">&num;&nbsp;{tag}</a></span
-			>
+			<span class="text-[10px] font-mono opacity-60">
+				<a href="/category/{tag}" class="hover:opacity-100 transition-opacity">&num;{tag}</a>
+			</span>
 		{/each}
 	</div>
 
-	<div
-		class="space-y-5 max-w-[800px] w-full markdown-content text-base
-	"
-	>
+	<div class="space-y-4 w-full markdown-content text-sm opacity-80">
 		<main class="container">
-			<!-- <h1 class="heading">SvelteKit Shiki Code Highlighting</h1> -->
 			{@render children?.()}
 		</main>
 	</div>
@@ -49,7 +37,7 @@
 <style>
 	.container {
 		display: flex;
-		gap: 20px;
+		gap: 12px;
 		flex-direction: column;
 	}
 </style>

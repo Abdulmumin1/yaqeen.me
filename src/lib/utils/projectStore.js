@@ -112,7 +112,7 @@ export const project_data = readable([
 			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.06.29.png',
 			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.02.png',
 			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.13.png',
-			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.29.png',
+			'https://rawcontent.dearfutureself.me/portfolio/ai-query-image-21.07.29.png'
 		]
 	},
 	{

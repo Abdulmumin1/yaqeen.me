@@ -25,88 +25,21 @@
 	// });
 </script>
 
-<div class=" h-full w-full">
-	<div
-		class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full flex-col w-full [&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg"
-	>
-		{#await loadPost()}
-			<p>loading</p>
-		{:then posts}
-			<div class="w-full h-full flex flex-col">
-				<!-- <h2 class="lg:text-4xl text-xl font-visby_bold font-bold mt-2 mb-0 px-2  md:mt-6 md:mb-4">Latest Post</h2> -->
-
-				<div class="w-full gap-4 flex justify-between flex-col h-full p-2 md:p-5">
-					<div class="flex items-center gap-2">
-						<Fa icon={faCalendar} />
-						{formatDate(posts[0]?.date)}
-					</div>
-					<div class="flex flex-col gap-3">
-						<a
-							href={`/blog/${posts[0]?.slug}`}
-							class="text-[2rem] md:text-[3rem] lg:text-[4rem] font-visby_bold font-bold hover:text-orange-600 dark:hover:text-orange-300"
-							><h1 class="leading-none text-orang dark:text-dark">
-								{posts[0]?.title}
-							</h1></a
-						>
-						<p class="text-stone-950 dark:text-orange-100">
-							{posts[0]?.description}
-						</p>
-						<div
-							class="flex items-center w-fit space-x-2 p-2 rounded-xl border border-orang dark:border-dark hover_link_fill"
-						>
-							<a href={`blog/${posts[0]?.slug}`} class="">Read More </a>
-							<Fa icon={faAngleRight} />
-						</div>
-						{#if posts[0]?.visual}
-							<div class="text-sm mt-2 bg-orange-200 dark:bg-stone-800 rounded-3xl w-fit px-2">
-								Interactive Blog
-							</div>
-						{/if}
-					</div>
-				</div>
-			</div>
-
-			<div class="flex flex-col">
-				<p
-					class="mb-4 visby_bold text-lg md:text-2xl border-b-2 w-fit border-orang dark:border-dark"
-				>
-					Recent
-				</p>
-				{#each posts.slice(1, 5) as post}
-					<BlogSPost
-						title={post.title}
-						link={`/blog/${post.slug}`}
-						date={post.date}
-						visual={post?.visual}
-					/>
-				{/each}
-				<!-- <BlogSPost title={' Git For Beginners: A Complete Guide.'} /> -->
-
-				<div
-					class="space-x-2 p-3 my-3 items-center border border-orang dark:border-dark rounded-xl justify-between flex"
-				>
-					<p class="text-xl lg:text-2xl font-visby_mid self-center">Writings Available @</p>
-					<div class="flex space-x-2 text-xl items-center">
-						<a href="/blog"> <Fa icon={faArrowDown} /> </a>
-						<a href={$mylinks.hashnode} target="_blank">
-							<Fa icon={faHashnode} />
-						</a>
-						<a href={$mylinks.devto} target="_blank">
-							<Fa icon={faDev} />
-						</a>
-						<a href={$mylinks.medium} target="_blank">
-							<Fa icon={faMedium} />
-						</a>
-					</div>
-
-					<!-- <p class="text-2xl font-visby_mid">Subscribe to my Newsletter</p>
-				<input
-					placeholder="name@example.com"
-					class="p-2 bg-inherit border border-orang dark:border-dark rounded"
-				/>
-				<button class=" hover_link_fill">Subscribe</button> -->
-				</div>
-			</div>
-		{/await}
-	</div>
+<div class="flex flex-col divide-y divide-orang/10 dark:divide-dark/10 w-full">
+	{#await loadPost()}
+		<p class="text-[9px] font-mono opacity-30">loading_posts...</p>
+	{:then posts}
+		{#each posts.slice(0, 5) as post}
+			<BlogSPost
+				title={post.title}
+				link={`/blog/${post.slug}`}
+				date={post.date}
+				visual={post?.visual}
+			/>
+		{/each}
+		<div class="pt-4 flex gap-4 text-[9px] font-mono opacity-30">
+			<a href="/blog" class="hover:opacity-100 transition-opacity">/all-posts</a>
+			<a href="/rss.xml" class="hover:opacity-100 transition-opacity">/rss</a>
+		</div>
+	{/await}
 </div>
