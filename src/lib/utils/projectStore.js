@@ -42,7 +42,7 @@ export const sass_projects = readable([
 	{
 		name: 'Littlestats',
 		stack: ['Sveltekit', 'Clickhouse', 'Pocketbase', 'AWS'],
-		description: 'Affordable Analytics - Your analytics needs without breaking the bank',
+		description: 'Data to make good business decisions',
 		links: {
 			page: 'Littlestats.click'
 		},
