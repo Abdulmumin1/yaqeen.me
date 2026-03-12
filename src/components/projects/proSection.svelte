@@ -7,7 +7,7 @@
 </script>
 
 <div class="w-full space-y-4 py-8 flex flex-col" id="projects">
-	<h2 class="text-[9px] font-mono opacity-30 uppercase tracking-[0.3em]">saas-products</h2>
+	<h2 class="text-[9px] font-mono opacity-30 uppercase tracking-[0.3em]">saas</h2>
 	<SassGrid />
 </div>
 
@@ -17,7 +17,7 @@
 	<div
 		class="flex items-center space-x-2 text-[9px] font-mono opacity-30 hover:opacity-100 transition-opacity"
 	>
-		<a href="https://github.com/Abdulmumin1" target="_blank">view-github</a>
+		<a href="https://github.com/Abdulmumin1" target="_blank">view github</a>
 		<Fa icon={faGithub} />
 	</div>
 </div>

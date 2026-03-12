@@ -35,7 +35,7 @@
 				href="https://thirdpen.app"
 				target="_blank"
 				class="text-primary underline decoration-primary/10 underline-offset-2 hover:decoration-primary"
-				>thirdpen.app</a
+				>owostack.com</a
 			>.
 		</div>
 

@@ -21,6 +21,25 @@ export function getCurrentProjectInModal() {
 
 export const sass_projects = readable([
 	{
+		name: 'Owostack',
+		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
+		description: 'Provider agnostic billing infrastructure for AI saas',
+		links: {
+			page: 'owostack.com'
+		},
+		color: 'bg-sky-400',
+		svg: '/thirdpen.svg',
+		svgdark: '/thirdpen.svg',
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.51.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.16.21.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.24.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.23.29.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.22.31.png',
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.20.09.png'
+		]
+	},
+	{
 		name: 'Thirdpen',
 		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
 		description: 'Interactive learning with AI',

@@ -14,7 +14,7 @@
 
 	/* Text colors - Light theme defaults */
 	--color-text-main: var(--color-black);
-	--color-text-muted: var(--color-stone-500);
+	--color-text-muted: var(--color-stone-600);
 
 	/* Typography */
 	--font-visby: 'DM sans', 'roboto', ui-sans-serif, system-ui;
