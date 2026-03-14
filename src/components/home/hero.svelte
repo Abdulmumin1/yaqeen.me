@@ -32,7 +32,7 @@
 
 		<div class="text-xs leading-relaxed opacity-60 max-w-sm">
 			Checkout <a
-				href="https://thirdpen.app"
+				href="https://owostack.com"
 				target="_blank"
 				class="text-primary underline decoration-primary/10 underline-offset-2 hover:decoration-primary"
 				>owostack.com</a
