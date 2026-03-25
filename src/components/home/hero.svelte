@@ -3,14 +3,7 @@
 	let kbarState = getKbarState();
 
 	// ASCII spinner frames
-	const frames =[
-			"✶",
-			"✸",
-			"✹",
-			"✺",
-			"✹",
-			"✷"
-		];
+	const frames = ['✶', '✸', '✹', '✺', '✹', '✷'];
 	let currentFrame = $state(0);
 
 	// Rotate through frames

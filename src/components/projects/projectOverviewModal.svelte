@@ -96,7 +96,7 @@
 			<img
 				alt={`Project image ${index + 1}`}
 				src={img}
-				class="w-[720px] border-4 border-primarye-200  object-contain rounded-xl"
+				class="w-[720px] border-4 border-primarye-200 object-contain rounded-xl"
 			/>
 		{/each}
 	</div>

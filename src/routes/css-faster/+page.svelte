@@ -56,7 +56,7 @@
 
 		<section class="mb-16">
 			<h2 class="text-3xl font-semibold mb-6 text-center">How It Works</h2>
-			<div class="border-4 border-primarye-200  rounded-xl overflow-hidden">
+			<div class="border-4 border-primarye-200 rounded-xl overflow-hidden">
 				<img src={project.demoGif} alt="CSS-Faster demo" class="w-full" />
 			</div>
 		</section>

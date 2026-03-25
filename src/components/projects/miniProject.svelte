@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="bg-primarye-100 bg-surface-soft  border-primary first:rounded-t-2xl last:rounded-b-2xl p-6 w-full con"
+	class="bg-primarye-100 bg-surface-soft border-primary first:rounded-t-2xl last:rounded-b-2xl p-6 w-full con"
 >
 	<div class="">
 		<div class="flex justify-between items-center">

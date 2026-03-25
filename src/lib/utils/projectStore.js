@@ -152,7 +152,8 @@ export const project_data = readable([
 	{
 		name: 'LMFetch',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
-		description: "a tool (cli,mcp) that fetches, chunks, supports local codebase and GitHub repo, takes a query, ranks code context. It's designed to fit the most relevant code into a token budget",
+		description:
+			"a tool (cli,mcp) that fetches, chunks, supports local codebase and GitHub repo, takes a query, ranks code context. It's designed to fit the most relevant code into a token budget",
 		links: {
 			study: 'https://github.com/Abdulmumin1/lmfetch'
 		},
@@ -161,7 +162,7 @@ export const project_data = readable([
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.50.15.png'
 		]
 	},
-	
+
 	{
 		name: 'tiny.auth',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
@@ -175,7 +176,6 @@ export const project_data = readable([
 		]
 	},
 
-	
 	{
 		name: 'Dear Future self',
 		stack: ['Svelte', 'Tailwind'],

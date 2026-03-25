@@ -6,8 +6,6 @@
 
 <footer class="w-full py-6 px-6 flex flex-col gap-3 text-xs opacity-60">
 	<div class="max-w-2xl mx-auto w-full flex flex-col gap-3">
-	
-
 		<div class="flex gap-3">
 			<a href={$mylinks.github} class="hover:opacity-100 transition-opacity">
 				<Fa icon={faGithub} />

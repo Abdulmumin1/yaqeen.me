@@ -109,9 +109,7 @@
 
 	<div class="btn-container">
 		<button id="start-button" class="bg-primary" onclick={startAnim}>start </button>
-		<button id="restartBtn" class="bg-primary" onclick={restart}
-			><Fa icon={faCircle} /></button
-		>
+		<button id="restartBtn" class="bg-primary" onclick={restart}><Fa icon={faCircle} /></button>
 	</div>
 </div>
 

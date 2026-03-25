@@ -30,7 +30,10 @@
 <div class="flex flex-col gap-1 py-3 group w-full">
 	<div class="flex items-baseline gap-2 justify-between">
 		<h3 class="text-sm font-bold text-primary">
-			<a href={details.links?.page ? `https://${details.links?.page}` : details.links?.study} target="_blank">{details.name}</a>
+			<a
+				href={details.links?.page ? `https://${details.links?.page}` : details.links?.study}
+				target="_blank">{details.name}</a
+			>
 		</h3>
 		<div class="flex gap-3 text-[9px] font-mono opacity-30">
 			{#if details.links.page}

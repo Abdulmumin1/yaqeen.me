@@ -34,9 +34,7 @@
 			<div
 				class="h-full p-4 w-full rounded-lg shadow-xl dark:shadow-lg dark:shadow-stone-700 flex flex-col justify-between items-center"
 			>
-				<div
-					class="border p-2 border-primary rounded-lg flex justify-between items-center w-full"
-				>
+				<div class="border p-2 border-primary rounded-lg flex justify-between items-center w-full">
 					<p>Share files securely</p>
 					<Fa icon={faGithub} />
 				</div>
@@ -45,7 +43,7 @@
 					href={project.links.study}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="w-full bg-primary shadow  p-2 rounded-lg text-center">View on GitHub</a
+					class="w-full bg-primary shadow p-2 rounded-lg text-center">View on GitHub</a
 				>
 			</div>
 		</aside>
@@ -64,7 +62,7 @@
 			<img
 				alt={`Project image ${index + 1}`}
 				src={img}
-				class="w-[720px] border-4 border-primarye-200  object-contain rounded-xl"
+				class="w-[720px] border-4 border-primarye-200 object-contain rounded-xl"
 			/>
 		{/each}
 	</div>

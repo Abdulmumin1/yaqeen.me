@@ -52,7 +52,7 @@
 	/>
 </svelte:head>
 
-<article class="max-w-2xl mx-auto px-2 md:px-6  flex flex-col gap-4">
+<article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
 	<hgroup class="flex flex-col gap-2 pb-4 border-b border-primary/10">
 		<h1 class="text-xl font-bold text-primary">
 			{data.meta.title}

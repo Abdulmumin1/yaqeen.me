@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="bg-primarye-100 flex flex-col gap-2 bg-surface-soft  border-primary rounded-3xl p-6 w-full"
+	class="bg-primarye-100 flex flex-col gap-2 bg-surface-soft border-primary rounded-3xl p-6 w-full"
 >
 	<div>
 		<div class="flex justify-between items-center">

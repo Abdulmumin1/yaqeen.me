@@ -41,7 +41,7 @@
 	});
 
 	function toggleKbar() {
-		kbarState.value = !kbarState.value
+		kbarState.value = !kbarState.value;
 	}
 </script>
 
