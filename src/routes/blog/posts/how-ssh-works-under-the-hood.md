@@ -27,7 +27,7 @@ published: true
 
 In this weeks under the hood episode, we will take look into something a lot of system admins and DevOps use almost daily and that is ‘SSH’ which stands for secure shell.
 
-> In case you missed the previous UTH episode where we discussed the ‘Fisher Yates’ algorithm, you can catch that [here](https://www.yaqeen.me/blog/fisher-yates-how-the-popular-shuffling-algorithm-works-uth-series)
+> In case you missed the previous UTH episode where we discussed the ‘Fisher Yates’ algorithm, you can catch that [here](https://yaqeen.me/blog/fisher-yates-how-the-popular-shuffling-algorithm-works-uth-series)
 
 ## What is SSH?
 

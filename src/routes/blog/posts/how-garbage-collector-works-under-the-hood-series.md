@@ -32,7 +32,7 @@ And of course, such controversy makes you wonder what your stance might be, It m
 In this article, I will try my best to explain In simple terms, what It Is and does, why It exists and most Importantly, how It works.
 
 > Catch the previous episode here:
-> [How SSH Works - Under The Hood](https://www.yaqeen.me/blog/how-ssh-works-under-the-hood)
+> [How SSH Works - Under The Hood](https://yaqeen.me/blog/how-ssh-works-under-the-hood)
 
 ## What is Garbage Collection
 
@@ -130,7 +130,7 @@ Typically, the GC Algorithm makes several assumptions, one of which is "Newer ob
 
 ![Garbage collection generation hierarchy](https://paper-attachments.dropboxusercontent.com/s_0D93CE3324AFDB62F49B8CA5CBF3FAB80B10D6353DD4EC6DB71D6B0C521057D5_1719162048707_Screenshot+2024-06-23+at+17-48-34+Online+FlowChart++Diagrams+Editor+-+Mermaid+Live+Editor.png)
 
-A lot of thing do happen during garbage collection, It was such an Interesting topic for me personally to read about, Super hoped you learn something new as I did. Stay tuned for more awesome topics coming to the [UTH series](https://www.yaqeen.me/blog/series/uth).
+A lot of thing do happen during garbage collection, It was such an Interesting topic for me personally to read about, Super hoped you learn something new as I did. Stay tuned for more awesome topics coming to the [UTH series](https://yaqeen.me/blog/series/uth).
 
 #### Resources
 

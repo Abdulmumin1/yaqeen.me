@@ -12,7 +12,7 @@ export async function fetchSeries(series) {
 	let posts = await response.json();
 	// console.log(posts);
 	// console.log(params.slug);
-	posts = filterObjectsByTagKey(posts, 'series', series);
+	posts = filterObjectsByTagKey(posts.allPosts, 'series', series);
 	// console.log(posts);
 	return { posts };
 	// throw error(404, 'Not found');

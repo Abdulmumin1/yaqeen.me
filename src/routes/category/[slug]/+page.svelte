@@ -1,15 +1,21 @@
 <script>
 	import { scale } from 'svelte/transition';
 	import BlogCard from '$components/mainBlog/blogCard.svelte';
+	import Seo from '$components/general/seo.svelte';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import { siteOrigin } from '$lib/js/config.js';
 
 	let { data } = $props();
 
 	let posts = $derived(data.posts);
 	let latest = $derived(posts[0]);
+	let categoryName = $derived($page.params.slug);
+	let pageTitle = $derived(`Category: ${categoryName} | Abdulmumin Yaqeen`);
+	let pageDescription = $derived(`Posts in category ${categoryName}`);
+	let canonical = $derived(`${siteOrigin}${$page.url.pathname}`);
 	let pagelength = 6;
 
 	let currentPage = $state(0);
@@ -42,8 +48,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog - Abdulmumin Yaqeen</title>
-	<meta name="description" content="Posts in category {$page.params.slug}" />
+	<Seo title={pageTitle} description={pageDescription} {canonical} robots="noindex, follow" />
 </svelte:head>
 
 <section in:scale class="max-w-2xl mx-auto px-6 py-8">

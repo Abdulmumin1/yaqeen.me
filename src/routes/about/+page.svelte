@@ -1,4 +1,12 @@
 <script>
+	import Seo from '$components/general/seo.svelte';
+	import {
+		authorName,
+		authorUrl,
+		defaultSocialImage,
+		siteOrigin,
+		socialProfiles
+	} from '$lib/js/config.js';
 	import me from '$lib/images/me.jpeg';
 	import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 	import Fa from 'svelte-fa';
@@ -80,24 +88,26 @@
 			}
 		}
 	}
+
+	const aboutSchema = JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: authorName,
+		url: authorUrl,
+		image: `${siteOrigin}${me}`,
+		description: 'Fullstack developer, cyber security graduate, and writer.',
+		sameAs: socialProfiles
+	});
 </script>
 
 <svelte:head>
-	<title>About | Abdulmumin Yaqeen</title>
-	<meta name="description" content="A creative, curiosity-driven developer & writer" />
-
-	<meta property="og:url" content="https://www.yaqeen.me/about" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="About | Abdulmumin Yaqeen" />
-	<meta property="og:description" content="A creative, curiosity-driven developer & writer" />
-	<meta property="og:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
-
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="yaqeen.me" />
-	<meta property="twitter:url" content="https://www.yaqeen.me/about" />
-	<meta name="twitter:title" content="About | Abdulmumin Yaqeen" />
-	<meta name="twitter:description" content="A creative, curiosity-driven developer & writer" />
-	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
+	<Seo
+		title="About | Abdulmumin Yaqeen"
+		description="About Abdulmumin Yaqeen, a fullstack developer, cyber security graduate, and writer."
+		canonical={`${siteOrigin}/about`}
+		image={defaultSocialImage}
+	/>
+	<svelte:element this={'script'} type="application/ld+json">{aboutSchema}</svelte:element>
 </svelte:head>
 
 <div class="max-w-2xl mx-auto px-6 py-8 flex flex-col gap-8">

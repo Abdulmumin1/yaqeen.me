@@ -1,30 +1,45 @@
 <script>
 	import BlogSection from '../components/blogHome/blogSection.svelte';
+	import Seo from '../components/general/seo.svelte';
 	import Hero from '../components/home/hero.svelte';
 	import ProSection from '../components/projects/proSection.svelte';
 	import { fly, scale, slide, draw } from 'svelte/transition';
-	import me from '$lib/images/me.jpg';
+	import {
+		authorName,
+		authorUrl,
+		defaultSocialImage,
+		description as siteDescription,
+		siteName,
+		siteOrigin,
+		socialProfiles
+	} from '$lib/js/config.js';
+
+	const homeSchema = JSON.stringify([
+		{
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: siteName,
+			url: siteOrigin,
+			description: siteDescription
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Person',
+			name: authorName,
+			url: authorUrl,
+			sameAs: socialProfiles
+		}
+	]);
 </script>
 
 <svelte:head>
-	<!-- HTML Meta Tags -->
-	<title>Abdulmumin Yaqeen</title>
-	<meta name="description" content="A creative, curiosity-driven developer & writer" />
-
-	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content="https://www.yaqeen.me" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Abdulmumin Yaqeen" />
-	<meta property="og:description" content="A creative, curiosity-driven developer & writer" />
-	<meta property="og:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
-
-	<!-- Twitter Meta Tags -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="yaqeen.me" />
-	<meta property="twitter:url" content="https://www.yaqeen.me" />
-	<meta name="twitter:title" content="Abdulmumin Yaqeen" />
-	<meta name="twitter:description" content="A creative, curiosity-driven developer & writer" />
-	<meta name="twitter:image" content="https://i.ibb.co/nPW10cf/abdul.png" />
+	<Seo
+		title="Abdulmumin Yaqeen"
+		description="A creative, curiosity-driven developer, writer, and builder of internet things."
+		canonical={siteOrigin}
+		image={defaultSocialImage}
+	/>
+	<svelte:element this={'script'} type="application/ld+json">{homeSchema}</svelte:element>
 </svelte:head>
 
 <div class="md:p-8 flex flex-col items-center min-h-screen">

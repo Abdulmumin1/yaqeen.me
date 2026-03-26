@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	let { series, highlight } = $props();
@@ -19,7 +20,7 @@
 		let posts = await response.json();
 		// console.log(posts);
 		// console.log(params.slug);
-		posts = filterObjectsByTagKey(posts.posts, 'series', series);
+		posts = filterObjectsByTagKey(posts.allPosts, 'series', series);
 		// console.log(posts);
 		return { posts };
 		// throw error(404, 'Not found');
@@ -52,16 +53,35 @@
 	class="flex flex-col bg-surface-soft bg-surface-muted rounded outline-[15px] outline outline-orange-200 divide-y-2 divide-primary/10e-200"
 >
 	{#if !loading}
-		{#each posts.slice(0, page) as episode}
-			<a href="/blog/{episode.slug}" class="skip px-3 py-4 flex items-center gap-2">
-				<div
-					class="text-text-main dark:text-text-main bg-primarye-100 bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
+		{#each posts.slice(0, page) as episode (episode.slug)}
+			{#if episode.isExternal}
+				<button
+					type="button"
+					onclick={() => window.open(episode.href, '_blank', 'noopener,noreferrer')}
+					class="skip w-full text-left px-3 py-4 flex items-center gap-2"
 				>
-					{episodeNumber()}
-				</div>
+					<div
+						class="text-text-main dark:text-text-main bg-primarye-100 bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
+					>
+						{episodeNumber()}
+					</div>
 
-				<div class="text-text-main dark:text-text-main">{episode.title}</div>
-			</a>
+					<div class="text-text-main dark:text-text-main">{episode.title}</div>
+				</button>
+			{:else}
+				<a
+					href={resolve('/blog/[slug]', { slug: episode.slug })}
+					class="skip px-3 py-4 flex items-center gap-2"
+				>
+					<div
+						class="text-text-main dark:text-text-main bg-primarye-100 bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
+					>
+						{episodeNumber()}
+					</div>
+
+					<div class="text-text-main dark:text-text-main">{episode.title}</div>
+				</a>
+			{/if}
 		{/each}
 
 		{#if posts.length > page}
@@ -69,9 +89,3 @@
 		{/if}
 	{/if}
 </div>
-
-<style>
-	.highlight {
-		background-color: orange;
-	}
-</style>

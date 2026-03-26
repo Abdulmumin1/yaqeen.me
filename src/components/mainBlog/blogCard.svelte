@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { formatDate } from '$lib/js/utils.js';
 
 	/**
@@ -9,28 +10,64 @@
 
 	/** @type {Props} */
 	let { details, latest } = $props();
+
+	let isExternal = $derived(Boolean(details.isExternal));
 </script>
 
 {#if latest}
-	<div class="flex flex-col gap-2 py-4">
-		<a
-			href={`/blog/${details.slug}`}
-			title={details.title}
-			class="text-sm font-bold text-primary hover:opacity-60 transition-opacity"
-		>
-			{details.title}
-		</a>
-		<p class="text-xs opacity-60">{formatDate(details.date)}</p>
+	<div class="flex flex-col gap-1 py-4 group w-full">
+		<div class="flex items-baseline gap-2 justify-between">
+			{#if isExternal}
+				<button
+					type="button"
+					title={details.title}
+					onclick={() => window.open(details.href, '_blank', 'noopener,noreferrer')}
+					class="text-left text-sm font-bold text-primary hover:opacity-60 transition-opacity font-semibold"
+				>
+					{details.title}
+					<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] opacity-40"
+						>external</span
+					>
+				</button>
+			{:else}
+				<a
+					href={resolve('/blog/[slug]', { slug: details.slug })}
+					title={details.title}
+					class="text-sm font-bold text-primary hover:opacity-60 transition-opacity"
+				>
+					{details.title}
+				</a>
+			{/if}
+			<p class="text-[10px] font-mono opacity-30 whitespace-nowrap ml-4">
+				{formatDate(details.date)}
+			</p>
+		</div>
 	</div>
 {:else}
-	<div class="flex flex-col gap-1 py-3">
-		<a
-			href={`/blog/${details.slug}`}
-			title={details.title}
-			class="text-xs font-medium hover:text-primary hover:text-primary transition-colors"
-		>
-			{details.title}
-		</a>
-		<p class="text-[10px] opacity-50">{formatDate(details.date)}</p>
+	<div class="flex flex-col gap-1 py-3 group w-full">
+		<div class="flex items-baseline gap-2 justify-between">
+			{#if isExternal}
+				<button
+					type="button"
+					title={details.title}
+					onclick={() => window.open(details.href, '_blank', 'noopener,noreferrer')}
+					class="text-left text-xs text-primary font-semibold hover:text-primary transition-colors"
+				>
+					{details.title}
+					<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] opacity-40">ext</span>
+				</button>
+			{:else}
+				<a
+					href={resolve('/blog/[slug]', { slug: details.slug })}
+					title={details.title}
+					class="text-xs font-semibold text-primary hover:text-primary transition-colors"
+				>
+					{details.title}
+				</a>
+			{/if}
+			<p class="text-[10px] font-mono opacity-30 whitespace-nowrap ml-4">
+				{formatDate(details.date)}
+			</p>
+		</div>
 	</div>
 {/if}

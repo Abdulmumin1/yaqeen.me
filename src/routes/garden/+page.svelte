@@ -1,5 +1,7 @@
 <script>
 	import { faAdd, faBroom, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+	import Seo from '$components/general/seo.svelte';
+	import { siteOrigin } from '$lib/js/config.js';
 	import getStroke from 'perfect-freehand';
 	import Fa from 'svelte-fa';
 
@@ -509,6 +511,15 @@
 		sessionStorage.setItem('garden-session-id', sessionId);
 	});
 </script>
+
+<svelte:head>
+	<Seo
+		title="Garden | Abdulmumin Yaqeen"
+		description="A collaborative drawing experiment."
+		canonical={`${siteOrigin}/garden`}
+		robots="noindex, nofollow"
+	/>
+</svelte:head>
 
 <main class="h-screen w-screen overflow-hidden bg-surface">
 	<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] max-w-[400px]">

@@ -1,6 +1,16 @@
-export async function GET({ fetch, url }) {
-	const response = await fetch('blog/api/posts');
-	const posts = await response.json();
+import { siteOrigin } from '$lib/js/config.js';
+
+export async function GET({ fetch }) {
+	const response = await fetch('/blog/api/posts');
+	const { allPosts } = await response.json();
+	const staticPages = [
+		{ loc: siteOrigin },
+		{ loc: `${siteOrigin}/about`, lastmod: '2024-01-17' },
+		{ loc: `${siteOrigin}/blog` },
+		{ loc: `${siteOrigin}/blog/series/uth` },
+		{ loc: `${siteOrigin}/projects`, lastmod: '2024-01-17' },
+		{ loc: `${siteOrigin}/wallpapers`, lastmod: '2024-01-17' }
+	];
 	const xml = `
     <?xml version="1.0" encoding="UTF-8" ?>
     <urlset
@@ -11,39 +21,26 @@ export async function GET({ fetch, url }) {
         xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     >
+  ${staticPages
+		.map(
+			(page) => `
   <url>
-    <loc>https://www.yaqeen.me</loc>
-  </url>
-  <url>
-    <loc>https://www.yaqeen.me/about</loc>
-    <lastmod>2024-01-17</lastmod>
-  </url>
-  <url>
-    <loc>https://www.yaqeen.me/blog</loc>
-  </url>
- <url>
-    <loc>https://www.yaqeen.me/blog/series/uth</loc>
-  </url>
- 
-  <url>
-    <loc>https://www.yaqeen.me/neuroodyssey</loc>
-    <lastmod>2024-01-17</lastmod>
-  </url>
-  <url>
-    <loc>https://www.yaqeen.me/projects</loc>
-    <lastmod>2024-01-17</lastmod>
-  </url>
-  <url>
-    <loc>https://www.yaqeen.me/wallpapers</loc>
-    <lastmod>2024-01-17</lastmod>
-  </url>
-    ${posts
+    <loc>${page.loc}</loc>
+    ${page.lastmod ? `<lastmod>${page.lastmod}</lastmod>` : ''}
+  </url>`
+		)
+		.join('')}
+    ${allPosts
+			.filter(
+				(post) =>
+					!post.isExternal && (!post.canonicalUrl || post.canonicalUrl.startsWith(siteOrigin))
+			)
 			.map(
 				(post) => `
             <url>
                
-                <loc>https://www.yaqeen.me/blog/${post.slug}</loc>
-                <lastmod>${post?.lastmod || new Date()}</lastmod>
+                <loc>${post.canonicalUrl || new URL(post.href, siteOrigin).toString()}</loc>
+                <lastmod>${new Date(post?.lastmod || post.date || Date.now()).toISOString()}</lastmod>
             </url>
         `
 			)
@@ -51,7 +48,7 @@ export async function GET({ fetch, url }) {
     </urlset>`.trim();
 	return new Response(xml, {
 		headers: {
-			'Content-Type': 'application/xml'
+			'Content-Type': 'application/xml; charset=utf-8'
 		}
 	});
 }

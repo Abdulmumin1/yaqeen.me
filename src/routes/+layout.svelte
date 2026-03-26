@@ -6,7 +6,9 @@
 	import { page } from '$app/state';
 	import { KDialog, setKbarState } from 'kbar-svelte-mini';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { siteOrigin, siteName } from '$lib/js/config.js';
 	import { darkMode } from '$lib/utils/darkmode.js';
 	import { fly, slide } from 'svelte/transition';
 	import { setModalContext, setCurrentProjectInModal } from '$lib/utils/projectStore';
@@ -44,25 +46,25 @@
 		{
 			title: 'Home',
 			callback: () => {
-				goto('/');
+				goto(resolve('/'));
 			}
 		},
 		{
 			title: 'About',
 			callback: () => {
-				goto('/about');
+				goto(resolve('/about'));
 			}
 		},
 		{
 			title: 'Projects',
 			callback: () => {
-				goto('/projects');
+				goto(resolve('/projects'));
 			}
 		},
 		{
 			title: 'Blog',
 			callback: () => {
-				goto('/blog');
+				goto(resolve('/blog'));
 			}
 		},
 		{
@@ -89,7 +91,6 @@
 	]);
 
 	let loaded = $state(false);
-	let canonical = $state(null);
 	let isDarkMode = $state(false);
 	let showBannerVar = $state(false);
 	let bannerTimeout = $state(null);
@@ -126,22 +127,19 @@
 		}
 
 		let result = await fetchPosts();
-		let url = window.location.hostname;
-		// insertCopyButton(faCopy);
-		if (url.startsWith('www.')) {
-			canonical = window.location.href.replace('www.', '');
-		} else {
-			canonical = 'https://www.' + window.location.hostname + window.location.pathname;
-		}
-
-		result.posts.forEach((element) => {
+		result.allPosts.forEach((element) => {
 			posts = [
 				...posts,
 				{
 					title: element.title,
-					subtitle: `${element.description.slice(0, 100)}...`,
+					subtitle: `${(element.description || '').slice(0, 100)}...`,
 					callback: () => {
-						goto(`/blog/${element.slug}`);
+						if (element.isExternal) {
+							window.open(element.href, '_blank', 'noopener,noreferrer');
+							return;
+						}
+
+						goto(resolve('/blog/[slug]', { slug: element.slug }));
 					}
 				}
 			];
@@ -155,9 +153,12 @@
 </script>
 
 <svelte:head>
-	{#if canonical}
-		<link rel="canonical" href={canonical} />
-	{/if}
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title={`${siteName} RSS Feed`}
+		href={`${siteOrigin}/rss.xml`}
+	/>
 </svelte:head>
 
 <div
@@ -175,7 +176,7 @@
 		{actions}
 		--bg={!$darkMode ? '#ffedd5' : '#1c1917'}
 		--kbar-primary={$darkMode ? '#c04310' : '#f97316'}
-		--kbar-gray={'#1c1917'}
+		--kbar-gray="#1c1917"
 		--shadow={`0px .2px .2px ${$darkMode ? '#c04310' : '#f97316'}`}
 	/>
 {/if}

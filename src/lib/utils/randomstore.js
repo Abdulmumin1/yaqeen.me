@@ -4,7 +4,7 @@ export const mylinks = readable({
 	hashnode: 'https://avdurr.hashnode.dev',
 	linkedin: 'https://linkedin.com/in/abdulmuminyqn',
 	medium: '',
-	twitter: 'https://twitter.com/@abdulmuminyqn',
+	twitter: 'https://twitter.com/abdulmuminyqn',
 	github: 'https://github.com/Abdulmumin1',
 	youtube: 'https://youtube.com/@abdulmuminyqn',
 	devto: 'https://dev.to/@abdulmuminyqn'

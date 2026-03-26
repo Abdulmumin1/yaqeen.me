@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import {
 		faAngleRight,
 		faArrowDown,
@@ -29,17 +30,19 @@
 	{#await loadPost()}
 		<p class="text-[9px] font-mono opacity-30">loading_posts...</p>
 	{:then posts}
-		{#each posts.slice(0, 11) as post}
+		{#each posts.slice(0, 11) as post (post.slug)}
 			<BlogSPost
 				title={post.title}
-				link={`/blog/${post.slug}`}
+				link={post.href || `/blog/${post.slug}`}
+				slug={post.slug}
 				date={post.date}
 				visual={post?.visual}
+				external={post.isExternal}
 			/>
 		{/each}
 		<div class="pt-4 flex gap-4 text-[9px] font-mono opacity-30">
-			<a href="/blog" class="hover:opacity-100 transition-opacity">/all-posts</a>
-			<a href="/rss.xml" class="hover:opacity-100 transition-opacity">/rss</a>
+			<a href={resolve('/blog')} class="hover:opacity-100 transition-opacity">/all-posts</a>
+			<a href={resolve('/rss.xml')} class="hover:opacity-100 transition-opacity">/rss</a>
 		</div>
 	{/await}
 </div>
