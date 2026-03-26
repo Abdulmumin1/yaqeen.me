@@ -17,7 +17,7 @@ async function getPosts() {
 		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
 	);
 
-	return posts.slice(0, 5);
+	return posts.slice(0, 11);
 }
 export async function GET() {
 	const posts = await getPosts();

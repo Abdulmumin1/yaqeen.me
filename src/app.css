@@ -135,7 +135,7 @@
 	}
 
 	.markdown-content main {
-		@apply space-y-5;
+		@apply space-y-3;
 	}
 
 	.article h1,

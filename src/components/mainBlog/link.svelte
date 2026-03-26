@@ -2,4 +2,4 @@
 	let { href, children } = $props();
 </script>
 
-<a {href} target="_blank">{@render children?.()}</a>
+<a class="text-orange-500 hover:underline" {href} target="_blank">{@render children?.()}</a>

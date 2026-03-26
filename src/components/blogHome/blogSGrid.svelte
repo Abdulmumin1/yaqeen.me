@@ -29,7 +29,7 @@
 	{#await loadPost()}
 		<p class="text-[9px] font-mono opacity-30">loading_posts...</p>
 	{:then posts}
-		{#each posts.slice(0, 5) as post}
+		{#each posts.slice(0, 11) as post}
 			<BlogSPost
 				title={post.title}
 				link={`/blog/${post.slug}`}
