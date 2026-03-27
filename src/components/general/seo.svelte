@@ -53,7 +53,8 @@
 	let resolvedTitle = $derived(title || defaultSiteName);
 	let truncatedDescription = $derived((description || defaultDescription).slice(0, 300));
 	let resolvedCanonical = $derived(
-		toAbsoluteUrl(canonical || `${$page.url.pathname}${$page.url.search}`)
+		// Prerendered pages cannot safely read query state, so default canonicals use the path only.
+		toAbsoluteUrl(canonical || $page.url.pathname)
 	);
 	let ogImage = $derived(toAbsoluteUrl(image || defaultSocialImage));
 	let resolvedRobots = $derived(

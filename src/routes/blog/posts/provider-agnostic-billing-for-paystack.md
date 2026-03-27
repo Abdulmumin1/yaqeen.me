@@ -34,3 +34,5 @@ i call it owostack. `owo` in my language means moneeyy, so it moneystack :)
 Funny though, I called it a slopfork. 
 
 It was written from scratch.
+
+see [owostack.com](owostack.com)
