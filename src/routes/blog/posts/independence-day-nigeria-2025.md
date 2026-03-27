@@ -1,5 +1,5 @@
 ---
-title: "The enjoyment of individual freedom under the law, should mean more to use than ourselves, programs, parties and manifestos"
+title: "The enjoyment of individual freedom under the law, should mean more to us than ourselves, programs, parties and manifestos"
 
 description: 'thirdpen is getting better'
 
