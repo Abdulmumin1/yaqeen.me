@@ -24,7 +24,7 @@ export const externalPosts = [
 	// },
 
 	{
-		title: 'Lost in Truncation',
+		title: 'Lost in Truncation - Tom White',
 		description: 'Jean-Baptiste Lamarck’s Revenge',
 		date: '2026-03-26',
 		url: 'https://www.whitenoise.email/p/lost-in-truncation',
