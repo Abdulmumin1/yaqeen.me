@@ -5,7 +5,7 @@ export async function GET({ url }) {
 	const allPosts = getAllPosts();
 	const latest = allPosts[0] ?? null;
 	const archivePosts = allPosts.slice(1);
-	const limit = parseInt(url.searchParams.get('limit')) || 13;
+	const limit = parseInt(url.searchParams.get('limit')) || 21;
 	const page = parseInt(url.searchParams.get('page')) || 1;
 	const totalPosts = archivePosts.length;
 	const totalPages = Math.max(1, Math.ceil(totalPosts / limit));
