@@ -61,7 +61,7 @@
 
 .poetry-layout .markdown-content p {
 	font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif !important;
-	font-size: 1.25rem !important;
+	font-size: 1rem !important;
 	line-height: 1.4 !important;
 	margin-bottom: 2rem !important; /* Spacing between stanzas */
 	opacity: 0.95;

@@ -8,7 +8,7 @@ date: '2025-09-23'
 lastmod: '2025-09-23'
 
 categories:
-  - peom
+  - peotry
   - condolense
   - emotion
   - palestine

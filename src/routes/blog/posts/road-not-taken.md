@@ -14,7 +14,7 @@ categories:
 published: true
 ---
 
-On of my favourite peoms i find myself just reminiscing about.
+One of my favourite peoms. I find myself randomly repeating it in head
 
 ---
 

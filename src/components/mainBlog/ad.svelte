@@ -4,6 +4,12 @@
 
 	const products = [
 		{
+			name: 'Owostack',
+			desc: 'Usage-based Billing Engine for AI Saas',
+			link: 'https://owostack.com',
+			label: 'editor'
+		},
+		{
 			name: 'Thirdpen',
 			desc: 'Personalised interactive learning with AI',
 			link: 'https://thirdpen.app',
@@ -11,15 +17,9 @@
 		},
 		{
 			name: 'Littlestats',
-			desc: 'Fixed-cost analytics for makers',
+			desc: 'Analytics for solo makers',
 			link: 'https://littlestats.click',
 			label: 'analytics'
-		},
-		{
-			name: 'DevCanvas',
-			desc: 'Build websites fast with AI',
-			link: 'https://devcanvas.dev/play/try',
-			label: 'editor'
 		}
 	];
 
@@ -38,19 +38,13 @@
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 		{#each products as product}
 			<div class="flex flex-col gap-2 group">
-				<div class="flex items-center justify-between">
-					<p class="text-[9px] font-mono opacity-30 uppercase tracking-widest">/{product.label}</p>
-				</div>
-				<h4 class="text-xs font-bold text-primary">{product.name}</h4>
-				<p class="text-[11px] opacity-60 leading-relaxed">{product.desc}</p>
 				<a
 					href={product.link}
 					target="_blank"
 					onclick={() => track(product.name)}
-					class="text-[10px] font-mono opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all flex items-center gap-1 mt-1"
+					class="text-xs font-bold text-primary">{product.name}</a
 				>
-					visit <Fa icon={faRightLong} />
-				</a>
+				<p class="text-[11px] opacity-60 leading-relaxed">{product.desc}</p>
 			</div>
 		{/each}
 	</div>
