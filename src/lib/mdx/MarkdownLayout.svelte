@@ -15,10 +15,14 @@
 	 */
 
 	/** @type {Props} */
-	let { categories, children } = $props();
+	let { categories = [], children } = $props();
+
+	const isPoetry = $derived(
+		categories?.some((c) => ['peotry', 'poetry', 'peom', 'poem'].includes(c.toLowerCase()))
+	);
 </script>
 
-<div class="w-full max-w-2xl mx-auto">
+<div class="w-full max-w-2xl mx-auto {isPoetry ? 'poetry-layout' : ''}">
 	<div class="flex gap-2 flex-wrap mb-4">
 		{#each categories as tag}
 			<span class="text-[10px] font-mono opacity-60">

@@ -54,3 +54,28 @@
 		-8.2px 8.2px 13px -1.7px hsl(var(--shadow-color) / 0.36),
 		-20px 20px 31.8px -2.5px hsl(var(--shadow-color) / 0.36);
 }
+
+.poetry-layout .markdown-content main {
+	gap: 0px !important;
+}
+
+.poetry-layout .markdown-content p {
+	font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif !important;
+	font-size: 1.25rem !important;
+	line-height: 1.4 !important;
+	margin-bottom: 2rem !important; /* Spacing between stanzas */
+	opacity: 0.95;
+	color: var(--color-text-main);
+	white-space: pre-line; /* This will respect your newlines without backslashes */
+}
+
+.poetry-layout .markdown-content p br {
+	display: none; /* Hide any accidental br tags */
+}
+
+.poetry-layout .markdown-content hr {
+	margin: 2rem 0 !important;
+	border: none !important;
+	border-top: 1px solid var(--color-border) !important;
+	opacity: 0.1 !important;
+}
