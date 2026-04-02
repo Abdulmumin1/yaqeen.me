@@ -1,11 +1,11 @@
 ---
-title: 'agent sdk vs agent server'
+title: 'crossing the sdk and server boundary in ai-query'
 
-description: 'agent sdk vs agent server'
+description: 'crossing the sdk and server boundary in ai-query'
 
 date: '2026-04-01'
 
-lastmod: '2026-04-01'
+lastmod: '2026-04-02'
 
 categories:
   - ai
@@ -14,44 +14,45 @@ categories:
 published: false
 ---
 
-an sdk is the code you write.
-a server is the boundary around it.
+the part i wanted to show is not just the sdk or the server.
+it is that the same agent code can move across that boundary without changing how i use it.
 
-inside one process, the agent class and the runtime are basically the same thing.
-once it sits behind `AgentServer`, the network starts to matter.
-
-the registry decides where the agent lives.
-the transport decides how you reach it.
-the client side uses `connect()` instead of importing the class directly.
-
-that is the difference i care about.
-not just "can i run it on a server", but "what changes once there are sessions, reconnects, and more than one caller."
+`AgentRegistry` decides whether an id maps to a local python class or an `HTTPTransport`.
+`AgentServer` serves that registry.
+`connect()` is what you use from outside the agent process.
 
 ```python
-from ai_query import AgentRegistry, AgentServer, HTTPTransport, connect
-from ai_query.agents import Agent
+from ai_query import AgentRegistry, AgentServer, HTTPTransport
+from ai_query.agents import Agent, action
 
 
 class WriterAgent(Agent):
-    pass
+    @action
+    async def draft(self, prompt: str):
+        return {"text": prompt.strip()}
+
 
 registry = AgentRegistry()
 registry.register("writer", WriterAgent)
-registry.register("researcher", HTTPTransport("https://api.myapp.com/agents/researcher"))
+registry.register("researcher", HTTPTransport("https://api.myapp.com/agent/researcher"))
 
 AgentServer(registry).serve()
+```
 
-agent = connect("https://api.myapp.com/agent/researcher")
+```python
+from ai_query import connect
+
+client = connect("https://api.myapp.com/agent/writer")
+result = await client.call().draft(prompt="write a short note")
 ```
 
 if the agent stays local, the class mapping is enough.
-if it moves, the transport takes over and the call site does not change.
+if it moves, the transport takes over.
 
-that is why the boundary matters.
+that is the point.
+the call site does not have to care where the agent lives.
 
-the moment a browser can close, a request can drop, or two users can sit on the same session, you are no longer just writing sdk code.
-you are handling server work too.
+once you have sessions, reconnects, and more than one caller, that separation stops being theory.
+it becomes the difference between a small sdk demo and something you can actually run.
 
-and that is the part people usually underestimate.
-it is not just "run it somewhere else."
-it is sessions, routing, state, and keeping the same shape when the agent is no longer in your process.
+that is what i wanted to show with ai-query.

@@ -5,7 +5,7 @@ description: 'agent to agent rpc in ai-query'
 
 date: '2026-03-31'
 
-lastmod: '2026-04-01'
+lastmod: '2026-04-02'
 
 categories:
   - ai
@@ -15,7 +15,7 @@ categories:
 published: true
 ---
 
-I think RPC provides for a really good dx, and it a thing i've been trying to get working for my agent framework.
+rpc is one of the nicer dx pieces in ai-query, and i wanted to get that working cleanly in my agent framework.
 
 the RPC part is not just one agent sending text to another.
 
@@ -97,6 +97,6 @@ that stops callers from stepping on each other.
 which is the real problem, most of the time.
 
 rpc is not flashy.
-it just keeps the system readable once the agents stop living in the same place.if 
+it just keeps the system readable once the agents stop living in the same place.
 
 and when you are building agents, that is already a good result.
