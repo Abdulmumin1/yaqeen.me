@@ -11,7 +11,7 @@ categories:
   - design
   - randoms
 
-published: false
+published: true
 ---
 
 dabbling around with design more and more recently, i thought to myself why not learn figma stuff, but.. but i came across a better alternative (just don't want to learn figma).

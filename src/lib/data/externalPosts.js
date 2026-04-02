@@ -13,21 +13,29 @@ export const externalPosts = [
 		description: 'Ask what the number is before making it go up.',
 		date: '2026-02-11',
 		url: 'https://minutes.substack.com/p/tool-shaped-objects',
-		categories: ['reads']
+		categories: ['reads'],
+		pinned: true
 	},
-	// {
-	// 	title: "People really don't like metered billing - Ayush (autumn)",
-	// 	description: 'People don’t like usage-based billing because they can’t predict it.',
-	// 	date: '2026-02-13',
-	// 	url: 'https://useautumn.com/blog/usage-billing-bad',
-	// 	categories: ['writing']
-	// },
+	{
+		title: "People really don't like metered billing - Ayush (autumn)",
+		description: 'People don’t like usage-based billing because they can’t predict it.',
+		date: '2026-02-13',
+		url: 'https://useautumn.com/blog/usage-billing-bad',
+		categories: ['writing']
+	},
 
 	{
 		title: 'Lost in Truncation - Tom White',
 		description: 'Jean-Baptiste Lamarck’s Revenge',
 		date: '2026-03-26',
 		url: 'https://www.whitenoise.email/p/lost-in-truncation',
+		categories: ['writing']
+	},
+	{
+		title: 'The real reason some people are instantly likable',
+		description: 'The real reason some people are instantly likable',
+		date: '2026-04-01',
+		url: 'https://bigthinkmedia.substack.com/p/the-real-reason-some-people-are-instantly',
 		categories: ['writing']
 	}
 ];

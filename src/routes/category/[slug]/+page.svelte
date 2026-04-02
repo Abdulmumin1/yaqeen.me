@@ -60,7 +60,9 @@
 
 		{#if latest}
 			<div class="flex flex-col gap-4">
-				<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">latest</p>
+				<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">
+					{latest?.pinned ? 'pinned' : 'latest'}
+				</p>
 				<BlogCard details={latest} latest={true} />
 			</div>
 		{/if}

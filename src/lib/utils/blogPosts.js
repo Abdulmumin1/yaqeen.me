@@ -9,26 +9,46 @@ function slugify(value) {
 		.replace(/^-+|-+$/g, '');
 }
 
+function getTimestamp(value) {
+	const timestamp = new Date(value).getTime();
+	return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function comparePosts(first, second) {
+	if (Boolean(first.pinned) !== Boolean(second.pinned)) {
+		return Boolean(first.pinned) ? -1 : 1;
+	}
+
+	return getTimestamp(second.date) - getTimestamp(first.date);
+}
+
+function normalizePost(post) {
+	return {
+		...post,
+		pinned: Boolean(post.pinned)
+	};
+}
+
 function normalizeExternalPost(post, index) {
 	const slug = post.slug || slugify(post.title || post.url || `external-post-${index + 1}`);
 
-	return {
+	return normalizePost({
 		...post,
 		slug,
 		href: post.url,
 		canonicalUrl: post.url,
 		externalUrl: post.url,
 		isExternal: true
-	};
+	});
 }
 
 function normalizeInternalPost(post) {
-	return {
+	return normalizePost({
 		...post,
 		href: `/blog/${post.slug}`,
 		canonicalUrl: post.canonical || `${siteOrigin}/blog/${post.slug}`,
 		isExternal: false
-	};
+	});
 }
 
 export function getAllPosts() {
@@ -45,11 +65,17 @@ export function getAllPosts() {
 		.filter((post) => post?.title && post?.url && post?.date)
 		.map(normalizeExternalPost);
 
-	return [...internalPosts, ...normalizedExternalPosts].sort(
-		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
-	);
+	return [...internalPosts, ...normalizedExternalPosts].sort(comparePosts);
 }
 
 export function getInternalPosts(posts = getAllPosts()) {
 	return posts.filter((post) => !post.isExternal);
+}
+
+export function getPinnedPosts(posts = getAllPosts()) {
+	return posts.filter((post) => post.pinned);
+}
+
+export function getRegularPosts(posts = getAllPosts()) {
+	return posts.filter((post) => !post.pinned);
 }

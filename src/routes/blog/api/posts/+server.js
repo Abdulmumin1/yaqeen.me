@@ -1,11 +1,14 @@
 import { json } from '@sveltejs/kit';
-import { getAllPosts } from '$lib/utils/blogPosts.js';
+import { getAllPosts, getPinnedPosts, getRegularPosts } from '$lib/utils/blogPosts.js';
 
 export async function GET({ url }) {
 	const allPosts = getAllPosts();
+	const pinnedPosts = getPinnedPosts(allPosts);
+	const regularPosts = getRegularPosts(allPosts);
 	const latest = allPosts[0] ?? null;
-	const archivePosts = allPosts.slice(1);
-	const limit = parseInt(url.searchParams.get('limit')) || 21;
+	const latestRegular = regularPosts[0] ?? null;
+	const archivePosts = regularPosts.slice(1);
+	const limit = parseInt(url.searchParams.get('limit')) || 43;
 	const page = parseInt(url.searchParams.get('page')) || 1;
 	const totalPosts = archivePosts.length;
 	const totalPages = Math.max(1, Math.ceil(totalPosts / limit));
@@ -16,7 +19,10 @@ export async function GET({ url }) {
 
 	return json({
 		latest,
+		latestRegular,
 		allPosts,
+		pinnedPosts,
+		regularPosts,
 		archivePosts,
 		posts: paginatedPosts,
 		totalPosts,

@@ -9,9 +9,10 @@
 
 	let clientData = $state(null);
 	let activeData = $derived(clientData ?? data);
-	let latest = $derived(activeData.latest);
+	let pinnedPosts = $derived(activeData.pinnedPosts ?? []);
+	let latest = $derived(activeData.latestRegular ?? null);
 	let currentPage = $derived(activeData.currentPage);
-	let posts = $derived(activeData.posts);
+	let posts = $derived(activeData.posts ?? []);
 	let showPagination = $derived(activeData.totalPages > 1);
 	let canonical = $derived(
 		currentPage > 1 ? `${siteOrigin}/blog?page=${currentPage}` : `${siteOrigin}/blog`
@@ -46,20 +47,34 @@
 </svelte:head>
 
 <section class="max-w-2xl mx-auto px-6 py-8">
-	<div class="flex flex-col gap-6">
-		<div class="flex flex-col gap-4">
-			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">latest</p>
-			<BlogCard details={latest} latest={true} />
-		</div>
-
-		<div class="flex flex-col gap-4">
-			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">all-posts</p>
-			<div class="flex flex-col divide-y divide-primary/10">
-				{#each posts as post (post.slug)}
-					<BlogCard details={post} />
-				{/each}
+	<div class="flex flex-col">
+		{#if pinnedPosts.length}
+			<div class="flex flex-col gap-3">
+				<p class="text-[7px] font-mono uppercase tracking-[0.3em] opacity-30">pinned</p>
+				<div class="flex flex-col">
+					{#each pinnedPosts as post (post.slug)}
+						<BlogCard details={post} />
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
+
+		{#if latest}
+			<p class="text-[7px] mt-2 font-mono uppercase tracking-[0.3em] opacity-30">latest</p>
+			<div class="flex flex-col">
+				<BlogCard details={latest} latest={true} />
+			</div>
+		{/if}
+
+		{#if posts.length}
+			<div class="flex flex-col gap-4">
+				<div class="flex flex-col divide-y divide-primary/10">
+					{#each posts as post (post.slug)}
+						<BlogCard details={post} />
+					{/each}
+				</div>
+			</div>
+		{/if}
 
 		{#if showPagination}
 			<div class="flex justify-between items-center pt-4">
