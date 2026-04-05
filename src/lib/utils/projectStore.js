@@ -164,6 +164,19 @@ export const project_data = readable([
 	},
 
 	{
+		name: 'drshare',
+		stack: ['bunjs', 'ink', 'hash-algorithm'],
+		description: 'Local-first LAN drop lane for Mac, browser, and mobile clients',
+		links: {
+			study: 'https://github.com/Abdulmumin1/drshare'
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/tiny-uth-image-2.png',
+			'https://rawcontent.dearfutureself.me/portfolio/tiny.auth-image-1.png'
+		]
+	},
+
+	{
 		name: 'tiny.auth',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'A TOTP client for the CLI',
