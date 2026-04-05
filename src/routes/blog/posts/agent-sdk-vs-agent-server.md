@@ -3,15 +3,15 @@ title: 'crossing the agent sdk vs server boundary in ai-query'
 
 description: 'what it feels like to cross the sdk and server boundary in ai-query'
 
-date: '2026-04-01'
+date: '2026-02-05'
 
-lastmod: '2026-04-02'
+lastmod: '2026-02-05'
 
 categories:
   - ai
   - randoms
 
-published: false
+published: true
 ---
 
 the part i wanted to show is not just the sdk or the server.
