@@ -164,7 +164,7 @@ export const project_data = readable([
 	},
 
 	{
-		name: 'drshare',
+		name: 'DrShare',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'Local-first LAN drop lane for Mac, browser, and mobile clients',
 		links: {
