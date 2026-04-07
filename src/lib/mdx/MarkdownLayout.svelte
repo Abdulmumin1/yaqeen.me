@@ -25,13 +25,13 @@
 <div class="w-full max-w-2xl mx-auto {isPoetry ? 'poetry-layout' : ''}">
 	<div class="flex gap-2 flex-wrap mb-4">
 		{#each categories as tag}
-			<span class="text-[10px] font-mono opacity-60">
-				<a href="/category/{tag}" class="hover:opacity-100 transition-opacity">&num;{tag}</a>
+			<span class="text-[10px] font-mono text-text-muted">
+				<a href="/category/{tag}" class="hover:text-text-main transition-colors">&num;{tag}</a>
 			</span>
 		{/each}
 	</div>
 
-	<div class="space-y-4 w-full markdown-content text-sm opacity-80">
+	<div class="space-y-4 w-full markdown-content text-sm text-text-muted">
 		<main class="container">
 			{@render children?.()}
 		</main>

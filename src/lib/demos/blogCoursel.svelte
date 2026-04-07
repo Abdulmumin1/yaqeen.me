@@ -37,9 +37,9 @@
 	}
 </script>
 
-<div class="w-full px-4 py-2 rounded-xl bg-primarye-100 bg-surface-soft">Interactive demo</div>
+<div class="w-full px-4 py-2 rounded-xl bg-surface-soft">Interactive demo</div>
 <div
-	class="container relative bg-primarye-100 flex items-center justify-center gap-4 flex-col bg-surface-soft rounded-3xl"
+	class="container relative flex items-center justify-center gap-4 flex-col bg-surface-soft rounded-3xl"
 >
 	<!-- some randome text -->
 	<div class="flex flex-col md:flex-row gap-4 items-center justify-center">

@@ -19,7 +19,7 @@
 
 <div in:scale class="max-w-2xl mx-auto px-6 py-8 flex flex-col gap-6">
 	<div class="flex flex-col gap-2">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/wallpapers</p>
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/wallpapers</p>
 		<h1 class="text-sm font-bold text-primary uppercase tracking-widest">Digital Art</h1>
 	</div>
 

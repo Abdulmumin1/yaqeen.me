@@ -9,7 +9,7 @@
 
 <div class="flex flex-col gap-1 py-3 group w-full relative">
 	{#if pinned}
-		<div class="shrink-0 absolute -top-1 left-0.5 text-stone-500/50" aria-hidden="true">
+		<div class="shrink-0 absolute -top-1 left-0.5 text-text-muted/50" aria-hidden="true">
 			<Fa icon={faThumbTack} class="size-1.5 rotate-25" />
 		</div>
 		<span class="sr-only">Pinned post</span>
@@ -22,7 +22,9 @@
 				class="text-left text-sm font-bold text-primary hover:underline underline-offset-2 transition-all"
 			>
 				{title}
-				<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] opacity-40">ext</span>
+				<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] text-text-muted/40"
+					>ext</span
+				>
 			</button>
 		{:else}
 			<a
@@ -32,7 +34,7 @@
 				{title}
 			</a>
 		{/if}
-		<p class="text-[9px] font-mono opacity-30 whitespace-nowrap ml-4">
+		<p class="text-[9px] font-mono text-text-muted whitespace-nowrap ml-4">
 			{formatDate(date)}
 		</p>
 	</div>

@@ -39,6 +39,12 @@
 
 	function changeTheme(value) {
 		darkMode.set(value);
+		localStorage.theme = value ? 'dark' : 'light';
+		if (value) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
 	}
 	let posts = $state([]);
 
@@ -106,7 +112,15 @@
 	}
 
 	let unsubscribe = darkMode.subscribe((data) => {
-		if (data && intialPass) {
+		if (typeof window !== 'undefined') {
+			if (data) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		}
+		// Only show banner when user manually toggles to dark mode, not on initial load
+		if (data && intialPass && localStorage.theme === 'dark') {
 			showBanner();
 		} else if (showBannerVar) {
 			showBannerVar = false;
@@ -115,16 +129,9 @@
 
 	onMount(async () => {
 		intialPass = true;
-		isDarkMode =
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-		if (isDarkMode) {
-			showBanner();
-			setTimeout(() => {
-				darkMode.set(false);
-			}, 2000);
-		}
+		// Sync store with the already-applied dark class from app.html
+		isDarkMode = document.documentElement.classList.contains('dark');
+		darkMode.set(isDarkMode);
 
 		let result = await fetchPosts();
 		result.allPosts.forEach((element) => {
@@ -164,8 +171,16 @@
 <div
 	class="w-screen overflow-x-hidden bg-surface text-text-main font-visby relative transition-colors duration-500"
 >
+	<img
+		src="/favicon.png"
+		alt=""
+		class="fixed opacity-10 tint w-70 md:w-115 z-0 right-5 md:right-20 bottom-14 md:bottom-30"
+	/>
+	<img src="/patel.png" alt="" class="fixed opacity-5 tint w-20 z-0 left-60 rotate-45 top-30" />
 	<Nav {isBlog} />
-	{@render children?.()}
+	<main class="relative z-10">
+		{@render children?.()}
+	</main>
 	{#if !['/garden'].includes(page.url.pathname)}
 		<Footer />
 	{/if}
@@ -208,7 +223,8 @@
 		{/if}
 	</div>
 </div>
-<ProjectOverviewModal />
+
+<!-- <ProjectOverviewModal /> -->
 
 <style>
 	:global(.dark) {

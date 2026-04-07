@@ -54,13 +54,13 @@
 <section in:scale class="max-w-2xl mx-auto px-6 py-8">
 	<div class="flex flex-col gap-6">
 		<div class="flex flex-col gap-2">
-			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">category</p>
+			<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">category</p>
 			<h1 class="text-sm font-bold text-primary uppercase tracking-widest">{$page.params.slug}</h1>
 		</div>
 
 		{#if latest}
 			<div class="flex flex-col gap-4">
-				<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">
+				<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">
 					{latest?.pinned ? 'pinned' : 'latest'}
 				</p>
 				<BlogCard details={latest} latest={true} />
@@ -68,7 +68,7 @@
 		{/if}
 
 		<div class="flex flex-col gap-4">
-			<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">more-posts</p>
+			<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">more-posts</p>
 			<div class="flex flex-col divide-y divide-primary/10">
 				{#each currentPageData as post (post.slug)}
 					<BlogCard details={post} />
@@ -81,14 +81,14 @@
 				<button
 					onclick={prev}
 					disabled={mutePrev}
-					class="text-xs opacity-60 hover:opacity-100 disabled:opacity-20 transition-opacity flex items-center gap-1"
+					class="text-xs text-text-muted hover:text-text-main disabled:opacity-20 transition-colors flex items-center gap-1"
 				>
 					<Fa icon={faAngleLeft} /> prev
 				</button>
 				<button
 					onclick={next}
 					disabled={muteNext}
-					class="text-xs opacity-60 hover:opacity-100 disabled:opacity-20 transition-opacity flex items-center gap-1"
+					class="text-xs text-text-muted hover:text-text-main disabled:opacity-20 transition-colors flex items-center gap-1"
 				>
 					next <Fa icon={faAngleRight} />
 				</button>

@@ -98,7 +98,7 @@
 	});
 </script>
 
-<div class="container bg-primarye-100 bg-surface-soft rounded-lg">
+<div class="container bg-surface-soft rounded-lg">
 	<div bind:this={chartContainer} id="visual-container">
 		{#if useAnimateFlip}
 			{#each data as d (d)}

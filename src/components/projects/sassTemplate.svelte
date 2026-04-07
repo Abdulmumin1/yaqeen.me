@@ -15,7 +15,7 @@
 		$modalContext = true;
 	}
 	function getRandomColor() {
-		const colors = ['bg-primarye-300'];
+		const colors = ['bg-primary/70'];
 
 		const randomIndex = Math.floor(Math.random() * colors.length);
 		return colors[randomIndex];
@@ -30,12 +30,12 @@
 		<a
 			href="https://{details.links.page}"
 			target="_blank"
-			class="text-[9px] font-mono opacity-30 hover:opacity-100 transition-opacity"
+			class="text-[9px] font-mono text-text-muted hover:text-text-main transition-colors"
 		>
 			{details.links.page}
 		</a>
 	</div>
-	<p class="text-xs opacity-60 leading-relaxed max-w-sm">
+	<p class="text-xs text-text-muted leading-relaxed max-w-sm">
 		{details.description}
 	</p>
 </div>

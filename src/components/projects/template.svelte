@@ -35,12 +35,12 @@
 				target="_blank">{details.name}</a
 			>
 		</h3>
-		<div class="flex gap-3 text-[9px] font-mono opacity-30">
+		<div class="flex gap-3 text-[9px] font-mono text-text-muted">
 			{#if details.links.page}
 				<a
 					href="https://{details.links.page}"
 					target="_blank"
-					class="hover:opacity-100 transition-opacity uppercase"
+					class="hover:text-text-main transition-colors uppercase"
 				>
 					visit
 				</a>
@@ -49,14 +49,14 @@
 				<a
 					href={details.links.study}
 					target="_blank"
-					class="hover:opacity-100 transition-opacity uppercase"
+					class="hover:text-text-main transition-colors uppercase"
 				>
 					github
 				</a>
 			{/if}
 		</div>
 	</div>
-	<p class="text-xs opacity-60 leading-relaxed max-w-xl">
+	<p class="text-xs text-text-muted leading-relaxed max-w-xl">
 		{details.description}
 	</p>
 </div>

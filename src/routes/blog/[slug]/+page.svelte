@@ -138,7 +138,7 @@
 		<h1 class="text-xl font-bold text-primary">
 			{data.meta.title}
 		</h1>
-		<div class="flex gap-3 text-[10px] font-mono opacity-50">
+		<div class="flex gap-3 text-[10px] font-mono text-text-muted">
 			<span>{formatDate(data.meta.date)}</span>
 			{#if data.meta.date != data.meta.lastmod}
 				<span>edited {formatDate(data.meta.lastmod)}</span>
@@ -157,11 +157,11 @@
 	</div>
 
 	<div class="pt-8 border-t border-primary/10 mt-8 mb-12">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30 mb-3">/share</p>
-		<div class="flex gap-3 text-xs opacity-60">
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted mb-3">/share</p>
+		<div class="flex gap-3 text-xs text-text-muted">
 			<button
 				onclick={() => copyUrlToClipboard(shareUrl)}
-				class="hover:opacity-100 transition-opacity"
+				class="hover:text-text-main transition-colors"
 				aria-label="Copy article URL"
 			>
 				<Fa icon={faCopy} />
@@ -170,7 +170,7 @@
 				href={`https://x.com/intent/post?url=${encodeURIComponent(shareUrl)}&text=${encodedTitle}`}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="hover:opacity-100 transition-opacity"
+				class="hover:text-text-main transition-colors"
 				aria-label="Share on Twitter"
 			>
 				<Fa icon={faTwitter} />
@@ -179,7 +179,7 @@
 				href={`https://www.reddit.com/submit?url=${encodeURIComponent(shareUrl)}&title=${encodedTitle}`}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="hover:opacity-100 transition-opacity"
+				class="hover:text-text-main transition-colors"
 				aria-label="Share on Reddit"
 			>
 				<Fa icon={faReddit} />
@@ -188,7 +188,7 @@
 				href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="hover:opacity-100 transition-opacity"
+				class="hover:text-text-main transition-colors"
 				aria-label="Share on LinkedIn"
 			>
 				<Fa icon={faLinkedin} />
@@ -197,7 +197,7 @@
 				href={`https://news.ycombinator.com/submitlink?u=${encodeURIComponent(shareUrl)}&t=${encodedTitle}`}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="hover:opacity-100 transition-opacity"
+				class="hover:text-text-main transition-colors"
 				aria-label="Share on Hacker News"
 			>
 				<Fa icon={faHackerNews} />

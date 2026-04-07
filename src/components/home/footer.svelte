@@ -3,6 +3,7 @@
 	import Fa from 'svelte-fa';
 	import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 	import { copyUrlToClipboard } from '$lib/js/utils.js';
+	import { darkMode } from '$lib/utils/darkmode.js';
 
 	const links = {
 		github: 'https://github.com/Abdulmumin1',
@@ -26,21 +27,32 @@
 			copiedEmail = false;
 		}, 2000);
 	}
+
+	function toggleTheme() {
+		const newValue = !$darkMode;
+		darkMode.set(newValue);
+		localStorage.theme = newValue ? 'dark' : 'light';
+		if (newValue) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	}
 </script>
 
-<footer class="w-full py-6 px-6 flex flex-col gap-3 text-xs opacity-60">
+<footer class="w-full py-6 px-6 flex flex-col gap-3 text-xs text-text-muted">
 	<div class="max-w-2xl mx-auto w-full flex flex-col gap-3">
 		<div class="flex gap-3">
-			<a href={links.github} class="hover:opacity-100 transition-opacity">
+			<a href={links.github} class="hover:text-text-main transition-colors">
 				<Fa icon={faGithub} />
 			</a>
-			<a href={links.linkedin} class="hover:opacity-100 transition-opacity">
+			<a href={links.linkedin} class="hover:text-text-main transition-colors">
 				<Fa icon={faLinkedin} />
 			</a>
-			<a href={links.twitter} class="hover:opacity-100 transition-opacity">
+			<a href={links.twitter} class="hover:text-text-main transition-colors">
 				<Fa icon={faTwitter} />
 			</a>
-			<a href={links.youtube} class="hover:opacity-100 transition-opacity">
+			<a href={links.youtube} class="hover:text-text-main transition-colors">
 				<Fa icon={faYoutube} />
 			</a>
 		</div>
@@ -57,11 +69,19 @@
 		</div>
 
 		<div class="flex gap-2 text-[10px]">
-			<a href={links.hashnode} class="hover:opacity-100 transition-opacity">blog</a>
+			<a href={links.hashnode} class="hover:text-text-main transition-colors">blog</a>
 			<span>/</span>
-			<a href={links.linkedin} class="hover:opacity-100 transition-opacity">linkedin</a>
+			<a href={links.linkedin} class="hover:text-text-main transition-colors">linkedin</a>
 			<span>/</span>
-			<a href={resolve('/wallpapers')} class="hover:opacity-100 transition-opacity">wallpapers</a>
+			<a href={resolve('/wallpapers')} class="hover:text-text-main transition-colors">wallpapers</a>
+			<span>/</span>
+			<button
+				type="button"
+				onclick={toggleTheme}
+				class="hover:text-text-main transition-colors cursor-pointer touch-manipulation"
+			>
+				{$darkMode ? 'light mode' : 'dark mode'}
+			</button>
 		</div>
 	</div>
 </footer>

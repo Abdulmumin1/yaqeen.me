@@ -61,12 +61,12 @@
 					class="skip w-full text-left px-3 py-4 flex items-center gap-2"
 				>
 					<div
-						class="text-text-main dark:text-text-main bg-primarye-100 bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
+						class="text-text-main bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
 					>
 						{episodeNumber()}
 					</div>
 
-					<div class="text-text-main dark:text-text-main">{episode.title}</div>
+					<div class="text-text-main">{episode.title}</div>
 				</button>
 			{:else}
 				<a
@@ -74,12 +74,12 @@
 					class="skip px-3 py-4 flex items-center gap-2"
 				>
 					<div
-						class="text-text-main dark:text-text-main bg-primarye-100 bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
+						class="text-text-main bg-surface-soft min-h-10 min-w-10 items-center justify-center flex rounded-full"
 					>
 						{episodeNumber()}
 					</div>
 
-					<div class="text-text-main dark:text-text-main">{episode.title}</div>
+					<div class="text-text-main">{episode.title}</div>
 				</a>
 			{/if}
 		{/each}

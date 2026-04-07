@@ -32,7 +32,7 @@
 
 <div class="flex flex-col gap-6 py-8">
 	<div class="flex flex-col gap-1">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/built-by-me</p>
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/built-by-me</p>
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -44,7 +44,7 @@
 					onclick={() => track(product.name)}
 					class="text-xs font-bold text-primary">{product.name}</a
 				>
-				<p class="text-[11px] opacity-60 leading-relaxed">{product.desc}</p>
+				<p class="text-[11px] text-text-muted leading-relaxed">{product.desc}</p>
 			</div>
 		{/each}
 	</div>

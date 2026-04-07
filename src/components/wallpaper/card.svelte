@@ -54,21 +54,21 @@
 
 	<div class="flex items-center justify-between">
 		<div class="flex flex-col">
-			<p class="text-[10px] font-mono opacity-30 uppercase tracking-widest">/artwork</p>
-			<p class="text-xs opacity-60">Wallpaper Concept</p>
+			<p class="text-[10px] font-mono text-text-muted uppercase tracking-widest">/artwork</p>
+			<p class="text-xs text-text-muted">Wallpaper Concept</p>
 		</div>
 
 		<div class="flex gap-2">
 			<button
 				onclick={downloadFile}
-				class="p-2 text-xs opacity-30 hover:opacity-100 hover:text-primary transition-all"
+				class="p-2 text-xs text-text-muted hover:text-primary transition-colors"
 				title="Download"
 			>
 				<Fa icon={faDownload} />
 			</button>
 			<button
 				onclick={shareWallpaper}
-				class="p-2 text-xs opacity-30 hover:opacity-100 hover:text-primary transition-all"
+				class="p-2 text-xs text-text-muted hover:text-primary transition-colors"
 				title="Share"
 			>
 				<Fa icon={faShareAlt} />

@@ -32,7 +32,7 @@
 	>
 		<aside class="max-w-md w-full h-full">
 			<div
-				class="h-full p-4 w-full rounded-lg shadow-xl dark:shadow-lg dark:shadow-stone-700 flex flex-col justify-between items-center"
+				class="h-full p-4 w-full rounded-lg shadow-xl dark:shadow-lg dark:shadow-surface-muted flex flex-col justify-between items-center"
 			>
 				<div class="border p-2 border-primary rounded-lg flex justify-between items-center w-full">
 					<p>Share files securely</p>
@@ -52,7 +52,7 @@
 			<p class="text-lg">{project.description}</p>
 			<div class="flex flex-wrap gap-2 mb-4">
 				{#each project.stack as tech}
-					<span class="px-2 py-1 bg-primarye-200 bg-surface-muted rounded-xl text-sm">{tech}</span>
+					<span class="px-2 py-1 bg-surface-muted rounded-xl text-sm">{tech}</span>
 				{/each}
 			</div>
 		</section>
@@ -62,7 +62,7 @@
 			<img
 				alt={`Project image ${index + 1}`}
 				src={img}
-				class="w-[720px] border-4 border-primarye-200 object-contain rounded-xl"
+				class="w-[720px] border-4 border-primary/20 object-contain rounded-xl"
 			/>
 		{/each}
 	</div>

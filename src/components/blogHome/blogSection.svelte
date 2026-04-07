@@ -5,7 +5,7 @@
 </script>
 
 <div class="w-full space-y-4 py-8 flex flex-col" id="blog">
-	<h2 class="text-[9px] font-mono opacity-30 uppercase tracking-[0.3em]">
+	<h2 class="text-[9px] font-mono text-text-muted uppercase tracking-[0.3em]">
 		writing (mine and yours)
 	</h2>
 	<BlogSGrid />

@@ -18,9 +18,7 @@
 	let { title, description, link, stack } = $props();
 </script>
 
-<div
-	class="bg-primarye-100 flex flex-col gap-2 bg-surface-soft border-primary rounded-3xl p-6 w-full"
->
+<div class="flex flex-col gap-2 bg-surface-soft border-primary rounded-3xl p-6 w-full">
 	<div>
 		<div class="flex justify-between items-center">
 			<h4 class="title text-xl md:text-2xl font-bold font-visby_mid flex gap-2 items-center">
@@ -31,7 +29,7 @@
 			</h4>
 			<a href="https://github.com/{link}"><Fa icon={faGithub} /></a>
 		</div>
-		<a href={link} class="text-stone-800 dark:text-text-main/70 text-sm">{link}</a>
+		<a href={link} class="text-text-muted text-sm">{link}</a>
 	</div>
 
 	<div>
@@ -46,7 +44,7 @@
 		{/each}
 	</ul> -->
 </div>
-<dialog id="vidModal" bind:this={modal} class="bg-primarye-200">
+<dialog id="vidModal" bind:this={modal} class="bg-surface-muted">
 	<div class="flex flex-col gap-2">
 		<h1 class="title text-xl font-visby_bold font-semibold flex justify-between">
 			{title} <button onclick={closeModal}>Close</button>

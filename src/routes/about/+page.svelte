@@ -112,7 +112,7 @@
 
 <div class="max-w-2xl mx-auto px-6 py-8 flex flex-col gap-8">
 	<div class="flex flex-col gap-6">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/about</p>
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/about</p>
 
 		<div class="flex flex-col gap-4">
 			<div class="flex items-center gap-4">
@@ -137,7 +137,7 @@
 				</button>
 				<div class="flex flex-col gap-1">
 					<h1 class="text-sm font-bold text-primary">Abdulmumin Yaqeen</h1>
-					<p class="text-xs opacity-60">i try (tryer?)</p>
+					<p class="text-xs text-text-muted">i try (tryer?)</p>
 				</div>
 			</div>
 
@@ -174,7 +174,7 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-4 text-xs opacity-80 leading-relaxed">
+	<div class="flex flex-col gap-4 text-xs text-text-muted leading-relaxed">
 		<p>
 			yeah, I love PYTHON then JS, mostly backend and opinionated frontends. I like projects that
 			are useful, slightly overbuilt, and carrying at least one unnecessary but beautiful detail.
@@ -185,26 +185,26 @@
 	</div>
 
 	<div class="flex flex-col gap-4">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/factory-settings</p>
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/factory-settings</p>
 		<ul class="flex flex-col divide-y divide-primary/10">
-			<li class="py-3 text-xs opacity-80">
+			<li class="py-3 text-xs text-text-muted">
 				Usually building, writing, sketching, or taking apart something that was already working.
 			</li>
-			<li class="py-3 text-xs opacity-80">
+			<li class="py-3 text-xs text-text-muted">
 				Recurring themes: dev tools, security, interfaces, experiments, and curiosity with bad time
 				management.
 			</li>
-			<li class="py-3 text-xs opacity-80">
+			<li class="py-3 text-xs text-text-muted">
 				Aesthetic preference: clean work with one odd little detail. VERY PICKY
 			</li>
 		</ul>
 	</div>
 
 	<div class="flex flex-col gap-4">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] opacity-30">/interests</p>
+		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/interests</p>
 		<ul class="flex flex-col divide-y divide-primary/10">
 			{#each interests as interest (interest.title)}
-				<li class="py-3 text-xs opacity-80">
+				<li class="py-3 text-xs text-text-muted">
 					<span class="text-primary font-bold">{interest.title}</span> — {interest.description}
 				</li>
 			{/each}
