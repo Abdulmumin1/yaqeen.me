@@ -1,11 +1,11 @@
 ---
-title: 'implementing js style abort cancellation in python'
+title: 'implementing js style abort cancellation in python - ai-query'
 
-description: 'implementing js style abort cancellation in python'
+description: 'python does not ship the exact same thing by default, but i keep wanting the same idea anyway for ai-query.dev'
 
-date: '2026-01-01'
+date: '2026-02-14'
 
-lastmod: '2026-01-01'
+lastmod: '2026-02-14'
 
 categories:
   - python
@@ -17,18 +17,15 @@ published: true
 
 js has `AbortController` and `AbortSignal`.
 
-python does not ship the exact same thing by default, but i keep wanting the same idea anyway.
+python does not ship the exact same thing by default, but i keep wanting the same idea anyway for ai-query.dev
 
 the point is simple.
 
-if a task is no longer wanted, it should stop cleanly.
-not after it finishes.
-not after it keeps burning time.
-just stop.
+since ai-query is following the primitives of ai-sdk, i try to make the apis look as close as possible, and abortsignal is a good overall dx
 
-that matters a lot once you have long running work.
-downloads, streams, agents, background jobs.
-anything that can keep going after the user already moved on.
+that the point of ai-query, crazy good dx, not sure i archieved that yet :/ but we're getting somewhere.
+
+so here is the implementation details:
 
 ```python
 import asyncio
@@ -70,11 +67,10 @@ async def fetch_chunks(signal):
 it is boring code.
 that is the point.
 
-i do not want every function to invent its own cancel flag.
-i do not want each layer to guess what to do when the user is gone.
-i want one signal that can move through the whole call stack.
-
 that feels more like js.
-and it works better than pretending cancellation is some edge case.
-it is not an edge case.
-it is normal.
+and it works
+
+![abort signal docs ai-query.dev](https://pbs.twimg.com/media/G-3HB0dWwAAEXCs?format=jpg&name=4096x4096)
+
+Checkout [ai-query](https://ai-query.dev)
+Star on Github [ai-query github](https://github.com/abdulmumin1/ai-query)
