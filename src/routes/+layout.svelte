@@ -171,11 +171,11 @@
 <div
 	class="w-screen overflow-x-hidden bg-surface text-text-main font-visby relative transition-colors duration-500"
 >
-	<img
+	<!-- <img
 		src="/favicon.png"
 		alt=""
 		class="fixed opacity-10 tint w-70 md:w-115 z-0 right-5 md:right-20 bottom-14 md:bottom-30"
-	/>
+	/> -->
 	<img src="/patel.png" alt="" class="fixed opacity-5 tint w-20 z-0 left-60 rotate-45 top-30" />
 	<Nav {isBlog} />
 	<main class="relative z-10">
