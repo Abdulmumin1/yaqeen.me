@@ -37,5 +37,13 @@ export const externalPosts = [
 		date: '2026-04-01',
 		url: 'https://bigthinkmedia.substack.com/p/the-real-reason-some-people-are-instantly',
 		categories: ['writing']
+	},
+	{
+		title: 'How To Reduce Your Frustration with Technology',
+		description:
+			'When your favorite operating system, software program, or online service gets updated, it can take some getting used to. What was once familiar may now require learning new ways to get your tasks done.',
+		date: '2026-04-08',
+		url: 'https://askleo.com/how-to-reduce-your-frustration-with-technology/',
+		categories: ['writing']
 	}
 ];
