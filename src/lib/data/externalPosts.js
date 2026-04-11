@@ -45,5 +45,13 @@ export const externalPosts = [
 		date: '2026-04-08',
 		url: 'https://askleo.com/how-to-reduce-your-frustration-with-technology/',
 		categories: ['writing']
+	},
+	{
+		title: 'Architecting OwoStack on Cloudflare',
+		description:
+			'Owostack makes billing decisions on the request path. For a metered feature, a single check may need to read subscription state, current usage, credits, reset windows, overage rules, entitlements, and customer-level billing configuration, then decide whether to allow usage and how that usage should be accounted for.',
+		date: '2026-04-11',
+		url: 'https://owostack.com/blog/architecting-owostack-on-cloudflare',
+		categories: ['writing', 'owostack']
 	}
 ];
