@@ -168,6 +168,8 @@
 	/>
 </svelte:head>
 
+<div class="fixed inset-0 z-1000 pointer-events-none bg-noise"></div>
+
 <div
 	class="w-screen overflow-x-hidden bg-surface text-text-main font-visby relative transition-colors duration-500"
 >
