@@ -32,7 +32,7 @@ yes, but cloning a repo, keeping it up to date and also warm before any query la
 hence the excitement about Project Think, i could use that, coupled with [cloudflare/shell](https://github.com/cloudflare/agents/tree/main/packages/shell) for virtual filesystem and workers ai to create something anyone with a cloudflare acccount could deploy in minutes. and have a usable endpoint to query thier docs. even if they don't have docs, it could still use their codebase as a source of truth.
 
 
-and that what I did - Link to docs-agent
+and that what I did - i call it [cull](https://github.com/Abdulmumin1/cull)
 
 
 Another i was excited for is Artifacts.
