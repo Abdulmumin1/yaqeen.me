@@ -1,5 +1,5 @@
 ---
-title: 'Building a docs QA agent on project think'
+title: 'Building a docs QA agent on Project Think'
 
 description: "so cloudflare just had their agent week, bunch of new drops and all, but i'm limited so i can only try out those that really did fire some neurons in my brain."
 
