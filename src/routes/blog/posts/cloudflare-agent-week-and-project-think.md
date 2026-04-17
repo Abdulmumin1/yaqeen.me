@@ -34,6 +34,8 @@ hence the excitement about Project Think, i could use that, coupled with [cloudf
 
 and that what I did - i call it [cull](https://github.com/Abdulmumin1/cull)
 
+Coupled with dynamic workers, it insane we have can run harnesses inside of workers!
+
 
 Another i was excited for is Artifacts.
 
