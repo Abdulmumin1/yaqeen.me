@@ -41,11 +41,15 @@
 				'Mostly about dev, security, and whatever technical rabbit hole has ruined my evening.'
 		},
 		{
-			title: 'Drawing',
+			title: 'Sketching',
 			description: 'Not in a gallery sense. More in a doodling interfaces and strange logos sense.'
 		},
 		{
 			title: 'Photography',
+			description: 'My long-running backup plan if software ever starts feeling too polite.'
+		},
+		{
+			title: 'Taking walks',
 			description: 'My long-running backup plan if software ever starts feeling too polite.'
 		},
 		{
@@ -135,10 +139,6 @@
 						{profileNote}
 					</span>
 				</button>
-				<div class="flex flex-col gap-1">
-					<h1 class="text-sm font-bold text-primary">Abdulmumin Yaqeen</h1>
-					<p class="text-xs text-text-muted">i try (tryer?)</p>
-				</div>
 			</div>
 
 			<!-- <div class="flex gap-3 text-xs opacity-60">
@@ -175,17 +175,17 @@
 	</div>
 
 	<div class="flex flex-col gap-4 text-xs text-text-muted leading-relaxed">
+		<p>I'm Abdulmumin Yaqeen</p>
+		<p>I do stuff, mostly a developer.</p>
 		<p>
-			yeah, I love PYTHON then JS, mostly backend and opinionated frontends. I like projects that
-			are useful, slightly overbuilt, and carrying at least one unnecessary but beautiful detail.
-		</p>
-		<p>
-			I like learning things the long way, opening too many tabs, 10+ hours a day producing slop
+			Use to run a <a class="text-primary underline" href="https://www.youtube.com/@abdulmuminyqn"
+				>youtube channel</a
+			> a few years ago
 		</p>
 	</div>
 
 	<div class="flex flex-col gap-4">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/factory-settings</p>
+		<p class="text-[9px] font-mono tracking-[0.3em] text-text-muted">/defaults</p>
 		<ul class="flex flex-col divide-y divide-primary/10">
 			<li class="py-3 text-xs text-text-muted">
 				Usually building, writing, sketching, or taking apart something that was already working.
@@ -194,18 +194,16 @@
 				Recurring themes: dev tools, security, interfaces, experiments, and curiosity with bad time
 				management.
 			</li>
-			<li class="py-3 text-xs text-text-muted">
-				Aesthetic preference: clean work with one odd little detail. VERY PICKY
-			</li>
+			<li class="py-3 text-xs text-text-muted">and VERY PICKY, asthetically</li>
 		</ul>
 	</div>
 
 	<div class="flex flex-col gap-4">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/interests</p>
+		<p class="text-[9px] font-mono tracking-[0.3em] text-text-muted">/interests</p>
 		<ul class="flex flex-col divide-y divide-primary/10">
 			{#each interests as interest (interest.title)}
 				<li class="py-3 text-xs text-text-muted">
-					<span class="text-primary font-bold">{interest.title}</span> — {interest.description}
+					<span class="text-primary font-bold">{interest.title}</span>
 				</li>
 			{/each}
 		</ul>
