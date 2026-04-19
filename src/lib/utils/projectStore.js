@@ -164,6 +164,17 @@ export const project_data = readable([
 	},
 
 	{
+		name: 'Cull',
+		stack: ['Python', 'Coroutines', 'Thread pool'],
+		description:
+			'Uses Project Think harness and virtual file system cloudflare/shell to triage your docs/codebase and answer questions',
+		links: {
+			study: 'https://github.com/Abdulmumin1/cull'
+		},
+		imagelist: []
+	},
+
+	{
 		name: 'DrShare',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'Local-first LAN drop lane for Mac, browser, and mobile clients',

@@ -182,6 +182,7 @@
 				>youtube channel</a
 			> a few years ago
 		</p>
+		<p>loyal to Apache 2.0 declaration :)</p>
 	</div>
 
 	<div class="flex flex-col gap-4">
