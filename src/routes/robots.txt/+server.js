@@ -5,6 +5,7 @@ export async function GET() {
 	return new Response(
 		`User-agent: *
 Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 # Google adsbot ignores robots.txt unless specifically named!
 User-agent: AdsBot-Google
