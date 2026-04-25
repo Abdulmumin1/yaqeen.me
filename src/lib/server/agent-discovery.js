@@ -68,6 +68,30 @@ export const publicApis = [
 	}
 ];
 
+export function acceptsMarkdown(acceptHeader = '') {
+	return String(acceptHeader ?? '')
+		.split(',')
+		.map((value) => value.trim())
+		.some((value) => {
+			if (!value) {
+				return false;
+			}
+
+			const [mediaType, ...parameters] = value.split(';').map((part) => part.trim());
+			if (mediaType !== 'text/markdown') {
+				return false;
+			}
+
+			const quality = parameters.find((parameter) => parameter.startsWith('q='));
+			if (!quality) {
+				return true;
+			}
+
+			const parsed = Number.parseFloat(quality.slice(2));
+			return Number.isNaN(parsed) || parsed > 0;
+		});
+}
+
 export function estimateMarkdownTokens(markdown) {
 	return Math.max(1, Math.ceil(markdown.length / 4));
 }
