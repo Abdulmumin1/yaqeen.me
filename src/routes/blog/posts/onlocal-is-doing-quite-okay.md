@@ -15,7 +15,7 @@ categories:
 published: true
 ---
 
-A few months ago, I was using alot of ngrok. Was working on something webhooks and stuff, but then probably out of boredom of curiousity maybe, I thought, how does this work?
+A few months ago, I was using alot of ngrok. Was working on something webhooks and stuff, but then probably out of boredom or curiousity maybe, I thought, how does this work?
 
 I was like let me not do any research and think this through my self.
 
