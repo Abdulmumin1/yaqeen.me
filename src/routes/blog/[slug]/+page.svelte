@@ -131,6 +131,8 @@
 	{#if articleSchema}
 		<svelte:element this={'script'} type="application/ld+json">{articleSchema}</svelte:element>
 	{/if}
+
+	<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
 
 <article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
