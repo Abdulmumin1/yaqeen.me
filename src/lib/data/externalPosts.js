@@ -56,10 +56,10 @@ export const externalPosts = [
 	},
 
 	{
-		title: 'On the foolishness of "natural language programming"',
+		title: 'On the foolishness of "natural language programming" - Dijkstra',
 		description: '',
 		date: '2026-05-14',
-		url: 'https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html - Dijkstra',
+		url: 'https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html',
 		categories: ['Dijkstra']
 	}
 ];
