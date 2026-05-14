@@ -39,7 +39,8 @@
 		"perfect-freehand": "^1.2.3",
 		"rivetkit": "^2.1.6",
 		"shiki": "^0.14.7",
-		"svelte-fa": "^3.0.4"
+		"svelte-fa": "^3.0.4",
+		"unist-util-visit": "^5.1.0"
 	},
 	"pnpm": {
 		"overrides": {
