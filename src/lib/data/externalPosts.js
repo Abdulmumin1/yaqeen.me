@@ -53,5 +53,13 @@ export const externalPosts = [
 		date: '2026-04-11',
 		url: 'https://owostack.com/blog/architecting-owostack-on-cloudflare',
 		categories: ['writing', 'owostack']
+	},
+
+	{
+		title: 'On the foolishness of "natural language programming"',
+		description: '',
+		date: '2026-05-14',
+		url: 'https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html',
+		categories: ['Dijkstra']
 	}
 ];
