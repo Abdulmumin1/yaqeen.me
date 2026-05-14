@@ -29,12 +29,15 @@
 
 <div class="flex flex-col gap-1 py-3 group w-full">
 	<div class="flex items-baseline gap-2 justify-between">
-		<h3 class="text-sm font-bold text-primary">
-			<a
-				href={details.links?.page ? `https://${details.links?.page}` : details.links?.study}
-				target="_blank">{details.name}</a
-			>
-		</h3>
+		<div class="flex items-baseline gap-2">
+			<h3 class="text-sm font-bold text-primary">
+				<a
+					href={details.links?.page ? `https://${details.links?.page}` : details.links?.study}
+					target="_blank">{details.name}</a
+				>
+			</h3>
+			<!-- {#if details.year}<span class="text-[9px] font-mono text-text-muted">{details.year}</span>{/if} -->
+		</div>
 		<div class="flex gap-3 text-[9px] font-mono text-text-muted">
 			{#if details.links.page}
 				<a

@@ -22,9 +22,11 @@ export function getCurrentProjectInModal() {
 export const sass_projects = readable([
 	{
 		name: 'Owostack',
+		year: '2026',
 		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
 		description: 'Provider agnostic billing infrastructure for AI saas',
 		links: {
+			study: 'https://github.com/Abdulmumin1/owostack',
 			page: 'owostack.com'
 		},
 		color: 'bg-sky-400',
@@ -41,6 +43,7 @@ export const sass_projects = readable([
 	},
 	{
 		name: 'Thirdpen',
+		year: '2025',
 		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
 		description: 'Interactive learning with AI',
 		links: {
@@ -60,9 +63,11 @@ export const sass_projects = readable([
 	},
 	{
 		name: 'Littlestats',
+		year: '2026',
 		stack: ['Sveltekit', 'Clickhouse', 'Pocketbase', 'AWS'],
 		description: 'Data to make good business decisions',
 		links: {
+			study: 'https://github.com/Abdulmumin1/littlestats',
 			page: 'Littlestats.click'
 		},
 		color: 'bg-sky-400',
@@ -78,6 +83,7 @@ export const sass_projects = readable([
 	},
 	{
 		name: 'DevCanvas',
+		year: '2023',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'Build anything you want with AI!',
 		links: {
@@ -100,6 +106,7 @@ export const sass_projects = readable([
 	},
 	{
 		name: 'CommentRig',
+		year: '2024',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'A modern comment management for blogs and websites',
 		links: {
@@ -119,7 +126,22 @@ export const sass_projects = readable([
 ]);
 export const project_data = readable([
 	{
+		name: 'Chump',
+		year: '2026',
+		stack: ['TypeScript', 'Svelte', 'Python', 'Websockets'],
+		description:
+			'CLI coding agent with first-class support for collaborative coding. Web, CLI, and mobile clients.',
+		links: {
+			study: 'https://github.com/Abdulmumin1/chump',
+			page: 'chump.yaqeen.me'
+		},
+		imagelist: [
+			'https://mac-file.yaqeen.me/5CE35DDF-b127847a9978f074f3760f4428c4fc8814df8e7c1ff52452c614a03616435d84.png'
+		]
+	},
+	{
 		name: 'ai-query.dev',
+		year: '2026',
 		stack: ['python', 'ai-http', 'websockets'],
 		description: 'A python sdk for building stateful AI Agents',
 		links: {
@@ -136,6 +158,7 @@ export const project_data = readable([
 	},
 	{
 		name: 'onlocal.dev',
+		year: '2025',
 		stack: ['bunjs', 'cloudflare', 'websockets'],
 		description: 'A tunnel server to expose your localhost to the internet. My take on ngrok.',
 		links: {
@@ -151,6 +174,7 @@ export const project_data = readable([
 
 	{
 		name: 'LMFetch',
+		year: '2025',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
 		description:
 			"a tool (cli,mcp) that fetches, chunks, supports local codebase and GitHub repo, takes a query, ranks code context. It's designed to fit the most relevant code into a token budget",
@@ -165,6 +189,7 @@ export const project_data = readable([
 
 	{
 		name: 'Cull',
+		year: '2026',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
 		description:
 			'Uses Project Think harness and virtual file system cloudflare/shell to triage your docs/codebase and answer questions',
@@ -176,6 +201,7 @@ export const project_data = readable([
 
 	{
 		name: 'DrShare',
+		year: '2026',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'Local-first LAN drop lane for Mac, browser, and mobile clients',
 		links: {
@@ -189,6 +215,7 @@ export const project_data = readable([
 
 	{
 		name: 'tiny.auth',
+		year: '2025',
 		stack: ['bunjs', 'ink', 'hash-algorithm'],
 		description: 'A TOTP client for the CLI',
 		links: {
@@ -202,6 +229,8 @@ export const project_data = readable([
 
 	{
 		name: 'Dear Future self',
+		year: '2025',
+		
 		stack: ['Svelte', 'Tailwind'],
 		description: 'A portal to visit your future self',
 		links: {
@@ -214,6 +243,8 @@ export const project_data = readable([
 	},
 	{
 		name: 'Yochat',
+		year: '2025',
+		
 		stack: ['Svelte', 'Tailwind'],
 		description:
 			'Your fastest way to an llm - a cli tool that lets you chat with an llm at the speed of executing terminal commands',
@@ -228,11 +259,13 @@ export const project_data = readable([
 	},
 	{
 		name: 'kbar-svelte-mini',
+		year: '2024',
+		
 		stack: ['svelte'],
 		description: 'A port of react kbar for svelte. hit cmd+k on this website to see it in action',
 		image: '$lib/static/images/edit.jpg',
 		links: {
-			study: 'https://github.com/Abdulmumin1/edit',
+			study: 'https://github.com/Abdulmumin1/kbar-svelte-mini',
 			page: 'kbar.yaqeen.me'
 		},
 		color: 'bg-white',
@@ -248,6 +281,8 @@ export const project_data = readable([
 	},
 	{
 		name: 'Habitud',
+		year: '2023',
+		
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'Habit tracking app with passkeys integration',
 		links: {
@@ -264,6 +299,8 @@ export const project_data = readable([
 
 	{
 		name: 'Liseen',
+		year: '2024',
+		
 		stack: ['Svelte', 'Tailwind'],
 		description: 'Listen to youtube videos as audio',
 		links: {
@@ -280,6 +317,8 @@ export const project_data = readable([
 
 	{
 		name: 'Drop',
+		year: '2023',
+		
 		stack: ['Qt', 'Flask', 'HTML', 'Socket', 'CSS2'],
 		description:
 			'A fast and secure desktop app that allows you to share files across multiple devices',
@@ -297,11 +336,12 @@ export const project_data = readable([
 	},
 	{
 		name: 'Edit',
+		year: '2022',
 		stack: ['Vanillajs', 'TailwindCSS', 'HTML'],
 		description: 'A Progressive Wep App to edit and frame screenshots beautifully',
 		image: '$lib/static/images/edit.jpg',
 		links: {
-			study: 'https://github.com/Abdulmumin1/edit',
+			study: 'https://github.com/Abdulmumin1/kbar-svelte-mini',
 			page: 'editss.yaqeen.me'
 		},
 		color: 'bg-white',
@@ -312,10 +352,12 @@ export const project_data = readable([
 	},
 	{
 		name: 'BrainTime',
+		year: '2022',
+		
 		stack: ['Python', 'CSS2', 'PyQt5'],
 		description: 'Excell in you thinking ability with curated brain exercises',
 		links: {
-			study: '',
+			study: 'https://github.com/Abdulmumin1/braintime',
 			page: '/braintime'
 		},
 		onpage: true,
@@ -334,6 +376,7 @@ export const project_data = readable([
 export const project_data_main = readable([
 	{
 		name: 'DevCanvas',
+		year: '2023',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'Online Code Editor, to paint, build and share cool html/css/js creations',
 		links: {
@@ -344,6 +387,8 @@ export const project_data_main = readable([
 	},
 	{
 		name: 'Habitud',
+		year: '2023',
+		
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'Habit tracking app with passkeys integration',
 		links: {
@@ -355,6 +400,8 @@ export const project_data_main = readable([
 
 	{
 		name: 'Drop',
+		year: '2023',
+		
 		stack: ['Qt', 'Flask', 'HTML', 'Socket'],
 		description:
 			'A fast and secure desktop app that allows you to share files across multiple devices',
@@ -366,49 +413,57 @@ export const project_data_main = readable([
 	},
 	{
 		name: 'Edit',
+		year: '2022',
 		stack: ['Vanillajs', 'TailwindCSS', 'HTML'],
 		description: 'A Progressive Wep App to edit and frame screenshots beautifully',
 		image: '$lib/static/images/edit.jpg',
 		links: {
-			study: 'https://github.com/Abdulmumin1/edit',
+			study: 'https://github.com/Abdulmumin1/kbar-svelte-mini',
 			page: 'https://editss.yaqeen.me'
 		},
 		color: 'bg-white'
 	},
 	{
 		name: 'TCP Chat 2',
+		year: '2022',
+		
 		stack: ['Python', 'PyQT5', 'SQLite3', 'HTML', 'CSS'],
 		description:
 			'An extenstion of the commandline tcp chat, with desktop interface, notifications and markdown messages! ',
 		links: {
-			study: '',
+			study: 'https://github.com/Abdulmumin1/ChatDesktopApp',
 			page: 'https://github.com/Abdulmumin1/ChatDesktopApp'
 		}
 	},
 	{
 		name: 'Braintime',
+		year: '2022',
+		
 		stack: ['Python', 'CSS3', 'PyQt5'],
 		description: 'Excell in you thinking ability with curated brain exercises',
 		links: {
-			study: '',
+			study: 'https://github.com/Abdulmumin1/BrainTime',
 			page: '/braintime'
 		}
 	},
 	{
 		name: 'Data Prison (Mobile)',
+		year: '2022',
+		
 		stack: ['Python', 'Kivy', 'KivyMD', 'SQLite3'],
 		description: 'A secure mobile app to save passowrds built with python kivymd and sqlite3',
 		links: {
-			study: '',
+			study: 'https://github.com/Abdulmumin1/DataPrison-mobile-',
 			page: 'https://github.com/Abdulmumin1/DataPrison-mobile-'
 		}
 	},
 	{
 		name: 'Data Prison (Desktop)',
+		year: '2021',
 		stack: ['Python', 'PyQT5', 'SQLite3'],
 		description: 'A secure desktop app to save passowrds built with python pyqt5 and sqlite3.',
 		links: {
-			study: '',
+			study: 'https://github.com/Abdulmumin1/dataprison/',
 			page: 'https://github.com/Abdulmumin1/dataprison/'
 		}
 	}

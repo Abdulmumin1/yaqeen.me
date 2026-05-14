@@ -1,3 +1,4 @@
 import { writable } from 'svelte/store';
 
-export const darkMode = writable(false);
+const isDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
+export const darkMode = writable(isDark);
