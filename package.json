@@ -12,7 +12,6 @@
 		"net": "vite --host"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-cloudflare": "^4.0.0",
 		"@sveltejs/kit": "^2.55.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.4",
 		"@tailwindcss/vite": "^4.2.1",
@@ -29,11 +28,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@commentrig/core": "^0.1.1",
-		"@commentrig/svelte": "^0.1.2",
 		"@fortawesome/free-brands-svg-icons": "^6.7.2",
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
-		"@rivetkit/cloudflare-workers": "^2.1.6",
 		"@sveltejs/adapter-cloudflare": "^7.2.8",
 		"gray-matter": "^4.0.3",
 		"h-to-md": "^0.0.1",
@@ -41,10 +37,15 @@
 		"mdsvex": "^0.11.2",
 		"node-html-parser": "^6.1.13",
 		"perfect-freehand": "^1.2.3",
-		"quill": "^2.0.3",
 		"rivetkit": "^2.1.6",
 		"shiki": "^0.14.7",
-		"svelte-fa": "^3.0.4",
-		"unist-util-visit": "^5.1.0"
+		"svelte-fa": "^3.0.4"
+	},
+	"pnpm": {
+		"overrides": {
+			"cookie": ">=0.7.0",
+			"hono": ">=4.12.18",
+			"wrangler": ">=4.59.1"
+		}
 	}
 }
