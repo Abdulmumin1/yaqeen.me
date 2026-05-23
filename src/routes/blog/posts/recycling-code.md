@@ -1,11 +1,11 @@
 ---
 title: 'recycling code'
 
-description: "dksdfm"
+description: "what is really cool is that i get to use most of what i build in other stuff i build"
 
-date: '2026-05-8'
+date: '2026-05-23'
 
-lastmod: '2026-05-8'
+lastmod: '2026-05-23'
 
 categories:
  - ai-query
