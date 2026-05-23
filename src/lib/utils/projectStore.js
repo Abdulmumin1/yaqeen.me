@@ -105,12 +105,12 @@ export const sass_projects = readable([
 		]
 	},
 	{
-		name: 'CommentRig',
+		name: 'CommentRig  (inactive)',
 		year: '2024',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description: 'A modern comment management for blogs and websites',
+		description: 'A modern comment system for blogs and websites',
 		links: {
-			page: 'commentrig'
+			page: 'commentrig.com'
 		},
 		color: 'bg-sky-400',
 		svg: '/commentrig.svg',
@@ -186,7 +186,20 @@ export const project_data = readable([
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.50.15.png'
 		]
 	},
+	{
+		name: 'Dear Future self',
+		year: '2025',
 
+		stack: ['Svelte', 'Tailwind'],
+		description: 'A portal to visit your future self',
+		links: {
+			page: 'dearfutureself.me'
+		},
+		imagelist: [
+			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.41.47.png',
+			'https://rawcontent.dearfutureself.me/portfolio/annotely_image%20(1).jpeg'
+		]
+	},
 	{
 		name: 'Cull',
 		year: '2026',
@@ -195,6 +208,29 @@ export const project_data = readable([
 			'Uses Project Think harness and virtual file system cloudflare/shell to triage your docs/codebase and answer questions',
 		links: {
 			study: 'https://github.com/Abdulmumin1/cull'
+		},
+		imagelist: []
+	},
+
+	{
+		name: 'py-fs-shell',
+		year: '2026',
+		stack: ['Python', 'Virtual File System'],
+		description:
+			'A virtual file system for Python - interact with a simulated shell environment programmatically',
+		links: {
+			study: 'https://github.com/Abdulmumin1/py-fs-shell'
+		},
+		imagelist: []
+	},
+
+	{
+		name: 'h-to-md',
+		year: '2026',
+		stack: ['JavaScript', 'HTML'],
+		description: 'Super fast HTML to markdown converter',
+		links: {
+			study: 'https://github.com/Abdulmumin1/h-to-md'
 		},
 		imagelist: []
 	},
@@ -228,23 +264,33 @@ export const project_data = readable([
 	},
 
 	{
-		name: 'Dear Future self',
+		name: 'tiny.search',
 		year: '2025',
-		
-		stack: ['Svelte', 'Tailwind'],
-		description: 'A portal to visit your future self',
+		stack: ['TypeScript', 'Vector Embeddings'],
+		description:
+			'A minimal search engine using vector embeddings for semantic search over crawled web pages',
 		links: {
-			page: 'dearfutureself.me'
+			study: 'https://github.com/Abdulmumin1/tiny.search'
 		},
-		imagelist: [
-			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.41.47.png',
-			'https://rawcontent.dearfutureself.me/portfolio/annotely_image%20(1).jpeg'
-		]
+		imagelist: []
 	},
+
+	{
+		name: 'Cfinbox',
+		year: '2025',
+		stack: ['Cloudflare', 'Email'],
+		description:
+			'A full-stack email solution running entirely on Cloudflare. Receive inbox emails, send transactional emails, manage contacts, and run newsletter campaigns',
+		links: {
+			study: 'https://github.com/Abdulmumin1/cfinbox'
+		},
+		imagelist: []
+	},
+
 	{
 		name: 'Yochat',
 		year: '2025',
-		
+
 		stack: ['Svelte', 'Tailwind'],
 		description:
 			'Your fastest way to an llm - a cli tool that lets you chat with an llm at the speed of executing terminal commands',
@@ -260,7 +306,7 @@ export const project_data = readable([
 	{
 		name: 'kbar-svelte-mini',
 		year: '2024',
-		
+
 		stack: ['svelte'],
 		description: 'A port of react kbar for svelte. hit cmd+k on this website to see it in action',
 		image: '$lib/static/images/edit.jpg',
@@ -282,7 +328,7 @@ export const project_data = readable([
 	{
 		name: 'Habitud',
 		year: '2023',
-		
+
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'Habit tracking app with passkeys integration',
 		links: {
@@ -300,7 +346,7 @@ export const project_data = readable([
 	{
 		name: 'Liseen',
 		year: '2024',
-		
+
 		stack: ['Svelte', 'Tailwind'],
 		description: 'Listen to youtube videos as audio',
 		links: {
@@ -318,7 +364,7 @@ export const project_data = readable([
 	{
 		name: 'Drop',
 		year: '2023',
-		
+
 		stack: ['Qt', 'Flask', 'HTML', 'Socket', 'CSS2'],
 		description:
 			'A fast and secure desktop app that allows you to share files across multiple devices',
@@ -353,7 +399,7 @@ export const project_data = readable([
 	{
 		name: 'BrainTime',
 		year: '2022',
-		
+
 		stack: ['Python', 'CSS2', 'PyQt5'],
 		description: 'Excell in you thinking ability with curated brain exercises',
 		links: {
@@ -370,6 +416,26 @@ export const project_data = readable([
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331682/Screenshot_from_2024-09-26_07-17-42_biiqxb.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727331980/Screenshot_from_2024-09-26_07-25-39_vbxjrq.png'
 		]
+	},
+	{
+		name: 'Quix',
+		year: '2022',
+		stack: ['Python', 'PyQt5'],
+		description: 'An open source trivia quiz game',
+		links: {
+			study: 'https://github.com/Abdulmumin1/Quix'
+		},
+		imagelist: []
+	},
+	{
+		name: 'Status-Saver',
+		year: '2022',
+		stack: ['Flutter', 'Dart'],
+		description: 'Mobile app that saves viewed WhatsApp status media to your local storage',
+		links: {
+			study: 'https://github.com/Abdulmumin1/Status-Saver'
+		},
+		imagelist: []
 	}
 ]);
 
@@ -388,7 +454,7 @@ export const project_data_main = readable([
 	{
 		name: 'Habitud',
 		year: '2023',
-		
+
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'Habit tracking app with passkeys integration',
 		links: {
@@ -401,7 +467,7 @@ export const project_data_main = readable([
 	{
 		name: 'Drop',
 		year: '2023',
-		
+
 		stack: ['Qt', 'Flask', 'HTML', 'Socket'],
 		description:
 			'A fast and secure desktop app that allows you to share files across multiple devices',
@@ -426,7 +492,7 @@ export const project_data_main = readable([
 	{
 		name: 'TCP Chat 2',
 		year: '2022',
-		
+
 		stack: ['Python', 'PyQT5', 'SQLite3', 'HTML', 'CSS'],
 		description:
 			'An extenstion of the commandline tcp chat, with desktop interface, notifications and markdown messages! ',
@@ -438,7 +504,7 @@ export const project_data_main = readable([
 	{
 		name: 'Braintime',
 		year: '2022',
-		
+
 		stack: ['Python', 'CSS3', 'PyQt5'],
 		description: 'Excell in you thinking ability with curated brain exercises',
 		links: {
@@ -449,7 +515,7 @@ export const project_data_main = readable([
 	{
 		name: 'Data Prison (Mobile)',
 		year: '2022',
-		
+
 		stack: ['Python', 'Kivy', 'KivyMD', 'SQLite3'],
 		description: 'A secure mobile app to save passowrds built with python kivymd and sqlite3',
 		links: {
