@@ -16,9 +16,9 @@ published: true
 
 ![](https://mac-file.yaqeen.me/C6EE990F-Sam%20Lambert%20F3.png)
 
-the word taste is starting to sound weird now.
+the word taste is already weird now.
 
-before all this, taste was quieter. you didn’t really claim it. people just noticed.
+taste was quieter. you didn’t really claim it. people just noticed.
 
 someone would make something and it would just feel right. a product, a song, a tiny library, a paragraph, even the way a room was arranged. nothing was trying too hard. it just had a point of view.
 
