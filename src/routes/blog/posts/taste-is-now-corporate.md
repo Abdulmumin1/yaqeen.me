@@ -16,7 +16,7 @@ published: true
 
 ![](https://mac-file.yaqeen.me/C6EE990F-Sam%20Lambert%20F3.png)
 
-the word taste is already weird now.
+the word **taste** is already weird now.
 
 taste was quieter. you didn’t really claim it. people just noticed.
 
