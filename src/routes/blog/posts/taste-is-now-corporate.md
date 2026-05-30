@@ -26,9 +26,7 @@ and you would be like, yeah, this person has taste.
 
 and it actually not because they said they did... mostly because they didn’t.
 
-but now the corporate people found it.
-
-and they can’t just leave it alone. they have to put it in a pitch deck. they have to make it a hiring filter. they have to turn it into a thread.
+but now the corporate people found it. and they can’t just leave it alone. 
 
 so now every vc is talking about how taste is the moat. every startup wants engineers with taste. "code is dead and taste is what is left"
 
