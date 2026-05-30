@@ -62,8 +62,6 @@ taste used to mean you had a point of view, you can feel something in it, a hunc
 
 and maybe that is why the ai part makes it worse. because ai is very good at surfaces. it can give you the shape of a good sentence, the shape of a nice website, the shape of a smart idea, the shape of useful code, the shape of a brand. it can make something that looks like the kind of thing a person with taste would make.
 
-you usually do not need to keep saying the word. you just make better choices. small ones. boring ones. bold ones. maybe taste is not a process. maybe it is just care plus memory. you have seen enough good things, bad things, almost-good things, and soulless things that your body starts reacting before your brain has the sentence ready.
-
 it is hard to fake.
 
 i don’t know what that word is now.
