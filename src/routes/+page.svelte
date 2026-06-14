@@ -3,14 +3,13 @@
 	import Seo from '../components/general/seo.svelte';
 	import Hero from '../components/home/hero.svelte';
 	import ProSection from '../components/projects/proSection.svelte';
-	import { fly, scale, slide, draw } from 'svelte/transition';
 	import {
-		authorName,
-		authorUrl,
-		defaultSocialImage,
-		description as siteDescription,
 		siteName,
 		siteOrigin,
+		description,
+		defaultSocialImage,
+		authorName,
+		authorUrl,
 		socialProfiles
 	} from '$lib/js/config.js';
 
@@ -20,7 +19,7 @@
 			'@type': 'WebSite',
 			name: siteName,
 			url: siteOrigin,
-			description: siteDescription
+			description
 		},
 		{
 			'@context': 'https://schema.org',
@@ -35,19 +34,18 @@
 <svelte:head>
 	<Seo
 		title="Abdulmumin Yaqeen"
-		description="A creative, curiosity-driven developer, writer, and builder of internet things."
+		description="A creative developer and writer."
 		canonical={siteOrigin}
 		image={defaultSocialImage}
 	/>
 	<svelte:element this={'script'} type="application/ld+json">{homeSchema}</svelte:element>
 </svelte:head>
 
-<div class="md:p-8 flex flex-col items-center min-h-screen">
-	<div class="flex flex-col w-full max-w-2xl">
-		<Hero />
-		<div class="mt-4 px-6">
-			<ProSection />
-			<BlogSection />
-		</div>
+<div class="py-12 md:py-24 max-w-2xl mx-auto px-6">
+	<Hero />
+	
+	<div class="mt-16 space-y-20">
+		<ProSection />
+		<BlogSection />
 	</div>
 </div>

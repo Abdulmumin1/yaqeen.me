@@ -1,71 +1,33 @@
 <script>
-	import { scale } from 'svelte/transition';
-	import { getModalContext, getCurrentProjectInModal } from '$lib/utils/projectStore';
-
-	import {
-		faArrowRightLong,
-		faExpand,
-		faExpandAlt,
-		faExternalLink,
-		faExternalLinkAlt
-	} from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
-	import { faGithub } from '@fortawesome/free-brands-svg-icons';
-	import { onDestroy } from 'svelte';
 	let { details } = $props();
-
-	let modalContext = getModalContext();
-	let currentProject = getCurrentProjectInModal();
-
-	function openModal() {
-		$currentProject = details;
-		$modalContext = true;
-	}
-
-	onDestroy(() => {
-		$modalContext = false;
-	});
 </script>
 
-<div class="flex flex-col gap-1 py-3 group w-full">
-	<div class="flex items-baseline gap-2 justify-between">
-		<div class="flex items-baseline gap-2">
-			<h3 class="text-sm font-bold text-primary">
-				<a
-					href={details.links?.page ? `https://${details.links?.page}` : details.links?.study}
-					target="_blank">{details.name}</a
-				>
-			</h3>
-			<!-- {#if details.year}<span class="text-[9px] font-mono text-text-muted">{details.year}</span>{/if} -->
-		</div>
-		<div class="flex gap-3 text-[9px] font-mono text-text-muted">
-			{#if details.links.page}
-				<a
-					href="https://{details.links.page}"
-					target="_blank"
-					class="hover:text-text-main transition-colors uppercase"
-				>
-					visit
-				</a>
-			{/if}
-			{#if details.links.study}
-				<a
-					href={details.links.study}
-					target="_blank"
-					class="hover:text-text-main transition-colors uppercase"
-				>
-					github
-				</a>
-			{/if}
-		</div>
+<div class="relative py-6 group">
+	<!-- Year in gutter -->
+	<div class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-stone-400 md:text-right italic mb-1 md:mb-0">
+		{details.year || ''}
 	</div>
-	<p class="text-xs text-text-muted leading-relaxed max-w-xl">
-		{details.description}
-	</p>
-</div>
 
-<style>
-	.animate-h {
-		transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-	}
-</style>
+	<div class="flex flex-col gap-2">
+		<div class="flex items-baseline gap-3">
+			<h3 class="text-xl font-serif text-stone-900 group-hover:text-accent transition-colors">
+				{details.name}
+			</h3>
+			<div class="flex gap-3 text-[10px] font-mono text-accent/60 uppercase tracking-widest">
+				{#if details.links?.page}
+					<a href="https://{details.links.page}" target="_blank" class="hover:text-accent transition-colors">
+						visit
+					</a>
+				{/if}
+				{#if details.links?.study}
+					<a href={details.links.study} target="_blank" class="hover:text-accent transition-colors">
+						github
+					</a>
+				{/if}
+			</div>
+		</div>
+		<p class="text-base font-visby text-stone-600 leading-relaxed max-w-lg">
+			{details.description}
+		</p>
+	</div>
+</div>

@@ -46,11 +46,11 @@
 	{/if}
 </svelte:head>
 
-<section class="max-w-2xl mx-auto px-6 py-8">
+<section class="max-w-2xl mx-auto px-6 py-12 md:py-24">
 	<div class="flex flex-col">
 		{#if pinnedPosts.length}
-			<div class="flex flex-col gap-3">
-				<p class="text-[7px] font-mono uppercase tracking-[0.3em] text-text-muted">pinned</p>
+			<div class="flex flex-col gap-1">
+				<p class="text-3xl font-serif text-stone-900 border-b border-stone-200 pb-2 w-fit pr-8 mb-2">Pinned</p>
 				<div class="flex flex-col">
 					{#each pinnedPosts as post (post.slug)}
 						<BlogCard details={post} />
@@ -60,7 +60,7 @@
 		{/if}
 
 		{#if latest}
-			<p class="text-[7px] mt-2 font-mono uppercase tracking-[0.3em] text-text-muted">latest</p>
+			<p class="text-3xl font-serif text-stone-900 border-b border-stone-200 pb-2 w-fit pr-8 mt-8 mb-2">Latest</p>
 			<div class="flex flex-col">
 				<BlogCard details={latest} latest={true} />
 			</div>
@@ -81,20 +81,20 @@
 				{#if currentPage > 1}
 					<button
 						onclick={() => loadPage(currentPage - 1)}
-						class="text-xs text-text-muted hover:text-text-main transition-colors flex items-center gap-1"
+						class="text-sm text-stone-500 hover:text-accent transition-colors flex items-center gap-1"
 					>
 						<Fa icon={faAngleLeft} /> prev
 					</button>
 				{:else}
 					<span></span>
 				{/if}
-				<span class="text-[10px] font-mono text-text-muted"
+				<span class="text-sm font-serif text-stone-400"
 					>{currentPage} / {activeData.totalPages}</span
 				>
 				{#if currentPage < activeData.totalPages}
 					<button
 						onclick={() => loadPage(currentPage + 1)}
-						class="text-xs text-text-muted hover:text-text-main transition-colors flex items-center gap-1"
+						class="text-sm text-stone-500 hover:text-accent transition-colors flex items-center gap-1"
 					>
 						next <Fa icon={faAngleRight} />
 					</button>

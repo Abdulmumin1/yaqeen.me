@@ -16,10 +16,13 @@
 	--color-text-main: var(--color-black);
 	--color-text-muted: var(--color-stone-600);
 
+	--color-accent: #f9411f;
+
 	/* Typography */
-	--font-visby: 'DM sans', 'roboto', ui-sans-serif, system-ui;
-	--font-visby-mid: 'DM sans', 'roboto', ui-sans-serif, system-ui;
-	--font-visby-bold: 'DM sans', 'roboto', ui-sans-serif, system-ui;
+	--font-visby: 'Inter Variable', 'Inter', system-ui, sans-serif;
+	--font-visby-mid: 'Inter Variable', 'Inter', system-ui, sans-serif;
+	--font-visby-bold: 'Inter Variable', 'Inter', system-ui, sans-serif;
+	--font-serif: 'Instrument Serif', serif;
 
 	/* Spacing & Borders */
 	--radius-xl: 0.75rem;
@@ -91,7 +94,7 @@
 
 	body {
 		background-color: var(--color-surface);
-		color: var(--color-text-main);
+		font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
 		@apply antialiased;
 		overflow-x: hidden;
 	}
@@ -157,27 +160,27 @@
 
 	.article h1,
 	.markdown-content h1 {
-		@apply text-3xl font-bold leading-tight pt-6 pb-2;
+		@apply text-4xl font-serif leading-tight pt-6 pb-2;
 	}
 
 	.article h2,
 	.markdown-content h2 {
-		@apply text-2xl font-bold leading-tight pt-5 pb-2 capitalize;
+		@apply text-3xl font-serif leading-tight pt-5 pb-2 capitalize;
 	}
 
 	.article h3,
 	.markdown-content h3 {
-		@apply text-xl font-bold leading-snug pt-4 pb-1;
+		@apply text-2xl font-serif leading-snug pt-4 pb-1;
 	}
 
 	.article h4,
 	.markdown-content h4 {
-		@apply text-lg font-bold leading-snug pt-3;
+		@apply text-xl font-serif leading-snug pt-3;
 	}
 
 	.article p,
 	.markdown-content p {
-		@apply leading-relaxed;
+		@apply leading-relaxed text-lg;
 	}
 
 	.article pre,

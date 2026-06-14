@@ -2,40 +2,48 @@
 	import { resolve } from '$app/paths';
 	import Fa from 'svelte-fa';
 	import { faThumbTack } from '@fortawesome/free-solid-svg-icons';
-	import { formatDate } from '$lib/js/utils.js';
 
 	let { title, link, date, visual, external = false, slug, pinned = false } = $props();
+
+	function formatDisplayDate(dateStr) {
+		const d = new Date(dateStr);
+		const month = d.toLocaleString('default', { month: 'short' });
+		const year = d.getFullYear().toString().slice(-2);
+		return `${month} '${year}`;
+	}
 </script>
 
-<div class="flex flex-col gap-1 py-3 group w-full relative">
+<div class="relative py-4 group">
+	<!-- Date positioned in the gutter for md+ screens -->
+	<div class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-stone-400 md:text-right italic mb-1 md:mb-0">
+		{formatDisplayDate(date)}
+	</div>
+
 	{#if pinned}
-		<div class="shrink-0 absolute -top-1 left-0.5 text-text-muted/50" aria-hidden="true">
-			<Fa icon={faThumbTack} class="size-1.5 rotate-25" />
+		<div class="absolute -left-5 md:-left-[8.5rem] top-0.5 text-accent/30" aria-hidden="true">
+			<Fa icon={faThumbTack} class="size-2.5 rotate-25" />
 		</div>
 		<span class="sr-only">Pinned post</span>
 	{/if}
-	<div class="flex items-baseline gap-2 justify-between">
+
+	<div class="flex flex-col">
 		{#if external}
-			<button
-				type="button"
-				onclick={() => window.open(link, '_blank', 'noopener,noreferrer')}
-				class="text-left text-sm font-bold text-primary hover:underline underline-offset-2 transition-all"
+			<a
+				href={link}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-xl font-serif text-stone-900 hover:text-accent decoration-stone-200 underline-offset-4 hover:decoration-accent transition-all"
 			>
 				{title}
-				<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] text-text-muted/40"
-					>ext</span
-				>
-			</button>
+				<span class="ml-1 text-[10px] font-mono italic text-accent opacity-60">external</span>
+			</a>
 		{:else}
 			<a
 				href={resolve('/blog/[slug]', { slug })}
-				class="text-sm font-bold text-primary hover:underline underline-offset-2 transition-all"
+				class="text-xl font-serif text-stone-900 hover:text-accent decoration-stone-200 underline-offset-4 hover:decoration-accent transition-all"
 			>
 				{title}
 			</a>
 		{/if}
-		<p class="text-[9px] font-mono text-text-muted whitespace-nowrap ml-4">
-			{formatDate(date)}
-		</p>
 	</div>
 </div>

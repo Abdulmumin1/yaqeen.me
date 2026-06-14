@@ -2,12 +2,11 @@
 	import { resolve } from '$app/paths';
 	import Fa from 'svelte-fa';
 	import { faThumbTack } from '@fortawesome/free-solid-svg-icons';
-	import { formatDate } from '$lib/js/utils.js';
 
 	/**
 	 * @typedef {Object} Props
 	 * @property {any} details
-	 * @property {any} latest
+	 * @property {any} [latest]
 	 */
 
 	/** @type {Props} */
@@ -15,72 +14,48 @@
 
 	let isExternal = $derived(Boolean(details?.isExternal));
 	let isPinned = $derived(Boolean(details?.pinned));
+
+	function formatDisplayDate(dateStr) {
+		const d = new Date(dateStr);
+		const month = d.toLocaleString('default', { month: 'short' });
+		const year = d.getFullYear().toString().slice(-2);
+		return `${month} '${year}`;
+	}
 </script>
 
-{#if latest}
-	<div class="flex flex-col gap-1 py-4 group w-full cursor-pointer">
-		<div class="flex items-baseline gap-2 justify-between">
-			{#if isExternal}
-				<button
-					type="button"
-					title={details.title}
-					onclick={() => window.open(details.href, '_blank', 'noopener,noreferrer')}
-					class="text-left text-sm font-bold text-primary hover:opacity-60 transition-opacity font-semibold"
-				>
-					{details.title}
-					<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] text-text-muted"
-						>external</span
-					>
-				</button>
-			{:else}
-				<a
-					href={resolve('/blog/[slug]', { slug: details.slug })}
-					title={details.title}
-					class="text-sm font-bold text-primary hover:opacity-60 transition-opacity"
-				>
-					{details.title}
-				</a>
-			{/if}
-			<p class="text-[10px] font-mono text-text-muted whitespace-nowrap ml-4">
-				{formatDate(details.date)}
-			</p>
-		</div>
+<div class="relative py-4 group">
+	<!-- Date in gutter on md+ -->
+	<div
+		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-stone-400 md:text-right italic mb-1 md:mb-0"
+	>
+		{formatDisplayDate(details.date)}
 	</div>
-{:else}
-	<div class="relative">
-		{#if isPinned}
-			<div class="shrink-0 absolute -top-1 left-0.5 text-text-muted/50" aria-hidden="true">
-				<Fa icon={faThumbTack} class="size-1.5 rotate-25" />
-			</div>
-			<span class="sr-only">Pinned post</span>
+
+	{#if isPinned}
+		<div class="absolute -left-5 md:-left-[8.5rem] top-0.5 text-accent/30" aria-hidden="true">
+			<Fa icon={faThumbTack} class="size-2.5 rotate-25" />
+		</div>
+		<span class="sr-only">Pinned post</span>
+	{/if}
+
+	<div class="flex flex-col">
+		{#if isExternal}
+			<a
+				href={details.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-xl font-serif text-stone-900 hover:text-accent decoration-stone-200 underline-offset-4 hover:decoration-accent transition-all"
+			>
+				{details.title}
+				<span class="ml-1 text-[10px] font-mono italic text-accent opacity-60">external</span>
+			</a>
+		{:else}
+			<a
+				href={resolve('/blog/[slug]', { slug: details.slug })}
+				class="text-xl font-serif text-stone-900 hover:text-accent decoration-stone-200 underline-offset-4 hover:decoration-accent transition-all"
+			>
+				{details.title}
+			</a>
 		{/if}
-		<div class="flex flex-col gap-1 py-3 group w-full">
-			<div class="flex items-baseline gap-2 justify-between">
-				{#if isExternal}
-					<button
-						type="button"
-						title={details.title}
-						onclick={() => window.open(details.href, '_blank', 'noopener,noreferrer')}
-						class="text-left text-xs text-primary font-semibold hover:text-primary transition-colors"
-					>
-						{details.title}
-						<span class="ml-2 text-[9px] font-mono uppercase tracking-[0.2em] text-text-muted/40"
-							>ext</span
-						>
-					</button>
-				{:else}
-					<a
-						href={resolve('/blog/[slug]', { slug: details.slug })}
-						title={details.title}
-						class="text-xs font-semibold text-primary hover:text-primary transition-colors"
-					>
-						{details.title}
-					</a>
-				{/if}
-				<p class="text-[10px] font-mono text-text-muted whitespace-nowrap ml-4">
-					{formatDate(details.date)}
-				</p>
-			</div>
-		</div>
 	</div>
-{/if}
+</div>
