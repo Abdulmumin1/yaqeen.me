@@ -50,13 +50,13 @@ it not even a joke. actual skills. visual audit. typography craft. anti-slop. ta
 
 i get why. ai makes a lot of things that are technically fine and spiritually nothing. so people are trying to give the machine better defaults.
 
-but it is funny. **taste became the thing we were told would matter after execution got automated. then almost immediately people started trying to automate taste too**.
+but it is funny. <span data-highlight>taste became the thing we were told would matter after execution got automated. then almost immediately people started trying to automate taste too.</span>
 
 but that is not taste. that is just knowing what taste currently looks like online.
 
 there is a difference.
 
-and maybe this is what happens to every good word. first it belongs to people who actually need it. then the internet finds it. then companies find it. then it becomes a job requirement. after that, it is over.
+<span data-highlight>and maybe this is what happens to every good word. first it belongs to people who actually need it. then the internet finds it. then companies find it. then it becomes a job requirement. after that, it is over.</span>
 
 taste used to mean you had a point of view, you can feel something in it, a hunch, emotion maybe, it feel right maybe?. now it often means you know the current style or  you can recreate the surface of things that already worked.
 

@@ -27,11 +27,11 @@ then comes usage-based billing and the whole thing becomes even more annoying. b
 
 and it still does not stop there. retries, failed payments, dunning, invoice reconciliation, taxes, VAT by country, credits, discounts, custom plan shapes. every company eventually starts adding its own special little billing curse on top.
 
-that is why billing engines keep getting rebuilt over and over again. teams think they are adding "payments" but what they are really building is a money logic system for the whole product. and once the product starts changing, the billing shape starts mutating too.
+that is why billing engines keep getting rebuilt over and over again. <span data-highlight>teams think they are adding "payments" but what they are really building is a money logic system for the whole product.</span> and once the product starts changing, the billing shape starts mutating too.
 
 it is also partly why i keep experimenting with `owostack.com`. i am interested in this layer a lot these days, not because billing is fun by itself, but because every product keeps tripping over the same messy set of problems.
 
-i think that is the thing people miss the most. billing is not hard because of one giant algorithm. it is hard because of a hundred small decisions that keep compounding until the whole thing becomes a living creature.
+i think that is the thing people miss the most. <span data-highlight>billing is not hard because of one giant algorithm. it is hard because of a hundred small decisions that keep compounding.</span>
 
 really good read from Lago on this:
 

@@ -35,7 +35,7 @@ just convert the thing and move on
 
 some have been pushing a standard for agents to negotiate html pages as mardown instead when needed.. you know to save token. and they are right.
 
-markdown is cleaner,  it is easier to scan, and would not pollute content with uncessary headers, tags, and script files the agent don't need.
+<span data-highlight>markdown is cleaner, it is easier to scan, and would not pollute content with uncessary headers, tags, and script files the agent don't need.</span>
 
 cloudflare has a proxy that does this at edge, but only avail in pro domain teir.
 
@@ -56,9 +56,7 @@ import { htmlToMarkdownTurbo } from 'h-to-md';
 
 and that's the vibe.
 
-you give it html.
-
-it gives you markdown.
+<span data-highlight>you give it html. it gives you markdown.</span>
 
 
 also the benchmarks looks great:

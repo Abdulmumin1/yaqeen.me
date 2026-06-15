@@ -19,6 +19,20 @@ import { mdsvex } from 'mdsvex';
 // 	}
 // };
 
+const inlineHtmlParagraphs = {
+	name: 'inline-html-paragraphs',
+	markup({ content, filename }) {
+		if (!filename?.endsWith('.md')) return;
+
+		return {
+			code: content.replace(
+				/^(?=<(?:span|mark|small|strong|em|b|i|u|s)(?:\s|>))/gim,
+				'&#8203;'
+			)
+		};
+	}
+};
+
 const config = {
 	kit: {
 		adapter: adapter({
@@ -29,7 +43,7 @@ const config = {
 		}
 	},
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
+	preprocess: [vitePreprocess(), inlineHtmlParagraphs, mdsvex(mdsvexConfig)],
 	// Enable incremental builds
 	inlineEntryPoints: false
 };

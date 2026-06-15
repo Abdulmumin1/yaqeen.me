@@ -30,16 +30,11 @@
 	}
 </script>
 
-<div class="py-20 border-t border-border/10 mt-20 relative overflow-hidden">
+<div class=" border-t border-border/10 relative overflow-hidden">
 	<!-- Background Ornament -->
-	<div
-		class="absolute -right-20 -top-20 text-[200px] font-serif italic opacity-[0.03] pointer-events-none select-none"
-	>
-		A2
-	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-start">
-		<div class="sticky top-24">
+		<div class="">
 			<h3 class="text-4xl font-serif text-text-main leading-none italic mb-4">Built by me.</h3>
 		</div>
 

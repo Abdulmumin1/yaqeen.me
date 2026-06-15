@@ -16,7 +16,7 @@ published: true
 
 We're launching thirdpen v.2
 
-"if you can discover things, you're on your way to being an independent thinker" When you're an independent thinker, you're not just a container for facts, but a curious explorer of ideas.
+<span data-highlight>"if you can discover things, you're on your way to being an independent thinker"</span> When you're an independent thinker, you're not just a container for facts, but a curious explorer of ideas.
 
 Go discover - [thirdpen.app](https://thirdpen.app)
 

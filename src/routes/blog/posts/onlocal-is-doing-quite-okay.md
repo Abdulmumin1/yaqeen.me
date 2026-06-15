@@ -25,7 +25,7 @@ was hyped, and got the clanker to create a poc. it worked!
 
 after my POC, (built on DURABLE OBJECTS btw) was only then I got to research how this stuff actually works and should work.
 
-the real stuff is much more fun, but i wanted to keep hacking my websocket thingy.
+<span data-highlight>the real stuff is much more fun, but i wanted to keep hacking my websocket thingy.</span>
 
 also watched the interview with the original creator of ngrok - [will update when I find the link]
 
@@ -37,7 +37,7 @@ anyways. [onlocal.dev](https://onlocal.dev) was fun to build and also fun to use
 
 i really don't want to write technical stuff on this, you can clone the repo, point your clanker at it and you get a better understanding than i could explain to you probably.
 
-here on this blog is for me to express my own process and share the excitement. 
+<span data-highlight>here on this blog is for me to express my own process and share the excitement.</span>
 
 you should also try it out - [onlocal.dev](https://onlocal.dev) 
 

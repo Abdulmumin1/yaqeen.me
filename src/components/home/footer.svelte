@@ -38,10 +38,22 @@
 			document.documentElement.classList.remove('dark');
 		}
 	}
+
 </script>
 
-<footer class="w-full py-6 px-6 flex flex-col gap-3 text-xs text-text-muted">
-	<div class="max-w-2xl mx-auto w-full flex flex-col gap-3">
+<footer class="butterfly-footer w-full py-10 px-6 flex flex-col gap-3 text-xs text-text-muted">
+	<video
+		class="butterfly-overlay"
+		src={resolve('/butterflies-loop.webm')}
+		autoplay
+		muted
+		loop
+		playsinline
+		preload="metadata"
+		aria-hidden="true"
+	></video>
+
+	<div class="footer-content max-w-2xl mx-auto w-full flex flex-col gap-3">
 		<div class="flex gap-3">
 			<a href={links.github} class="hover:text-text-main transition-colors">
 				<Fa icon={faGithub} />
@@ -85,3 +97,50 @@
 		</div>
 	</div>
 </footer>
+
+<style>
+	.butterfly-footer {
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		min-height: 15rem;
+		justify-content: flex-end;
+	}
+
+	.butterfly-overlay {
+		position: absolute;
+		z-index: -1;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 42%;
+		pointer-events: none;
+		opacity: 0.76;
+	}
+
+	.footer-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	@media (max-width: 640px) {
+		.butterfly-footer {
+			min-height: 13rem;
+		}
+
+		.butterfly-overlay {
+			width: 145%;
+			max-width: none;
+			left: 50%;
+			transform: translateX(-50%);
+			opacity: 0.68;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.butterfly-overlay {
+			display: none;
+		}
+	}
+</style>

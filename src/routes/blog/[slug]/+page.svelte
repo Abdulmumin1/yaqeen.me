@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { formatDate, copyUrlToClipboard } from '$lib/js/utils.js';
 	import {
 		faHackerNews,
@@ -8,6 +8,7 @@
 		faTwitter
 	} from '@fortawesome/free-brands-svg-icons';
 	import { faCopy } from '@fortawesome/free-solid-svg-icons';
+	import { highlight } from '@highlighters/core';
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import Seo from '../../../components/general/seo.svelte';
 	import Fa from 'svelte-fa';
@@ -22,6 +23,7 @@
 	} from '$lib/js/config.js';
 
 	let { data } = $props();
+	let articleContent;
 
 	const toSchemaDate = (value) => {
 		if (!value) return '';
@@ -108,8 +110,78 @@
 		});
 	}
 
-	onMount(() => {
+	onMount(async () => {
 		scrollToTopSmooth();
+		await tick();
+
+		let highlights = [];
+		const getHighlightTheme = () =>
+			document.documentElement.classList.contains('dark')
+				? {
+						color: '#f97316',
+						opacity: 0.78,
+						blendMode: 'normal',
+						vivid: false
+					}
+				: {
+						color: '#f97316',
+						opacity: 0.38,
+						blendMode: 'multiply',
+						vivid: false
+					};
+		const createHighlight = (element) =>
+			highlight(
+				element,
+				{
+					...getHighlightTheme(),
+					ink: {
+						flow: 0.58,
+						feathering: 0.3,
+						streakiness: 0.2
+					},
+					animation: {
+						duration: 700,
+						stagger: 90
+					}
+				},
+				articleContent
+			);
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+
+					highlights.push(createHighlight(entry.target));
+					observer.unobserve(entry.target);
+				});
+			},
+			{
+				threshold: 0.25,
+				rootMargin: '0px 0px -8% 0px'
+			}
+		);
+
+		articleContent
+			.querySelectorAll('[data-highlight]')
+			.forEach((element) => observer.observe(element));
+
+		const themeObserver = new MutationObserver(() => {
+			highlights.forEach((handle) => handle.remove());
+			highlights = Array.from(articleContent.querySelectorAll('[data-highlight]')).map(
+				createHighlight
+			);
+		});
+		themeObserver.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ['class']
+		});
+
+		return () => {
+			observer.disconnect();
+			themeObserver.disconnect();
+			highlights.forEach((handle) => handle.remove());
+		};
 	});
 </script>
 
@@ -137,14 +209,14 @@
 
 <article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
 	<hgroup class="flex flex-col gap-4 py-12">
-		<h1 class="text-4xl md:text-5xl font-serif text-text-main leading-tight italic">
+		<h1 class="text-4xl md:text-5xl font-serif text-text-main leading-tight">
 			{data.meta.title}
 		</h1>
 		<div
 			class="flex gap-4 text-sm font-serif text-text-muted italic border-b border-border/20 pb-6"
 		>
 			<span class="text-accent not-italic font-mono text-[10px] tracking-widest uppercase"
-				>/ {formatDate(data.meta.date)}</span
+				>{formatDate(data.meta.date)}</span
 			>
 			{#if data.meta.date != data.meta.lastmod}
 				<span>edited {formatDate(data.meta.lastmod)}</span>
@@ -153,7 +225,7 @@
 	</hgroup>
 
 	<section class="flex w-full flex-col gap-8">
-		<div class="flex-1">
+		<div class="blog-content flex-1" bind:this={articleContent}>
 			<data.content />
 		</div>
 	</section>
@@ -210,3 +282,16 @@
 		<Ad />
 	</div>
 </article>
+
+<style>
+	.blog-content :global([data-highlight]) {
+		display: inline;
+		color: inherit;
+		background: transparent;
+		font: inherit;
+	}
+
+	.blog-content > :global(div[aria-hidden='true']) {
+		mix-blend-mode: normal !important;
+	}
+</style>

@@ -22,9 +22,7 @@ the RPC part is not just one agent sending text to another.
 in ai-query, the part that matters is the registry and the transport layer.
 that is what keeps agent logic separate from infrastructure.
 
-the registry answers a simple question: where does this agent live?
-local, remote, same process, another server.
-the code should not really care.
+<span data-highlight>the registry answers a simple question: where does this agent live? local, remote, same process, another server. the code should not really care.</span>
 
 ```python
 from ai_query import AgentServer, AgentRegistry, HTTPTransport
@@ -97,6 +95,6 @@ that stops callers from stepping on each other.
 which is the real problem, most of the time.
 
 rpc is not flashy.
-it just keeps the system readable once the agents stop living in the same place.
+<span data-highlight>it just keeps the system readable once the agents stop living in the same place.</span>
 
 and when you are building agents, that is already a good result.

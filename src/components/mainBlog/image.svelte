@@ -44,7 +44,7 @@
 		class="thumbnail rounded-md"
 	/>
 	{#if alt}
-		<p class="caption">{alt}</p>
+		<span class="caption">{alt}</span>
 	{/if}
 </span>
 
@@ -57,7 +57,7 @@
 		<div class="modal-content">
 			<img {src} {alt} />
 			{#if alt}
-				<p class="modal-caption">{alt}</p>
+				<span class="modal-caption">{alt}</span>
 			{/if}
 		</div>
 	</div>
@@ -75,6 +75,7 @@
 	}
 
 	.caption {
+		display: block;
 		text-align: center;
 		font-style: italic;
 		margin-top: 0.5em;
@@ -107,6 +108,7 @@
 	}
 
 	.modal-caption {
+		display: block;
 		color: white;
 		text-align: center;
 		margin-top: 1em;

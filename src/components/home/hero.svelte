@@ -14,24 +14,23 @@
 	</div>
 
 	<h1 class="text-3xl md:text-5xl font-serif mb-8 leading-tight text-text-main whitespace-nowrap">
-		Hi, I'm <span class="text-accent italic">Abdulmumin Yaqeen</span>
+		Hi, i'm <span class="text-accent font-extralight">Abdulmumin Yaqeen</span>
 	</h1>
 
 	<div class="text-lg md:text-xl font-visby text-text-muted leading-relaxed space-y-4">
 		<p>
-			I build <span class="text-accent italic">stuff for AI</span>.
-		</p>
-		<p>
-			Currently building <a href="https://owostack.com" class="text-text-main decoration-accent/30 underline underline-offset-4 hover:decoration-accent transition-colors">owostack.com</a> and <a href="/blog" class="text-text-main decoration-accent/30 underline underline-offset-4 hover:decoration-accent transition-colors">writing</a> without polish.
-		</p>
-		<p class="text-base opacity-60">
-			Loyal to Apache 2.0.
+			I love building <span class="text-accent italic">products</span>, and contributing to
+			<span class="text-accent italic">open source</span>. also share my
+			<a href="/blog" class="text-accent italic">thoughts</a> on here without much polish.
 		</p>
 	</div>
 
 	<div class="flex flex-wrap gap-x-6 gap-y-2 mt-12">
 		{#each socials as social}
-			<a href={social.href} class="text-accent hover:text-text-main transition-colors text-sm font-mono tracking-widest uppercase">
+			<a
+				href={social.href}
+				class="text-accent hover:text-text-main transition-colors text-sm font-mono tracking-widest uppercase"
+			>
 				{social.name}
 			</a>
 		{/each}

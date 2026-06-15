@@ -23,7 +23,7 @@ the timing also line up with a lil experiment i was doing w/ [agentOs](https://w
 
 as we know RAG IS DEAD (i dunno, people just say it and i went with it), and i've tried such systems that uses the RAG method, they didn't quite do well for owostack docs.
 
-since we're at the age of harnesses, why not create an agent that can triage the raw docs md file and maybe the codebase and answer questions about your docs directly from the source files?
+<span data-highlight>since we're at the age of harnesses, why not create an agent that can triage the raw docs md file and maybe the codebase and answer questions about your docs directly from the source files?</span>
 
 simple right?
 
@@ -34,7 +34,7 @@ hence the excitement about Project Think, i could use that, coupled with [cloudf
 
 and that what I did - i call it [cull](https://github.com/Abdulmumin1/cull)
 
-Coupled with dynamic workers, it insane we have can run harnesses inside of workers!
+<span data-highlight>Coupled with dynamic workers, it insane we have can run harnesses inside of workers!</span>
 
 
 Another i was excited for is Artifacts.

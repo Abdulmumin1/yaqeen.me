@@ -23,7 +23,11 @@
 	--font-visby: 'Inter', system-ui, sans-serif;
 	--font-visby-mid: 'Inter', system-ui, sans-serif;
 	--font-visby-bold: 'Inter', system-ui, sans-serif;
-	--font-serif: 'Instrument Serif', serif;
+	--font-serif: 'Inter', system-ui, sans-serif;
+	/* Non-serif options to explore: */
+	/* --font-serif: 'Space Grotesk', sans-serif; */
+	/* --font-serif: 'Source Code Pro', monospace; */
+	/* --font-serif: 'Inter', system-ui, sans-serif; */
 
 	/* Spacing & Borders */
 	--radius-xl: 0.75rem;
@@ -156,7 +160,7 @@
 	}
 
 	.markdown-content main {
-		@apply space-y-3;
+		@apply space-y-3 text-lg leading-relaxed;
 	}
 
 	.article h1,
@@ -180,8 +184,10 @@
 	}
 
 	.article p,
-	.markdown-content p {
-		@apply leading-relaxed text-lg;
+	.markdown-content p,
+	.article li,
+	.markdown-content li {
+		font: inherit;
 	}
 
 	.article pre,
@@ -217,11 +223,6 @@
 	.article ol,
 	.markdown-content ol {
 		@apply my-4 space-y-2;
-	}
-
-	.article li,
-	.markdown-content li {
-		@apply text-sm leading-relaxed;
 	}
 
 	.article table,

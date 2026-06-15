@@ -63,7 +63,7 @@ export const sass_projects = readable([
 	},
 	{
 		name: 'Littlestats',
-		year: '2026',
+		year: '2024',
 		stack: ['Sveltekit', 'Clickhouse', 'Pocketbase', 'AWS'],
 		description: 'Data to make good business decisions',
 		links: {
@@ -106,7 +106,7 @@ export const sass_projects = readable([
 	},
 	{
 		name: 'CommentRig  (inactive)',
-		year: '2024',
+		year: '2022',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'A modern comment system for blogs and websites',
 		links: {

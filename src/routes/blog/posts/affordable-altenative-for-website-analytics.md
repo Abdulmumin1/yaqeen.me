@@ -48,7 +48,7 @@ I looked around for alternatives:
 
 So I built Littlestats with a simple promise:
 
-**Everything you actually need from analytics, for the price of a coffee.**
+<span data-highlight>Everything you actually need from analytics, for the price of a coffee.</span>
 
 ### What do MicroSaaS founders actually need?
 
@@ -70,7 +70,7 @@ So I built Littlestats with a simple promise:
 
 While most analytics tools charge $9-29/month for just 10k-30k hits per month, we're giving you Unlimited monthly hits for $4. Simple as that.
 
-We're keeping it simple and affordable for bootstrappers and indie hackers - no complicated tiers, no enterprise bloat, just clean analytics that help you make better decisions.
+<span data-highlight>We're keeping it simple and affordable for bootstrappers and indie hackers - no complicated tiers, no enterprise bloat, just clean analytics that help you make better decisions.</span>
 
 ### The Technical Bits You'll Care About
 

@@ -27,7 +27,7 @@ but that’s the problem.
 
 they don’t see your system. they don’t see constraints, intent, or boundaries. they just… assume.
 
-like if you don’t really understand how a feature should behave, how state should transition, what should never happen… the agent will assume and decide for you.
+<span data-highlight>like if you don’t really understand how a feature should behave, how state should transition, what should never happen… the agent will assume and decide for you.</span>
 
 it’ll write the code, write tests, everything passes. you run it, looks good. you ship.
 
@@ -35,7 +35,7 @@ done right?
 
 not really.
 
-what you shipped is just a collection of assumptions that *happened* to pass.
+<span data-highlight>what you shipped is just a collection of assumptions that *happened* to pass.</span>
 
 and this piles up. slowly. system starts to feel brittle. not because the code is bad, but because the behavior was never fully thought through.
 
@@ -61,7 +61,7 @@ just wrong.
 
 and that’s the thing.
 
-agents don’t know what’s *right* for your system. they don’t know your invariants. they don’t know what should never happen.
+<span data-highlight>agents don’t know what’s *right* for your system. they don’t know your invariants. they don’t know what should never happen.</span>
 
 you do. or at least you should.
 

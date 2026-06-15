@@ -28,15 +28,16 @@
 	<div
 		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-1 md:mb-0"
 	>
-		{formatDisplayDate(details.date)}
+		<span class="relative inline-flex items-center">
+			{#if isPinned}
+				<div class="absolute right-full mr-2 text-accent/60 flex items-center" aria-hidden="true">
+					<Fa icon={faThumbTack} class="size-2.5 rotate-45" />
+				</div>
+				<span class="sr-only">Pinned post</span>
+			{/if}
+			{formatDisplayDate(details.date)}
+		</span>
 	</div>
-
-	{#if isPinned}
-		<div class="absolute -left-5 md:-left-36 top-1.5 text-accent/40" aria-hidden="true">
-			<Fa icon={faThumbTack} class="size-2 rotate-25" />
-		</div>
-		<span class="sr-only">Pinned post</span>
-	{/if}
 
 	<div class="flex flex-col">
 		{#if isExternal}

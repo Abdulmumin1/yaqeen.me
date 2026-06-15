@@ -34,7 +34,7 @@ but ai-query is a python framework, which don't do well when you build out their
 
 chump, like most harnesses out there has a client/server architecture..  python with ai-query, and then typescript with some custom tui implementation.
 
-after the original scaffold, i actually continued building chump with chump (i don't know, it was like really fun to watch).
+<span data-highlight>after the original scaffold, i actually continued building chump with chump.</span> i don't know, it was like really fun to watch.
 
 then, came another idea: ai-query is built for realtime collaborative agents, why do i just have a tui?
 
@@ -42,7 +42,7 @@ well, the web was born as well. at the time of writing this, it still ongoing wo
 
 and it was fairly one of the easiest stuff i've done. ai-query already takes care of all of the hard work, the web was just another client like the tui. 
 
-and the fun part is that, you can have multiple tuis and web clients connected to same session. changes syncs across in realtime and stuff.
+<span data-highlight>and the fun part is that, you can have multiple tuis and web clients connected to same session. changes syncs across in realtime and stuff.</span>
 
 i do have a video you might be interested in taking a look at:
 

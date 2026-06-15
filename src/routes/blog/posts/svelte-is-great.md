@@ -24,7 +24,7 @@ If you've followed my stuff, you know I love Python first, then JS. I tend to le
 I've been using Svelte a lot more recently for all these spontaneous side projects I've been pushing out. It just feels... right. There's none of that cognitive overhead where you have to learn a framework's specific mental model just to put a div on the screen and make it do something.
 
 
-The Svelte team seems to take a step back, let everyone make the mistakes, takes all the lessons and then build the better solution.
+<span data-highlight>The Svelte team seems to take a step back, let everyone make the mistakes, takes all the lessons and then build the better solution.</span>
 
 
 I love it because it opinionated, the primitives just makes sense and they ship just enough that it not overwhelming.
@@ -38,4 +38,4 @@ If you write svelte, you should definately add the svelte code writer skill and 
 
 Just dropping thoughts as they come.
 
-But yeah. If you haven't tried it yet, give Svelte a spin. It's ruined other frontends for me a little bit.
+But yeah. If you haven't tried it yet, give Svelte a spin. <span data-highlight>It's ruined other frontends for me a little bit.</span>

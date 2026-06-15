@@ -21,8 +21,8 @@ Though, i've been learning but not documenting enough, as you would see an explo
 
 I still do write, but for the side projects i work on, i always try to maintain a kinda blog for any big projects i work on - example of the really intense series was the thirdpen print series. https://thirdpen.app/print
 
-Would definitely find time to document stuff here more, just writing down spontaneous thought as i'm doing right now.
+<span data-highlight>Would definitely find time to document stuff here more, just writing down spontaneous thought as i'm doing right now.</span>
 
-it would most likely be imperfect drafts published, not much review or structure it would strictly follow, as i would not like to push myself to hard for this.
+<span data-highlight>it would most likely be imperfect drafts published, not much review or structure it would strictly follow.</span>
 
 With love.

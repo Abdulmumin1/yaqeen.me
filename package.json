@@ -31,6 +31,8 @@
 	"dependencies": {
 		"@fortawesome/free-brands-svg-icons": "^6.7.2",
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
+		"@highlighters/core": "^1.2.0",
+		"@highlighters/svelte": "^1.2.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.8",
 		"gray-matter": "^4.0.3",
 		"h-to-md": "^0.0.1",

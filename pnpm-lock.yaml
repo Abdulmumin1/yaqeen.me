@@ -14,6 +14,12 @@ importers:
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.7.2
         version: 6.7.2
+      '@highlighters/core':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@highlighters/svelte':
+        specifier: ^1.2.0
+        version: 1.2.0(svelte@5.53.12)
       '@sveltejs/adapter-cloudflare':
         specifier: ^7.2.8
         version: 7.2.8(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.53.12)(vite@5.4.21(lightningcss@1.31.1)))(svelte@5.53.12)(vite@5.4.21(lightningcss@1.31.1)))(wrangler@4.14.1(@cloudflare/workers-types@4.20260313.1))
@@ -499,6 +505,16 @@ packages:
   '@fortawesome/free-solid-svg-icons@6.7.2':
     resolution: {integrity: sha512-GsBrnOzU8uj0LECDfD5zomZJIjrPhIlWU82AHwa2s40FKH+kcxQaBvBo3Z4TxyZHIyX8XTDxsyA33/Vx9eFuQA==}
     engines: {node: '>=6'}
+
+  '@highlighters/core@1.2.0':
+    resolution: {integrity: sha512-+mUjhN+S0fFPBx8RFWg03rwR9SmcAZzkSx820iz/Vl44jSnUdeGxL7rt8YgIoH3KeBTBNqWQlBlmwB8xnOfI6A==}
+    engines: {node: '>=18'}
+
+  '@highlighters/svelte@1.2.0':
+    resolution: {integrity: sha512-8iA3QIkBC4cgFKSvmPuHhfu+IBJ3hIGcUTDqObHQASTBKmEcYWUNEkpdGaFT6ZCFQxsdUYqYyMEEoLJY+S8Fgg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      svelte: '>=3.0.0'
 
   '@hono/standard-validator@0.1.5':
     resolution: {integrity: sha512-EIyZPPwkyLn6XKwFj5NBEWHXhXbgmnVh2ceIFo5GO7gKI9WmzTjPDKnppQB0KrqKeAkq3kpoW4SIbu5X1dgx3w==}
@@ -2542,6 +2558,13 @@ snapshots:
   '@fortawesome/free-solid-svg-icons@6.7.2':
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
+
+  '@highlighters/core@1.2.0': {}
+
+  '@highlighters/svelte@1.2.0(svelte@5.53.12)':
+    dependencies:
+      '@highlighters/core': 1.2.0
+      svelte: 5.53.12
 
   '@hono/standard-validator@0.1.5(@standard-schema/spec@1.0.0)(hono@4.12.18)':
     dependencies:

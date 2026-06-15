@@ -19,11 +19,11 @@ i slopforked of `@autumnpricing` to make it provider agnostic, but the original 
 
 The problem autumn was solving is very real, and i felt it first-hand. The first time i saw the product (i think it was a sponsored spot on some youtube video) i was like this is it! this is it! like really.. THIS IS IT.
 
-Yeah, teams reinvent the billing engine for every new product, you can't experiment with different distinct pricing shapes quickly as it would take time. it rewiring the product all over again... mostly!
+Yeah, <span data-highlight>teams reinvent the billing engine for every new product.</span> you can't experiment with different distinct pricing shapes quickly as it would take time. it rewiring the product all over again... mostly!
 
 and maybe not a problem for smol saas, but those that build for scale, it is real problem, a lot of time will be spent patching billing they thought works like magic in early stage.
 
-Autumpricing is great, but i had to fix it for me. to work for me and my local network.. for the companies i care about.
+<span data-highlight>Autumpricing is great, but i had to fix it for me. to work for me and my local network.. for the companies i care about.</span>
 
 so i created a project literaly called `paystack-wrapper` that where this new idea sat. benign to me at the time was, just a few hours into scibbling something together, it would not be just paystack wrapper anymore. i would end up designing it to be provider agnostic.
 

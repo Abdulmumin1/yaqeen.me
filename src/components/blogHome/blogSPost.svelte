@@ -15,16 +15,19 @@
 
 <div class="relative py-4 group">
 	<!-- Date positioned in the gutter for md+ screens -->
-	<div class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-1 md:mb-0">
-		{formatDisplayDate(date)}
+	<div
+		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-1 md:mb-0"
+	>
+		<span class="relative inline-flex items-center">
+			{#if pinned}
+				<div class="absolute right-full mr-2 text-accent/60 flex items-center" aria-hidden="true">
+					<Fa icon={faThumbTack} class="size-2.5 rotate-45" />
+				</div>
+				<span class="sr-only">Pinned post</span>
+			{/if}
+			{formatDisplayDate(date)}
+		</span>
 	</div>
-
-	{#if pinned}
-		<div class="absolute -left-5 md:-left-36 top-1.5 text-accent/40" aria-hidden="true">
-			<Fa icon={faThumbTack} class="size-2 rotate-25" />
-		</div>
-		<span class="sr-only">Pinned post</span>
-	{/if}
 
 	<div class="flex flex-col">
 		{#if external}
@@ -35,7 +38,7 @@
 				class="text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
 			>
 				{title}
-				<span class="ml-1 text-[10px] font-mono italic text-accent opacity-60">external</span>
+				<span class="ml-1 text-[10px] font-mono italic text-accent opacity-60">ext</span>
 			</a>
 		{:else}
 			<a

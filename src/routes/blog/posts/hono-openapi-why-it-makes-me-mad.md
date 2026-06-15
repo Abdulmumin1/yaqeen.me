@@ -90,7 +90,7 @@ then you still map errors yourself.
 
 so what exactly is being simplified here?
 
-because from where i am standing, i am just writing the same truth in three different places and hoping none of them drift.
+<span data-highlight>because from where i am standing, i am just writing the same truth in three different places and hoping none of them drift.</span>
 
 that is the part that gets me.
 
@@ -99,7 +99,7 @@ not that openapi is bad, openapi is useful, but other frameworks does it better 
 but i picked hono because it felt light, but this? really? if not for clankers, i would not write any of that by hand.
 
 the file becomes huge, too.
-one little feature turns into a wall of zod schemas, route metadata, response wrappers, and little helper constants for every possible status code. the actual handler logic starts feeling like the side quest.
+one little feature turns into a wall of zod schemas, route metadata, response wrappers, and little helper constants for every possible status code. <span data-highlight>the actual handler logic starts feeling like the side quest.</span>
 
 i know the argument. "this is the contract.", "this gives you docs.", "this makes the api explicit."
 sure.
