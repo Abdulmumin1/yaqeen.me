@@ -24,7 +24,7 @@ export const sass_projects = readable([
 		name: 'Owostack',
 		year: '2026',
 		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
-		description: 'Provider agnostic billing infrastructure for AI saas',
+		description: 'Provider agnostic billing engine for AI saas',
 		links: {
 			study: 'https://github.com/Abdulmumin1/owostack',
 			page: 'owostack.com'
@@ -85,7 +85,7 @@ export const sass_projects = readable([
 		name: 'DevCanvas',
 		year: '2023',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description: 'Build anything you want with AI!',
+		description: 'open source codepen alternative',
 		links: {
 			study: 'https://github.com/Abdulmumin1/devcanvas',
 			page: 'devcanvas.dev'

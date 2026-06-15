@@ -136,12 +136,16 @@
 </svelte:head>
 
 <article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
-	<hgroup class="flex flex-col gap-2 pb-4 border-b border-primary/10">
-		<h1 class="text-xl font-bold text-primary">
+	<hgroup class="flex flex-col gap-4 py-12">
+		<h1 class="text-4xl md:text-5xl font-serif text-text-main leading-tight italic">
 			{data.meta.title}
 		</h1>
-		<div class="flex gap-3 text-[10px] font-mono text-text-muted">
-			<span>{formatDate(data.meta.date)}</span>
+		<div
+			class="flex gap-4 text-sm font-serif text-text-muted italic border-b border-border/20 pb-6"
+		>
+			<span class="text-accent not-italic font-mono text-[10px] tracking-widest uppercase"
+				>/ {formatDate(data.meta.date)}</span
+			>
 			{#if data.meta.date != data.meta.lastmod}
 				<span>edited {formatDate(data.meta.lastmod)}</span>
 			{/if}
@@ -154,11 +158,7 @@
 		</div>
 	</section>
 
-	<div class="mt-12 border-t border-primary/10 pt-8">
-		<Ad />
-	</div>
-
-	<div class="pt-8 border-t border-primary/10 mt-8 mb-12">
+	<div class="pt-12 border-t border-border/20 mt-12 mb-20">
 		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted mb-3">/share</p>
 		<div class="flex gap-3 text-xs text-text-muted">
 			<button
@@ -205,5 +205,8 @@
 				<Fa icon={faHackerNews} />
 			</a>
 		</div>
+	</div>
+	<div class="mt-16">
+		<Ad />
 	</div>
 </article>

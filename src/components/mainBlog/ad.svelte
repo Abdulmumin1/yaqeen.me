@@ -1,25 +1,25 @@
 <script>
-	import Fa from 'svelte-fa';
-	import { faRightLong } from '@fortawesome/free-solid-svg-icons';
-
 	const products = [
 		{
 			name: 'Owostack',
-			desc: 'Usage-based Billing Engine for AI Saas',
+			desc: 'Billing engine for the AI products.',
 			link: 'https://owostack.com',
-			label: 'editor'
+			symbol: '✶',
+			color: 'text-accent'
 		},
 		{
 			name: 'Thirdpen',
-			desc: 'Personalised interactive learning with AI',
+			desc: 'Interactive learning with AI.',
 			link: 'https://thirdpen.app',
-			label: 'learning'
+			symbol: '✸',
+			color: 'text-stone-400 dark:text-stone-500'
 		},
 		{
 			name: 'Littlestats',
-			desc: 'Analytics for solo makers',
+			desc: 'Analytics for solo creators.',
 			link: 'https://littlestats.click',
-			label: 'analytics'
+			symbol: '✹',
+			color: 'text-stone-400 dark:text-stone-500'
 		}
 	];
 
@@ -30,22 +30,51 @@
 	}
 </script>
 
-<div class="flex flex-col gap-6 py-8">
-	<div class="flex flex-col gap-1">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/built-by-me</p>
+<div class="py-20 border-t border-border/10 mt-20 relative overflow-hidden">
+	<!-- Background Ornament -->
+	<div
+		class="absolute -right-20 -top-20 text-[200px] font-serif italic opacity-[0.03] pointer-events-none select-none"
+	>
+		A2
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-		{#each products as product}
-			<div class="flex flex-col gap-2 group">
+	<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-start">
+		<div class="sticky top-24">
+			<h3 class="text-4xl font-serif text-text-main leading-none italic mb-4">Built by me.</h3>
+		</div>
+
+		<div class="divide-y divide-border/10">
+			{#each products as product}
 				<a
 					href={product.link}
 					target="_blank"
 					onclick={() => track(product.name)}
-					class="text-xs font-bold text-primary">{product.name}</a
+					class="group block py-8 first:pt-0 last:pb-0"
 				>
-				<p class="text-[11px] text-text-muted leading-relaxed">{product.desc}</p>
-			</div>
-		{/each}
+					<div class="flex items-start justify-between gap-4">
+						<div class="flex-1">
+							<div class="flex items-center gap-3 mb-2">
+								<span class="text-lg {product.color}">{product.symbol}</span>
+								<h4
+									class="text-2xl font-serif text-text-main group-hover:text-accent transition-colors duration-300 italic"
+								>
+									{product.name}
+								</h4>
+							</div>
+							<p
+								class="text-base font-visby text-text-muted leading-relaxed group-hover:text-text-main transition-colors duration-300 max-w-sm"
+							>
+								{product.desc}
+							</p>
+						</div>
+						<div
+							class="pt-2 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300"
+						>
+							<span class="text-accent text-xl">→</span>
+						</div>
+					</div>
+				</a>
+			{/each}
+		</div>
 	</div>
 </div>

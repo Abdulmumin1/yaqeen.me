@@ -17,11 +17,12 @@
 	--color-text-muted: var(--color-stone-600);
 
 	--color-accent: #f9411f;
+	--color-accent-muted: rgba(249, 65, 31, 0.3);
 
 	/* Typography */
-	--font-visby: 'Inter Variable', 'Inter', system-ui, sans-serif;
-	--font-visby-mid: 'Inter Variable', 'Inter', system-ui, sans-serif;
-	--font-visby-bold: 'Inter Variable', 'Inter', system-ui, sans-serif;
+	--font-visby: 'Inter', system-ui, sans-serif;
+	--font-visby-mid: 'Inter', system-ui, sans-serif;
+	--font-visby-bold: 'Inter', system-ui, sans-serif;
 	--font-serif: 'Instrument Serif', serif;
 
 	/* Spacing & Borders */
@@ -53,7 +54,7 @@
 		--color-surface-soft: var(--color-orange-50);
 		--color-surface-muted: var(--color-orange-100);
 		--color-border: var(--color-orange-200);
-		--color-text-main: black;
+		--color-text-main: #1c1917;
 		--color-text-muted: #78716c;
 
 		/* Shiki Light Theme */
@@ -75,7 +76,7 @@
 		--color-surface-soft: #23201d;
 		--color-surface-muted: #2a2724;
 		--color-border: #3d3834;
-		--color-text-main: #e7e5e4;
+		--color-text-main: #f5f5f4;
 		--color-text-muted: #a8a29e;
 
 		/* Shiki Dark Theme */

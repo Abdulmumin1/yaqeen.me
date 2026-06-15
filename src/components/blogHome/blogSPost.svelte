@@ -15,13 +15,13 @@
 
 <div class="relative py-4 group">
 	<!-- Date positioned in the gutter for md+ screens -->
-	<div class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-stone-400 md:text-right italic mb-1 md:mb-0">
+	<div class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-1 md:mb-0">
 		{formatDisplayDate(date)}
 	</div>
 
 	{#if pinned}
-		<div class="absolute -left-5 md:-left-[8.5rem] top-0.5 text-accent/30" aria-hidden="true">
-			<Fa icon={faThumbTack} class="size-2.5 rotate-25" />
+		<div class="absolute -left-5 md:-left-36 top-1.5 text-accent/40" aria-hidden="true">
+			<Fa icon={faThumbTack} class="size-2 rotate-25" />
 		</div>
 		<span class="sr-only">Pinned post</span>
 	{/if}
@@ -32,7 +32,7 @@
 				href={link}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="text-xl font-serif text-stone-900 hover:text-accent decoration-stone-200 underline-offset-4 hover:decoration-accent transition-all"
+				class="text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
 			>
 				{title}
 				<span class="ml-1 text-[10px] font-mono italic text-accent opacity-60">external</span>
@@ -40,7 +40,7 @@
 		{:else}
 			<a
 				href={resolve('/blog/[slug]', { slug })}
-				class="text-xl font-serif text-stone-900 hover:text-accent decoration-stone-200 underline-offset-4 hover:decoration-accent transition-all"
+				class="text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
 			>
 				{title}
 			</a>
