@@ -125,8 +125,8 @@
 					}
 				: {
 						color: '#f97316',
-						opacity: 0.38,
-						blendMode: 'multiply',
+						opacity: 0.32,
+						blendMode: 'normal',
 						vivid: false
 					};
 		const createHighlight = (element) =>
