@@ -9,7 +9,12 @@
 	const photos = $derived(data.photos ?? []);
 
 	function photoMeta(photo) {
-		return [photo.place, photo.year].filter(Boolean).join(', ');
+		const coordinates =
+			photo.latitude && photo.longitude
+				? `${photo.latitude.toFixed(4)}, ${photo.longitude.toFixed(4)}`
+				: undefined;
+
+		return [photo.place ?? coordinates, photo.year].filter(Boolean).join(', ');
 	}
 </script>
 
@@ -42,9 +47,6 @@
 					<figcaption>
 						{#if photoMeta(photo)}
 							<span>{photoMeta(photo)}</span>
-						{/if}
-						{#if photo.camera}
-							<span>{photo.camera}</span>
 						{/if}
 					</figcaption>
 				</figure>

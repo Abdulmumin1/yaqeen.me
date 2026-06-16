@@ -2,6 +2,7 @@ import exifr from 'exifr';
 import { fallbackPhotoKeys, photoUrl } from '$lib/data/photos.js';
 
 const imageExtensions = /\.(avif|gif|jpe?g|png|webp)$/i;
+const metadataExtensions = /\.json$/i;
 
 export async function load({ fetch, platform, setHeaders }) {
 	setHeaders({
@@ -20,11 +21,16 @@ export async function load({ fetch, platform, setHeaders }) {
 
 async function loadPhotosFromBucket(bucket) {
 	const keys = [];
+	const metadataKeys = new Set();
 	let cursor;
 
 	do {
 		const page = await bucket.list({ cursor });
 		keys.push(...page.objects.map((object) => object.key).filter(isImageKey));
+		page.objects
+			.map((object) => object.key)
+			.filter((key) => metadataExtensions.test(key))
+			.forEach((key) => metadataKeys.add(key));
 		cursor = page.truncated ? page.cursor : undefined;
 	} while (cursor);
 
@@ -32,13 +38,20 @@ async function loadPhotosFromBucket(bucket) {
 		keys.push(...fallbackPhotoKeys);
 	}
 
+	const manifest = await readJsonObject(bucket, 'photos.json');
+
 	const photos = await Promise.all(
 		keys.map(async (key) => {
 			const object = await bucket.get(key);
 			if (!object) return null;
 
+			const sidecar = await readPhotoSidecar(bucket, key, metadataKeys);
 			const arrayBuffer = await object.arrayBuffer();
-			const metadata = await readPhotoMetadata(arrayBuffer, object.customMetadata);
+			const metadata = await readPhotoMetadata(arrayBuffer, {
+				...metadataForKey(manifest, key),
+				...sidecarMetadata(sidecar),
+				...object.customMetadata
+			});
 
 			return toPhoto(key, metadata, object.uploaded);
 		})
@@ -76,18 +89,19 @@ async function readPhotoMetadata(arrayBuffer, customMetadata = {}) {
 		})
 		.catch(() => ({}));
 
-	const make = pick(customMetadata.make, exif?.Make);
-	const model = pick(customMetadata.model, exif?.Model);
-
 	return {
 		width: numberFrom(firstValue(customMetadata.width, exif?.ImageWidth, exif?.ExifImageWidth)),
 		height: numberFrom(firstValue(customMetadata.height, exif?.ImageHeight, exif?.ExifImageHeight)),
 		alt: pick(customMetadata.alt, customMetadata.description, exif?.ImageDescription),
 		place: placeFrom(customMetadata, exif),
-		camera: pick(customMetadata.camera, [make, model].filter(Boolean).join(' ')),
+		camera: pick(customMetadata.camera),
 		date: dateFrom(firstValue(customMetadata.date, exif?.DateTimeOriginal, exif?.CreateDate, exif?.DateCreated)),
-		latitude: numberFrom(firstValue(customMetadata.latitude, customMetadata.lat, exif?.latitude)),
-		longitude: numberFrom(firstValue(customMetadata.longitude, customMetadata.lon, exif?.longitude))
+		latitude: numberFrom(
+			firstValue(customMetadata.latitude, customMetadata.lat, customMetadata.gpsLatitude, exif?.latitude)
+		),
+		longitude: numberFrom(
+			firstValue(customMetadata.longitude, customMetadata.lon, customMetadata.lng, customMetadata.gpsLongitude, exif?.longitude)
+		)
 	};
 }
 
@@ -123,6 +137,44 @@ function placeFrom(customMetadata, exif) {
 		exif?.Country,
 		exif?.CountryCode
 	);
+}
+
+async function readPhotoSidecar(bucket, key, metadataKeys) {
+	const sidecarKeys = [`${key}.json`, `${key.replace(/\.[^.]+$/, '')}.json`];
+	const sidecarKey = sidecarKeys.find((candidate) => metadataKeys.has(candidate));
+	return sidecarKey ? await readJsonObject(bucket, sidecarKey) : undefined;
+}
+
+async function readJsonObject(bucket, key) {
+	const object = await bucket.get(key);
+	if (!object) return undefined;
+
+	return await object.json().catch(() => undefined);
+}
+
+function metadataForKey(manifest, key) {
+	if (Array.isArray(manifest)) {
+		return (
+			manifest.find((entry) => entry?.key === key || entry?.src === photoUrl(key) || entry?.filename === key) ?? {}
+		);
+	}
+
+	return manifest?.[key] ?? {};
+}
+
+function sidecarMetadata(sidecar) {
+	if (!sidecar) return {};
+
+	const geo = sidecar.geoDataExif ?? sidecar.geoData ?? sidecar.location ?? {};
+	const timestamp = sidecar.photoTakenTime?.timestamp;
+
+	return {
+		alt: sidecar.description ?? sidecar.title,
+		date: timestamp ? Number(timestamp) * 1000 : sidecar.creationTime?.timestamp,
+		latitude: geo.latitude,
+		longitude: geo.longitude,
+		place: sidecar.place ?? sidecar.locationName ?? sidecar.googlePhotosOrigin?.mobileUpload?.deviceFolder?.localFolderName
+	};
 }
 
 function sortPhotos(a, b) {
