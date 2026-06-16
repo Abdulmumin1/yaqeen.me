@@ -6,6 +6,7 @@
 </script>
 
 <script>
+	import { resolve } from '$app/paths';
 	import Fa from 'svelte-fa';
 	import SeriesEpisodes from '../../components/mainBlog/seriesEpisodes.svelte';
 	import './styles.css';
@@ -25,9 +26,9 @@
 
 <div class="w-full">
 	<div class="flex gap-3 flex-wrap mb-4">
-		{#each categories as tag}
-			<span class=" text-base rounded-lg text-primary"
-				><a href="/category/{tag}">&num;&nbsp;{tag}</a></span
+		{#each categories as tag (tag)}
+			<span class="text-base rounded-lg text-accent"
+				><a href={resolve('/category/[slug]', { slug: tag })}>&num;&nbsp;{tag}</a></span
 			>
 		{/each}
 	</div>
@@ -41,8 +42,8 @@
 		</main>
 
 		<div class="pt-6 flex gap-3 flex-col">
-			<a href="/blog/series/{series}" class="skip">
-				<h3 class=" flex gap-2">
+			<a href={resolve('/blog/series/[slug]', { slug: series })} class="skip">
+				<h3 class="flex gap-2 text-text-main hover:text-accent transition-colors">
 					<span class="uppercase">{series}</span> Series
 					<span class="text-sm"><Fa icon={faExternalLink} /></span>
 				</h3>

@@ -12,14 +12,14 @@
 			desc: 'Interactive learning with AI.',
 			link: 'https://thirdpen.app',
 			symbol: '✸',
-			color: 'text-stone-400 dark:text-stone-500'
+			color: 'text-text-muted/70'
 		},
 		{
 			name: 'Littlestats',
 			desc: 'Analytics for solo creators.',
 			link: 'https://littlestats.click',
 			symbol: '✹',
-			color: 'text-stone-400 dark:text-stone-500'
+			color: 'text-text-muted/70'
 		}
 	];
 
@@ -39,10 +39,11 @@
 		</div>
 
 		<div class="divide-y divide-border/10">
-			{#each products as product}
+			{#each products as product (product.name)}
 				<a
 					href={product.link}
 					target="_blank"
+					rel="noopener noreferrer"
 					onclick={() => track(product.name)}
 					class="group block py-8 first:pt-0 last:pb-0"
 				>

@@ -50,7 +50,11 @@
 	<div class="flex flex-col">
 		{#if pinnedPosts.length}
 			<div class="flex flex-col gap-1">
-				<p class="text-3xl font-serif text-stone-900 border-b border-stone-200 pb-2 w-fit pr-8 mb-2">Pinned</p>
+				<p
+					class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mb-2"
+				>
+					Pinned
+				</p>
 				<div class="flex flex-col">
 					{#each pinnedPosts as post (post.slug)}
 						<BlogCard details={post} />
@@ -60,7 +64,11 @@
 		{/if}
 
 		{#if latest}
-			<p class="text-3xl font-serif text-stone-900 border-b border-stone-200 pb-2 w-fit pr-8 mt-8 mb-2">Latest</p>
+			<p
+				class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mt-8 mb-2"
+			>
+				Latest
+			</p>
 			<div class="flex flex-col">
 				<BlogCard details={latest} latest={true} />
 			</div>
@@ -81,20 +89,20 @@
 				{#if currentPage > 1}
 					<button
 						onclick={() => loadPage(currentPage - 1)}
-						class="text-sm text-stone-500 hover:text-accent transition-colors flex items-center gap-1"
+						class="text-sm text-text-muted hover:text-accent transition-colors flex items-center gap-1"
 					>
 						<Fa icon={faAngleLeft} /> prev
 					</button>
 				{:else}
 					<span></span>
 				{/if}
-				<span class="text-sm font-serif text-stone-400"
+				<span class="text-sm font-serif text-text-muted/70"
 					>{currentPage} / {activeData.totalPages}</span
 				>
 				{#if currentPage < activeData.totalPages}
 					<button
 						onclick={() => loadPage(currentPage + 1)}
-						class="text-sm text-stone-500 hover:text-accent transition-colors flex items-center gap-1"
+						class="text-sm text-text-muted hover:text-accent transition-colors flex items-center gap-1"
 					>
 						next <Fa icon={faAngleRight} />
 					</button>

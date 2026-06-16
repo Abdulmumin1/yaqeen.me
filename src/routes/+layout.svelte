@@ -131,7 +131,7 @@
 <div class="fixed inset-0 z-[1000] pointer-events-none bg-noise opacity-[0.03]"></div>
 
 <div
-	class="w-screen overflow-x-hidden bg-surface text-stone-900 relative transition-colors duration-500 min-h-screen"
+	class="w-screen overflow-x-hidden bg-surface text-text-main relative transition-colors duration-500 min-h-screen"
 >
 	<Nav {isBlog} />
 	<main class="relative z-10">
