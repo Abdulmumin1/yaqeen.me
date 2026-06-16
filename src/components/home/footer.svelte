@@ -85,7 +85,7 @@
 			<span>/</span>
 			<a href={links.linkedin} class="hover:text-text-main transition-colors">linkedin</a>
 			<span>/</span>
-			<a href={resolve('/wallpapers')} class="hover:text-text-main transition-colors">wallpapers</a>
+			<a href={resolve('/photos')} class="hover:text-text-main transition-colors">photos</a>
 			<span>/</span>
 			<button
 				type="button"

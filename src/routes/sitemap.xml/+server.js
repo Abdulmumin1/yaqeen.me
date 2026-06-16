@@ -9,7 +9,7 @@ export async function GET({ fetch }) {
 		{ loc: `${siteOrigin}/blog` },
 		{ loc: `${siteOrigin}/blog/series/uth` },
 		{ loc: `${siteOrigin}/projects`, lastmod: '2024-01-17' },
-		{ loc: `${siteOrigin}/wallpapers`, lastmod: '2024-01-17' }
+		{ loc: `${siteOrigin}/photos`, lastmod: '2026-06-16' }
 	];
 	const xml = `
     <?xml version="1.0" encoding="UTF-8" ?>

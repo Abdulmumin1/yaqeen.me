@@ -8,3 +8,7 @@ compatibility_flags = ["nodejs_compat_v2"]
 [vars]
 NODE_VERSION = "22"
 PNPM_VERSION = "11"
+
+[[r2_buckets]]
+binding = "PHOTOS_BUCKET"
+bucket_name = "yaqeen-me-photos"
