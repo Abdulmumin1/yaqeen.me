@@ -20,7 +20,7 @@
 					</a>
 				{/if}
 				{#if details.links?.study}
-					<a href={details.links.study} target="_blank" class="hover:text-accent transition-colors relative z-20 {!details.links?.page ? 'after:absolute after:inset-0' : ''}">
+					<a href={details.links.study} target="_blank" class="hover:text-accent transition-colors {!details.links?.page ? 'after:absolute after:inset-0 z-10' : 'relative z-20'}">
 						github
 					</a>
 				{/if}
