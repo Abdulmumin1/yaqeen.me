@@ -17,7 +17,7 @@
 				<a
 					href="https://{details.links.page}"
 					target="_blank"
-					class="text-[10px] font-mono text-accent/60 hover:text-accent transition-colors uppercase tracking-widest"
+					class="text-[10px] font-mono text-accent/60 hover:text-accent transition-colors uppercase tracking-widest after:absolute after:inset-0 z-10"
 				>
 					{details.links.page}
 				</a>

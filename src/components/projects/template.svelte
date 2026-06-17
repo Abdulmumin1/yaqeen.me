@@ -15,12 +15,12 @@
 			</h3>
 			<div class="flex gap-4 text-[10px] font-mono text-accent/60 uppercase tracking-widest">
 				{#if details.links?.page}
-					<a href="https://{details.links.page}" target="_blank" class="hover:text-accent transition-colors">
+					<a href="https://{details.links.page}" target="_blank" class="hover:text-accent transition-colors after:absolute after:inset-0 z-10">
 						visit
 					</a>
 				{/if}
 				{#if details.links?.study}
-					<a href={details.links.study} target="_blank" class="hover:text-accent transition-colors">
+					<a href={details.links.study} target="_blank" class="hover:text-accent transition-colors relative z-20 {!details.links?.page ? 'after:absolute after:inset-0' : ''}">
 						github
 					</a>
 				{/if}
