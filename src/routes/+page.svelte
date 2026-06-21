@@ -43,7 +43,7 @@
 
 <div class="py-12 md:py-24 max-w-2xl mx-auto px-6">
 	<Hero />
-	
+
 	<div class="mt-16 space-y-20">
 		<ProSection />
 		<BlogSection />

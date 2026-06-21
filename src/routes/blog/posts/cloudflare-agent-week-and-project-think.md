@@ -17,7 +17,7 @@ published: true
 
 so cloudflare just had their agent week, bunch of new drops and all, but i'm limited so i can only try out those that really did fire some neurons in my brain.
 
-one of which is [Project Think](https://blog.cloudflare.com/project-think/), this is a lil harness, built ontop of Durable Object (like every other thing they've built soo far). 
+one of which is [Project Think](https://blog.cloudflare.com/project-think/), this is a lil harness, built ontop of Durable Object (like every other thing they've built soo far).
 
 the timing also line up with a lil experiment i was doing w/ [agentOs](https://www.rivet.dev/agent-os) by rivet, which was a docs search agent.
 
@@ -31,11 +31,9 @@ yes, but cloning a repo, keeping it up to date and also warm before any query la
 
 hence the excitement about Project Think, i could use that, coupled with [cloudflare/shell](https://github.com/cloudflare/agents/tree/main/packages/shell) for virtual filesystem and workers ai to create something anyone with a cloudflare acccount could deploy in minutes. and have a usable endpoint to query thier docs. even if they don't have docs, it could still use their codebase as a source of truth.
 
-
 and that what I did - i call it [cull](https://github.com/Abdulmumin1/cull)
 
 <span data-highlight>Coupled with dynamic workers, it insane we have can run harnesses inside of workers!</span>
-
 
 Another i was excited for is Artifacts.
 
@@ -53,6 +51,6 @@ soo basically we have a concurrency problem, and obviously there are ways to sol
 
 But Artifacts are in private beta, so hmmm, i will have to solve this my way.
 
-anyways. 
+anyways.
 
 Hope you enjoyed the Agents Week ;)

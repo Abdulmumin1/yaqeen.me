@@ -291,6 +291,30 @@
 		font: inherit;
 	}
 
+	.blog-content :global(.poem) {
+		margin: 2.5rem 0 3rem;
+		padding-left: 1.25rem;
+		max-width: 42rem;
+	}
+
+	.blog-content :global(.poem p) {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-size: clamp(1.1rem, 2vw, 1.3rem);
+		line-height: 1.7;
+		font-style: italic;
+		color: color-mix(in srgb, var(--color-text-main) 72%, var(--color-text-muted));
+	}
+
+	.blog-content :global(.poem cite) {
+		display: block;
+		margin-top: 1rem;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-size: clamp(1rem, 1.6vw, 1.15rem);
+		font-style: italic;
+		color: color-mix(in srgb, var(--color-text-main) 68%, var(--color-text-muted));
+	}
+
 	.blog-content > :global(div[aria-hidden='true']) {
 		mix-blend-mode: normal !important;
 	}

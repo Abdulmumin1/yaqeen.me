@@ -1,5 +1,5 @@
 ---
-title: "The enjoyment of individual freedom under the law, should mean more to us than ourselves, programs, parties and manifestos"
+title: 'The enjoyment of individual freedom under the law, should mean more to us than ourselves, programs, parties and manifestos'
 
 description: 'thirdpen is getting better'
 
@@ -11,13 +11,11 @@ categories:
   - Nigeria
   - patriotism
   - great leaders
-  
+
 published: true
 ---
 
-
-
-The enjoyment of individual freedom under the law should mean more to ourselves than our self-centered party programs and manifestoes. 
+The enjoyment of individual freedom under the law should mean more to ourselves than our self-centered party programs and manifestoes.
 
 Common dangers and common enemies alert us to the need for common security.
 

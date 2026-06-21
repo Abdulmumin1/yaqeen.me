@@ -1,5 +1,5 @@
 ---
-title: "Playing with Python tinyrpc"
+title: 'Playing with Python tinyrpc'
 
 description: "Cap'n Web,  a new RPC system for browsers and web servers."
 
@@ -9,12 +9,9 @@ lastmod: '2025-09-11'
 
 categories:
   - RPC
-  
+
 published: true
 ---
-
-
-
 
 Following the read on capnweb, i decided to implement something cool with tinyrpc from a decade ago in python (nostalgia)
 

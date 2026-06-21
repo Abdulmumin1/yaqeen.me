@@ -1,17 +1,17 @@
 ---
 title: 'Chump: My ai-query Dogfood Project'
 
-description: "dksdfm"
+description: 'dksdfm'
 
 date: '2026-05-8'
 
 lastmod: '2026-05-8'
 
 categories:
- - ai-query
- - agents
- - experiments
- 
+  - ai-query
+  - agents
+  - experiments
+
 published: true
 ---
 
@@ -19,10 +19,9 @@ A few months ago i built this [framework](https://ai-query.dev) for building AI 
 
 so i decided to build my agents on this framework, so i can have a better and more real world use cases, hence create a strong feedback loop, helping improving the framework.
 
-built a couple of agents on it.. i think i talked abit about [profile.ai-query.dev](https://profile.ai-query.dev),  which is just a social media kinda tool to search about a person.. building that actually came with a lot of improvement to the framework which i really appreciated.
+built a couple of agents on it.. i think i talked abit about [profile.ai-query.dev](https://profile.ai-query.dev), which is just a social media kinda tool to search about a person.. building that actually came with a lot of improvement to the framework which i really appreciated.
 
 then couple more projects, but those were simple, i didn't actually spend much time with the thing, i diverged to obviusly follow some other shiny stuff.
-
 
 With the rise of [Pi Agent](https://pi.dev) (Amazing stuff, got to learn about it abit earlier than the hype, dope stuff) naturally coding agents/harness, is the new shiny stuff, and i get attracted to new shiny stuff hence, followed it.
 
@@ -32,7 +31,7 @@ that how [chump agent](https://github.com/Abdulmumin1/chump) came to be, a lil c
 
 but ai-query is a python framework, which don't do well when you build out their binaries.. so i ended up with the client/server split..
 
-chump, like most harnesses out there has a client/server architecture..  python with ai-query, and then typescript with some custom tui implementation.
+chump, like most harnesses out there has a client/server architecture.. python with ai-query, and then typescript with some custom tui implementation.
 
 <span data-highlight>after the original scaffold, i actually continued building chump with chump.</span> i don't know, it was like really fun to watch.
 
@@ -40,7 +39,7 @@ then, came another idea: ai-query is built for realtime collaborative agents, wh
 
 well, the web was born as well. at the time of writing this, it still ongoing work, and has not been deployed yet.
 
-and it was fairly one of the easiest stuff i've done. ai-query already takes care of all of the hard work, the web was just another client like the tui. 
+and it was fairly one of the easiest stuff i've done. ai-query already takes care of all of the hard work, the web was just another client like the tui.
 
 <span data-highlight>and the fun part is that, you can have multiple tuis and web clients connected to same session. changes syncs across in realtime and stuff.</span>
 

@@ -29,16 +29,16 @@ and that is where the annoyance starts.
 look at a normal hono handler:
 
 ```ts
-app.post("/customers", async (c) => {
-  const body = await c.req.json();
-  const parsed = customerSchema.safeParse(body);
+app.post('/customers', async (c) => {
+	const body = await c.req.json();
+	const parsed = customerSchema.safeParse(body);
 
-  if (!parsed.success) {
-    return c.json({ success: false, error: "bad request" }, 400);
-  }
+	if (!parsed.success) {
+		return c.json({ success: false, error: 'bad request' }, 400);
+	}
 
-  const customer = await createCustomer(parsed.data);
-  return c.json({ success: true, customer }, 200);
+	const customer = await createCustomer(parsed.data);
+	return c.json({ success: true, customer }, 200);
 });
 ```
 
@@ -109,7 +109,7 @@ so when i change a field in the handler, i have to remember to go edit the route
 when i add a response shape, i have to update the openapi bit too.
 when i move something around, i have to mentally sync both halves.
 
-as i said, if not for clankers, i would have moved to something better, maybe elysia. write these these by hand? hell nah. 
+as i said, if not for clankers, i would have moved to something better, maybe elysia. write these these by hand? hell nah.
 
 so yeah.
 

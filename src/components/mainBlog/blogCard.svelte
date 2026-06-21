@@ -18,8 +18,13 @@
 	function formatDisplayDate(dateStr) {
 		const d = new Date(dateStr);
 		const month = d.toLocaleString('default', { month: 'short' });
-		const year = d.getFullYear().toString().slice(-2);
-		return `${month} '${year}`;
+		const day = d.getDate();
+		const currentYear = new Date().getFullYear();
+		if (d.getFullYear() < currentYear) {
+			const year = d.getFullYear().toString().slice(-2);
+			return `${month} ${day} '${year}`;
+		}
+		return `${month} ${day}`;
 	}
 </script>
 
