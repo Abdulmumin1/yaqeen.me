@@ -19,7 +19,7 @@ A few months ago, I was using alot of ngrok. Was working on something webhooks a
 
 I was like let me not do any research and think this through my self.
 
-I came up with a theory, it websocket. you open a websock with a remote server and whenver a resource is requested, it goes through the websocket to the local machine, get the stuff, and then the remote server responds. 
+I came up with a theory, it websocket. you open a websock with a remote server and whenver a resource is requested, it goes through the websocket to the local machine, get the stuff, and then the remote server responds.
 
 was hyped, and got the clanker to create a poc. it worked!
 
@@ -39,12 +39,11 @@ i really don't want to write technical stuff on this, you can clone the repo, po
 
 <span data-highlight>here on this blog is for me to express my own process and share the excitement.</span>
 
-you should also try it out - [onlocal.dev](https://onlocal.dev) 
+you should also try it out - [onlocal.dev](https://onlocal.dev)
 
 just run : `bunx onlocal PORT`
 
 add --client "some-string" to get a custom subdomain.
-
 
 it actually one of my many side quests that actually got a bit of attension and based on the npm numbers (which i don't trust), gaining quite a few downloads weekly.
 

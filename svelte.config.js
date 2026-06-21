@@ -25,10 +25,7 @@ const inlineHtmlParagraphs = {
 		if (!filename?.endsWith('.md')) return;
 
 		return {
-			code: content.replace(
-				/^(?=<(?:span|mark|small|strong|em|b|i|u|s)(?:\s|>))/gim,
-				'&#8203;'
-			)
+			code: content.replace(/^(?=<(?:span|mark|small|strong|em|b|i|u|s)(?:\s|>))/gim, '&#8203;')
 		};
 	}
 };

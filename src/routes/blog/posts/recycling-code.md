@@ -1,17 +1,17 @@
 ---
 title: 'recycling code'
 
-description: "what is really cool is that i get to use most of what i build in other stuff i build"
+description: 'what is really cool is that i get to use most of what i build in other stuff i build'
 
 date: '2026-05-23'
 
 lastmod: '2026-05-23'
 
 categories:
- - ai-query
- - agents
- - experiments
- 
+  - ai-query
+  - agents
+  - experiments
+
 published: true
 ---
 
@@ -29,7 +29,7 @@ but when i started building chump, a ton of bugs, feature gaps starts to surface
 
 another instance was with onlocal.dev, so in chump agent, you can connect to your chump instance running remotely, via cli or web interface. i wanted a tunnel solution backed in, so that if you're in a chump instance, you can instantly create a live endpoint, and use that to connect via the web... i brought in onlocal.dev, but but it had issues which one of it is. it also suffers from compressions like most solutions.
 
-ai-query realtime is obviosuly built around SSE and websocket, having onlocal.dev which at the time, not that it does not support sse, but it randomly drop packets.. websocket passthrough is also not working properlly. 
+ai-query realtime is obviosuly built around SSE and websocket, having onlocal.dev which at the time, not that it does not support sse, but it randomly drop packets.. websocket passthrough is also not working properlly.
 
 This resulted in a fix, i think it was the most exciting one for me soo far, because onlocal.dev is one of my tools that has a bit of adoption, so having catch this issues before anyone else was a ton of joy to hold.
 

@@ -1,7 +1,7 @@
 ---
 title: 'lightmode is king'
 
-description: "i just really like light mode"
+description: 'i just really like light mode'
 
 date: '2026-05-22'
 

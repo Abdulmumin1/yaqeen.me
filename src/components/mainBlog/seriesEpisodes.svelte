@@ -85,8 +85,9 @@
 		{/each}
 
 		{#if posts.length > page}
-			<button class="py-2 text-text-muted hover:text-accent transition-colors" onclick={loadMorePage}
-				>Load More ...</button
+			<button
+				class="py-2 text-text-muted hover:text-accent transition-colors"
+				onclick={loadMorePage}>Load More ...</button
 			>
 		{/if}
 	{/if}

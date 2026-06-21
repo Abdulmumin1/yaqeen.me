@@ -38,7 +38,6 @@
 			document.documentElement.classList.remove('dark');
 		}
 	}
-
 </script>
 
 <footer class="butterfly-footer w-full py-10 px-6 flex flex-col gap-3 text-xs text-text-muted">

@@ -95,18 +95,32 @@ async function readPhotoMetadata(arrayBuffer, customMetadata = {}) {
 		alt: pick(customMetadata.alt, customMetadata.description, exif?.ImageDescription),
 		place: placeFrom(customMetadata, exif),
 		camera: pick(customMetadata.camera),
-		date: dateFrom(firstValue(customMetadata.date, exif?.DateTimeOriginal, exif?.CreateDate, exif?.DateCreated)),
+		date: dateFrom(
+			firstValue(customMetadata.date, exif?.DateTimeOriginal, exif?.CreateDate, exif?.DateCreated)
+		),
 		latitude: numberFrom(
-			firstValue(customMetadata.latitude, customMetadata.lat, customMetadata.gpsLatitude, exif?.latitude)
+			firstValue(
+				customMetadata.latitude,
+				customMetadata.lat,
+				customMetadata.gpsLatitude,
+				exif?.latitude
+			)
 		),
 		longitude: numberFrom(
-			firstValue(customMetadata.longitude, customMetadata.lon, customMetadata.lng, customMetadata.gpsLongitude, exif?.longitude)
+			firstValue(
+				customMetadata.longitude,
+				customMetadata.lon,
+				customMetadata.lng,
+				customMetadata.gpsLongitude,
+				exif?.longitude
+			)
 		)
 	};
 }
 
 function toPhoto(key, metadata, uploaded) {
-	const year = metadata.date?.getUTCFullYear()?.toString() ?? uploaded?.getUTCFullYear()?.toString();
+	const year =
+		metadata.date?.getUTCFullYear()?.toString() ?? uploaded?.getUTCFullYear()?.toString();
 	const alt = metadata.alt || [metadata.place, year, 'photo'].filter(Boolean).join(' ') || key;
 
 	return {
@@ -155,7 +169,9 @@ async function readJsonObject(bucket, key) {
 function metadataForKey(manifest, key) {
 	if (Array.isArray(manifest)) {
 		return (
-			manifest.find((entry) => entry?.key === key || entry?.src === photoUrl(key) || entry?.filename === key) ?? {}
+			manifest.find(
+				(entry) => entry?.key === key || entry?.src === photoUrl(key) || entry?.filename === key
+			) ?? {}
 		);
 	}
 
@@ -173,7 +189,10 @@ function sidecarMetadata(sidecar) {
 		date: timestamp ? Number(timestamp) * 1000 : sidecar.creationTime?.timestamp,
 		latitude: geo.latitude,
 		longitude: geo.longitude,
-		place: sidecar.place ?? sidecar.locationName ?? sidecar.googlePhotosOrigin?.mobileUpload?.deviceFolder?.localFolderName
+		place:
+			sidecar.place ??
+			sidecar.locationName ??
+			sidecar.googlePhotosOrigin?.mobileUpload?.deviceFolder?.localFolderName
 	};
 }
 

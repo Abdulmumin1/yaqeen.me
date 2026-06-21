@@ -1,7 +1,7 @@
 ---
-title: "Thoughts on Love, Mercy, and Trust"
+title: 'Thoughts on Love, Mercy, and Trust'
 
-description: "To love Allah is also to love what points to Him: the natural world, noble character, family ties, children, the Prophet, and all that Allah Himself loves"
+description: 'To love Allah is also to love what points to Him: the natural world, noble character, family ties, children, the Prophet, and all that Allah Himself loves'
 
 date: '2026-04-15'
 
@@ -14,7 +14,6 @@ categories:
 
 published: true
 ---
-
 
 <span data-highlight>Love of Allah is not something that remains abstract or hidden in the heart. It spills outward.</span> It shapes how we see the world, how we treat people, and how we carry ourselves through relationships, hardship, and worship. To love Allah is also to love what points to Him: the natural world, noble character, family ties, children, the Prophet, and all that Allah Himself loves.
 

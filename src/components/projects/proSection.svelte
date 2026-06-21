@@ -16,10 +16,10 @@
 			Open Source
 		</h2>
 		<ProjectGrid />
-		
+
 		<div class="pt-4">
-			<a 
-				href="https://github.com/Abdulmumin1" 
+			<a
+				href="https://github.com/Abdulmumin1"
 				target="_blank"
 				class="text-xs font-mono text-accent/60 hover:text-accent transition-colors uppercase tracking-[0.2em]"
 			>

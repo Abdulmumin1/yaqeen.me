@@ -18,14 +18,14 @@ I tend to think I'm always the kind to go all the way on something. But looking 
 
 I have abandoned alot of efforts too early before they could be useful.
 
-For example, I started a Twitter account to post stuff about thirdpen  [@thirdpen_guy] abandoned it in less than a month. 
+For example, I started a Twitter account to post stuff about thirdpen [@thirdpen_guy] abandoned it in less than a month.
 
 I also started sending newsletters on thirdpen print, which is a hand written interactive explainers on some concept i find interesting..
 
-But the open rate was literally zero, and found that alot of people actually unsubsribe from the thirdpen email list because of that. 
+But the open rate was literally zero, and found that alot of people actually unsubsribe from the thirdpen email list because of that.
 I stopped that one as well.
 
-And notice, im already trying to give excuse for the above... sad. 
+And notice, im already trying to give excuse for the above... sad.
 
 Maybe these are stuff I just don't find fun?
 

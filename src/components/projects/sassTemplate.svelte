@@ -4,7 +4,9 @@
 
 <div class="relative py-8 group">
 	<!-- Year in gutter -->
-	<div class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-2 md:mb-0">
+	<div
+		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-2 md:mb-0"
+	>
 		{details.year || ''}
 	</div>
 

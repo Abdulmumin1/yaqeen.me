@@ -1,7 +1,7 @@
 ---
 title: 'Agents are blind'
 
-description: "like if you don’t really understand how a feature should behave, how state should transition, what should never happen… the agent will decide that for you."
+description: 'like if you don’t really understand how a feature should behave, how state should transition, what should never happen… the agent will decide that for you.'
 
 date: '2026-04-21'
 
@@ -35,7 +35,7 @@ done right?
 
 not really.
 
-<span data-highlight>what you shipped is just a collection of assumptions that *happened* to pass.</span>
+<span data-highlight>what you shipped is just a collection of assumptions that _happened_ to pass.</span>
 
 and this piles up. slowly. system starts to feel brittle. not because the code is bad, but because the behavior was never fully thought through.
 
@@ -61,7 +61,7 @@ just wrong.
 
 and that’s the thing.
 
-<span data-highlight>agents don’t know what’s *right* for your system. they don’t know your invariants. they don’t know what should never happen.</span>
+<span data-highlight>agents don’t know what’s _right_ for your system. they don’t know your invariants. they don’t know what should never happen.</span>
 
 you do. or at least you should.
 

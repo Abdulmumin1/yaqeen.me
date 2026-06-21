@@ -1,7 +1,7 @@
 ---
 title: 'Experimenting with a provider agnostic usage-based billing engine'
 
-description: "experimenting with a provider agnostic billing engine"
+description: 'experimenting with a provider agnostic billing engine'
 
 date: '2026-01-17'
 
@@ -15,7 +15,7 @@ categories:
 published: true
 ---
 
-i slopforked of `@autumnpricing` to make it provider agnostic, but the original reason was simpler: I want to use it with paystack. that is the provider i mostly use to setup billing for most of my contract works. 
+i slopforked of `@autumnpricing` to make it provider agnostic, but the original reason was simpler: I want to use it with paystack. that is the provider i mostly use to setup billing for most of my contract works.
 
 The problem autumn was solving is very real, and i felt it first-hand. The first time i saw the product (i think it was a sponsored spot on some youtube video) i was like this is it! this is it! like really.. THIS IS IT.
 
@@ -29,9 +29,9 @@ so i created a project literaly called `paystack-wrapper` that where this new id
 
 yet, still would only start to support providers i know people in my network that use.
 
-i call it owostack. `owo` in my language means moneeyy, so it moneystack :) 
+i call it owostack. `owo` in my language means moneeyy, so it moneystack :)
 
-Funny though, I called it a slopfork. 
+Funny though, I called it a slopfork.
 
 It was written from scratch.
 

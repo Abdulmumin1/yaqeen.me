@@ -1,5 +1,5 @@
 ---
-title: "A quality of life improvement for thirdpen"
+title: 'A quality of life improvement for thirdpen'
 
 description: 'thirdpen is getting better'
 
@@ -9,12 +9,9 @@ lastmod: '2025-08-20'
 
 categories:
   - thirdpen
-  
+
 published: true
 ---
-
-
-
 
 a little quality of life improvement for thirdpen
 

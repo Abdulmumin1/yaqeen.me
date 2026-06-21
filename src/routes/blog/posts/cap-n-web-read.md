@@ -10,16 +10,13 @@ lastmod: '2025-09-10'
 categories:
   - RPC
   - cloudflare
-  
+
 published: true
 ---
 
+Cap'n Web, a new RPC system for browsers and web servers.
 
-
-
-Cap'n Web,  a new RPC system for browsers and web servers.
-
-I would say the hackernews discussion is pretty stimulating  😃
+I would say the hackernews discussion is pretty stimulating 😃
 
 Played around with it for a bit, have an idea of a cool stuff i can implement with it.
 

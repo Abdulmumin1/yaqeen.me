@@ -15,7 +15,7 @@ published: true
 
 Yes, i know - there is a lot of solutions out there, but, but it a specific problem i have and that is, i love to copy just raw text back and fort between my android and mac.
 
-the way i usually do it was to send it to me self on WhatsApp. but the effing app is takes quite resource on my mac especially with my 10+ sessions of opencode opened. 
+the way i usually do it was to send it to me self on WhatsApp. but the effing app is takes quite resource on my mac especially with my 10+ sessions of opencode opened.
 
 so i spun up another codex, and i was like...
 

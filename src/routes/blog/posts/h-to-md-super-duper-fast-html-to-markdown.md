@@ -32,7 +32,6 @@ no weird third part bottleneck,
 brutally fast (sub 30ms for 5mb html was the goal),
 just convert the thing and move on
 
-
 some have been pushing a standard for agents to negotiate html pages as mardown instead when needed.. you know to save token. and they are right.
 
 <span data-highlight>markdown is cleaner, it is easier to scan, and would not pollute content with uncessary headers, tags, and script files the agent don't need.</span>
@@ -49,7 +48,6 @@ const markdown = htmlToMarkdown('<h1>Hello</h1><p><strong>fast</strong> output.<
 
 or use tubo for aggressive speed.
 
-
 ```ts
 import { htmlToMarkdownTurbo } from 'h-to-md';
 ```
@@ -58,13 +56,11 @@ and that's the vibe.
 
 <span data-highlight>you give it html. it gives you markdown.</span>
 
-
 also the benchmarks looks great:
 
 ![h-to-md benchmarks on turbo vs normal](https://mac-file.yaqeen.me/AF9627E4-eb840627be97dc864b634c5ad734db0f2b8161cc7b7a47f58352e911e4603fd2.png)
 
 62 mb of html per second is insane "(0-0)"
-
 
 anyways, if you want to check it out: [Abdulmumin1/h-to-md](https://github.com/Abdulmumin1/h-to-md)
 
