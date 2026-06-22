@@ -203,9 +203,9 @@ export const project_data = readable([
 	{
 		name: 'tiny.router',
 		year: '2026',
-		stack: ['Python', 'LLMs', 'Routing'],
+		stack: ['AI Model', 'LLMs', 'Routing'],
 		description:
-			'A tiny, calibrated capability router that picks the smallest language model capable of answering correctly',
+			'An AI router model that predicts and selects the smallest language model capable of answering a given prompt correctly',
 		links: {
 			study: 'https://github.com/Abdulmumin1/tiny.router'
 		},
