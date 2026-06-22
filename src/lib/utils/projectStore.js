@@ -201,13 +201,13 @@ export const project_data = readable([
 		]
 	},
 	{
-		name: 'tiny.router',
+		name: 'smol.router',
 		year: '2026',
 		stack: ['AI Model', 'LLMs', 'Routing'],
 		description:
 			'An AI router model that predicts and selects the smallest language model capable of answering a given prompt correctly',
 		links: {
-			study: 'https://github.com/Abdulmumin1/tiny.router'
+			study: 'https://github.com/Abdulmumin1/smol.router'
 		},
 		imagelist: []
 	},
