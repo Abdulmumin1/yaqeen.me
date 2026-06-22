@@ -213,18 +213,6 @@ export const project_data = readable([
 	},
 
 	{
-		name: 'Cull',
-		year: '2026',
-		stack: ['Python', 'Coroutines', 'Thread pool'],
-		description:
-			'Uses Project Think harness and virtual file system cloudflare/shell to triage your docs/codebase and answer questions',
-		links: {
-			study: 'https://github.com/Abdulmumin1/cull'
-		},
-		imagelist: []
-	},
-
-	{
 		name: 'py-fs-shell',
 		year: '2026',
 		stack: ['Python', 'Virtual File System'],
@@ -232,6 +220,18 @@ export const project_data = readable([
 			'A virtual file system for Python - interact with a simulated shell environment programmatically',
 		links: {
 			study: 'https://github.com/Abdulmumin1/py-fs-shell'
+		},
+		imagelist: []
+	},
+
+	{
+		name: 'Cull',
+		year: '2026',
+		stack: ['Python', 'Coroutines', 'Thread pool'],
+		description:
+			'Uses Project Think harness and virtual file system cloudflare/shell to triage your docs/codebase and answer questions',
+		links: {
+			study: 'https://github.com/Abdulmumin1/cull'
 		},
 		imagelist: []
 	},
