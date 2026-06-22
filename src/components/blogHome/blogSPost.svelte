@@ -21,7 +21,7 @@
 <div class="relative py-4 group">
 	<!-- Date positioned in the gutter for md+ screens -->
 	<div
-		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-1 md:mb-0"
+		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-1 md:mb-0 date-gutter"
 	>
 		<span class="relative inline-flex items-center">
 			{#if pinned}
@@ -55,3 +55,11 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	@media (min-width: 768px) {
+		.date-gutter {
+			top: 21px;
+		}
+	}
+</style>
