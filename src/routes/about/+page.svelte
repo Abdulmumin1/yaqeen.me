@@ -8,57 +8,6 @@
 		socialProfiles
 	} from '$lib/js/config.js';
 	import me from '$lib/images/me.jpeg';
-
-	const profileNotes = [
-		'hey. hey!',
-		'too close',
-		'might be taken btw.',
-		'still just me',
-		'ok that is enough',
-		'still checking me out?',
-		'Ah! shoot me an email then'
-	];
-	let noteIndex = $state(0);
-	let isHovered = $state(false);
-	let interactionTimer = $state(null);
-
-	let profileNote = $derived(profileNotes[noteIndex]);
-	let showTooltip = $derived(isHovered || interactionTimer !== null);
-
-	function handleInteraction() {
-		if (typeof navigator !== 'undefined' && navigator.vibrate) {
-			navigator.vibrate(40);
-		}
-
-		noteIndex = (noteIndex + 1) % profileNotes.length;
-
-		if (interactionTimer) clearTimeout(interactionTimer);
-		interactionTimer = setTimeout(() => {
-			interactionTimer = null;
-			setTimeout(() => {
-				if (!isHovered && !interactionTimer) noteIndex = 0;
-			}, 300);
-		}, 2500);
-	}
-
-	function handleMouseEnter() {
-		if (window.matchMedia('(hover: hover)').matches) {
-			isHovered = true;
-			if (noteIndex === 0) noteIndex = 1;
-		}
-	}
-
-	function handleMouseLeave() {
-		if (window.matchMedia('(hover: hover)').matches) {
-			isHovered = false;
-			if (!interactionTimer) {
-				setTimeout(() => {
-					if (!isHovered && !interactionTimer) noteIndex = 0;
-				}, 300);
-			}
-		}
-	}
-
 	const aboutSchema = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'Person',
@@ -80,66 +29,29 @@
 	<svelte:element this={'script'} type="application/ld+json">{aboutSchema}</svelte:element>
 </svelte:head>
 
-<div class="max-w-2xl mx-auto px-6 py-12 md:py-24 flex flex-col gap-12">
-	<div class="flex flex-col gap-8">
-		<h1 class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8">
-			About
-		</h1>
-
-		<div class="flex items-center gap-4">
-			<button
-				type="button"
-				class="profile-image group relative block shrink-0"
-				onclick={handleInteraction}
-				onmouseenter={handleMouseEnter}
-				onmouseleave={handleMouseLeave}
-				aria-label="Profile image"
-			>
-				<span
-					class="profile-frame overflow-hidden rounded-xl border border-border/40 block shadow-sm group-hover:border-accent transition-colors"
-				>
-					<img
-						src={me}
-						alt="Abdulmumin Yaqeen"
-						class="w-24 h-24 object-cover grayscale hover:grayscale-0 transition-all duration-500 dark:brightness-90"
-					/>
-				</span>
-				<span
-					class="profile-note pointer-events-none absolute left-0 sm:left-1/2 top-full mt-3 whitespace-nowrap rounded-full border border-accent/10 bg-surface px-3 py-1 text-[9px] font-mono uppercase tracking-[0.2em] text-accent shadow-sm transition-all duration-300 {showTooltip
-						? 'opacity-100 translate-y-0'
-						: 'opacity-0 -translate-y-2'}"
-				>
-					{profileNote}
-				</span>
-			</button>
-		</div>
+<div class="max-w-3xl mx-auto px-6 py-16 md:py-28 flex flex-col gap-12">
+	<div class="max-w-xl mx-auto w-full flex flex-col gap-2">
+		<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-text-main">About Yaqeen</h1>
+		<p class="text-text-muted text-base md:text-lg">Hi, I'm Yaqeen (/jæ'ki:n/).</p>
 	</div>
 
-	<div class="flex flex-col gap-6 text-lg font-visby text-text-muted leading-relaxed max-w-xl">
-		<p>I'm <span class="text-text-main font-medium">Abdulmumin Yaqeen</span>.</p>
-		<p>I do stuff, mostly a developer.</p>
+	<div class="w-full overflow-hidden border border-border/10">
+		<img src="/yaqeen.jpeg" alt="Abdulmumin Yaqeen" class="w-full object-cover" />
+	</div>
+
+	<div
+		class="max-w-xl mx-auto w-full flex flex-col gap-6 text-[16px] md:text-[17px] text-text-muted leading-relaxed font-normal"
+	>
+		<p>I am a developer.</p>
 		<p>
-			Used to run a <a
-				class="text-text-main decoration-accent/30 underline underline-offset-4 hover:decoration-accent transition-colors"
-				href="https://www.youtube.com/@abdulmuminyqn">YouTube channel</a
-			> a few years ago.
+			I spend most of my time <a href="/projects">experimenting</a>, seeking knowledge, or doing
+			open source.
 		</p>
-		<p class="text-base opacity-60">loyal to Apache 2.0 declaration :)</p>
-	</div>
-
-	<div class="flex flex-col gap-8 pt-4">
-		<div class="space-y-4">
-			<h2 class="text-2xl font-serif text-text-main">Defaults</h2>
-			<ul class="flex flex-col border-t border-border/40">
-				<li class="py-4 text-base text-text-muted border-b border-border/10">
-					Usually building, writing, sketching, or taking apart something that was already working.
-				</li>
-				<li class="py-4 text-base text-text-muted border-b border-border/10">
-					Recurring themes: dev tools, security, interfaces, experiments, and curiosity with bad
-					time management.
-				</li>
-				<li class="py-4 text-base italic text-accent opacity-80">and VERY PICKY, aesthetically.</li>
-			</ul>
-		</div>
+		<p>
+			Previously, I ran a <a
+				class="text-text-main decoration-accent/30 underline underline-offset-4 hover:decoration-accent transition-all font-medium"
+				href="https://www.youtube.com/@abdulmuminyqn">YouTube channel</a
+			> (I was as clueless as my audience). I remain strongly loyal to the Apache 2.0.
+		</p>
 	</div>
 </div>

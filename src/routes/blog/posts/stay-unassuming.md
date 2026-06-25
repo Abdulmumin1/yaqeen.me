@@ -1,8 +1,8 @@
 ---
 title: 'Stay Unassuming'
 description: 'A piece about the habit of treating hard work as the full explanation for success, and what that habit leaves out.'
-date: '2026-06-17'
-lastmod: '2026-06-17'
+date: '2026-06-21'
+lastmod: '2026-06-21'
 categories:
   - reflection
   - work

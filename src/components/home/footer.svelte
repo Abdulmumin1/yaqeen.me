@@ -80,7 +80,7 @@
 		</div>
 
 		<div class="flex gap-2 text-[10px]">
-			<a href={links.hashnode} class="hover:text-text-main transition-colors">blog</a>
+			<a href="/about" class="hover:text-text-main transition-colors">about</a>
 			<span>/</span>
 			<a href={links.linkedin} class="hover:text-text-main transition-colors">linkedin</a>
 			<span>/</span>
@@ -102,14 +102,18 @@
 		position: relative;
 		isolation: isolate;
 		overflow: hidden;
-		min-height: 15rem;
+		min-height: 16rem;
 		justify-content: flex-end;
 	}
 
 	.butterfly-overlay {
 		position: absolute;
 		z-index: -1;
-		inset: 0;
+		inset: auto;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -130,10 +134,24 @@
 
 		.butterfly-overlay {
 			width: 145%;
-			max-width: none;
 			left: 50%;
 			transform: translateX(-50%);
+			max-width: none;
 			opacity: 0.68;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.butterfly-footer {
+			min-height: 20rem;
+		}
+
+		.butterfly-overlay {
+			width: 100%;
+			max-width: 1200px;
+			left: 50%;
+			transform: translateX(-50%);
+			object-position: center 42%;
 		}
 	}
 
