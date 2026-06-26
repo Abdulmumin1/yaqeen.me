@@ -1,7 +1,7 @@
 ---
 title: 'Svelte is.. pretty great man'
 
-description: 'Svelte is great'
+description: 'why svelte feels genuinely great — opinionated but not overwhelming, with primitives that make sense and code even ai agents struggle to get wrong'
 
 date: '2026-03-25'
 

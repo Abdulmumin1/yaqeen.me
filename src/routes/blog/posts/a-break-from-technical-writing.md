@@ -1,7 +1,7 @@
 ---
 title: 'A break from technical writing'
 
-description: 'A break from technical writing'
+description: 'explaining the quiet spell on the blog — new responsibilities, spontaneous side projects, and writing over at thirdpen print instead of here'
 
 date: '2026-03-19'
 

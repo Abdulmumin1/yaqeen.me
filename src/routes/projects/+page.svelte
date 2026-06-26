@@ -48,7 +48,7 @@
 </script>
 
 <svelte:head>
-	<Seo title="Projects" description="A collection of the projects i've completed over the years" />
+	<Seo title="Projects" description="A growing collection of projects, tools, and experiments built by Abdulmumin Yaqeen — from developer utilities to full-stack applications." />
 </svelte:head>
 
 <div class="max-w-2xl mx-auto px-6 py-8">

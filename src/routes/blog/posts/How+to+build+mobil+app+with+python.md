@@ -1,9 +1,7 @@
 ---
 title: How to build mobile apps with Python
-description: `frameworks are not fully optimized to build a production ready applications.
+description: 'a practical walkthrough of building mobile apps with python using kivy, covering setup, development, and deployment for simple mobile applications'
 
-Nevertheless, we are going to checkout kivy in this tutorial to build and deploy a simple mobile app.
-`
 date: '2022-09-13'
 
 lastmod: '2024-01-12'

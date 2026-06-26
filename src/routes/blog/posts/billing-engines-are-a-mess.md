@@ -1,7 +1,7 @@
 ---
 title: 'Billing engines are a mess'
 
-description: 'A short note on why billing logic gets ugly much faster than most teams expect.'
+description: 'why billing engines turn into a mess faster than teams expect — from leap years and pro-rating to retries, dunning, and usage-based counting that never stays simple for long'
 
 date: '2026-03-27'
 

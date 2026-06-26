@@ -33,7 +33,7 @@
 <svelte:head>
 	<Seo
 		title={pageTitle}
-		description="Writings on code, security, and building things."
+		description="Articles on software development, cybersecurity, dev tools, and building things — by Abdulmumin Yaqeen."
 		{canonical}
 		image={defaultSocialImage}
 		{robots}

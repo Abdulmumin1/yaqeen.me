@@ -1,7 +1,7 @@
 ---
 title: 'I was wrong about myself'
 
-description: 'Svelte is great'
+description: 'a personal reflection on the pattern of abandoning projects too early, and coming to terms with the gap between self-perception and the reality of impatience'
 
 date: '2026-03-26'
 

@@ -1,7 +1,7 @@
 ---
 title: 'A quality of life improvement for thirdpen'
 
-description: 'thirdpen is getting better'
+description: 'a small quality of life improvement for thirdpen — making the discovery and learning experience just a bit smoother for curious minds'
 
 date: '2025-08-20'
 

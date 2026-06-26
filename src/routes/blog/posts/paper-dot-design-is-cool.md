@@ -1,7 +1,7 @@
 ---
 title: 'paper.design - super cool stuff'
 
-description: 'paper.design - super cool stuff'
+description: 'discovering paper.design, a browser-based design tool that can snapshot website components straight into its canvas and uses html as its native layer model'
 
 date: '2026-03-28'
 

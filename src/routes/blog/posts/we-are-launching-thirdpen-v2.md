@@ -1,7 +1,7 @@
 ---
 title: "We're launching thirdpen v2"
 
-description: 'thirdpen is getting better'
+description: 'announcing thirdpen v2, a platform built for independent thinkers to discover and explore ideas — go discover something new'
 
 date: '2025-08-16'
 

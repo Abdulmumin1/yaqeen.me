@@ -1,7 +1,7 @@
 ---
 title: 'If I Must Die - BY REFAAT ALAREER'
 
-description: 'If I Must Die - BY REFAAT ALAREER (may Allah have mercy on him)'
+description: 'sharing refaat alareer's haunting poem, written before his death in gaza — a message about bearing witness and telling the story when the storyteller is gone'
 
 date: '2025-09-23'
 

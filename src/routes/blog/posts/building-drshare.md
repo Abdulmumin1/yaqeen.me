@@ -1,7 +1,7 @@
 ---
 title: 'Before the airdrop thingy drops - here is my solution'
 
-description: 'Before the airdrop thingy drops - here is my solution'
+description: 'building drshare, a dead-simple mac-to-android file sharing tool born out of frustration with whatsapp hogging resources just to move text between devices'
 
 date: '2026-04-02'
 

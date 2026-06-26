@@ -18,7 +18,7 @@
 <svelte:head>
 	<Seo
 		title="BrainTime"
-		description="Excell in you thinking ability with curated brain exercises"
+		description="Sharpen your thinking with curated brain exercises — a desktop app by Abdulmumin Yaqeen."
 		image={imagelist[0]}
 	/>
 </svelte:head>

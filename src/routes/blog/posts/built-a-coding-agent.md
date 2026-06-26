@@ -1,7 +1,7 @@
 ---
 title: 'Chump: My ai-query Dogfood Project'
 
-description: 'dksdfm'
+description: 'building chump, a coding agent on top of ai-query, to dogfood the framework and create a real feedback loop for improving how stateful ai agents work'
 
 date: '2026-05-8'
 

@@ -1,7 +1,7 @@
 ---
 title: 'Thenables in Javascript'
 
-description: 'Thenables in Javascript'
+description: 'exploring thenables in javascript — custom awaitable objects that let you define exactly what happens when code hits an await, inspired by python coroutines'
 
 date: '2025-09-11'
 

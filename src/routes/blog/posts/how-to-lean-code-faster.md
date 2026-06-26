@@ -1,8 +1,6 @@
 ---
 title: How to learn to code faster
-description: `For some what motivated them into getting into the fields is how fast they can learn and start earning and for others, passion.
-
-You might find yourself having spent more than a year and a half without a decent understanding of how it works.`
+description: 'practical advice for learning to code faster — following a detailed roadmap, building projects early, and avoiding the traps that keep beginners stuck for years'
 
 date: '2022-12-14'
 

@@ -34,7 +34,7 @@
 <svelte:head>
 	<Seo
 		title="Abdulmumin Yaqeen"
-		description="A creative developer and writer."
+		description="Fullstack developer, cybersecurity graduate, and writer. Exploring interfaces, dev tools, and experiments at the edge of software."
 		canonical={siteOrigin}
 		image={defaultSocialImage}
 	/>

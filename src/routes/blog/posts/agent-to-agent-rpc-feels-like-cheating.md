@@ -1,7 +1,7 @@
 ---
 title: 'agent to agent rpc in ai-query'
 
-description: 'agent to agent rpc in ai-query'
+description: 'how ai-query's rpc layer lets agents talk to each other cleanly, with a registry and transport abstraction that makes agent location irrelevant to the calling code'
 
 date: '2026-03-31'
 

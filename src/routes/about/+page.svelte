@@ -14,7 +14,7 @@
 		name: authorName,
 		url: authorUrl,
 		image: `${siteOrigin}${me}`,
-		description: 'Fullstack developer, cyber security graduate, and writer.',
+		description: 'Fullstack developer, cybersecurity graduate, and writer passionate about interfaces, dev tools, and building clean experiments.',
 		sameAs: socialProfiles
 	});
 </script>
@@ -22,7 +22,7 @@
 <svelte:head>
 	<Seo
 		title="About | Abdulmumin Yaqeen"
-		description="About Abdulmumin Yaqeen, a fullstack developer, cyber security graduate, and writer."
+		description="Abdulmumin Yaqeen is a fullstack developer, cybersecurity graduate, and writer passionate about interfaces, dev tools, and building clean experiments."
 		canonical={`${siteOrigin}/about`}
 		image={defaultSocialImage}
 	/>

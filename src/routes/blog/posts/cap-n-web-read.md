@@ -1,7 +1,7 @@
 ---
 title: "Cap'n Web,  a new RPC system for browsers and web servers."
 
-description: "Cap'n Web,  a new RPC system for browsers and web servers."
+description: 'a quick look at cloudflare's cap'n web rpc system for browsers and web servers, and the stimulating hacker news discussion that followed its release'
 
 date: '2025-09-10'
 

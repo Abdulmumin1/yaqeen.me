@@ -1,7 +1,7 @@
 ---
 title: 'onlocal is doing quite well'
 
-description: "i made h-to-md, a tiny html to markdown converter that is stupid fast and doesn't make you bring a browser to the party."
+description: "Building a local tunneling tool from scratch — how I prototyped onlocal using WebSockets and Cloudflare Durable Objects before learning how the pros do it."
 
 date: '2026-04-30'
 

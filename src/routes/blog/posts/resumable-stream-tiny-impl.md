@@ -1,7 +1,7 @@
 ---
 title: 'Resumable Agent Streams with Redis'
 
-description: 'Resumable Agent Streams with Redis'
+description: 'building resumable agent streams with redis — letting clients reconnect after network blips and continue reading agent logs exactly where they left off'
 
 date: '2025-09-16'
 

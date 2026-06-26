@@ -14,7 +14,7 @@
 	let latest = $derived(posts[0]);
 	let categoryName = $derived($page.params.slug);
 	let pageTitle = $derived(`Category: ${categoryName} | Abdulmumin Yaqeen`);
-	let pageDescription = $derived(`Posts in category ${categoryName}`);
+	let pageDescription = $derived(`Articles by Abdulmumin Yaqeen in the "${categoryName}" category.`);
 	let canonical = $derived(`${siteOrigin}${$page.url.pathname}`);
 	let pagelength = 6;
 

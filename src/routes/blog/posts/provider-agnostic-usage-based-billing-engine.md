@@ -1,7 +1,7 @@
 ---
 title: 'Experimenting with a provider agnostic usage-based billing engine'
 
-description: 'experimenting with a provider agnostic billing engine'
+description: 'forking autumnpricing to build a provider-agnostic usage-based billing engine, starting with paystack support but designed to work with any provider down the line'
 
 date: '2026-01-17'
 
