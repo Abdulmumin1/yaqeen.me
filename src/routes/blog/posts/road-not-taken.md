@@ -1,7 +1,7 @@
 ---
 title: 'Road Not Taken -  Robert Frost'
 
-description: 'sharing robert frost's road not taken — one of those poems that quietly stays in the mind and gets recited from memory without warning'
+description: "sharing robert frost's road not taken — one of those poems that quietly stays in the mind and gets recited from memory without warning"
 
 date: '2026-03-29'
 
