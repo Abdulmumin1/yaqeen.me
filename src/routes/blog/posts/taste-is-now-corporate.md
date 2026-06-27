@@ -1,73 +1,40 @@
 ---
-title: 'Taste is now corporate'
-
-description: 'the moment corporate tech adopts a word, the spell breaks. it dies.'
-
+title: 'Taste as a Dial'
+description: 'taste became the thing we were told would matter after execution got automated. then almost immediately people started trying to automate taste too.'
 date: '2026-05-30'
-
-lastmod: '2026-05-30'
-
+lastmod: '2026-06-19'
 categories:
   - thoughts
   - randoms
-
 published: true
 ---
 
-![](https://mac-file.yaqeen.me/C6EE990F-Sam%20Lambert%20F3.png)
+Christopher Alexander wrote about a quality that makes a room, a building, or a piece of work feel alive. He refused to name it directly because naming it collapses the thing into one of its aspects. Call it beauty and you lose the comfort. Call it comfort and you lose the tension. Call it elegance and you lose the strangeness. He called it the quality without a name.
 
-the word **taste** is already weird now.
+You know it when you feel it. A room where the light falls across a wooden table in a way that makes you want to stay. A short sentence after a long one. You do not notice the rhythm but you feel it. A building where the entrance does not announce itself but somehow you know where to go.
 
-taste was quieter. you didn’t really claim it. people just noticed.
+You also know its absence. A coworking space with polished concrete floors and minimalist oak furniture and a single monstera plant and soft ambient music. Everything is correct. Everything is dead.
 
-someone would make something and it would just feel right. a product, a song, a tiny library, a paragraph, even the way a room was arranged. nothing was trying too hard. it just had a point of view.
+The quality without a name is not produced by following rules. It comes from a faculty that does not speak in sentences. Intuition. The body registers something before the mind has formed a word about it. The deeper mind, built from everything you have looked at, read, heard, and touched, delivers a verdict. The narrator catches up later and takes credit.
 
-and you would be like, yeah, this person has taste.
+We grew to use the word taste to describe this attribute in the things people make. The same faculty, turned toward a paragraph, a room, an event, a sentence.
 
-and it actually not because they said they did... mostly because they didn’t.
+Not a preference. Not a style guide.
 
-but now the corporate people found it. and they can’t just leave it alone. 
+The word emptied out when people began treating this signal as a skill you can hire for. Companies list taste in job postings. "AI can automate everything, taste is now the moat". There are prompt "skills" for AI agents that claim to give agents "taste". The signal is being codified into a set of rules.
 
-so now every vc is talking about how taste is the moat. every startup wants engineers with taste. "code is dead and taste is what is left"
+But you cannot codify the quality without a name. When you extract the surface features of something that felt alive and turn them into a checklist, you are naming the unnameable. You get the shape of aliveness without the thing itself. It ticks all the boxes. Correct and dead.
 
-yeah yeah sure.
+It is really funny. Taste became the thing we were told would matter after execution got automated. Then almost immediately people started trying to automate taste too.
 
-the funny part is that most of these people do not seem to like the thing taste actually asks from you.
+A set of rules is the opposite of what produced the quality in the first place. The quality comes from having spent enough time in a domain that your deeper mind recognizes patterns too fine for the surface mind to name. It is compressed experience. You cannot compress experience you have not had.
 
-taste asks you to notice things slowly. it asks you to care about details that are hard to explain. it asks you to say no to things that would probably perform well but would make the whole thing worse.
+Developing it requires the slow accumulation of real encounters with the thing you are making. Sitting with work that makes you uncomfortable because you do not yet understand why it works. Trusting the signal when it arrives, even when you cannot defend it.
 
-that is not how most companies want to work.
+At Ohio State in the 1920s, the campus was built without a fixed network of walkways. The architects waited. Students walked across the grass for a full year, cutting routes between buildings, tracing whatever paths made sense to them. Only later did the university pave the routes their feet had already worn into the ground. They did not draw the paths on a blueprint. They waited and the pattern emerged.
 
-companies want reasons. they want numbers. they want the graph to go up. they want to know why this thing is here and why the other one is not. and that is fair, i guess. people have to run businesses.
+That is not how the corporate world operates.
 
-but taste does not always arrive with a clean explanation. sometimes the answer is just: this feels wrong, and that is a very annoying answer in a meeting.
+The corporations that are now using the word taste do not want any of that. They want the output without the accumulation. The judgment without the years. The signal without the body that produces it. Taste as a dial they can turn up or down in a prompt window.
 
-so instead of letting taste be this weird human thing, they make it safe. they turn it into a look. a style. a tone of voice. a set of signals.
-
-and now people are literally making taste skills for ai agents.
-
-it not even a joke. actual skills. visual audit. typography craft. anti-slop. taste audit. one repo has hundreds of them. another has little dials for design variance, motion intensity, visual density.
-
-i get why. ai makes a lot of things that are technically fine and spiritually nothing. so people are trying to give the machine better defaults.
-
-but it is funny. <span data-highlight>taste became the thing we were told would matter after execution got automated. then almost immediately people started trying to automate taste too.</span>
-
-but that is not taste. that is just knowing what taste currently looks like online.
-
-there is a difference.
-
-<span data-highlight>and maybe this is what happens to every good word. first it belongs to people who actually need it. then the internet finds it. then companies find it. then it becomes a job requirement. after that, it is over.</span>
-
-taste used to mean you had a point of view, you can feel something in it, a hunch, emotion maybe, it feel right maybe?. now it often means you know the current style or  you can recreate the surface of things that already worked.
-
-and maybe that is why the ai part makes it worse. because ai is very good at surfaces. it can give you the shape of a good sentence, the shape of a nice website, the shape of a smart idea, the shape of useful code, the shape of a brand. it can make something that looks like the kind of thing a person with taste would make.
-
-it is hard to fake.
-
-i don’t know what that word is now.
-
-maybe taste is already gone.
-
-maybe the lore is gone.
-
-or maybe we should stop trying to define it.
+If the word is ruined now, maybe that is fine. The actual thing does not need the word. It needs someone who has spent enough time looking, reading, or building that they know, without knowing why they know, when something has the quality and when it does not.
