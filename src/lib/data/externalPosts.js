@@ -61,13 +61,13 @@ export const externalPosts = [
 		date: '2026-05-14',
 		url: 'https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html',
 		categories: ['reads']
-  }
+	},
 
 	{
-	title: 'Retinotopy: the brains visual map - Thirdpen',
-	description: '',
-	date: '2026-07-2',
-	url: 'https://thirdpen.app/print/retinotopy',
-	categories: ['reads']
+		title: 'Retinotopy: the brains visual map - Thirdpen',
+		description: '',
+		date: '2026-07-2',
+		url: 'https://thirdpen.app/print/retinotopy',
+		categories: ['reads']
 	}
 ];
