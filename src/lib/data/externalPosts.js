@@ -64,7 +64,7 @@ export const externalPosts = [
 	},
 
 	{
-		title: 'Retinotopy: the brains visual map - Thirdpen',
+		title: 'Retinotopy: the brain visual map - Thirdpen',
 		description: '',
 		date: '2026-07-2',
 		url: 'https://thirdpen.app/print/retinotopy',
