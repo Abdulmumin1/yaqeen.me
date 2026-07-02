@@ -21,7 +21,7 @@ export const externalPosts = [
 		description: 'People don’t like usage-based billing because they can’t predict it.',
 		date: '2026-02-13',
 		url: 'https://useautumn.com/blog/usage-billing-bad',
-		categories: ['writing']
+		categories: ['reads']
 	},
 
 	{
@@ -29,14 +29,14 @@ export const externalPosts = [
 		description: 'Jean-Baptiste Lamarck’s Revenge',
 		date: '2026-03-26',
 		url: 'https://www.whitenoise.email/p/lost-in-truncation',
-		categories: ['writing']
+		categories: ['reads']
 	},
 	{
 		title: 'The real reason some people are instantly likable',
 		description: 'The real reason some people are instantly likable',
 		date: '2026-04-01',
 		url: 'https://bigthinkmedia.substack.com/p/the-real-reason-some-people-are-instantly',
-		categories: ['writing']
+		categories: ['reads']
 	},
 	{
 		title: 'How To Reduce Your Frustration with Technology',
@@ -44,7 +44,7 @@ export const externalPosts = [
 			'When your favorite operating system, software program, or online service gets updated, it can take some getting used to. What was once familiar may now require learning new ways to get your tasks done.',
 		date: '2026-04-08',
 		url: 'https://askleo.com/how-to-reduce-your-frustration-with-technology/',
-		categories: ['writing']
+		categories: ['reads']
 	},
 	{
 		title: 'Architecting OwoStack on Cloudflare',
@@ -52,7 +52,7 @@ export const externalPosts = [
 			'Owostack makes billing decisions on the request path. For a metered feature, a single check may need to read subscription state, current usage, credits, reset windows, overage rules, entitlements, and customer-level billing configuration, then decide whether to allow usage and how that usage should be accounted for.',
 		date: '2026-04-11',
 		url: 'https://owostack.com/blog/architecting-owostack-on-cloudflare',
-		categories: ['writing', 'owostack']
+		categories: ['reads', 'reads']
 	},
 
 	{
@@ -60,6 +60,14 @@ export const externalPosts = [
 		description: '',
 		date: '2026-05-14',
 		url: 'https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html',
-		categories: ['Dijkstra']
+		categories: ['reads']
+  }
+
+	{
+	title: 'Retinotopy: the brains visual map - Thirdpen',
+	description: '',
+	date: '2026-07-2',
+	url: 'https://thirdpen.app/print/retinotopy',
+	categories: ['reads']
 	}
 ];
