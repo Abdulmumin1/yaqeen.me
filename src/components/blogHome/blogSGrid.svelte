@@ -34,7 +34,7 @@
 
 		{#if posts.regularPosts?.length}
 			<div class="flex flex-col gap-3">
-				<div class="flex flex-col divide-y divide-primary/10">
+				<div class="flex flex-col divide-y divide-primary/5">
 					{#each posts.regularPosts.slice(0, 11) as post (post.slug)}
 						<BlogSPost
 							title={post.title}

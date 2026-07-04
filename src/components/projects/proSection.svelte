@@ -21,7 +21,7 @@
 			<a
 				href="https://github.com/Abdulmumin1"
 				target="_blank"
-				class="text-xs font-mono text-accent/60 hover:text-accent transition-colors uppercase tracking-[0.2em]"
+				class="text-xs font-mono text-accent/60 hover:text-accent transition-colors lowercase tracking-[0.2em]"
 			>
 				view more on github →
 			</a>

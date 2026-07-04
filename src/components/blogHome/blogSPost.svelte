@@ -1,7 +1,7 @@
 <script>
 	import { resolve } from '$app/paths';
 	import Fa from 'svelte-fa';
-	import { faThumbTack } from '@fortawesome/free-solid-svg-icons';
+	import { faLongArrowRight, faThumbTack } from '@fortawesome/free-solid-svg-icons';
 
 	let { title, link, date, visual, external = false, slug, pinned = false } = $props();
 
@@ -40,10 +40,12 @@
 				href={link}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
+				class="text-xl flex items-center font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
 			>
 				{title}
-				<span class="ml-1 text-[10px] font-mono italic text-accent opacity-60">ext</span>
+				<span class="ml-1 italic text-accent opacity-60"
+					><Fa icon={faLongArrowRight} class="-rotate-45" /></span
+				>
 			</a>
 		{:else}
 			<a

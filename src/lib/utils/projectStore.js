@@ -30,8 +30,7 @@ export const sass_projects = readable([
 			page: 'owostack.com'
 		},
 		color: 'bg-sky-400',
-		svg: '/thirdpen.svg',
-		svgdark: '/thirdpen.svg',
+		icon: '/logos/owostack.png',
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.51.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.16.21.png',
@@ -50,8 +49,7 @@ export const sass_projects = readable([
 			page: 'thirdpen.app'
 		},
 		color: 'bg-sky-400',
-		svg: '/thirdpen.svg',
-		svgdark: '/thirdpen.svg',
+		icon: '/logos/thirdpen.png',
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.15.51.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.16.21.png',
@@ -71,8 +69,7 @@ export const sass_projects = readable([
 			page: 'Littlestats.click'
 		},
 		color: 'bg-sky-400',
-		svg: '/littlestats.svg',
-		svgdark: '/littlestatsdark.svg',
+		icon: '/logos/littlestats.png',
 		imagelist: [
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.44.png',
 			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2001.27.55.png',
@@ -91,8 +88,7 @@ export const sass_projects = readable([
 			page: 'devcanvas.dev'
 		},
 		color: 'bg-sky-400',
-		svg: '/devcanvas.svg',
-		svgdark: '/devcanvasdark.svg',
+		icon: '/logos/devcanvas.svg',
 		imagelist: [
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-43_DevCanvas_-_Super_Fast_Online_Editor_pyfm5u.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329710/Screenshot_2024-09-26_at_06-45-52_DevCanvas_-_Super_Fast_Online_Editor_bgippq.png',
@@ -113,8 +109,7 @@ export const sass_projects = readable([
 			page: 'commentrig.com'
 		},
 		color: 'bg-sky-400',
-		svg: '/commentrig.svg',
-		svgdark: '/commentrigdark.svg',
+		icon: '/logos/commentrig.png',
 		imagelist: [
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727329005/Screenshot_2024-09-26_at_06-36-29_CommentRig_wqy4mn.png',
 			'https://res.cloudinary.com/dtrqaqezs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1727328524/Screenshot_2024-09-25_at_14-40-35_Form_Validation_with_Only_HTML5_and_CSS_w2d5ii.png',

@@ -14,7 +14,8 @@
 		name: authorName,
 		url: authorUrl,
 		image: `${siteOrigin}${me}`,
-		description: 'Fullstack developer, cybersecurity graduate, and writer passionate about interfaces, dev tools, and building clean experiments.',
+		description:
+			'Fullstack developer, cybersecurity graduate, and writer passionate about interfaces, dev tools, and building clean experiments.',
 		sameAs: socialProfiles
 	});
 </script>
@@ -32,7 +33,9 @@
 <div class="max-w-3xl mx-auto px-6 py-16 md:py-28 flex flex-col gap-12">
 	<div class="max-w-xl mx-auto w-full flex flex-col gap-2">
 		<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-text-main">About Yaqeen</h1>
-		<p class="text-text-muted text-base md:text-lg">Hi, I'm Yaqeen (/jæ'ki:n/).</p>
+		<p class="text-text-muted text-base md:text-lg">Hi, I'm Abdulmumin Abdulkarim.</p>
+
+		<p class="text-text-muted text-base md:text-lg">but, call me Yaqeen (/jæ'ki:n/).</p>
 	</div>
 
 	<div class="w-full overflow-hidden border border-border/10">
