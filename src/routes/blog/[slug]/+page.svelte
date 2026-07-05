@@ -208,7 +208,7 @@
 </svelte:head>
 
 <article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
-	<hgroup class="flex flex-col gap-4 py-12">
+	<hgroup class="flex flex-col gap-4 py-">
 		<h1 class="text-4xl md:text-5xl font-serif text-text-main leading-tight">
 			{data.meta.title}
 		</h1>
@@ -291,18 +291,12 @@
 		font: inherit;
 	}
 
-	.blog-content :global(.poem) {
-		margin: 2.5rem 0 3rem;
-		padding-left: 1.25rem;
-		max-width: 42rem;
-	}
-
 	.blog-content :global(.poem p) {
 		margin: 0;
-		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-size: clamp(1.1rem, 2vw, 1.3rem);
-		line-height: 1.7;
-		font-style: italic;
+		font-family: 'Merriweather', 'Times New Roman', Times, serif;
+		font-size: clamp(1rem, 2vw, 1.1rem);
+		line-height: 2;
+		/*font-style: italic;*/
 		color: color-mix(in srgb, var(--color-text-main) 72%, var(--color-text-muted));
 	}
 
