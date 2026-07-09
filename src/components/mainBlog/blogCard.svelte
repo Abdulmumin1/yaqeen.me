@@ -45,27 +45,27 @@
 			</span>
 		</div>
 
-	<div class="flex items-baseline gap-2 md:block">
-		{#if isExternal}
-			<a
-				href={details.href}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="text-[17px] md:text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
-			>
-				{details.title}<span class="inline-block align-middle ml-1 italic text-accent opacity-60"
-					><Fa icon={faLongArrowRight} class="-rotate-45" /></span
+		<div class="flex items-baseline gap-2 md:block">
+			{#if isExternal}
+				<a
+					href={details.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-[17px] md:text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
 				>
-			</a>
-		{:else}
-			<a
-				href={resolve('/blog/[slug]', { slug: details.slug })}
-				class="text-[17px] md:text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
-			>
-				{details.title}
-			</a>
-		{/if}
-	</div>
+					{details.title}<span class="inline-block align-middle ml-1 italic text-accent opacity-60"
+						><Fa icon={faLongArrowRight} class="-rotate-45" /></span
+					>
+				</a>
+			{:else}
+				<a
+					href={resolve('/blog/[slug]', { slug: details.slug })}
+					class="text-[17px] md:text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
+				>
+					{details.title}
+				</a>
+			{/if}
+		</div>
 	</div>
 </div>
 

@@ -55,8 +55,11 @@
 	}
 
 	.project-icon {
-		filter: grayscale(200%) brightness(110%) contrast(140%);
+		filter: grayscale(100%) brightness(140%) contrast(85%);
+		mix-blend-mode: screen;
+		opacity: 0.72;
 		transition:
+			opacity 180ms ease,
 			filter 180ms ease,
 			transform 180ms ease;
 		position: relative;
@@ -76,11 +79,12 @@
 	}
 
 	.group:hover .project-icon {
-		filter: grayscale(0%) brightness(118%) saturate(150%) contrast(112%);
+		filter: grayscale(100%) brightness(155%) contrast(90%);
+		opacity: 0.9;
 	}
 
 	.group:hover .project-icon-glow {
-		opacity: 0.95;
+		opacity: 0;
 	}
 
 	@media (min-width: 768px) {
