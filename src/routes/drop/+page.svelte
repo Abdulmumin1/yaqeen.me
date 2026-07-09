@@ -48,7 +48,7 @@
 			</div>
 		</aside>
 		<section class="gap-2">
-			<h1 class="text-6xl">{project.name}</h1>
+			<h1 class="text-4xl md:text-6xl">{project.name}</h1>
 			<p class="text-lg">{project.description}</p>
 			<div class="flex flex-wrap gap-2 mb-4">
 				{#each project.stack as tech}

@@ -51,7 +51,7 @@
 		{#if pinnedPosts.length}
 			<div class="flex flex-col gap-1">
 				<p
-					class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mb-2"
+					class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mb-2"
 				>
 					Pinned
 				</p>
@@ -65,7 +65,7 @@
 
 		{#if latest}
 			<p
-				class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mt-8 mb-2"
+				class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mt-8 mb-2"
 			>
 				Latest
 			</p>

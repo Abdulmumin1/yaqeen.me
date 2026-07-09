@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex flex-col w-full items-center gap-6 mt-2 p-4 py-6 lg:p-8 rounded-3xl">
-	<h1 class="text-4xl font-bold text-primary">MINI Projects</h1>
+	<h1 class="text-3xl md:text-4xl font-bold text-primary">MINI Projects</h1>
 	<div class="flex flex-col items-center justify-center gap-1 w-full iss p-1 py-6">
 		<MiniProject
 			title={'kbar-svelte-mini'}

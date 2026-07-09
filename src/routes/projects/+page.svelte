@@ -53,7 +53,7 @@
 
 <div class="max-w-2xl mx-auto px-6 py-8">
 	<div class="flex flex-col gap-6">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/stuff-i've-built</p>
+		<p class="text-[8px] md:text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/stuff-i've-built</p>
 
 		<div class="flex flex-col divide-y divide-primary/10">
 			{#each [...$sass_projects, ...$project_data, ...mini_projects] as project (project.name)}

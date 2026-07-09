@@ -5,14 +5,14 @@
 
 <div class="w-full space-y-16 flex flex-col" id="projects">
 	<div class="space-y-6">
-		<h2 class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8">
+		<h2 class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8">
 			Products
 		</h2>
 		<SassGrid />
 	</div>
 
 	<div class="space-y-6">
-		<h2 class="text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8">
+		<h2 class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8">
 			Open Source
 		</h2>
 		<ProjectGrid />

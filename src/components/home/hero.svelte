@@ -13,11 +13,11 @@
 		<img src="/favicon.png" alt="Icon" class="w-10 h-10 grayscale opacity-80 dark:invert" />
 	</div>
 
-	<h1 class="text-3xl md:text-5xl font-serif mb-8 leading-tight text-text-main whitespace-nowrap">
+	<h1 class="text-2xl sm:text-3xl md:text-5xl font-serif mb-8 leading-tight text-text-main md:whitespace-nowrap">
 		Hi, i'm <span class="text-accent font-extralight">Abdulmumin Yaqeen</span>
 	</h1>
 
-	<div class="text-lg md:text-xl font-visby text-text-muted leading-relaxed space-y-4">
+	<div class="text-base sm:text-lg md:text-xl font-visby text-text-muted leading-relaxed space-y-4">
 		<p>
 			I love building <span class="text-accent italic">products</span>, and contributing to
 			<span class="text-accent italic">open source</span>. also share my

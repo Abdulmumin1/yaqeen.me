@@ -27,13 +27,13 @@
 
 <div class="min-h-screen p-6 text-text-main" in:slide>
 	<header class="text-center mb-12 flex flex-col gap-4">
-		<h1 class="text-6xl font-bold mb-4 mt-6">{project.name}</h1>
-		<p class="text-2xl text-primary">{project.tagline}</p>
+		<h1 class="text-4xl md:text-6xl font-bold mb-4 mt-6">{project.name}</h1>
+		<p class="text-xl md:text-2xl text-primary">{project.tagline}</p>
 	</header>
 
 	<main class="max-w-4xl mx-auto flex gap-6 flex-col">
 		<section class="mb-16 flex gap-4 flex-col">
-			<p class="text-xl mb-8 text-center">{project.description}</p>
+			<p class="text-lg md:text-xl mb-8 text-center">{project.description}</p>
 			<div class="flex justify-center gap-4">
 				<a
 					href={project.vsCodeMarketplace}
@@ -55,14 +55,14 @@
 		</section>
 
 		<section class="mb-16">
-			<h2 class="text-3xl font-semibold mb-6 text-center">How It Works</h2>
+			<h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">How It Works</h2>
 			<div class="border-4 border-primary/20 rounded-xl overflow-hidden">
 				<img src={project.demoGif} alt="CSS-Faster demo" class="w-full" />
 			</div>
 		</section>
 
 		<section class="mb-16">
-			<h2 class="text-3xl font-semibold mb-6 text-center">Features</h2>
+			<h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">Features</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				{#each project.features as feature}
 					<li class="bg-surface-muted p-4 rounded-lg flex items-center">

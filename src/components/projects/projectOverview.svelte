@@ -22,7 +22,7 @@
 			<ImageCarousel imageList={list} />
 			<div class="details max-w-md min-w-[300px]">
 				<h1
-					class="text-4xl font-bold font-visby_bold hover:text-primary hover: transition-colors duration-300"
+					class="text-2xl md:text-4xl font-bold font-visby_bold hover:text-primary hover: transition-colors duration-300"
 				>
 					<a href={details.links.page}>{details.name}</a>
 				</h1>

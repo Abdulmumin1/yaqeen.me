@@ -13,17 +13,17 @@
 <div class="relative py-5 group">
 	<!-- Year in gutter -->
 	<div
-		class="md:absolute md:-left-32 md:w-24 text-sm font-serif text-text-muted/60 md:text-right italic mb-2 md:mb-0 year-gutter"
+		class="md:absolute md:-left-32 md:w-24 text-xs md:text-sm font-serif text-text-muted/60 md:text-right italic mb-2 md:mb-0 year-gutter"
 	>
 		{details.year || ''}
 	</div>
 
 	<div class="flex flex-col gap-2">
 		<div class="flex items-baseline gap-3 flex-wrap">
-			<h3 class="text-2xl font-serif text-text-main group-hover:text-accent transition-colors">
+			<h3 class="text-lg md:text-2xl font-serif text-text-main group-hover:text-accent transition-colors">
 				{details.name}
 			</h3>
-			<div class="flex gap-4 text-lg font-mono text-accent/60 lowercase tracking-widest">
+			<div class="flex gap-3 md:gap-4 text-base md:text-lg font-mono text-accent/60 lowercase tracking-widest">
 				{#if details.links?.page}
 					<a
 						href="https://{details.links.page}"
@@ -46,7 +46,7 @@
 				{/if}
 			</div>
 		</div>
-		<p class="text-base font-visby text-text-muted leading-relaxed max-w-xl">
+		<p class="text-sm md:text-base font-visby text-text-muted leading-relaxed max-w-xl">
 			{details.description}
 		</p>
 	</div>

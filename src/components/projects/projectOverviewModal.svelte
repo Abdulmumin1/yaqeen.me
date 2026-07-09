@@ -59,7 +59,7 @@
 	class="w-full max-w-[90%] font-visby p-6 rounded-2xl border border-primary bg-surface-soft text-text-main"
 >
 	<div class="flex justify-between items-center mb-4">
-		<h2 class="text-3xl lg:text-4xl font-visby_bold font-extrabold">{details.name}</h2>
+		<h2 class="text-2xl sm:text-3xl lg:text-4xl font-visby_bold font-extrabold">{details.name}</h2>
 		<button onclick={closeModal} class="text-text-muted hover:text-text-main">
 			<Fa icon={faXmark} />
 		</button>

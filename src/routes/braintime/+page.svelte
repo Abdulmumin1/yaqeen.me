@@ -40,7 +40,7 @@
 			</div>
 		</aside>
 		<section class="gap-2">
-			<h1 class="text-6xl">BrainTime</h1>
+			<h1 class="text-4xl md:text-6xl">BrainTime</h1>
 			<p class="text-lg">Excell in you thinking ability with curated brain exercises</p>
 		</section>
 	</article>
@@ -55,7 +55,7 @@
 	</div>
 	<!-- <div class="border-2 border-dotted border-primary my-8" /> -->
 	<div class="w-full px-4 flex flex-col justify-center items-center">
-		<h3 class="text-3xl">Download</h3>
+		<h3 class="text-2xl md:text-3xl">Download</h3>
 
 		<div class="flex justify-between text-xl py-5 flex-col max-w-lg md:flex-row">
 			<div class="flex flex-col items-center shadow-lg p-4 rounded-md gap-4">

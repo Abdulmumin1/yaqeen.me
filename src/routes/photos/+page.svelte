@@ -135,7 +135,7 @@
 	.empty-state h1 {
 		margin: 0 0 0.75rem;
 		color: var(--color-text-main);
-		font-size: clamp(2.4rem, 8vw, 5.5rem);
+		font-size: clamp(2rem, 8vw, 5.5rem);
 		font-weight: 600;
 		letter-spacing: -0.04em;
 		line-height: 0.95;

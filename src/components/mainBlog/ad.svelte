@@ -35,7 +35,7 @@
 
 	<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-start">
 		<div class="">
-			<h3 class="text-4xl font-serif text-text-main leading-none italic mb-4">Built by me.</h3>
+			<h3 class="text-2xl md:text-4xl font-serif text-text-main leading-none italic mb-4">Built by me.</h3>
 		</div>
 
 		<div class="divide-y divide-border/10">
@@ -52,13 +52,13 @@
 							<div class="flex items-center gap-3 mb-2">
 								<span class="text-lg {product.color}">{product.symbol}</span>
 								<h4
-									class="text-2xl font-serif text-text-main group-hover:text-accent transition-colors duration-300 italic"
+									class="text-lg md:text-2xl font-serif text-text-main group-hover:text-accent transition-colors duration-300 italic"
 								>
 									{product.name}
 								</h4>
 							</div>
 							<p
-								class="text-base font-visby text-text-muted leading-relaxed group-hover:text-text-main transition-colors duration-300 max-w-sm"
+								class="text-sm md:text-base font-visby text-text-muted leading-relaxed group-hover:text-text-main transition-colors duration-300 max-w-sm"
 							>
 								{product.desc}
 							</p>
