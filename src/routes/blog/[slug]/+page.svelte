@@ -118,16 +118,16 @@
 		const getHighlightTheme = () =>
 			document.documentElement.classList.contains('dark')
 				? {
-						color: '#f97316',
-						opacity: 0.78,
+						color: '#f9411f',
+						opacity: 0.62,
 						blendMode: 'normal',
-						vivid: false
+						vivid: true
 					}
 				: {
-						color: '#f97316',
-						opacity: 0.32,
+						color: '#f9411f',
+						opacity: 0.26,
 						blendMode: 'normal',
-						vivid: false
+						vivid: true
 					};
 		const createHighlight = (element) =>
 			highlight(
@@ -207,7 +207,7 @@
 	<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
 
-<article class="max-w-2xl flex flex-col gap-4">
+<article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
 	<hgroup class="flex flex-col gap-4 py-">
 		<h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-text-main leading-tight">
 			{data.meta.title}
