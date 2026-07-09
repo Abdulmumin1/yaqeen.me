@@ -24,6 +24,7 @@
 	--font-visby-mid: 'Inter', system-ui, sans-serif;
 	--font-visby-bold: 'Inter', system-ui, sans-serif;
 	--font-serif: 'Inter', system-ui, sans-serif;
+	--font-meri: 'Merriweather', 'Times New Roman', Times, serif;
 	/* Non-serif options to explore: */
 	/* --font-serif: 'Space Grotesk', sans-serif; */
 	/* --font-serif: 'Source Code Pro', monospace; */
@@ -105,7 +106,7 @@
 	}
 
 	*::selection {
-		@apply bg-primary/30;
+		@apply bg-accent/30;
 		color: var(--color-text-main);
 	}
 }
