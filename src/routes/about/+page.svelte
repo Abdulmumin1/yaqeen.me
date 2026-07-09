@@ -30,8 +30,8 @@
 	<svelte:element this={'script'} type="application/ld+json">{aboutSchema}</svelte:element>
 </svelte:head>
 
-<div class="max-w-3xl mx-auto px-6 py-16 md:py-28 flex flex-col gap-12">
-	<div class="max-w-xl mx-auto w-full flex flex-col gap-2">
+<div class="flex flex-col gap-12">
+	<div class="w-full flex flex-col gap-2">
 		<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-text-main">About Yaqeen</h1>
 		<p class="text-text-muted text-base md:text-lg">Hi, I'm Abdulmumin Abdulkarim.</p>
 

@@ -133,13 +133,19 @@
 <div
 	class="w-full overflow-x-hidden bg-surface text-text-main relative transition-colors duration-500 min-h-screen"
 >
-	<Nav {isBlog} />
-	<main class="relative z-10">
-		{@render children?.()}
-	</main>
-	{#if !['/garden'].includes(page.url.pathname)}
-		<Footer />
-	{/if}
+	<div class="max-w-5xl mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row gap-12 md:gap-16">
+		<aside class="md:w-40 shrink-0 md:sticky md:top-24 h-fit">
+			<Nav {isBlog} />
+		</aside>
+		<div class="flex-1 min-w-0">
+			<main class="relative z-10">
+				{@render children?.()}
+			</main>
+			{#if !['/garden'].includes(page.url.pathname)}
+				<Footer />
+			{/if}
+		</div>
+	</div>
 </div>
 
 {#if loaded}

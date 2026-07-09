@@ -41,7 +41,7 @@
 	<svelte:element this={'script'} type="application/ld+json">{homeSchema}</svelte:element>
 </svelte:head>
 
-<div class="py-12 md:py-24 max-w-2xl mx-auto px-6">
+<div>
 	<Hero />
 
 	<div class="mt-16 space-y-20">

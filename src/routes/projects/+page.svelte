@@ -51,7 +51,7 @@
 	<Seo title="Projects" description="A growing collection of projects, tools, and experiments built by Abdulmumin Yaqeen — from developer utilities to full-stack applications." />
 </svelte:head>
 
-<div class="max-w-2xl mx-auto px-6 py-8">
+<div>
 	<div class="flex flex-col gap-6">
 		<p class="text-[8px] md:text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/stuff-i've-built</p>
 
