@@ -46,7 +46,7 @@
 	{/if}
 </svelte:head>
 
-<section>
+<section class="max-w-2xl mx-auto px-6 py-12 md:py-24">
 	<div class="flex flex-col">
 		{#if pinnedPosts.length}
 			<div class="flex flex-col gap-1">

@@ -48,13 +48,14 @@
 </script>
 
 <svelte:head>
-	<Seo title="Projects" description="A growing collection of projects, tools, and experiments built by Abdulmumin Yaqeen — from developer utilities to full-stack applications." />
+	<Seo
+		title="Projects"
+		description="A growing collection of projects, tools, and experiments built by Abdulmumin Yaqeen — from developer utilities to full-stack applications."
+	/>
 </svelte:head>
 
-<div>
+<div class="max-w-2xl mx-auto px-6 py-12 md:py-24">
 	<div class="flex flex-col gap-6">
-		<p class="text-[8px] md:text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">/stuff-i've-built</p>
-
 		<div class="flex flex-col divide-y divide-primary/10">
 			{#each [...$sass_projects, ...$project_data, ...mini_projects] as project (project.name)}
 				<Template details={project} />
