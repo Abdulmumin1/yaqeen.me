@@ -20,7 +20,7 @@
 </script>
 
 <nav
-	class="font-serif select-none flex items-center mx-auto px-1 max-w-[40rem] justify-between py-4 text-sm sm:text-base"
+	class="font-serif select-none flex items-center mx-auto px-5 md:px-1 max-w-[40rem] justify-between py-4 text-sm sm:text-base"
 >
 	{#each navItems as item}
 		<div class="flex items-center gap-1 relative group">
