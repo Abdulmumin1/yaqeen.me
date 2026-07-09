@@ -120,6 +120,7 @@
 		object-position: center 42%;
 		pointer-events: none;
 		opacity: 0.76;
+		filter: hue-rotate(-15deg) saturate(1.8) brightness(1.05);
 	}
 
 	.footer-content {
