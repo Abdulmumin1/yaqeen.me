@@ -15,7 +15,7 @@
 	</div>
 
 	<h1
-		class="text-2xl sm:text-3xl md:text-5xl font-serif mb-8 leading-tight text-text-main md:whitespace-nowrap"
+		class="text-2xl sm:text-3xl md:text-5xl font-serif mb-5 leading-tight text-text-main md:whitespace-nowrap"
 	>
 		Hi, call me
 		<span class="relative inline-block group font-extralight font-meri cursor-help text-accent">
@@ -43,11 +43,9 @@
 		>
 	</h1>
 
-	<div class="text-base sm:text-lg md:text-xl font-visby text-text-muted leading-relaxed space-y-4">
-		<p>
-			I build <span class="text-accent italic">products</span> i wanna use, contribute and build
-			<span class="text-accent italic">open source</span>. I also do share alot of my
-			<a href="/blog" class="text-accent italic">thoughts</a> on here.
+	<div class="text-base sm:text-lg md:text-xl font-visby text-text-muted leading-relaxed">
+		<p class="text-balance">
+			I enjoy building products. i also write alot and some of it makes it to my blog on here.
 		</p>
 	</div>
 

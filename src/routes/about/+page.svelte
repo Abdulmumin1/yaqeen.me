@@ -8,6 +8,8 @@
 		socialProfiles
 	} from '$lib/js/config.js';
 	import me from '$lib/images/me.jpeg';
+	import { darkMode } from '$lib/utils/darkmode.js';
+
 	const aboutSchema = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'Person',
@@ -34,26 +36,41 @@
 	<div class="max-w-xl mx-auto w-full flex flex-col gap-2">
 		<p class="text-text-muted text-base md:text-lg">Hi, I'm Abdulmumin Abdulkarim.</p>
 
-		<p class="text-text-muted text-base md:text-lg">but, call me Yaqeen (/jæ'ki:n/).</p>
+		<p class="text-text-muted text-base md:text-lg">I prefer you call me Yaqeen (/jæ'ki:n/).</p>
 	</div>
 
 	<div class="w-full overflow-hidden border border-border/10">
-		<img src="/yaqeen.jpeg" alt="Abdulmumin Yaqeen" class="w-full object-cover" />
+		{#if $darkMode}
+			<img src="/me-dark.jpg" alt="Abdulmumin Yaqeen" class="w-full object-cover" />
+		{:else}
+			<img src="/yaqeen.jpeg" alt="Abdulmumin Yaqeen" class="w-full object-cover" />
+		{/if}
 	</div>
 
 	<div
-		class="max-w-xl mx-auto w-full flex flex-col gap-6 text-[16px] md:text-[17px] text-text-muted leading-relaxed font-normal"
+		class="max-w-xl mx-auto w-full flex flex-col gap-3 text-[16px] md:text-[17px] text-text-muted leading-relaxed font-normal"
 	>
-		<p>I am a developer.</p>
+		<p>I am a developer</p>
 		<p>
-			I spend most of my time <a href="/projects">experimenting</a>, seeking knowledge, or doing
-			open source.
+			I spend most of my time <a href="/projects">experimenting</a>, seeking knowledge, or
+			occasionally doing open source.
 		</p>
 		<p>
 			Previously, I ran a <a
 				class="text-text-main decoration-accent/30 underline underline-offset-4 hover:decoration-accent transition-all font-medium"
-				href="https://www.youtube.com/@abdulmuminyqn">YouTube channel</a
-			> (I was as clueless as my audience). I remain strongly loyal to the Apache 2.0.
+				href="https://www.youtube.com/@abdulmuminyqn">youtube channel</a
+			> (I was as clueless as my audience).
+		</p>
+
+		<p>
+			Apart from engineering stuff, unfortunately i can't claim any hobbies yet, but i do enjoy
+			taking photos, i suck at it, but that's fine... it is fun!
+		</p>
+
+		<p>
+			I deeply enjoy peotry, i suck at writing them, I still try "blindly". but the fun is in
+			discerning peoms, not composing them. I also enjoy making 3d models, i do stop by blender
+			every once in a while to say hi :)
 		</p>
 	</div>
 </div>

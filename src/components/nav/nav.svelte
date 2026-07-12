@@ -2,9 +2,11 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 
-	let isHomeActive = $derived(page.url.pathname === '/' || page.url.pathname === '/about');
+	let isHomeActive = $derived(page.url.pathname === '/');
 	let isThoughtsActive = $derived(
-		page.url.pathname.startsWith('/blog') || page.url.pathname.startsWith('/category')
+		page.url.pathname.startsWith('/blog') ||
+			page.url.pathname.startsWith('/category') ||
+			page.url.pathname.startsWith('/about')
 	);
 	let isWorkActive = $derived(
 		page.url.pathname.startsWith('/projects') ||
