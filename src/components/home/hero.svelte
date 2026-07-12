@@ -25,6 +25,7 @@
 			>
 				legally "abdulmumin abdulkarim" :)
 			</span>
+
 			<span
 				use:highlight={{
 					markType: 'underline',
@@ -45,7 +46,7 @@
 
 	<div class="text-base sm:text-lg md:text-xl font-visby text-text-muted leading-relaxed">
 		<p class="text-balance">
-			I enjoy building products. i also write alot and some of it makes it to my blog on here.
+			I enjoy building products. i also write alot and some of it ends up here on my blog
 		</p>
 	</div>
 
