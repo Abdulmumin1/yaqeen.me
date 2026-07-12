@@ -25,7 +25,8 @@
 		"prettier-plugin-svelte": "^3.5.1",
 		"svelte": "^5.53.12",
 		"tailwindcss": "^4.2.1",
-		"vite": "^5.4.21"
+		"vite": "^5.4.21",
+		"wrangler": "^4.110.0"
 	},
 	"type": "module",
 	"dependencies": {
