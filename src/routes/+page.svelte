@@ -13,6 +13,8 @@
 		socialProfiles
 	} from '$lib/js/config.js';
 
+	let { data } = $props();
+
 	const homeSchema = JSON.stringify([
 		{
 			'@context': 'https://schema.org',
@@ -46,6 +48,6 @@
 
 	<div class="mt-16 space-y-20">
 		<ProSection />
-		<BlogSection />
+		<BlogSection {data} />
 	</div>
 </div>

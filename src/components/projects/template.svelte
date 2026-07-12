@@ -63,7 +63,7 @@
 <style>
 	@media (min-width: 768px) {
 		.year-gutter {
-			top: 41px;
+			top: 28.5px;
 		}
 	}
 </style>

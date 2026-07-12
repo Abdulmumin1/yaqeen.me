@@ -1,611 +1,265 @@
 <script>
-	import { faAdd, faBroom, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 	import Seo from '$components/general/seo.svelte';
 	import { siteOrigin } from '$lib/js/config.js';
-	import getStroke from 'perfect-freehand';
-	import Fa from 'svelte-fa';
-
-	import { createClient } from 'rivetkit/client';
 	import { onMount } from 'svelte';
 
-	export function generateRandomKey(length = 32) {
-		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
-		const bytes = crypto.getRandomValues(new Uint8Array(length));
-		let result = '';
+	const FALLBACK_CARD = 'var(--color-accent)';
 
-		for (let i = 0; i < length; i++) {
-			result += chars[bytes[i] % chars.length];
-		}
-
-		return result;
-	}
-
-	const rivetClient = createClient(
-		'https://yaqeen-garden-rivet-actor.avdorr12345.workers.dev/rivet'
-	);
-
-	let { drawings = [], onDrawingsChange = () => {} } = $props();
-
-	let sessionId = $state(null);
-	let drawing = $state(false);
-	let currentPoints = $state([]);
-	let strokes = $state([]);
-
-	let canvas;
-	let smallCanvas;
-
-	let offsetX = $state(0);
-	let offsetY = $state(0);
-	let scale = $state(1);
-
-	let lastPanX = $state(0);
-	let lastPanY = $state(0);
-
-	let currentColor = $state('#1c1917');
-	let currentSize = $state(4);
-
-	let placedDrawings = $state([...drawings]);
-	let selectedDrawing = $state(null);
-	let dragging = $state(false);
-	let resizing = $state(false);
-	let rotating = $state(false);
-	let initialScale = $state(1);
-	let initialDistance = $state(0);
-	let initialRotation = $state(0);
-	let initialAngle = $state(0);
-	let currentCursor = $state('default');
-
-	let rivetConnection = $state(null);
-
-	const colors = [
-		'#1c1917', // Warm Ink Black
-		'#ef4444', // Vermilion Red
-		'#10b981', // Emerald Green
-		'#3b82f6', // Royal Blue
-		'#f59e0b', // Deep Amber
-		'#d946ef', // Fuchsia Orchid
-		'#06b6d4', // Cyan Teal
-		'#f97316' // Burnt Orange
-	];
-	const sizes = [2, 4, 8, 16, 32];
-
-	function getPoint(e, canvasElement) {
-		const rect = canvasElement.getBoundingClientRect();
-		const touch = e.touches?.[0];
-		const clientX = touch ? touch.clientX : e.clientX;
-		const clientY = touch ? touch.clientY : e.clientY;
-		const screenX = clientX - rect.left;
-		const screenY = clientY - rect.top;
-
-		if (canvasElement === canvas) {
-			const worldX = (screenX - offsetX) / scale;
-			const worldY = (screenY - offsetY) / scale;
-			return { x: worldX, y: worldY };
-		} else {
-			return { x: screenX, y: screenY };
-		}
-	}
-
-	function handleDrawingStart(e) {
-		const targetCanvas = e.currentTarget;
-		selectedDrawing = null;
-		if (targetCanvas === canvas) return;
-
-		drawing = true;
-		const { x, y } = getPoint(e, targetCanvas);
-		currentPoints = [[x, y]];
-		strokes.push(currentPoints);
-		drawSmallCanvas();
-	}
-
-	function handleDrawingMove(e) {
-		e.preventDefault();
-		const targetCanvas = e.currentTarget;
-		if (targetCanvas === canvas) return;
-
-		if (!drawing) return;
-		const { x, y } = getPoint(e, targetCanvas);
-		currentPoints.push([x, y]);
-		drawSmallCanvas();
-	}
-
-	function handleDrawingEnd() {
-		drawing = false;
-	}
-
-	function drawSmallCanvas() {
-		if (!smallCanvas) return;
-		const ctx = smallCanvas.getContext('2d');
-		ctx.clearRect(0, 0, smallCanvas.width, smallCanvas.height);
-		const options = {
-			size: currentSize,
-			smoothing: 0.5,
-			thinning: 0.5,
-			streamline: 0.5,
-			easing: (t) => t,
-			start: { taper: 0, cap: true },
-			end: { taper: 0, cap: true }
-		};
-		strokes.forEach((points) => {
-			const stroke = getStroke(points, options);
-			if (stroke.length) {
-				const path = new Path2D();
-				path.moveTo(stroke[0][0], stroke[0][1]);
-				stroke.forEach((p) => path.lineTo(p[0], p[1]));
-				ctx.fillStyle = currentColor;
-				ctx.fill(path);
-			}
-		});
-	}
-
-	function clearSmallCanvas() {
-		if (smallCanvas) {
-			const ctx = smallCanvas.getContext('2d');
-			ctx.clearRect(0, 0, smallCanvas.width, smallCanvas.height);
-			strokes = [];
-			currentPoints = [];
-		}
-	}
-
-	async function deleteSelectedDrawing() {
-		if (selectedDrawing) {
-			const drawing = placedDrawings.find((d) => d.id === selectedDrawing);
-			if (drawing && drawing.sessionId === sessionId) {
-				let deletedId = selectedDrawing;
-				const index = placedDrawings.findIndex((d) => d.id === selectedDrawing);
-				placedDrawings.splice(index, 1);
-				selectedDrawing = null;
-				drawPlacedDrawings();
-				onDrawingsChange([...placedDrawings]);
-				if (rivetConnection) {
-					await rivetConnection.deleteDrawing(deletedId, sessionId);
-				}
-			}
-		}
-	}
-
-	async function updateDrawing(id, updates) {
-		const drawing = placedDrawings.find((d) => d.id === id);
-		if (drawing && drawing.sessionId === sessionId) {
-			Object.assign(drawing, updates);
-			drawPlacedDrawings();
-			onDrawingsChange([...placedDrawings]);
-			if (rivetConnection) {
-				rivetConnection.updateDrawing(id, updates);
-			}
-		}
-	}
-
-	function getDrawingBounds(drawing) {
-		let minX = Infinity;
-		let minY = Infinity;
-		let maxX = -Infinity;
-		let maxY = -Infinity;
-
-		drawing.strokes.forEach((stroke) => {
-			stroke.forEach((point) => {
-				minX = Math.min(minX, point[0]);
-				minY = Math.min(minY, point[1]);
-				maxX = Math.max(maxX, point[0]);
-				maxY = Math.max(maxY, point[1]);
-			});
-		});
-
-		const padding = 10;
-		const centerX = (minX + maxX) / 2;
-		const centerY = (minY + maxY) / 2;
-		return {
-			width: maxX - minX + padding * 2,
-			height: maxY - minY + padding * 2,
-			offsetX: -centerX,
-			offsetY: -centerY
-		};
-	}
-
-	function getCursorAtPosition(worldX, worldY) {
-		if (!selectedDrawing) return 'default';
-
-		const drawing = placedDrawings.find((d) => d.id === selectedDrawing);
-		if (!drawing || drawing.sessionId !== sessionId) return 'default';
-
-		const bounds = getDrawingBounds(drawing);
-		const halfWidth = bounds.width / 2;
-		const halfHeight = bounds.height / 2;
-		const rotationOffset = 10;
-
-		const dx = worldX - drawing.x;
-		const dy = worldY - drawing.y;
-		const cosR = Math.cos(-drawing.rotation);
-		const sinR = Math.sin(-drawing.rotation);
-		const rotatedX = dx * cosR - dy * sinR;
-		const rotatedY = dx * sinR + dy * cosR;
-		const unscaledX = rotatedX / drawing.scale;
-		const unscaledY = rotatedY / drawing.scale;
-
-		const rotationHandles = [
-			{ x: -halfWidth - rotationOffset, y: -halfHeight - rotationOffset },
-			{ x: halfWidth + rotationOffset, y: -halfHeight - rotationOffset },
-			{ x: -halfWidth - rotationOffset, y: halfHeight + rotationOffset },
-			{ x: halfWidth + rotationOffset, y: halfHeight + rotationOffset }
-		];
-
-		for (const handle of rotationHandles) {
-			const dist = Math.sqrt((unscaledX - handle.x) ** 2 + (unscaledY - handle.y) ** 2);
-			if (dist < 8) return 'alias';
-		}
-
-		const resizeHandles = [
-			{ x: -halfWidth, y: -halfHeight, cursor: 'nw-resize' },
-			{ x: halfWidth, y: -halfHeight, cursor: 'ne-resize' },
-			{ x: -halfWidth, y: halfHeight, cursor: 'sw-resize' },
-			{ x: halfWidth, y: halfHeight, cursor: 'se-resize' }
-		];
-
-		for (const handle of resizeHandles) {
-			if (Math.abs(unscaledX - handle.x) < 10 && Math.abs(unscaledY - handle.y) < 10) {
-				return handle.cursor;
-			}
-		}
-
-		if (Math.abs(unscaledX) < halfWidth && Math.abs(unscaledY) < halfHeight) {
-			return 'move';
-		}
-
-		return 'crosshair';
-	}
-
-	async function addDrawingToCanvas() {
-		if (strokes.length === 0) return;
-
-		const newDrawing = {
-			id: Date.now(),
-			strokes: [...strokes],
-			x: Math.random() * 400 + 100,
-			y: Math.random() * 300 + 100,
-			scale: 1,
-			rotation: 0,
-			color: currentColor,
-			size: currentSize,
-			sessionId: sessionId
-		};
-
-		placedDrawings.push(newDrawing);
-		selectedDrawing = newDrawing.id;
-		clearSmallCanvas();
-		drawPlacedDrawings();
-		onDrawingsChange([...placedDrawings]);
-		if (rivetConnection) {
-			await rivetConnection.addDrawing(newDrawing);
-		}
-	}
-
-	function drawPlacedDrawings() {
-		if (!canvas) return;
-		const ctx = canvas.getContext('2d');
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-		placedDrawings.forEach((drawing) => {
-			ctx.save();
-			ctx.translate(drawing.x, drawing.y);
-			ctx.scale(drawing.scale, drawing.scale);
-			ctx.rotate(drawing.rotation);
-
-			const options = {
-				size: drawing.size,
-				smoothing: 0.5,
-				thinning: 0.5,
-				streamline: 0.5,
-				easing: (t) => t,
-				start: { taper: 0, cap: true },
-				end: { taper: 0, cap: true }
-			};
-
-			const bounds = getDrawingBounds(drawing);
-			ctx.save();
-			ctx.translate(bounds.offsetX, bounds.offsetY);
-
-			drawing.strokes.forEach((points) => {
-				const stroke = getStroke(points, options);
-				if (stroke.length) {
-					const path = new Path2D();
-					path.moveTo(stroke[0][0], stroke[0][1]);
-					stroke.forEach((p) => path.lineTo(p[0], p[1]));
-					ctx.fillStyle = drawing.color;
-					ctx.fill(path);
-				}
-			});
-			ctx.restore();
-
-			if (selectedDrawing === drawing.id) {
-				const halfWidth = bounds.width / 2;
-				const halfHeight = bounds.height / 2;
-				ctx.strokeStyle = '#007bff';
-				ctx.lineWidth = 1 / drawing.scale;
-				ctx.strokeRect(-halfWidth, -halfHeight, bounds.width, bounds.height);
-
-				ctx.fillStyle = '#007bff';
-				const handleSize = 4 / drawing.scale;
-				ctx.fillRect(
-					-halfWidth - handleSize / 2,
-					-halfHeight - handleSize / 2,
-					handleSize,
-					handleSize
-				);
-				ctx.fillRect(
-					halfWidth - handleSize / 2,
-					-halfHeight - handleSize / 2,
-					handleSize,
-					handleSize
-				);
-				ctx.fillRect(
-					-halfWidth - handleSize / 2,
-					halfHeight - handleSize / 2,
-					handleSize,
-					handleSize
-				);
-				ctx.fillRect(
-					halfWidth - handleSize / 2,
-					halfHeight - handleSize / 2,
-					handleSize,
-					handleSize
-				);
-			}
-			ctx.restore();
-		});
-	}
-
-	function hitTestPoint(px, py, drawing) {
-		const dx = px - drawing.x;
-		const dy = py - drawing.y;
-		const cosR = Math.cos(-drawing.rotation);
-		const sinR = Math.sin(-drawing.rotation);
-		const rotatedX = dx * cosR - dy * sinR;
-		const rotatedY = dx * sinR + dy * cosR;
-		const unscaledX = rotatedX / drawing.scale;
-		const unscaledY = rotatedY / drawing.scale;
-		const bounds = getDrawingBounds(drawing);
-		const halfWidth = bounds.width / 2;
-		const halfHeight = bounds.height / 2;
-		return Math.abs(unscaledX) < halfWidth && Math.abs(unscaledY) < halfHeight;
-	}
-
-	function handleCanvasMouseDown(e) {
-		const rect = canvas.getBoundingClientRect();
-		const x = e.clientX - rect.left;
-		const y = e.clientY - rect.top;
-		const worldX = (x - offsetX) / scale;
-		const worldY = (y - offsetY) / scale;
-
-		for (let i = placedDrawings.length - 1; i >= 0; i--) {
-			const drawing = placedDrawings[i];
-			if (selectedDrawing === drawing.id && drawing.sessionId === sessionId) {
-				const bounds = getDrawingBounds(drawing);
-				const halfWidth = bounds.width / 2;
-				const halfHeight = bounds.height / 2;
-
-				const cosR = Math.cos(drawing.rotation);
-				const sinR = Math.sin(drawing.rotation);
-
-				const resizeLocalHandles = [
-					{ x: -halfWidth, y: -halfHeight },
-					{ x: halfWidth, y: -halfHeight },
-					{ x: -halfWidth, y: halfHeight },
-					{ x: halfWidth, y: halfHeight }
-				];
-
-				for (const handle of resizeLocalHandles) {
-					const scaledX = handle.x * drawing.scale;
-					const scaledY = handle.y * drawing.scale;
-					const worldHandleX = scaledX * cosR - scaledY * sinR + drawing.x;
-					const worldHandleY = scaledX * sinR + scaledY * cosR + drawing.y;
-
-					const dx = worldX - worldHandleX;
-					const dy = worldY - worldHandleY;
-					if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
-						resizing = true;
-						initialScale = drawing.scale;
-						initialDistance = Math.sqrt((worldX - drawing.x) ** 2 + (worldY - drawing.y) ** 2);
-						lastPanX = e.clientX;
-						lastPanY = e.clientY;
-						return;
-					}
-				}
-			}
-		}
-
-		selectedDrawing = null;
-		for (let i = placedDrawings.length - 1; i >= 0; i--) {
-			const drawing = placedDrawings[i];
-			if (hitTestPoint(worldX, worldY, drawing) && drawing.sessionId === sessionId) {
-				selectedDrawing = drawing.id;
-				dragging = true;
-				lastPanX = e.clientX;
-				lastPanY = e.clientY;
-				break;
-			}
-		}
-		drawPlacedDrawings();
-	}
-
-	function handleCanvasMouseMove(e) {
-		const rect = canvas.getBoundingClientRect();
-		const x = e.clientX - rect.left;
-		const y = e.clientY - rect.top;
-		const worldX = (x - offsetX) / scale;
-		const worldY = (y - offsetY) / scale;
-
-		if (dragging) {
-			currentCursor = 'grabbing';
-		} else if (resizing || rotating) {
-			currentCursor = 'grabbing';
-		} else {
-			currentCursor = getCursorAtPosition(worldX, worldY);
-		}
-		canvas.style.cursor = currentCursor;
-
-		if (resizing && selectedDrawing) {
-			const drawing = placedDrawings.find((d) => d.id === selectedDrawing);
-			if (drawing && drawing.sessionId === sessionId) {
-				const currentDistance = Math.sqrt((worldX - drawing.x) ** 2 + (worldY - drawing.y) ** 2);
-				const scaleFactor = currentDistance / initialDistance;
-				updateDrawing(selectedDrawing, {
-					scale: Math.max(0.1, Math.min(1.2, initialScale * scaleFactor))
-				});
-			}
-			return;
-		}
-
-		if (!dragging || !selectedDrawing) return;
-
-		const deltaX = (e.clientX - lastPanX) / scale;
-		const deltaY = (e.clientY - lastPanY) / scale;
-
-		const drawing = placedDrawings.find((d) => d.id === selectedDrawing);
-		if (drawing && drawing.sessionId === sessionId) {
-			updateDrawing(selectedDrawing, { x: drawing.x + deltaX, y: drawing.y + deltaY });
-			lastPanX = e.clientX;
-			lastPanY = e.clientY;
-		}
-	}
-
-	function handleCanvasMouseUp() {
-		dragging = false;
-		resizing = false;
-		rotating = false;
-	}
-
-	$effect(() => {
-		if (canvas) {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-			drawPlacedDrawings();
-		}
-		if (smallCanvas) {
-			const containerWidth = Math.min(window.innerWidth - 32, 400);
-			smallCanvas.width = containerWidth;
-			smallCanvas.height = 120;
-			drawSmallCanvas();
-		}
-	});
+	let entries = $state([]);
+	let loading = $state(true);
+	let errorMessage = $state('');
 
 	onMount(async () => {
-		const myGarden = rivetClient.drawing.getOrCreate(['my-drawings']);
-		const connection = myGarden.connect();
-		connection.on('newDrawing', (newDrawing) => {
-			if (selectedDrawing != newDrawing.id) placedDrawings.push(newDrawing);
-		});
-		connection.on('updatedDrawing', (updatedDrawing) => {
-			if (selectedDrawing != updatedDrawing.id) {
-				const drawing = placedDrawings.find((d) => d.id === updatedDrawing.id);
-				if (drawing) Object.assign(drawing, updatedDrawing);
-			}
-		});
-		connection.on('drawingDeleted', (drawing_id) => {
-			const index = placedDrawings.findIndex((d) => d.id === drawing_id);
-			if (index !== -1) placedDrawings.splice(index, 1);
-		});
-		rivetConnection = connection;
-		let fetchedDrawings = await connection.getDrawings();
-		placedDrawings = fetchedDrawings.filter(Boolean);
-		sessionId = sessionStorage.getItem('garden-session-id') || generateRandomKey();
-		sessionStorage.setItem('garden-session-id', sessionId);
+		try {
+			const response = await fetch('/api/guestbook');
+			if (!response.ok) throw new Error('The garden is taking a breather.');
+			entries = await response.json();
+		} catch (error) {
+			errorMessage = error.message;
+		} finally {
+			loading = false;
+		}
 	});
+
+	function formatDate(date) {
+		return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(
+			new Date(date)
+		);
+	}
+
+	function cardTheme(entry) {
+		const color = typeof entry.cardColor === 'string' ? entry.cardColor : FALLBACK_CARD;
+		return `--card-color:${color};`;
+	}
 </script>
 
 <svelte:head>
 	<Seo
 		title="Garden | Abdulmumin Yaqeen"
-		description="A collaborative drawing experiment."
+		description="Signed guest cards left by visitors."
 		canonical={`${siteOrigin}/garden`}
-		robots="noindex, nofollow"
+		robots="noindex, follow"
 	/>
 </svelte:head>
 
-<main class="h-screen w-screen overflow-hidden bg-surface">
-	<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100vw-2rem)] max-w-[400px]">
-		<div class="flex flex-col items-center gap-3 w-full">
-			<div
-				class="bg-surface-soft/40 backdrop-blur-sm border border-border/30 rounded-lg overflow-hidden animate-slide-up w-full relative"
-			>
-				{#if strokes.length === 0 && !drawing}
-					<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-						<p class="text-[10px] font-mono uppercase tracking-[0.2em] opacity-20">sketch here</p>
+<section class="garden-shell">
+	<header class="garden-hero">
+		{#if loading}
+			<p class="hero-copy">opening the gate…</p>
+		{:else if errorMessage}
+			<p class="hero-copy">{errorMessage}</p>
+		{:else if entries.length === 0}
+			<p class="hero-copy">The garden is quiet for now. Be the first to leave a trace.</p>
+		{:else}
+			<div class="hero-stack">
+				<p>The moon leaves receipts... from every one that found their way</p>
+			</div>
+		{/if}
+	</header>
+
+	{#if entries.length > 0}
+		<section class="garden-grid" aria-label="Guestbook notes">
+			{#each entries as entry (entry.id)}
+				<article class="garden-card" style={cardTheme(entry)}>
+					<div class="card-noise" aria-hidden="true"></div>
+					<div class="card-copy">
+						<p class="card-kicker">GUEST CARD</p>
+						<div class="card-topline">
+							<p class="card-name">{entry.name}</p>
+							<time datetime={entry.createdAt}>{formatDate(entry.createdAt)}</time>
+						</div>
+						<p class="card-message">{entry.message}</p>
 					</div>
-				{/if}
-				<canvas
-					bind:this={smallCanvas}
-					class="cursor-crosshair touch-none block w-full"
-					onmousedown={handleDrawingStart}
-					onmousemove={handleDrawingMove}
-					onmouseup={handleDrawingEnd}
-					onmouseleave={handleDrawingEnd}
-					ontouchstart={handleDrawingStart}
-					ontouchmove={handleDrawingMove}
-					ontouchend={handleDrawingEnd}
-				></canvas>
-			</div>
 
-			<div
-				class="flex bg-surface-soft/90 backdrop-blur-md border border-border/40 rounded-full p-1.5 items-center shadow-lg w-full justify-between sm:justify-center overflow-hidden"
-			>
-				<div
-					class="flex gap-3 px-3 border-r border-border/50 items-center overflow-x-auto no-scrollbar mask-gradient py-2"
-				>
-					{#each colors as color (color)}
-						<button
-							aria-label={`Select ${color} drawing color`}
-							class="size-5 shrink-0 rounded-full transition-all duration-300 {currentColor ===
-							color
-								? 'scale-110 ring-2 ring-primary ring-offset-2 ring-offset-surface-soft'
-								: 'opacity-60 hover:opacity-100 hover:scale-105'}"
-							style="background-color: {color}"
-							onclick={() => (currentColor = color)}
-						></button>
-					{/each}
-				</div>
-
-				<div class="flex items-center gap-2 shrink-0 px-2 pl-3">
-					<button
-						title="Add to Canvas"
-						class="size-9 flex items-center justify-center bg-primary text-white rounded-full hover:brightness-110 active:scale-90 transition-all shadow-md"
-						onclick={addDrawingToCanvas}
-					>
-						<Fa icon={faAdd} size="sm" />
-					</button>
-					<button
-						title={selectedDrawing ? 'Delete' : 'Clear'}
-						class="size-9 flex items-center justify-center bg-surface-muted text-text-main rounded-full hover:bg-surface-soft active:scale-90 transition-all border border-border/20 shadow-sm"
-						onclick={selectedDrawing ? deleteSelectedDrawing : clearSmallCanvas}
-					>
-						<Fa icon={selectedDrawing ? faTrash : faBroom} size="sm" />
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<canvas
-		bind:this={canvas}
-		id="pad"
-		class="touch-none block w-full h-full cursor-crosshair"
-		onmousedown={handleCanvasMouseDown}
-		onmousemove={handleCanvasMouseMove}
-		onmouseup={handleCanvasMouseUp}
-		oncontextmenu={(e) => e.preventDefault()}
-	></canvas>
-</main>
+					<div class="card-signature">
+						{#if entry.signaturePaths?.length}
+							<svg viewBox="0 0 520 132" aria-label={`Signature from ${entry.name}`}>
+								{#each entry.signaturePaths as path, index (`${entry.id}-${index}`)}
+									<path d={path}></path>
+								{/each}
+							</svg>
+						{:else}
+							<p class="legacy-signature">{entry.name}</p>
+						{/if}
+					</div>
+				</article>
+			{/each}
+		</section>
+	{/if}
+</section>
 
 <style>
-	:global(body) {
+	.garden-shell {
+		width: min(100%, 78rem);
+		margin: 0 auto;
+		padding: 9rem 1.5rem 6rem;
+	}
+
+	.garden-hero {
+		min-height: 32vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: var(--color-text-main);
+	}
+
+	.hero-stack {
+		max-width: 38rem;
+	}
+
+	.hero-eyebrow {
+		margin: 0 0 0.5rem;
+		font-family: var(--font-visby);
+		font-size: 0.7rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+	}
+
+	h1 {
 		margin: 0;
-		padding: 0;
+		font-family: var(--font-meri);
+		font-size: clamp(2.2rem, 6vw, 4.9rem);
+		font-style: italic;
+		font-weight: 400;
+		line-height: 0.98;
+		letter-spacing: -0.04em;
+		text-wrap: balance;
+	}
+
+	.hero-copy {
+		margin: 1rem 0 0;
+		font-size: 0.98rem;
+		color: var(--color-text-muted);
+		text-wrap: pretty;
+	}
+
+	.garden-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+		gap: 1.4rem;
+		align-items: start;
+		margin-top: 1rem;
+	}
+
+	.garden-card {
+		--card-color: var(--color-accent);
+		position: relative;
+		min-height: 22rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 1.15rem 1.15rem 1rem;
+		border-radius: 1.7rem;
+		background:
+			linear-gradient(180deg, rgb(255 255 255 / 12%), transparent 32%),
+			linear-gradient(135deg, rgb(255 255 255 / 16%), rgb(255 255 255 / 0%)),
+			linear-gradient(
+				180deg,
+				var(--card-color) 0%,
+				color-mix(in srgb, var(--card-color) 93%, #ffffff) 100%
+			);
+		color: #ffffff;
+		box-shadow:
+			0 28px 50px rgba(255, 255, 255, 0.14),
+			0 0 0 1px rgba(0, 0, 0, 0.08);
 		overflow: hidden;
 	}
-	.no-scrollbar::-webkit-scrollbar {
-		display: none;
+
+	.card-noise {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background-image:
+			url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='.12'%3E%3Crect x='1' y='2' width='1.2' height='1.2' rx='.2'/%3E%3Crect x='8' y='5' width='1.1' height='1.1' rx='.2'/%3E%3Crect x='14' y='1' width='1' height='1' rx='.2'/%3E%3Crect x='4' y='11' width='1.1' height='1.1' rx='.2'/%3E%3Crect x='11' y='13' width='1.2' height='1.2' rx='.2'/%3E%3Crect x='15' y='8' width='1' height='1' rx='.2'/%3E%3C/g%3E%3C/svg%3E"),
+			linear-gradient(180deg, rgb(255 255 255 / 0.14), transparent 38%);
+		background-size:
+			18px 18px,
+			100% 100%;
+		opacity: 0.72;
+		mix-blend-mode: multiply;
 	}
-	.no-scrollbar {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
+
+	.card-copy,
+	.card-signature {
+		position: relative;
+		z-index: 1;
+	}
+
+	.card-kicker {
+		margin: 0;
+		font-family: var(--font-visby);
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.22em;
+		color: inherit;
+		opacity: 0.74;
+	}
+
+	.card-topline {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin-top: 0.85rem;
+	}
+
+	.card-name {
+		margin: 0;
+		font-family: var(--font-meri);
+		font-size: 1.1rem;
+		font-style: italic;
+	}
+
+	time {
+		font-family: var(--font-visby);
+		font-size: 0.74rem;
+		color: rgba(255, 255, 255, 0.66);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.card-message {
+		margin: 1rem 0 0;
+		font-family: var(--font-meri);
+		font-size: 1.15rem;
+		font-style: italic;
+		line-height: 1.5;
+		white-space: pre-wrap;
+		text-wrap: pretty;
+	}
+
+	.card-signature {
+		margin-top: 1.5rem;
+		padding-top: 1.1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.18);
+	}
+
+	.card-signature svg {
+		display: block;
+		width: 100%;
+		height: 6.75rem;
+	}
+
+	.card-signature path {
+		fill: #ffffff;
+	}
+
+	.legacy-signature {
+		margin: 1.6rem 0 0;
+		font-family: var(--font-meri);
+		font-size: 1.75rem;
+		font-style: italic;
+		color: rgba(255, 255, 255, 0.74);
+	}
+
+	@media (max-width: 640px) {
+		.garden-shell {
+			padding: 7rem 1rem 5rem;
+		}
+
+		.garden-hero {
+			min-height: 26vh;
+		}
 	}
 </style>

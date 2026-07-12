@@ -14,3 +14,11 @@ binding = "ASSETS"
 [[r2_buckets]]
 binding = "PHOTOS_BUCKET"
 bucket_name = "yaqeen-me-photos"
+
+[[durable_objects.bindings]]
+name = "GUESTBOOK"
+class_name = "Guestbook"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Guestbook"]
