@@ -10,17 +10,20 @@
 
 	let note = $state('Click for a small note');
 	let noteVisible = $state(false);
-	let shook = $state(false);
+	let impactTimer;
 	let noteTimer;
 
 	function orbitMoon() {
 		note = 'clap for yourself';
 		noteVisible = true;
-		shook = true;
+
+		document.documentElement.classList.remove('moon-impact');
+		requestAnimationFrame(() => document.documentElement.classList.add('moon-impact'));
+		clearTimeout(impactTimer);
+		impactTimer = setTimeout(() => document.documentElement.classList.remove('moon-impact'), 300);
 
 		clearTimeout(noteTimer);
-		noteTimer = setTimeout(() => { noteVisible = false; shook = false; }, 2200);
-
+		noteTimer = setTimeout(() => (noteVisible = false), 2200);
 		if ('vibrate' in navigator) navigator.vibrate(12);
 	}
 </script>
@@ -29,7 +32,6 @@
 	<div class="mb-8 moon-wrap">
 		<button
 			type="button"
-			class:shook
 			class="moon-button"
 			onclick={orbitMoon}
 			aria-label="Reveal a note from the moon"
@@ -120,17 +122,27 @@
 		filter: drop-shadow(0 0 0.45rem color-mix(in srgb, var(--color-accent) 55%, transparent));
 	}
 
-	.moon-button.shook .moon-icon {
-		animation: shake 360ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+	:global(html.moon-impact) {
+		animation: moon-impact 280ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
 	}
 
-	@keyframes shake {
-		0%, 100% { transform: translateX(0); }
-		16%  { transform: translateX(-4px) rotate(-3deg); }
-		32%  { transform: translateX(4px) rotate(3deg); }
-		48%  { transform: translateX(-3px) rotate(-2deg); }
-		64%  { transform: translateX(2px) rotate(1deg); }
-		80%  { transform: translateX(-1px); }
+	@keyframes moon-impact {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		18% {
+			transform: translateX(-3px) rotate(-0.08deg);
+		}
+		36% {
+			transform: translateX(3px) rotate(0.08deg);
+		}
+		54% {
+			transform: translateX(-2px);
+		}
+		72% {
+			transform: translateX(1px);
+		}
 	}
 
 	.moon-note {
