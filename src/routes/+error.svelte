@@ -32,6 +32,7 @@
 				<span>Go Home</span>
 			</a>
 			<button
+				type="button"
 				onclick={() => history.back()}
 				class="flex items-center space-x-2 bg-surface-muted hover:bg-surface-soft text-text-main font-bold py-2 px-4 rounded-lg transition duration-300"
 			>

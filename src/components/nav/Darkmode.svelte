@@ -42,6 +42,7 @@
 			in:scale
 			class=" cursor-pointer self-center hover-animate"
 			onclick={handleSwitchDarkMode}
+			aria-label="Switch to light mode"
 		>
 			<Fa icon={faMoon} class="self-center" />
 		</button>
@@ -50,6 +51,7 @@
 			in:scale
 			class=" cursor-pointer self-center hover-animate"
 			onclick={handleSwitchDarkMode}
+			aria-label="Switch to dark mode"
 		>
 			<Fa icon={faSun} class="self-center" />
 		</button>

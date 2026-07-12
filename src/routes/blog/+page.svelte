@@ -47,14 +47,15 @@
 </svelte:head>
 
 <section class="max-w-2xl mx-auto px-6 py-12 md:py-24">
+	<h1 class="sr-only">Writing</h1>
 	<div class="flex flex-col">
 		{#if pinnedPosts.length}
 			<div class="flex flex-col gap-1">
-				<p
+				<h2
 					class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mb-2"
 				>
 					Pinned
-				</p>
+				</h2>
 				<div class="flex flex-col">
 					{#each pinnedPosts as post (post.slug)}
 						<BlogCard details={post} />
@@ -64,11 +65,11 @@
 		{/if}
 
 		{#if latest}
-			<p
+			<h2
 				class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mt-8 mb-2"
 			>
 				Latest
-			</p>
+			</h2>
 			<div class="flex flex-col">
 				<BlogCard details={latest} latest={true} />
 			</div>

@@ -25,13 +25,13 @@
 </script>
 
 <div class="w-full">
-	<div class="flex gap-3 flex-wrap mb-4">
+	<!-- <div class="flex gap-3 flex-wrap mb-4">
 		{#each categories as tag (tag)}
 			<span class="text-base rounded-lg text-accent"
 				><a href={resolve('/category/[slug]', { slug: tag })}>&num;&nbsp;{tag}</a></span
 			>
 		{/each}
-	</div>
+	</div> -->
 	<div
 		class="space-y-5 max-w-[800px] w-full markdown-content text-base text-text-muted
 	"

@@ -78,7 +78,7 @@ Scrollbars can be styled and customized using CSS properties, although the level
 
 Here is an example of a customized scrollbar on devCanvas
 
-<iframe src="https://snippet-bice.vercel.app/play/vs8OLm/embed" height="500px" width="100%"></iframe>
+<iframe title="DevCanvas customized scrollbar example" src="https://snippet-bice.vercel.app/play/vs8OLm/embed" height="500px" width="100%"></iframe>
 
 The accessibility bros are going to yell at you if you try to get rid of it, or even give you a convincing argument that it is perfect. But for me, it is super-duper ugly.
 

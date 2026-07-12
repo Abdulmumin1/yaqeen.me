@@ -62,7 +62,7 @@
 				class="flex gap-6 items-center justify-center text-[10px] font-mono capitalize text-text-muted"
 			>
 				<li class=" hover:text-text-main transition-colors">
-					<button onclick={toggleKbar} class="flex items-center gap-2">
+					<button onclick={toggleKbar} class="flex items-center gap-2" aria-label="Search posts">
 						<span class="hidden md:block"> Search </span> <Fa icon={faSearch} /></button
 					>
 				</li>

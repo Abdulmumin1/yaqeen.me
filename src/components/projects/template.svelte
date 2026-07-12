@@ -20,14 +20,20 @@
 
 	<div class="flex flex-col gap-2">
 		<div class="flex items-baseline gap-3 flex-wrap">
-			<h3 class="text-lg md:text-2xl font-serif text-text-main group-hover:text-accent transition-colors">
+			<h3
+				class="text-lg md:text-2xl font-serif text-text-main group-hover:text-accent transition-colors"
+			>
 				{details.name}
 			</h3>
-			<div class="flex gap-3 md:gap-4 text-base md:text-lg font-mono text-accent/60 lowercase tracking-widest">
+			<div
+				class="flex gap-3 md:gap-4 text-base md:text-lg font-mono text-accent/60 lowercase tracking-widest"
+			>
 				{#if details.links?.page}
 					<a
 						href="https://{details.links.page}"
 						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={`Visit ${details.name}`}
 						class="hover:text-accent transition-colors after:absolute after:inset-0 z-10"
 					>
 						<Fa icon={faArrowRightLong} class="-rotate-45" />
@@ -37,6 +43,8 @@
 					<a
 						href={details.links.study}
 						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={`View ${details.name} source on GitHub`}
 						class="hover:text-accent transition-colors {!details.links?.page
 							? 'after:absolute after:inset-0 z-10'
 							: 'relative z-20'}"

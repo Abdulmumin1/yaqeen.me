@@ -17,7 +17,7 @@
 		{ name: 'Home', href: '/', active: isHomeActive },
 		{ name: 'Thoughts', href: '/blog', active: isThoughtsActive },
 		{ name: 'Work', href: '/projects', active: isWorkActive },
-		{ name: 'RSS', href: '/rss.xml', active: false, external: true }
+		{ name: 'RSS', href: '/rss.xml', active: false }
 	]);
 </script>
 
@@ -31,24 +31,14 @@
 					<span class="w-1.5 h-1.5 bg-accent inline-block rounded-[1px]" aria-hidden="true"></span>
 				{/if}
 			</span>
-			{#if item.external}
-				<a
-					href={resolve(item.href)}
-					target="_blank"
-					class="text-text-muted hover:text-text-main transition-colors font-medium whitespace-nowrap"
-				>
-					{item.name}
-				</a>
-			{:else}
-				<a
-					href={resolve(item.href)}
-					class="transition-colors font-medium whitespace-nowrap {item.active
-						? 'text-text-main font-semibold'
-						: 'text-text-muted hover:text-text-main'}"
-				>
-					{item.name}
-				</a>
-			{/if}
+			<a
+				href={resolve(item.href)}
+				class="transition-colors font-medium whitespace-nowrap {item.active
+					? 'text-text-main font-semibold'
+					: 'text-text-muted hover:text-text-main'}"
+			>
+				{item.name}
+			</a>
 		</div>
 	{/each}
 </nav>

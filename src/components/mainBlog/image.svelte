@@ -35,24 +35,30 @@
 <!-- </div> -->
 
 <span class="image-container">
-	<img
-		{src}
-		{alt}
-		onkeypress={toggleModal}
-		tabindex="0"
+	<button
+		type="button"
+		class="thumbnail-button"
 		onclick={toggleModal}
-		class="thumbnail rounded-md"
-	/>
+		aria-label={alt ? `Expand image: ${alt}` : 'Expand image'}
+	>
+		<img {src} {alt} class="thumbnail rounded-md" />
+	</button>
 	{#if alt}
 		<span class="caption">{alt}</span>
 	{/if}
 </span>
 
 {#if showModal}
-	<div class="modal">
+	<div
+		class="modal"
+		role="dialog"
+		aria-modal="true"
+		aria-label={alt ? `Expanded image: ${alt}` : 'Expanded image'}
+	>
 		<button
 			class="fixed top-[12px] p-2 flex items-center justify-center rounded-full text-2xl aspect-square right-[12px] bg-primary text-text-main"
-			onclick={toggleModal}><Fa icon={faClose} /></button
+			onclick={toggleModal}
+			aria-label="Close expanded image"><Fa icon={faClose} /></button
 		>
 		<div class="modal-content">
 			<img {src} {alt} />
@@ -66,7 +72,11 @@
 <style>
 	.image-container {
 		display: inline-block;
-		cursor: pointer;
+	}
+
+	.thumbnail-button {
+		display: block;
+		cursor: zoom-in;
 	}
 
 	.thumbnail {

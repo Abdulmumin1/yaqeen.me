@@ -44,7 +44,7 @@
 	let currentColor = $state('#1c1917');
 	let currentSize = $state(4);
 
-	let placedDrawings = $state(drawings);
+	let placedDrawings = $state([...drawings]);
 	let selectedDrawing = $state(null);
 	let dragging = $state(false);
 	let resizing = $state(false);
@@ -551,8 +551,9 @@
 				<div
 					class="flex gap-3 px-3 border-r border-border/50 items-center overflow-x-auto no-scrollbar mask-gradient py-2"
 				>
-					{#each colors as color}
+					{#each colors as color (color)}
 						<button
+							aria-label={`Select ${color} drawing color`}
 							class="size-5 shrink-0 rounded-full transition-all duration-300 {currentColor ===
 							color
 								? 'scale-110 ring-2 ring-primary ring-offset-2 ring-offset-surface-soft'

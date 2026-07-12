@@ -54,16 +54,32 @@
 
 	<div class="footer-content max-w-2xl mx-auto w-full flex flex-col gap-3">
 		<div class="flex gap-3">
-			<a href={links.github} class="hover:text-text-main transition-colors">
+			<a
+				href={links.github}
+				aria-label="GitHub profile"
+				class="hover:text-text-main transition-colors"
+			>
 				<Fa icon={faGithub} />
 			</a>
-			<a href={links.linkedin} class="hover:text-text-main transition-colors">
+			<a
+				href={links.linkedin}
+				aria-label="LinkedIn profile"
+				class="hover:text-text-main transition-colors"
+			>
 				<Fa icon={faLinkedin} />
 			</a>
-			<a href={links.twitter} class="hover:text-text-main transition-colors">
+			<a
+				href={links.twitter}
+				aria-label="Twitter profile"
+				class="hover:text-text-main transition-colors"
+			>
 				<Fa icon={faTwitter} />
 			</a>
-			<a href={links.youtube} class="hover:text-text-main transition-colors">
+			<a
+				href={links.youtube}
+				aria-label="YouTube channel"
+				class="hover:text-text-main transition-colors"
+			>
 				<Fa icon={faYoutube} />
 			</a>
 		</div>

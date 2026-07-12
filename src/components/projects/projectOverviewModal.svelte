@@ -60,7 +60,11 @@
 >
 	<div class="flex justify-between items-center mb-4">
 		<h2 class="text-2xl sm:text-3xl lg:text-4xl font-visby_bold font-extrabold">{details.name}</h2>
-		<button onclick={closeModal} class="text-text-muted hover:text-text-main">
+		<button
+			onclick={closeModal}
+			class="text-text-muted hover:text-text-main"
+			aria-label="Close project details"
+		>
 			<Fa icon={faXmark} />
 		</button>
 	</div>
@@ -72,6 +76,7 @@
 			<a
 				target="_blank"
 				href={details.links.study}
+				rel="noopener noreferrer"
 				class="flex items-center space-x-2 bg-primary hover:bg-primary/80 text-white font-bold py-2 px-4 rounded-lg"
 			>
 				<Fa icon={faGithub} />
@@ -81,6 +86,7 @@
 		<a
 			target={details?.onpage ? '_self' : '_blank'}
 			href="{details?.onpage ? '' : 'https://'}{details.links.page}"
+			rel={details?.onpage ? undefined : 'noopener noreferrer'}
 			class="flex items-center space-x-2 bg-primary hover:bg-primary/80 text-white font-bold py-2 px-4 rounded-lg"
 		>
 			<span>Visit Website</span>
@@ -91,7 +97,7 @@
 	<div class="flex gap-4 overflow-x-auto mb-6">
 		{#each list as img, index}
 			<img
-				alt={`Project image ${index + 1}`}
+				alt={`Project preview ${index + 1} for ${details.name}`}
 				src={img}
 				class="w-[720px] border-4 border-primary/20 object-contain rounded-xl"
 			/>

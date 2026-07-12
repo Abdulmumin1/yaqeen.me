@@ -24,7 +24,7 @@ export const sass_projects = readable([
 		name: 'Owostack',
 		year: '2026',
 		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
-		description: 'Provider agnostic billing engine for AI saas',
+		description: 'Provider-agnostic billing engine for AI SaaS',
 		links: {
 			study: 'https://github.com/Abdulmumin1/owostack',
 			page: 'owostack.com'
@@ -82,7 +82,7 @@ export const sass_projects = readable([
 		name: 'DevCanvas',
 		year: '2023',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
-		description: 'open source codepen alternative',
+		description: 'Open-source CodePen alternative',
 		links: {
 			study: 'https://github.com/Abdulmumin1/devcanvas',
 			page: 'devcanvas.dev'
@@ -172,7 +172,7 @@ export const project_data = readable([
 		year: '2025',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
 		description:
-			"a tool (cli,mcp) that fetches, chunks, supports local codebase and GitHub repo, takes a query, ranks code context. It's designed to fit the most relevant code into a token budget",
+			'A CLI and MCP tool that fetches, chunks, and ranks local-codebase and GitHub-repository context to fit the most relevant code into a token budget.',
 		links: {
 			study: 'https://github.com/Abdulmumin1/lmfetch'
 		},

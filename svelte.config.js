@@ -32,9 +32,7 @@ const inlineHtmlParagraphs = {
 
 const config = {
 	kit: {
-		adapter: adapter({
-			entry: 'src/worker.js'
-		}),
+		adapter: adapter(),
 		alias: {
 			$components: 'src/components'
 		}

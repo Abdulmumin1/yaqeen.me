@@ -3,6 +3,26 @@ import { getHighlighter } from 'shiki';
 
 const THEME = 'css-variables';
 
+// Only load the languages actually used in the blog. Shiki's default is to
+// load every bundled language on first getHighlighter() call, which balloons
+// memory when combined with eager glob imports of all markdown posts.
+const highlighterPromise = getHighlighter({
+	theme: THEME,
+	langs: [
+		'bash',
+		'css',
+		'dockerfile',
+		'html',
+		'javascript',
+		'json',
+		'powershell',
+		'python',
+		'sql',
+		'svelte',
+		'typescript'
+	]
+});
+
 /**
  * Returns code with curly braces and backticks replaced by HTML entity equivalents
  * @param {string} html - highlighted HTML
@@ -55,9 +75,7 @@ function makeFocussable(html) {
  * @returns {string} - highlighted html
  */
 async function highlighter(code, lang, meta) {
-	const shikiHighlighter = await getHighlighter({
-		theme: THEME
-	});
+	const shikiHighlighter = await highlighterPromise;
 
 	let html;
 	if (!meta) {

@@ -25,9 +25,16 @@
 						alt=""
 						aria-hidden="true"
 					/>
-					<img src={details.icon} class="h-7 md:h-9 rounded-xl project-icon" alt="" /></span
+					<img
+						src={details.icon}
+						class="h-7 md:h-9 rounded-xl project-icon"
+						alt=""
+						aria-hidden="true"
+					/></span
 				>
-				<a href="https://{details.links.page}"> {details.name}</a>
+				<a href="https://{details.links.page}" target="_blank" rel="noopener noreferrer">
+					{details.name}
+				</a>
 			</h3>
 		</div>
 
