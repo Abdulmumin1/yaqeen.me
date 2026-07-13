@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+@font-face {
+	font-family: 'CS Mileya Pixel';
+	src: url('/src/lib/font/cs-mileya-pixel.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 @theme {
 	/* Palette - Semantic naming */
 	--color-primary: var(--color-orange-500);
@@ -25,6 +33,7 @@
 	--font-visby-bold: 'Inter', system-ui, sans-serif;
 	--font-serif: 'Inter', system-ui, sans-serif;
 	--font-meri: 'Merriweather', 'Times New Roman', Times, serif;
+	--font-pixel: 'CS Mileya Pixel', 'DotGothic16', 'Pixelify Sans', monospace;
 	/* Non-serif options to explore: */
 	/* --font-serif: 'Space Grotesk', sans-serif; */
 	/* --font-serif: 'Source Code Pro', monospace; */

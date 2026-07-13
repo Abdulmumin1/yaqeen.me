@@ -1,13 +1,22 @@
 <script>
 	import Seo from '$components/general/seo.svelte';
 	import { siteOrigin } from '$lib/js/config.js';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
-
-	const FALLBACK_CARD = 'var(--color-accent)';
 
 	let entries = $state([]);
 	let loading = $state(true);
 	let errorMessage = $state('');
+	const masonryColumns = $derived.by(() => buildMasonry(entries, 4));
+	const markStyles = [
+		{ rotate: '-4.5deg', ink: '#385947', muted: 'rgb(56 89 71 / 0.48)', width: '16rem' },
+		{ rotate: '3.2deg', ink: '#6f98bf', muted: 'rgb(111 152 191 / 0.55)', width: '13rem' },
+		{ rotate: '-6deg', ink: '#ee5d2f', muted: 'rgb(238 93 47 / 0.48)', width: '10rem' },
+		{ rotate: '5.5deg', ink: '#9c92c9', muted: 'rgb(156 146 201 / 0.55)', width: '19rem' },
+		{ rotate: '-2.8deg', ink: '#221f1f', muted: 'rgb(34 31 31 / 0.52)', width: '12rem' },
+		{ rotate: '7deg', ink: '#385947', muted: 'rgb(56 89 71 / 0.42)', width: '15rem' },
+		{ rotate: '-8deg', ink: '#6f98bf', muted: 'rgb(111 152 191 / 0.5)', width: '11rem' }
+	];
 
 	onMount(async () => {
 		try {
@@ -22,14 +31,39 @@
 	});
 
 	function formatDate(date) {
-		return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(
-			new Date(date)
-		);
+		return new Intl.DateTimeFormat(undefined, {
+			month: 'short',
+			day: 'numeric',
+			year: 'numeric'
+		})
+			.format(new Date(date))
+			.toUpperCase();
 	}
 
-	function cardTheme(entry) {
-		const color = typeof entry.cardColor === 'string' ? entry.cardColor : FALLBACK_CARD;
-		return `--card-color:${color};`;
+	function estimateMarkHeight(entry) {
+		const messageLength = typeof entry.message === 'string' ? entry.message.length : 0;
+		const nameLength = typeof entry.name === 'string' ? entry.name.length : 0;
+		return 7 + Math.ceil(nameLength / 9) * 2.2 + Math.ceil(messageLength / 34) * 1.2;
+	}
+
+	function buildMasonry(items, count) {
+		const columns = Array.from({ length: count }, () => ({ height: 0, items: [] }));
+
+		items.forEach((entry, index) => {
+			const shortest = columns.reduce(
+				(best, column, columnIndex) => (column.height < columns[best].height ? columnIndex : best),
+				0
+			);
+			columns[shortest].items.push({ entry, index, style: markStyle(index) });
+			columns[shortest].height += estimateMarkHeight(entry) + 1.6;
+		});
+
+		return columns.map((column) => column.items);
+	}
+
+	function markStyle(index) {
+		const style = markStyles[index % markStyles.length];
+		return `--rotate:${style.rotate};--ink:${style.ink};--ink-muted:${style.muted};--mark-width:${style.width};`;
 	}
 </script>
 
@@ -59,33 +93,48 @@
 
 	{#if entries.length > 0}
 		<section class="garden-grid" aria-label="Guestbook notes">
-			{#each entries as entry (entry.id)}
-				<article class="garden-card" style={cardTheme(entry)}>
-					<div class="card-noise" aria-hidden="true"></div>
-					<div class="card-copy">
-						<p class="card-kicker">GUEST CARD</p>
-						<div class="card-topline">
-							<p class="card-name">{entry.name}</p>
-							<time datetime={entry.createdAt}>{formatDate(entry.createdAt)}</time>
-						</div>
-						<p class="card-message">{entry.message}</p>
-					</div>
+			{#each masonryColumns as column, columnIndex (`column-${columnIndex}`)}
+				<div class="garden-column">
+					{#each column as mark (mark.entry.id)}
+						<article class="graffiti-mark" style={mark.style}>
+							<time datetime={mark.entry.createdAt} class="mark-stamp">{formatDate(mark.entry.createdAt)}</time>
 
-					<div class="card-signature">
-						{#if entry.signaturePaths?.length}
-							<svg viewBox="0 0 520 132" aria-label={`Signature from ${entry.name}`}>
-								{#each entry.signaturePaths as path, index (`${entry.id}-${index}`)}
-									<path d={path}></path>
-								{/each}
-							</svg>
-						{:else}
-							<p class="legacy-signature">{entry.name}</p>
-						{/if}
-					</div>
-				</article>
+							<p class="mark-name">{mark.entry.name}</p>
+
+							{#if mark.entry.message}
+								<p class="mark-message">{mark.entry.message}</p>
+							{/if}
+
+							<div class="mark-signature">
+								{#if mark.entry.signaturePaths?.length}
+									<svg viewBox="0 0 520 132" aria-label={`Signature from ${mark.entry.name}`}>
+										{#each mark.entry.signaturePaths as path, index (`${mark.entry.id}-${index}`)}
+											<path d={path}></path>
+										{/each}
+									</svg>
+								{:else}
+									<p class="legacy-signature">{mark.entry.name}</p>
+								{/if}
+							</div>
+						</article>
+					{/each}
+				</div>
 			{/each}
-		</section>
-	{/if}
+	</section>
+
+	<div class="garden-butterfly-bar">
+		<video
+			class="garden-butterfly"
+			src={resolve('/butterflies-loop.webm')}
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="metadata"
+			aria-hidden="true"
+		></video>
+	</div>
+{/if}
 </section>
 
 <style>
@@ -93,6 +142,27 @@
 		width: min(100%, 78rem);
 		margin: 0 auto;
 		padding: 9rem 1.5rem 6rem;
+	}
+
+	.garden-butterfly-bar {
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		margin-top: 4rem;
+		padding: 6rem 0 4rem;
+	}
+
+	.garden-butterfly {
+		position: absolute;
+		z-index: 0;
+		inset: -2rem 0;
+		width: 100%;
+		height: calc(100% + 4rem);
+		object-fit: cover;
+		object-position: center 35%;
+		opacity: 0.48;
+		pointer-events: none;
+		filter: hue-rotate(-12deg) saturate(1.5) brightness(1.08);
 	}
 
 	.garden-hero {
@@ -108,26 +178,6 @@
 		max-width: 38rem;
 	}
 
-	.hero-eyebrow {
-		margin: 0 0 0.5rem;
-		font-family: var(--font-visby);
-		font-size: 0.7rem;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: var(--color-text-muted);
-	}
-
-	h1 {
-		margin: 0;
-		font-family: var(--font-meri);
-		font-size: clamp(2.2rem, 6vw, 4.9rem);
-		font-style: italic;
-		font-weight: 400;
-		line-height: 0.98;
-		letter-spacing: -0.04em;
-		text-wrap: balance;
-	}
-
 	.hero-copy {
 		margin: 1rem 0 0;
 		font-size: 0.98rem;
@@ -137,120 +187,99 @@
 
 	.garden-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-		gap: 1.4rem;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		align-items: start;
+		gap: 0.25rem 1rem;
 		margin-top: 1rem;
 	}
 
-	.garden-card {
-		--card-color: var(--color-accent);
-		position: relative;
-		min-height: 22rem;
+	.garden-column {
 		display: flex;
+		min-width: 0;
 		flex-direction: column;
-		justify-content: space-between;
-		padding: 1.15rem 1.15rem 1rem;
-		border-radius: 1.7rem;
-		background:
-			linear-gradient(180deg, rgb(255 255 255 / 12%), transparent 32%),
-			linear-gradient(135deg, rgb(255 255 255 / 16%), rgb(255 255 255 / 0%)),
-			linear-gradient(
-				180deg,
-				var(--card-color) 0%,
-				color-mix(in srgb, var(--card-color) 93%, #ffffff) 100%
-			);
-		color: #ffffff;
-		box-shadow:
-			0 28px 50px rgba(255, 255, 255, 0.14),
-			0 0 0 1px rgba(0, 0, 0, 0.08);
-		overflow: hidden;
+		align-items: center;
+		gap: 1.15rem;
 	}
 
-	.card-noise {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		background-image:
-			url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='.12'%3E%3Crect x='1' y='2' width='1.2' height='1.2' rx='.2'/%3E%3Crect x='8' y='5' width='1.1' height='1.1' rx='.2'/%3E%3Crect x='14' y='1' width='1' height='1' rx='.2'/%3E%3Crect x='4' y='11' width='1.1' height='1.1' rx='.2'/%3E%3Crect x='11' y='13' width='1.2' height='1.2' rx='.2'/%3E%3Crect x='15' y='8' width='1' height='1' rx='.2'/%3E%3C/g%3E%3C/svg%3E"),
-			linear-gradient(180deg, rgb(255 255 255 / 0.14), transparent 38%);
-		background-size:
-			18px 18px,
-			100% 100%;
-		opacity: 0.72;
-		mix-blend-mode: multiply;
+	.garden-column:nth-child(2n) {
+		padding-top: 3.5rem;
 	}
 
-	.card-copy,
-	.card-signature {
-		position: relative;
-		z-index: 1;
+	.garden-column:nth-child(3n) {
+		padding-top: 1.4rem;
 	}
 
-	.card-kicker {
-		margin: 0;
+	.graffiti-mark {
+		--ink: #221f1f;
+		--ink-muted: rgb(34 31 31 / 0.52);
+		--rotate: 0deg;
+		--mark-width: 12rem;
+		width: min(100%, var(--mark-width));
+		padding: 0.5rem 0.4rem 0.6rem;
+		transform: rotate(var(--rotate));
+		transition: transform 0.18s ease;
+		color: var(--ink);
+	}
+
+	.mark-stamp {
 		font-family: var(--font-visby);
-		font-size: 0.68rem;
-		font-weight: 700;
-		letter-spacing: 0.22em;
-		color: inherit;
-		opacity: 0.74;
-	}
-
-	.card-topline {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 0.75rem;
-		margin-top: 0.85rem;
-	}
-
-	.card-name {
-		margin: 0;
-		font-family: var(--font-meri);
-		font-size: 1.1rem;
-		font-style: italic;
-	}
-
-	time {
-		font-family: var(--font-visby);
-		font-size: 0.74rem;
-		color: rgba(255, 255, 255, 0.66);
+		font-size: 0.5rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		color: var(--ink-muted);
 		font-variant-numeric: tabular-nums;
+		display: block;
+		margin-bottom: 0.25rem;
 	}
 
-	.card-message {
-		margin: 1rem 0 0;
-		font-family: var(--font-meri);
-		font-size: 1.15rem;
-		font-style: italic;
-		line-height: 1.5;
+	.graffiti-mark:hover {
+		transform: rotate(0deg) scale(1.04);
+		z-index: 2;
+		position: relative;
+	}
+
+	.mark-name {
+		margin: 0;
+		font-family: var(--font-pixel);
+		font-size: clamp(2rem, 6vw, 3.8rem);
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+
+	.mark-message {
+		margin: 0.35rem 0 0;
+		max-width: 11rem;
+		font-family: var(--font-visby);
+		font-size: 0.88rem;
+		line-height: 1.35;
+		word-break: break-all;
+		overflow-wrap: anywhere;
+		color: var(--ink-muted);
 		white-space: pre-wrap;
 		text-wrap: pretty;
 	}
 
-	.card-signature {
-		margin-top: 1.5rem;
-		padding-top: 1.1rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.18);
+	.mark-signature {
+		min-width: 0;
+		margin-top: 0.7rem;
 	}
 
-	.card-signature svg {
+	.mark-signature svg {
 		display: block;
 		width: 100%;
-		height: 6.75rem;
+		height: 2.2rem;
 	}
 
-	.card-signature path {
-		fill: #ffffff;
+	.mark-signature path {
+		fill: currentColor;
 	}
 
 	.legacy-signature {
-		margin: 1.6rem 0 0;
-		font-family: var(--font-meri);
-		font-size: 1.75rem;
-		font-style: italic;
-		color: rgba(255, 255, 255, 0.74);
+		margin: 0;
+		font-family: var(--font-pixel);
+		font-size: 1rem;
+		color: var(--ink-muted);
 	}
 
 	@media (max-width: 640px) {
@@ -260,6 +289,33 @@
 
 		.garden-hero {
 			min-height: 26vh;
+		}
+
+		.garden-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 0.5rem;
+		}
+
+		.garden-column,
+		.garden-column:nth-child(2n),
+		.garden-column:nth-child(3n) {
+			padding-top: 0;
+		}
+
+		.mark-name {
+			font-size: clamp(1.6rem, 6vw, 2.6rem);
+		}
+
+		.graffiti-mark {
+			width: min(100%, var(--mark-width));
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			margin-top: 0 !important;
+		}
+
+		.mark-message {
+			font-size: 0.78rem;
+			max-width: 9rem;
 		}
 	}
 </style>

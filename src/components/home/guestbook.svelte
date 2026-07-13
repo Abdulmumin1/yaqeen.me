@@ -10,11 +10,6 @@
 	const MOON_IMPACT_DURATION = 300;
 	const MOON_MESSAGE_VISIBLE_DURATION = 2000;
 	const MOON_MESSAGE_FADE_DURATION = 220;
-	const SHEET_NOISE = `url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='.12'%3E%3Crect x='1' y='2' width='1.2' height='1.2' rx='.2'/%3E%3Crect x='8' y='5' width='1.1' height='1.1' rx='.2'/%3E%3Crect x='14' y='1' width='1' height='1' rx='.2'/%3E%3Crect x='4' y='11' width='1.1' height='1.1' rx='.2'/%3E%3Crect x='11' y='13' width='1.2' height='1.2' rx='.2'/%3E%3Crect x='15' y='8' width='1' height='1' rx='.2'/%3E%3C/g%3E%3C/svg%3E")`;
-	const CARD_BACKGROUND =
-		'linear-gradient(180deg, rgb(255 255 255 / 10%), rgb(255 255 255 / 0%) 32%), linear-gradient(135deg, rgb(255 255 255 / 14%), rgb(255 255 255 / 0%)), linear-gradient(180deg, var(--color-accent) 0%, color-mix(in srgb, var(--color-accent) 94%, #ffffff) 100%)';
-	const SIGNATURE_BACKGROUND =
-		'linear-gradient(180deg, rgb(255 255 255 / 0.16), transparent), rgba(255, 255, 255, 0.08)';
 
 	let moonStep = $state(0);
 	let guestbookOpen = $state(false);
@@ -231,7 +226,6 @@
 				body: JSON.stringify({
 					name,
 					message,
-					cardColor: '#D4A5A5',
 					signaturePaths: [...signaturePaths]
 				})
 			});
@@ -274,7 +268,7 @@
 			<p
 				aria-live="polite"
 				class:leaving={moonMessageLeaving}
-				class="moon-message m-0 max-w-[min(15rem,calc(100vw-6rem))] w-max font-[var(--font-meri)] text-[0.75rem] leading-none italic text-text-muted"
+				class="moon-message m-0 max-w-[min(15rem,calc(100vw-6rem))] w-max font-visby text-[0.75rem] leading-none text-text-muted"
 			>
 				{moonMessageText}
 			</p>
@@ -298,7 +292,7 @@
 				<div
 					aria-hidden="true"
 					class:visible={slotVisible}
-					class="card-slot pointer-events-none absolute top-0 left-1/2 z-[2] h-2 w-[calc(100%+0.7rem)] rounded-b-[999px] border border-white/14 shadow-[0_1px_0_rgb(255_255_255_/_10%),0_4px_10px_rgb(0_0_0_/_34%)]"
+					class="card-slot pointer-events-none absolute top-0 left-1/2 z-[2] h-2 w-[calc(100%+0.7rem)] border border-accent/20"
 				></div>
 			{/if}
 
@@ -306,16 +300,23 @@
 				<section
 					class:expanded={guestbookOpen}
 					class:visible={cardVisible}
-					class="top-sheet relative min-h-[5.25rem] w-full origin-top border border-t-0 border-[rgb(255_255_255_/_14%)] text-[#ffffff]"
+					class="top-sheet relative min-h-[5.25rem] w-full origin-top border border-t-0 border-accent/10 bg--muted text-text-main"
 					class:overflow-y-auto={guestbookOpen}
-					style:background={CARD_BACKGROUND}
 				>
 					<div
 						aria-hidden="true"
-						class="pointer-events-none absolute inset-0 opacity-[0.72] mix-blend-multiply"
-						style:background-image={`${SHEET_NOISE}, linear-gradient(180deg, rgb(255 255 255 / 0.14), transparent 38%)`}
-						style:background-size="18px 18px, 100% 100%"
+						class="guestbook-dither pointer-events-none absolute inset-0"
 					></div>
+					<svg
+						aria-hidden="true"
+						class="guestbook-sketch-border pointer-events-none absolute inset-0"
+						viewBox="0 0 100 100"
+						preserveAspectRatio="none"
+					>
+						<path
+							d="M0.4 0.5 C18 0.1 34 0.8 50 0.35 C67 -0.15 84 0.55 99.5 0.25 M99.35 0.15 C100.2 22 99.1 47 99.65 70 C100.05 84 99.2 92 99.55 99.25 M99.4 99.1 C82 99.8 66 99.15 49 99.45 C32 99.9 17 99.05 0.55 99.55 M0.4 99.4 C-0.15 82 0.65 66 0.25 49 C-0.2 31 0.7 16 0.4 0.4"
+						/>
+					</svg>
 
 					{#if !guestbookOpen}
 						<button
@@ -323,9 +324,8 @@
 							type="button"
 							onclick={expandGuestbook}
 						>
-							<span class=" text-[0.62rem] tracking-[0.2em] text-[#7b5257]"> GUEST CARD </span>
 							<strong
-								class="mt-[0.16rem] font-meri text-[clamp(1.18rem,3.8vw,1.1rem)] font-normal italic leading-[1.03] tracking-[-0.02em] text-[#ffffff] [text-wrap:balance]"
+								class="mt-[0.16rem] font-pixel text-[clamp(2.5rem,3.8vw,2rem)] font-normal leading-[1.03] text-text-main [text-wrap:balance]"
 							>
 								Thank you for visiting!
 							</strong>
@@ -340,18 +340,15 @@
 						>
 							<div class="flex items-start justify-between gap-4">
 								<div>
-									<span class="font-visby text-[0.62rem] font-bold tracking-[0.2em] text-[#7b5257]">
-										GUEST CARD
-									</span>
 									<h3
-										class="mt-[0.16rem] mb-0 font-meri text-[clamp(1.18rem,3.8vw,1.6rem)] font-normal italic leading-[1.03] tracking-[-0.02em] text-[#ffffff] [text-wrap:balance]"
+										class="mt-[0.16rem] mb-0 font-pixel text-[clamp(2.5rem,3.8vw,10rem)] font-normal leading-[1.03] text-text-main [text-wrap:balance]"
 									>
 										Thank you for visiting!
 									</h3>
 								</div>
 								<button
 									type="button"
-									class="card-close -mt-[0.72rem] -mr-[0.72rem] grid min-h-11 min-w-11 place-items-center rounded-full text-[1.25rem] text-[#7b5257] opacity-[0.72]"
+									class="card-close -mt-[0.72rem] -mr-[0.72rem] grid min-h-11 min-w-11 place-items-center text-[1.25rem] text-text-muted hover:text-accent/65"
 									aria-label="Close guest card"
 									onclick={dismissGuestbook}
 								>
@@ -365,7 +362,7 @@
 								<div class="min-w-0">
 									<label
 										for="guest-name"
-										class="font-[var(--font-visby)] text-[0.62rem] font-bold tracking-[0.2em] text-[#7b5257]"
+										class="font-visby text-[0.62rem] font-bold tracking-[0.2em] text-text-muted/60"
 									>
 										NAME
 									</label>
@@ -377,11 +374,11 @@
 											autocomplete="name"
 											placeholder="Your name"
 											required
-											class="w-full border-0 border-b border-[rgb(255_255_255_/_24%)] bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-[var(--font-meri)] text-[0.98rem] italic leading-[1.4] text-[#ffffff] outline-none transition-colors duration-200 placeholder:text-[rgb(255_255_255_/_44%)] focus:border-b-[rgb(255_255_255_/_54%)]"
+											class="w-full border-0 border-b border-accent/20 bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent/55"
 										/>
 										{#if name.trim().length > 0}
 											<span
-												class="absolute right-[0.18rem] bottom-[0.55rem] flex size-4 items-center justify-center rounded-full bg-[rgb(255_255_255_/_8%)] text-[0.58rem] font-bold text-[#ffffff]"
+												class="absolute right-[0.18rem] bottom-[0.55rem] flex size-4 items-center justify-center bg-accent/75 text-[0.58rem] font-bold text-surface"
 											>
 												✓
 											</span>
@@ -391,12 +388,12 @@
 
 								<div class="w-[6.9rem] min-w-0 max-sm:w-full">
 									<span
-										class="font-[var(--font-visby)] text-[0.62rem] font-bold tracking-[0.2em] text-[#7b5257]"
+										class="font-visby text-[0.62rem] font-bold tracking-[0.2em] text-text-muted/60"
 									>
 										VISITED
 									</span>
 									<div
-										class="w-full border-0 border-b border-[rgb(255_255_255_/_24%)] bg-transparent px-0 pt-0 pr-0 pb-[0.38rem] font-[var(--font-meri)] text-[0.98rem] italic leading-[1.4] text-[#ffffff] outline-none"
+										class="w-full border-0 border-b border-accent/20 bg-transparent px-0 pt-0 pr-0 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none"
 									>
 										{formattedDate}
 									</div>
@@ -407,11 +404,11 @@
 								<div class="flex items-baseline justify-between gap-3">
 									<label
 										for="guest-message"
-										class="font-[var(--font-visby)] text-[0.62rem] font-bold tracking-[0.2em] text-[#7b5257]"
+										class="font-visby text-[0.62rem] font-bold tracking-[0.2em] text-text-muted/60"
 									>
 										MESSAGE
 									</label>
-									<span class="font-[var(--font-visby)] text-[0.62rem] text-[#7b5257] tabular-nums">
+									<span class="font-visby text-[0.62rem] text-text-muted/60 tabular-nums">
 										{message.length}/280
 									</span>
 								</div>
@@ -423,11 +420,11 @@
 										rows="2"
 										placeholder="Leave a short note"
 										required
-										class="min-h-12 w-full resize-none border-0 border-b border-[rgb(255_255_255_/_24%)] bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-[var(--font-meri)] text-[0.98rem] italic leading-[1.4] text-[#ffffff] outline-none transition-colors duration-200 placeholder:text-[rgb(255_255_255_/_44%)] focus:border-b-[rgb(255_255_255_/_54%)]"
+										class="min-h-12 w-full resize-none border-0 border-b border-accent/20 bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent/55"
 									></textarea>
 									{#if message.trim().length > 0}
 										<span
-											class="absolute right-[0.18rem] bottom-[0.55rem] flex size-4 items-center justify-center rounded-full bg-[rgb(255_255_255_/_8%)] text-[0.58rem] font-bold text-[#ffffff]"
+											class="absolute right-[0.18rem] bottom-[0.55rem] flex size-4 items-center justify-center bg-accent/75 text-[0.58rem] font-bold text-surface"
 										>
 											✓
 										</span>
@@ -439,13 +436,13 @@
 								<div class="flex items-baseline justify-between gap-3">
 									<label
 										for="guest-signature"
-										class="font-[var(--font-visby)] text-[0.62rem] font-bold tracking-[0.2em] text-[#7b5257]"
+										class="font-visby text-[0.62rem] font-bold tracking-[0.2em] text-text-muted/60"
 									>
 										SIGNATURE
 									</label>
 									<button
 										type="button"
-										class="ghost-button min-h-8 cursor-pointer p-0 font-[var(--font-visby)] text-[0.68rem] uppercase tracking-[0.08em] text-[#7b5257] disabled:cursor-not-allowed disabled:opacity-[0.35]"
+										class="ghost-button min-h-8 cursor-pointer p-0 font-visby text-[0.68rem] uppercase tracking-[0.08em] text-text-muted hover:text-accent/65 disabled:cursor-not-allowed disabled:opacity-[0.35]"
 										onclick={clearSignature}
 										disabled={!hasSignature && !drawing}
 									>
@@ -463,9 +460,8 @@
 									onpointerup={endSignature}
 									onpointerleave={endSignature}
 									onpointercancel={cancelSignature}
-									class="after:content-[''] relative mt-[0.28rem] min-h-28 w-full overflow-hidden rounded-t-[0.95rem] rounded-b-[0.4rem] border-b border-[rgb(255_255_255_/_24%)] touch-none shadow-[inset_0_0_0_1px_rgb(255_255_255_/_12%),inset_0_-1px_0_rgb(255_255_255_/_7%)] after:absolute after:right-4 after:bottom-[1.15rem] after:left-4 after:h-px after:bg-[linear-gradient(90deg,transparent,rgb(255_255_255_/_25%),transparent)]"
+									class="signature-pad after:content-[''] relative mt-[0.28rem] min-h-28 w-full overflow-hidden border border-accent/20 bg-transparent touch-none text-text-main after:absolute after:right-4 after:bottom-[1.15rem] after:left-4 after:h-px after:bg-border"
 									class:after:opacity-75={hasSignature}
-									style:background={SIGNATURE_BACKGROUND}
 								>
 									<svg
 										viewBox={`0 0 ${PAD_WIDTH} ${PAD_HEIGHT}`}
@@ -473,15 +469,13 @@
 										class="relative block h-28 w-full"
 									>
 										{#each signaturePaths as path, index (`${index}-${path.length}`)}
-											<path d={path} fill="#ffffff"></path>
+											<path d={path} fill="currentColor"></path>
 										{/each}
 									</svg>
 
 									{#if !hasSignature}
 										<div class="pointer-events-none absolute inset-0 grid place-items-center">
-											<span
-												class="translate-y-4 -rotate-3 font-[var(--font-meri)] text-[1rem] italic text-[rgb(255_255_255_/_36%)]"
-											>
+											<span class="translate-y-4 -rotate-3 font-visby text-[1rem] text-text-muted">
 												sign here
 											</span>
 										</div>
@@ -491,26 +485,45 @@
 
 							<div class="mt-[0.95rem] flex items-center justify-between gap-4">
 								<button
-									class="submit-button min-h-10 cursor-pointer rounded-full bg-[#ffffff] px-4 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-[0.62]"
-									type="submit"
-									disabled={saving || !hasSignature}
-								>
-									{saving ? 'placing...' : 'sign card'}
-								</button>
-
-								<button
-									class="min-h-10 cursor-pointer font-[var(--font-visby)] text-[0.74rem] tracking-[0.05em] text-[#7b5257] underline underline-offset-[0.28rem]"
+									class="min-h-10 cursor-pointer font-visby text-[0.74rem] tracking-[0.05em] text-text-muted underline underline-offset-[0.28rem] hover:text-accent/65"
 									type="button"
 									onclick={() => goto(resolve('/garden'))}
 								>
 									view garden
+								</button>
+
+								<button
+									class:saving
+									class="submit-button inline-flex cursor-pointer items-center gap-2 rounded-lg px-4 py-1 text-[0.72rem] font-bold uppercase tracking-[0.08em] text-surface disabled:cursor-not-allowed disabled:opacity-[0.62]"
+									type="submit"
+									disabled={saving || !hasSignature}
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										class="submit-signature-icon shrink-0"
+										aria-hidden="true"
+									>
+										<path
+											d="m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284"
+										/>
+										<path d="M3 21h18" />
+									</svg>
+									<span>{saving ? 'signing...' : 'sign card'}</span>
 								</button>
 							</div>
 
 							{#if status}
 								<p
 									aria-live="polite"
-									class="mt-[0.7rem] mb-0 font-[var(--font-visby)] text-[0.76rem] text-[#7b5257]"
+									class="mt-[0.7rem] mb-0 font-visby text-[0.76rem] text-text-muted"
 								>
 									{status}
 								</p>
@@ -545,32 +558,10 @@
 		animation: note-out 220ms cubic-bezier(0.4, 0, 1, 1) both;
 	}
 
-	.guest-card-stage::before {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		left: 10%;
-		width: 80%;
-		height: 12rem;
-		background: radial-gradient(ellipse at 50% 0%, rgb(233 145 145 / 40%), transparent 72%);
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 320ms ease;
-	}
-
-	.guest-card-stage.card-visible::before {
-		opacity: 0.82;
-	}
-
-	.guest-card-stage.expanded.card-visible::before {
-		opacity: 0.56;
-	}
-
 	.card-slot {
 		opacity: 0;
 		transform: translate(-50%, -100%);
-		background: linear-gradient(180deg, #090909 0%, #1a1515 50%, #050505 100%);
+		background: var(--color-text-main);
 		transition:
 			transform 210ms cubic-bezier(0.22, 1, 0.36, 1),
 			opacity 150ms ease-out;
@@ -585,10 +576,12 @@
 	.top-sheet {
 		max-height: 5.25rem;
 		overflow: hidden;
-		border-radius: 0 0 1.2rem 1.2rem;
-		box-shadow:
-			0 16px 34px rgb(69 33 41 / 18%),
-			0 0 54px rgb(219 145 145 / 24%);
+		border-radius: 0;
+		border-color: transparent;
+		background-color: color-mix(in srgb, var(--color-surface-muted) 86%, transparent);
+		/*box-shadow:
+			0 16px 34px color-mix(in srgb, var(--color-text-main) 12%, transparent),
+			0 0 54px color-mix(in srgb, var(--color-accent) 16%, transparent);*/
 		opacity: 0;
 		transform: translate3d(0, -110%, 0) scaleY(0.985);
 		transition:
@@ -607,10 +600,86 @@
 
 	.top-sheet.expanded {
 		max-height: min(34rem, calc(100dvh - 0.85rem));
-		border-radius: 0 0 1.65rem 1.65rem;
-		box-shadow:
-			0 26px 50px rgb(69 33 41 / 20%),
-			0 0 76px rgb(219 145 145 / 22%);
+		border-radius: 0;
+		/*box-shadow:
+			0 26px 50px color-mix(in srgb, var(--color-text-main) 14%, transparent),
+			0 0 76px color-mix(in srgb, var(--color-accent) 14%, transparent);*/
+	}
+
+	.guestbook-sketch-border {
+		z-index: 2;
+		overflow: visible;
+	}
+
+	.guestbook-sketch-border path {
+		fill: none;
+		stroke: color-mix(in srgb, var(--color-accent) 22%, transparent);
+		stroke-width: 0.15;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		vector-effect: non-scaling-stroke;
+	}
+
+	.guestbook-dither {
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-surface-muted) 92%, var(--color-accent) 12%) 0%,
+			color-mix(in srgb, var(--color-surface-muted) 82%, transparent) 44%,
+			color-mix(in srgb, var(--color-surface-muted) 72%, transparent) 76%,
+			color-mix(in srgb, var(--color-surface-muted) 58%, transparent) 100%
+		);
+		backdrop-filter: blur(28px) saturate(0.72);
+		-webkit-backdrop-filter: blur(28px) saturate(0.72);
+	}
+
+	.card-bracket {
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		border-color: var(--color-accent);
+		opacity: 0.76;
+		pointer-events: none;
+		z-index: 10;
+	}
+
+	.bracket-tl {
+		top: -1.5px;
+		left: -1.5px;
+		border-top: 1.5px solid;
+		border-left: 1.5px solid;
+	}
+
+	.bracket-tr {
+		top: -1.5px;
+		right: -1.5px;
+		border-top: 1.5px solid;
+		border-right: 1.5px solid;
+	}
+
+	.bracket-bl {
+		bottom: -1.5px;
+		left: -1.5px;
+		border-bottom: 1.5px solid;
+		border-left: 1.5px solid;
+	}
+
+	.bracket-br {
+		bottom: -1.5px;
+		right: -1.5px;
+		border-bottom: 1.5px solid;
+		border-right: 1.5px solid;
+	}
+
+	.card-label {
+		position: absolute;
+		top: 0.25rem;
+		left: 0.5rem;
+		font-family: monospace;
+		font-size: 0.52rem;
+		text-transform: lowercase;
+		color: var(--color-text-muted);
+		opacity: 0.74;
+		z-index: 10;
 	}
 
 	.card-preview {
@@ -650,14 +719,30 @@
 	}
 
 	.submit-button {
+		background-color: color-mix(in srgb, var(--color-accent) 72%, var(--color-surface-muted));
+		background-image:
+			linear-gradient(180deg, rgb(255 255 255 / 0.24), rgb(255 255 255 / 0) 48%),
+			radial-gradient(circle at 22% 18%, rgb(255 255 255 / 0.26), transparent 24%),
+			radial-gradient(circle at 76% 82%, rgb(0 0 0 / 0.1), transparent 28%);
+
 		transition:
 			transform 150ms ease-out,
 			background-color 180ms ease,
+			box-shadow 180ms ease,
 			opacity 180ms ease;
 	}
 
 	.submit-button:active {
 		transform: scale(0.96);
+	}
+
+	.submit-signature-icon path {
+		stroke-dasharray: 42;
+		stroke-dashoffset: 0;
+	}
+
+	.submit-button.saving .submit-signature-icon path {
+		animation: signature-stroke 950ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
 	}
 
 	@keyframes moon-impact {
@@ -718,6 +803,22 @@
 		}
 	}
 
+	@keyframes signature-stroke {
+		0% {
+			stroke-dashoffset: 42;
+			opacity: 0.45;
+		}
+		45%,
+		70% {
+			stroke-dashoffset: 0;
+			opacity: 1;
+		}
+		100% {
+			stroke-dashoffset: -42;
+			opacity: 0.45;
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.moon-trigger,
 		.moon-message,
@@ -726,7 +827,6 @@
 		.card-close,
 		.ghost-button,
 		.submit-button,
-		.guest-card-stage::before,
 		.card-slot,
 		.top-sheet {
 			animation: none;
