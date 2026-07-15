@@ -9,13 +9,13 @@
 	let errorMessage = $state('');
 	const masonryColumns = $derived.by(() => buildMasonry(entries, 4));
 	const markStyles = [
-		{ rotate: '-4.5deg', ink: '#385947', muted: 'rgb(56 89 71 / 0.48)', width: '16rem' },
-		{ rotate: '3.2deg', ink: '#6f98bf', muted: 'rgb(111 152 191 / 0.55)', width: '13rem' },
-		{ rotate: '-6deg', ink: '#ee5d2f', muted: 'rgb(238 93 47 / 0.48)', width: '10rem' },
-		{ rotate: '5.5deg', ink: '#9c92c9', muted: 'rgb(156 146 201 / 0.55)', width: '19rem' },
-		{ rotate: '-2.8deg', ink: '#221f1f', muted: 'rgb(34 31 31 / 0.52)', width: '12rem' },
-		{ rotate: '7deg', ink: '#385947', muted: 'rgb(56 89 71 / 0.42)', width: '15rem' },
-		{ rotate: '-8deg', ink: '#6f98bf', muted: 'rgb(111 152 191 / 0.5)', width: '11rem' }
+		{ rotate: '-4.5deg', ink: 'var(--color-1-ink)', muted: 'var(--color-1-muted)', width: '16rem' },
+		{ rotate: '3.2deg', ink: 'var(--color-2-ink)', muted: 'var(--color-2-muted)', width: '13rem' },
+		{ rotate: '-6deg', ink: 'var(--color-3-ink)', muted: 'var(--color-3-muted)', width: '10rem' },
+		{ rotate: '5.5deg', ink: 'var(--color-4-ink)', muted: 'var(--color-4-muted)', width: '19rem' },
+		{ rotate: '-2.8deg', ink: 'var(--color-5-ink)', muted: 'var(--color-5-muted)', width: '12rem' },
+		{ rotate: '7deg', ink: 'var(--color-6-ink)', muted: 'var(--color-6-muted)', width: '15rem' },
+		{ rotate: '-8deg', ink: 'var(--color-7-ink)', muted: 'var(--color-7-muted)', width: '11rem' }
 	];
 
 	onMount(async () => {
@@ -210,8 +210,23 @@
 	}
 
 	.graffiti-mark {
-		--ink: #221f1f;
-		--ink-muted: rgb(34 31 31 / 0.52);
+		--color-1-ink: #385947;
+		--color-1-muted: rgb(56 89 71 / 0.48);
+		--color-2-ink: #6f98bf;
+		--color-2-muted: rgb(111 152 191 / 0.55);
+		--color-3-ink: #ee5d2f;
+		--color-3-muted: rgb(238 93 47 / 0.48);
+		--color-4-ink: #9c92c9;
+		--color-4-muted: rgb(156 146 201 / 0.55);
+		--color-5-ink: #221f1f;
+		--color-5-muted: rgb(34 31 31 / 0.52);
+		--color-6-ink: #385947;
+		--color-6-muted: rgb(56 89 71 / 0.42);
+		--color-7-ink: #6f98bf;
+		--color-7-muted: rgb(111 152 191 / 0.5);
+
+		--ink: var(--color-5-ink);
+		--ink-muted: var(--color-5-muted);
 		--rotate: 0deg;
 		--mark-width: 12rem;
 		width: min(100%, var(--mark-width));
@@ -219,6 +234,23 @@
 		transform: rotate(var(--rotate));
 		transition: transform 0.18s ease;
 		color: var(--ink);
+	}
+
+	:global(.dark) .graffiti-mark {
+		--color-1-ink: #72a386;
+		--color-1-muted: rgba(114, 163, 134, 0.6);
+		--color-2-ink: #8ab7e5;
+		--color-2-muted: rgba(138, 183, 229, 0.6);
+		--color-3-ink: #f0744d;
+		--color-3-muted: rgba(240, 116, 77, 0.6);
+		--color-4-ink: #beb4eb;
+		--color-4-muted: rgba(190, 180, 235, 0.6);
+		--color-5-ink: #d4d4d8;
+		--color-5-muted: rgba(212, 212, 216, 0.6);
+		--color-6-ink: #72a386;
+		--color-6-muted: rgba(114, 163, 134, 0.5);
+		--color-7-ink: #8ab7e5;
+		--color-7-muted: rgba(138, 183, 229, 0.55);
 	}
 
 	.mark-stamp {
