@@ -32,7 +32,7 @@
 	<div class="flex items-baseline gap-3 md:block">
 		<!-- Date in gutter on md+ -->
 		<div
-			class="w-[4.5rem] shrink-0 flex items-center gap-1.5 whitespace-nowrap md:absolute md:-left-32 md:w-24 md:justify-end text-xs md:text-sm font-serif text-text-muted/60 italic mb-0 md:mb-0 date-gutter"
+			class="w-[4.5rem] shrink-0 hidden md:flex items-center gap-1.5 whitespace-nowrap md:absolute md:-left-32 md:w-24 md:justify-end text-xs md:text-sm font-serif text-text-muted/60 italic mb-0 md:mb-0 date-gutter"
 		>
 			<div class="w-3.5 shrink-0 flex items-center justify-center">
 				{#if isPinned}
