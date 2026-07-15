@@ -25,24 +25,21 @@
 	let muteNext = $derived(currentPage + pagelength >= posts.length - 1);
 	let mutePrev = $derived(currentPage === 0);
 
-	function scrollToTopSmooth() {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
+	function scrollToTop() {
+		window.scrollTo(0, 0);
 	}
 
 	function next() {
 		if (!muteNext) {
 			currentPage += pagelength;
-			scrollToTopSmooth();
+			scrollToTop();
 		}
 	}
 
 	function prev() {
 		if (!mutePrev) {
 			currentPage -= pagelength;
-			scrollToTopSmooth();
+			scrollToTop();
 		}
 	}
 </script>

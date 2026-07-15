@@ -103,15 +103,12 @@
 		})
 	);
 
-	function scrollToTopSmooth() {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
+	function scrollToTop() {
+		window.scrollTo(0, 0);
 	}
 
 	onMount(async () => {
-		scrollToTopSmooth();
+		scrollToTop();
 		await tick();
 
 		let highlights = [];
