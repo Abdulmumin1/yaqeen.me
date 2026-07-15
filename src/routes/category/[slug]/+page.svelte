@@ -69,7 +69,7 @@
 
 		<div class="flex flex-col gap-4">
 			<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">more-posts</p>
-			<div class="flex flex-col divide-y divide-primary/10">
+			<div class="flex flex-col">
 				{#each currentPageData as post (post.slug)}
 					<BlogCard details={post} />
 				{/each}

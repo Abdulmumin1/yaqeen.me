@@ -6,7 +6,7 @@
 <div class="w-full space-y-16 flex flex-col" id="projects">
 	<div class="space-y-6">
 		<h2
-			class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8"
+			class="text-xl md:text-3xl font-serif text-text-main"
 		>
 			Products
 		</h2>
@@ -15,7 +15,7 @@
 
 	<div class="space-y-6">
 		<h2
-			class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8"
+			class="text-xl md:text-3xl font-serif text-text-main"
 		>
 			Open Source
 		</h2>

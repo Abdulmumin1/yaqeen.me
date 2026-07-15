@@ -30,7 +30,7 @@ export class Guestbook {
 					.slice(0, 24)
 			: [];
 		const cleanCardColor =
-			typeof cardColor === 'string' && /^#[0-9a-f]{6}$/i.test(cardColor) ? cardColor : '#D4A5A5';
+			typeof cardColor === 'string' && /^#[0-9a-f]{6}$/i.test(cardColor) ? cardColor : '#cf7b69';
 
 		if (!cleanName || !cleanMessage || cleanSignaturePaths.length === 0) {
 			return Response.json(

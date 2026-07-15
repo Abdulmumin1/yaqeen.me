@@ -300,3 +300,28 @@
 .animate-slide-up {
 	animation: slide-up 0.4s ease-out forwards;
 }
+
+html.moon-impact,
+body.moon-impact,
+.moon-impact {
+	animation: moon-impact 280ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes moon-impact {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	18% {
+		transform: translateX(-3px) rotate(-0.08deg);
+	}
+	36% {
+		transform: translateX(3px) rotate(0.08deg);
+	}
+	54% {
+		transform: translateX(-2px);
+	}
+	72% {
+		transform: translateX(1px);
+	}
+}

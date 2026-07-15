@@ -167,6 +167,7 @@
 			.forEach((element) => observer.observe(element));
 
 		const themeObserver = new MutationObserver(() => {
+			if (!articleContent) return;
 			highlights.forEach((handle) => handle.remove());
 			highlights = Array.from(articleContent.querySelectorAll('[data-highlight]')).map(
 				createHighlight

@@ -7,7 +7,7 @@
 	// unsubscribe_stack();
 </script>
 
-<div class="flex flex-col divide-y divide-primary/10 w-full">
+<div class="flex flex-col w-full">
 	{#each $sass_projects as project (project.name)}
 		<SassTemplate details={project} />
 	{/each}

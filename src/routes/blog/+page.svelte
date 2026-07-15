@@ -52,7 +52,7 @@
 		{#if pinnedPosts.length}
 			<div class="flex flex-col gap-1">
 				<h2
-					class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mb-2"
+					class="text-xl md:text-3xl font-serif text-text-main mb-2"
 				>
 					Pinned
 				</h2>
@@ -66,7 +66,7 @@
 
 		{#if latest}
 			<h2
-				class="text-xl md:text-3xl font-serif text-text-main border-b border-border/40 pb-2 w-fit pr-8 mt-8 mb-2"
+				class="text-xl md:text-3xl font-serif text-text-main mt-8 mb-2"
 			>
 				Latest
 			</h2>
@@ -77,7 +77,7 @@
 
 		{#if posts.length}
 			<div class="flex flex-col gap-4">
-				<div class="flex flex-col divide-y divide-primary/10">
+				<div class="flex flex-col">
 					{#each posts as post (post.slug)}
 						<BlogCard details={post} />
 					{/each}

@@ -73,10 +73,19 @@
 			}, MOON_MESSAGE_VISIBLE_DURATION);
 		}, MOON_IMPACT_DURATION);
 		document.documentElement.classList.remove('moon-impact');
-		requestAnimationFrame(() => document.documentElement.classList.add('moon-impact'));
+		const wrapper = document.getElementById('layout-wrapper');
+		if (wrapper) {
+			wrapper.classList.remove('moon-impact');
+			void wrapper.offsetWidth;
+			wrapper.classList.add('moon-impact');
+		}
+		requestAnimationFrame(() => {
+			document.documentElement.classList.add('moon-impact');
+		});
 		clearTimeout(impactTimer);
 		impactTimer = setTimeout(() => {
 			document.documentElement.classList.remove('moon-impact');
+			if (wrapper) wrapper.classList.remove('moon-impact');
 			if (nextStep === 2 && !slotPresent && !cardPresent) revealGuestbook();
 		}, MOON_IMPACT_DURATION);
 		navigator.vibrate?.(12);
@@ -249,6 +258,8 @@
 		clearTimeout(messageFadeTimer);
 		if (browser) {
 			document.documentElement.classList.remove('moon-impact');
+			const wrapper = document.getElementById('layout-wrapper');
+			if (wrapper) wrapper.classList.remove('moon-impact');
 		}
 	});
 </script>
@@ -325,7 +336,7 @@
 							onclick={expandGuestbook}
 						>
 							<strong
-								class="mt-[0.16rem] font-pixel text-[clamp(2.5rem,3.8vw,2rem)] font-normal leading-[1.03] text-text-main [text-wrap:balance]"
+								class="mt-[0.16rem] font-pixel text-[clamp(1.5rem,7vw,2rem)] font-normal leading-[1.03] text-text-main whitespace-nowrap"
 							>
 								Thank you for visiting!
 							</strong>
@@ -341,7 +352,7 @@
 							<div class="flex items-start justify-between gap-4">
 								<div>
 									<h3
-										class="mt-[0.16rem] mb-0 font-pixel text-[clamp(2.5rem,3.8vw,10rem)] font-normal leading-[1.03] text-text-main [text-wrap:balance]"
+										class="mt-[0.16rem] mb-0 font-pixel text-[clamp(1.5rem,7vw,2.8rem)] font-normal leading-[1.03] text-text-main whitespace-nowrap"
 									>
 										Thank you for visiting!
 									</h3>
@@ -374,7 +385,7 @@
 											autocomplete="name"
 											placeholder="Your name"
 											required
-											class="w-full border-0 border-b border-accent/20 bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent/55"
+											class="w-full border-0 border-b border-text-muted/20 bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent/55"
 										/>
 										{#if name.trim().length > 0}
 											<span
@@ -392,10 +403,12 @@
 									>
 										VISITED
 									</span>
-									<div
-										class="w-full border-0 border-b border-accent/20 bg-transparent px-0 pt-0 pr-0 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none"
-									>
-										{formattedDate}
+									<div class="relative mt-[0.2rem] flex items-center">
+										<div
+											class="w-full border-0 border-b border-text-muted/20 bg-transparent px-0 pt-0 pr-0 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none"
+										>
+											{formattedDate}
+										</div>
 									</div>
 								</div>
 							</div>
@@ -420,7 +433,7 @@
 										rows="2"
 										placeholder="Leave a short note"
 										required
-										class="min-h-12 w-full resize-none border-0 border-b border-accent/20 bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent/55"
+										class="min-h-12 w-full resize-none border-0 border-b border-text-muted/10 bg-transparent px-0 pt-0 pr-6 pb-[0.38rem] font-visby text-[0.98rem] leading-[1.4] text-text-main outline-none transition-colors duration-200 placeholder:text-text-muted focus:border-accent/55"
 									></textarea>
 									{#if message.trim().length > 0}
 										<span
@@ -460,7 +473,7 @@
 									onpointerup={endSignature}
 									onpointerleave={endSignature}
 									onpointercancel={cancelSignature}
-									class="signature-pad after:content-[''] relative mt-[0.28rem] min-h-28 w-full overflow-hidden border border-accent/20 bg-transparent touch-none text-text-main after:absolute after:right-4 after:bottom-[1.15rem] after:left-4 after:h-px after:bg-border"
+									class="signature-pad after:content-[''] relative mt-[0.28rem] min-h-28 w-full overflow-hidden bg-transparent touch-none text-text-main after:absolute after:right-4 after:bottom-[1.15rem] after:left-4 after:h-px after:bg-border"
 									class:after:opacity-75={hasSignature}
 								>
 									<svg

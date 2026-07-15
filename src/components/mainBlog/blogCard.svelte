@@ -32,17 +32,17 @@
 	<div class="flex items-baseline gap-3 md:block">
 		<!-- Date in gutter on md+ -->
 		<div
-			class="shrink-0 whitespace-nowrap md:absolute md:-left-32 md:w-24 text-xs md:text-sm font-serif text-text-muted/60 md:text-right italic mb-0 md:mb-0 date-gutter"
+			class="w-[4.5rem] shrink-0 flex items-center gap-1.5 whitespace-nowrap md:absolute md:-left-32 md:w-24 md:justify-end text-xs md:text-sm font-serif text-text-muted/60 italic mb-0 md:mb-0 date-gutter"
 		>
-			<span class="relative inline-flex items-center">
+			<div class="w-3.5 shrink-0 flex items-center justify-center">
 				{#if isPinned}
-					<div class="absolute right-full mr-2 text-accent/60 flex items-center" aria-hidden="true">
+					<div class="text-accent/60 flex items-center" aria-hidden="true">
 						<Fa icon={faThumbTack} class="size-2.5 rotate-45" />
 					</div>
 					<span class="sr-only">Pinned post</span>
 				{/if}
-				{formatDisplayDate(details.date)}
-			</span>
+			</div>
+			<span>{formatDisplayDate(details.date)}</span>
 		</div>
 
 		<div class="flex items-baseline gap-2 md:block">

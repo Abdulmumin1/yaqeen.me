@@ -21,8 +21,31 @@
 	});
 	function handleSwitchDarkMode() {
 		darkMode.update((cur) => {
-			return !cur;
+			const newValue = !cur;
+			if (browser) {
+				localStorage.theme = newValue ? 'dark' : 'light';
+			}
+			return newValue;
 		});
+		if (browser) {
+			const wrapper = document.getElementById('layout-wrapper');
+			if (wrapper) {
+				wrapper.classList.remove('moon-impact');
+				void wrapper.offsetWidth;
+				wrapper.classList.add('moon-impact');
+			}
+			document.documentElement.classList.remove('moon-impact');
+			document.body.classList.remove('moon-impact');
+			requestAnimationFrame(() => {
+				document.documentElement.classList.add('moon-impact');
+				document.body.classList.add('moon-impact');
+			});
+			setTimeout(() => {
+				if (wrapper) wrapper.classList.remove('moon-impact');
+				document.documentElement.classList.remove('moon-impact');
+				document.body.classList.remove('moon-impact');
+			}, 300);
+		}
 	}
 
 	onMount(() => {
