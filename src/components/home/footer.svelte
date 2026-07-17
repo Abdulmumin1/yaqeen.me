@@ -52,7 +52,9 @@
 		aria-hidden="true"
 	></video>
 
-	<div class="footer-content max-w-2xl mx-auto w-full flex flex-col gap-3">
+	<div class="footer-content max-w-2xl mx-auto w-full flex flex-col gap-3 relative">
+		<!-- Beautiful watercolor ginkgo tree standing tall on the left of footer content -->
+
 		<div class="flex gap-3">
 			<a
 				href={links.github}
@@ -109,6 +111,17 @@
 			>
 				{$darkMode ? 'light mode' : 'dark mode'}
 			</button>
+		</div>
+
+		<!-- Swaying watercolor flower next to the butterflies loop -->
+		<div
+			class="absolute right-0 bottom-0 w-16 h-16 sm:w-20 sm:h-20 pointer-events-none select-none opacity-80 dark:opacity-75 animate-sway"
+		>
+			<img
+				src="/flower-red.webp"
+				alt="Watercolor flower decoration"
+				class="w-full h-full object-contain"
+			/>
 		</div>
 	</div>
 </footer>
@@ -175,6 +188,35 @@
 	@media (prefers-reduced-motion: reduce) {
 		.butterfly-overlay {
 			display: none;
+		}
+	}
+
+	@keyframes sway {
+		0%,
+		100% {
+			transform: rotate(-2deg) translateY(0px);
+		}
+		50% {
+			transform: rotate(3deg) translateY(-3px);
+		}
+	}
+
+	@keyframes sway-slow {
+		0%,
+		100% {
+			transform: rotate(-1.5deg) translateY(0px);
+		}
+		50% {
+			transform: rotate(2deg) translateY(-3px);
+		}
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		.animate-sway {
+			animation: sway 6s ease-in-out infinite;
+		}
+
+		.animate-sway-slow {
+			animation: sway-slow 8s ease-in-out infinite;
 		}
 	}
 </style>

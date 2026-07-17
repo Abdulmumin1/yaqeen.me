@@ -11,7 +11,7 @@
 	];
 </script>
 
-<div class="max-w-xl">
+<div class="relative max-w-xl">
 	<Guestbook />
 
 	<h1

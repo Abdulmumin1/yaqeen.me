@@ -12,7 +12,7 @@ categories:
   - thoughts
   - devops
 
-published: false
+published: true
 ---
 
 a few weeks ago i woke up, checked my phone, and saw a notification. a cloud agent had opened a PR while i was asleep, and i had absolutely no idea whether any of it actually worked.
