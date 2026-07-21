@@ -51,11 +51,7 @@
 	<div class="flex flex-col">
 		{#if pinnedPosts.length}
 			<div class="flex flex-col gap-1">
-				<h2
-					class="text-xl md:text-3xl font-serif text-text-main mb-2"
-				>
-					Pinned
-				</h2>
+				<h2 class="text-xl md:text-3xl font-serif text-text-main mb-2">Pinned</h2>
 				<div class="flex flex-col">
 					{#each pinnedPosts as post (post.slug)}
 						<BlogCard details={post} />
@@ -65,11 +61,7 @@
 		{/if}
 
 		{#if latest}
-			<h2
-				class="text-xl md:text-3xl font-serif text-text-main mt-8 mb-2"
-			>
-				Latest
-			</h2>
+			<h2 class="text-xl md:text-3xl font-serif text-text-main mt-8 mb-2">Latest</h2>
 			<div class="flex flex-col">
 				<BlogCard details={latest} latest={true} />
 			</div>

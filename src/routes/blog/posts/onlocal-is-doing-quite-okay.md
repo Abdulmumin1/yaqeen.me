@@ -1,7 +1,7 @@
 ---
 title: 'onlocal is doing quite well'
 
-description: "Building a local tunneling tool from scratch — how I prototyped onlocal using WebSockets and Cloudflare Durable Objects before learning how the pros do it."
+description: 'Building a local tunneling tool from scratch — how I prototyped onlocal using WebSockets and Cloudflare Durable Objects before learning how the pros do it.'
 
 date: '2026-04-30'
 

@@ -2,7 +2,8 @@ import { dev } from '$app/environment';
 
 export const title = 'Abdulmumin Yaqeen';
 export const siteName = 'Abdulmumin Yaqeen';
-export const description = 'Fullstack developer, cybersecurity graduate, and writer. Building interfaces, dev tools, and experiments.';
+export const description =
+	'Fullstack developer, cybersecurity graduate, and writer. Building interfaces, dev tools, and experiments.';
 export const siteOrigin = dev ? 'http://localhost:5173' : 'https://yaqeen.me';
 export const url = `${siteOrigin}/blog`;
 export const defaultSocialImage = `${siteOrigin}/dummy.png`;

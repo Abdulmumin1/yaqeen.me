@@ -66,13 +66,10 @@
 		>
 			<Fa icon={faClose} />
 		</button>
-		
+
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div 
-			class="modal-content" 
-			onclick={(e) => e.stopPropagation()}
-		>
+		<div class="modal-content" onclick={(e) => e.stopPropagation()}>
 			<img {src} {alt} class="expanded-image" />
 			{#if alt}
 				<span class="modal-caption">{alt}</span>

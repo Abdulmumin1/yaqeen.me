@@ -35,7 +35,9 @@
 
 	<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-start">
 		<div class="">
-			<h3 class="text-2xl md:text-4xl font-serif text-text-main leading-none italic mb-4">Built by me.</h3>
+			<h3 class="text-2xl md:text-4xl font-serif text-text-main leading-none italic mb-4">
+				Built by me.
+			</h3>
 		</div>
 
 		<div class="divide-y divide-border/10">

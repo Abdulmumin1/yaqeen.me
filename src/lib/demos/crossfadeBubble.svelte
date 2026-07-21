@@ -18,7 +18,7 @@
 	var data = $state(dataValues.slice());
 	// var dataCopy = data.slice();
 	let chartContainer = $state();
-	let maxValue = Math.max(...data);
+	let maxValue = $derived(Math.max(...data));
 
 	function renderChart(arr) {
 		data = arr;
@@ -96,7 +96,7 @@
 
 <div class="container bg-surface-soft rounded-lg">
 	<div bind:this={chartContainer} id="visual-container">
-		{#each data as d}
+		{#each data as d (d)}
 			<div
 				class="bar bg-primary"
 				style:--tag={`bar-${d}`}

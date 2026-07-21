@@ -645,56 +645,6 @@
 		-webkit-backdrop-filter: blur(28px) saturate(0.72);
 	}
 
-	.card-bracket {
-		position: absolute;
-		width: 8px;
-		height: 8px;
-		border-color: var(--color-accent);
-		opacity: 0.76;
-		pointer-events: none;
-		z-index: 10;
-	}
-
-	.bracket-tl {
-		top: -1.5px;
-		left: -1.5px;
-		border-top: 1.5px solid;
-		border-left: 1.5px solid;
-	}
-
-	.bracket-tr {
-		top: -1.5px;
-		right: -1.5px;
-		border-top: 1.5px solid;
-		border-right: 1.5px solid;
-	}
-
-	.bracket-bl {
-		bottom: -1.5px;
-		left: -1.5px;
-		border-bottom: 1.5px solid;
-		border-left: 1.5px solid;
-	}
-
-	.bracket-br {
-		bottom: -1.5px;
-		right: -1.5px;
-		border-bottom: 1.5px solid;
-		border-right: 1.5px solid;
-	}
-
-	.card-label {
-		position: absolute;
-		top: 0.25rem;
-		left: 0.5rem;
-		font-family: monospace;
-		font-size: 0.52rem;
-		text-transform: lowercase;
-		color: var(--color-text-muted);
-		opacity: 0.74;
-		z-index: 10;
-	}
-
 	.card-preview {
 		transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
 	}

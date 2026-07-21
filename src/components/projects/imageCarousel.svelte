@@ -1,7 +1,6 @@
 <script>
-	import { faD } from '@fortawesome/free-solid-svg-icons';
-	import { onMount } from 'svelte';
-	import { fade, fly, scale, slide } from 'svelte/transition';
+	import { onDestroy } from 'svelte';
+	import { fly } from 'svelte/transition';
 
 	let { imageList } = $props();
 
@@ -11,25 +10,19 @@
 	let interval;
 
 	function switchImage(img) {
-		let imageIndex = imageList.indexOf(img);
-		// console.log(imageIndex);
-		newImage = imageIndex;
-		clearInterval(interval);
-		// createInterval();
+		const imageIndex = imageList.indexOf(img);
+		if (imageIndex !== -1) {
+			newImage = imageIndex;
+		}
+		if (interval) {
+			clearInterval(interval);
+		}
 	}
 
-	function createInterval() {
-		interval = setInterval(() => {
-			currentImage = imageList[newImage];
-			newImage += 1;
-
-			if (newImage >= imageList.length) {
-				newImage = 0;
-			}
-		}, 3000);
-	}
-	onMount(() => {
-		// createInterval();
+	onDestroy(() => {
+		if (interval) {
+			clearInterval(interval);
+		}
 	});
 </script>
 
@@ -46,17 +39,17 @@
 		{/key}
 	</div>
 	<div class="w-80 flex items-center gap-2">
-		{#each imageList as img}
-			<div
-				role="button"
-				class="h-full w-full overflow-hidden rounded-lg border-primary transition-all duration-300"
-				onclick={() => {
-					switchImage(img);
-				}}
-				class:border-2={currentImage == img}
+		{#each imageList as img (img)}
+			<button
+				type="button"
+				class="h-full w-full overflow-hidden rounded-lg border-primary transition-all duration-300 cursor-pointer p-0 {currentImage ===
+				img
+					? 'border-2'
+					: ''}"
+				onclick={() => switchImage(img)}
 			>
 				<img src={img} alt="" class="object-contain rounded-lg" style="aspect-ratio: 16/9;" />
-			</div>
+			</button>
 		{/each}
 	</div>
 </div>

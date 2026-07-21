@@ -201,22 +201,9 @@
 		}
 	}
 
-	@keyframes sway-slow {
-		0%,
-		100% {
-			transform: rotate(-1.5deg) translateY(0px);
-		}
-		50% {
-			transform: rotate(2deg) translateY(-3px);
-		}
-	}
 	@media (prefers-reduced-motion: no-preference) {
 		.animate-sway {
 			animation: sway 6s ease-in-out infinite;
-		}
-
-		.animate-sway-slow {
-			animation: sway-slow 8s ease-in-out infinite;
 		}
 	}
 </style>

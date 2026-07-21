@@ -97,7 +97,9 @@
 				<div class="garden-column">
 					{#each column as mark (mark.entry.id)}
 						<article class="graffiti-mark" style={mark.style}>
-							<time datetime={mark.entry.createdAt} class="mark-stamp">{formatDate(mark.entry.createdAt)}</time>
+							<time datetime={mark.entry.createdAt} class="mark-stamp"
+								>{formatDate(mark.entry.createdAt)}</time
+							>
 
 							<p class="mark-name">{mark.entry.name}</p>
 
@@ -120,21 +122,21 @@
 					{/each}
 				</div>
 			{/each}
-	</section>
+		</section>
 
-	<div class="garden-butterfly-bar">
-		<video
-			class="garden-butterfly"
-			src={resolve('/butterflies-loop.webm')}
-			autoplay
-			muted
-			loop
-			playsinline
-			preload="metadata"
-			aria-hidden="true"
-		></video>
-	</div>
-{/if}
+		<div class="garden-butterfly-bar">
+			<video
+				class="garden-butterfly"
+				src={resolve('/butterflies-loop.webm')}
+				autoplay
+				muted
+				loop
+				playsinline
+				preload="metadata"
+				aria-hidden="true"
+			></video>
+		</div>
+	{/if}
 </section>
 
 <style>

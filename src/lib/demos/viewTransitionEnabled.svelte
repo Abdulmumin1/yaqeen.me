@@ -18,7 +18,7 @@
 	var data = $state(dataValues.slice());
 	// var dataCopy = data.slice();
 	let chartContainer = $state();
-	let maxValue = Math.max(...data);
+	let maxValue = $derived(Math.max(...data));
 
 	let useAnimateFlip = $state(false);
 

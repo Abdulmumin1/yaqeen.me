@@ -1,7 +1,7 @@
 ---
 title: 'Playing with Python tinyrpc'
 
-description: "Building an async RPC system in Python using a queue-based architecture — clients fire requests without waiting, and results are delivered when processing completes."
+description: 'Building an async RPC system in Python using a queue-based architecture — clients fire requests without waiting, and results are delivered when processing completes.'
 
 date: '2025-09-11'
 

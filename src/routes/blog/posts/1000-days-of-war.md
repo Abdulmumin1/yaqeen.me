@@ -4,11 +4,9 @@ description: 'A short reflection on the helplessness of witnessing the people of
 date: '2026-07-02'
 lastmod: '2026-07-02'
 categories:
-
   - gaza
 published: true
 ---
-
 
 <div class="poem">
   <p>

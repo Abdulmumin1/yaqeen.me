@@ -5,31 +5,19 @@
 	let { series, highlight } = $props();
 
 	let loading = $state(true);
-	let posts = $derived([]);
-	// import { error } from '@sveltejs/kit';
+	let posts = $state([]);
 
 	function filterObjectsByTagKey(objects, tagKey, query) {
 		return objects.filter((object) => {
-			// Ensure case-insensitive matching and handle potential undefined values:
 			return object?.[tagKey] === query.toLowerCase();
 		});
 	}
 
 	async function loadSeries() {
 		const response = await fetch('/blog/api/posts');
-		let posts = await response.json();
-		// console.log(posts);
-		// console.log(params.slug);
-		posts = filterObjectsByTagKey(posts.allPosts, 'series', series);
-		// console.log(posts);
-		return { posts };
-		// throw error(404, 'Not found');
-	}
-
-	let count = 0;
-
-	function episodeNumber() {
-		return count--;
+		const json = await response.json();
+		const filteredPosts = filterObjectsByTagKey(json.allPosts || [], 'series', series);
+		return { posts: filteredPosts };
 	}
 
 	let page = $state(6);
@@ -42,7 +30,6 @@
 		try {
 			let res = await loadSeries();
 			posts = res.posts;
-			count = posts.length;
 
 			loading = false;
 		} catch (error) {}
@@ -53,7 +40,7 @@
 	class="flex flex-col rounded border border-border/40 bg-surface-soft shadow-sm divide-y divide-border/50"
 >
 	{#if !loading}
-		{#each posts.slice(0, page) as episode (episode.slug)}
+		{#each posts.slice(0, page) as episode, index (episode.slug)}
 			{#if episode.isExternal}
 				<button
 					type="button"
@@ -63,7 +50,7 @@
 					<div
 						class="text-accent bg-surface-muted min-h-10 min-w-10 items-center justify-center flex rounded-full border border-border/40"
 					>
-						{episodeNumber()}
+						{posts.length - index}
 					</div>
 
 					<div class="text-text-main hover:text-accent transition-colors">{episode.title}</div>
@@ -76,7 +63,7 @@
 					<div
 						class="text-accent bg-surface-muted min-h-10 min-w-10 items-center justify-center flex rounded-full border border-border/40"
 					>
-						{episodeNumber()}
+						{posts.length - index}
 					</div>
 
 					<div class="text-text-main hover:text-accent transition-colors">{episode.title}</div>
