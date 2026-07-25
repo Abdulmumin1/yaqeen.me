@@ -3,3 +3,8 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+
+overrides:
+  cookie: 0.7.2
+  hono: '>=4.12.18'
+  wrangler: '>=4.59.1'

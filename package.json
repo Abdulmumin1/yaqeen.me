@@ -7,25 +7,27 @@
 		"dev": "vite dev",
 		"build": "vite build && node scripts/append-durable-object-export.mjs",
 		"preview": "vite preview",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write .",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
 		"css": "npx tailwindcss -i ./src/tailwind.css -o ./src/app.css --watch",
 		"net": "vite --host"
 	},
 	"devDependencies": {
+		"@eslint/js": "^10.0.1",
 		"@sveltejs/kit": "^2.55.0",
-		"@sveltejs/vite-plugin-svelte": "^4.0.4",
+		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/vite": "^4.2.1",
 		"autoprefixer": "^10.4.27",
-		"eslint": "^8.57.1",
-		"eslint-config-prettier": "^8.10.2",
-		"eslint-plugin-svelte": "^2.46.1",
+		"eslint": "^10.8.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.22.0",
+		"globals": "^17.7.0",
 		"postcss": "^8.5.8",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.5.1",
 		"svelte": "^5.53.12",
 		"tailwindcss": "^4.2.1",
-		"vite": "^5.4.21",
+		"vite": "^6.4.3",
 		"wrangler": "^4.110.0"
 	},
 	"type": "module",
@@ -47,12 +49,5 @@
 		"shiki": "^0.14.7",
 		"svelte-fa": "^3.0.4",
 		"unist-util-visit": "^5.1.0"
-	},
-	"pnpm": {
-		"overrides": {
-			"cookie": ">=0.7.0",
-			"hono": ">=4.12.18",
-			"wrangler": ">=4.59.1"
-		}
 	}
 }
