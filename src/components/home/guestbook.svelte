@@ -353,6 +353,7 @@
 								<div>
 									<h3
 										class="mt-[0.16rem] mb-0 font-pixel text-[clamp(1.5rem,7vw,2.8rem)] font-normal leading-[1.03] text-text-main whitespace-nowrap"
+										style="font-family: var(--font-pixel)"
 									>
 										Thank you for visiting!
 									</h3>

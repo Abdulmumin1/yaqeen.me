@@ -24,7 +24,7 @@
 <nav
 	class="font-serif select-none flex items-center mx-auto px-5 md:px-1 max-w-[40rem] justify-between py-4 text-sm sm:text-base"
 >
-	{#each navItems as item}
+	{#each navItems as item (item.name)}
 		<div class="flex items-center gap-1 relative group">
 			<span class="w-4 flex items-center justify-center shrink-0">
 				{#if item.active}
@@ -33,9 +33,9 @@
 			</span>
 			<a
 				href={resolve(item.href)}
-				class="transition-colors font-medium whitespace-nowrap {item.active
-					? 'text-text-main font-semibold'
-					: 'text-text-muted hover:text-text-main'}"
+				class="transition-colors whitespace-nowrap {item.active
+					? 'text-text-main font-comic font-bold'
+					: 'text-text-muted hover:text-text-main font-medium'}"
 			>
 				{item.name}
 			</a>

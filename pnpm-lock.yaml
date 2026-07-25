@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/comic-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/commit-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fortawesome/free-brands-svg-icons':
         specifier: ^6.7.2
         version: 6.7.2
@@ -463,6 +469,12 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@fontsource/comic-mono@5.3.0':
+    resolution: {integrity: sha512-DmYzEAKOmjDjKG79IR3HGHClDPL2cpYZ7ZFChoH99gSpokSKzx2T8lIaM1Ux9fXT4ieyYk5uA47x0kcsbF5czQ==}
+
+  '@fontsource/commit-mono@5.3.0':
+    resolution: {integrity: sha512-Bs+zlEWHDgk/cCVWEMJJaA7LbBU3Ixi5Zums+SSwMKdm2N7RJ4P7jCJTwsMHRt5WFiXYB0tu0q9HMfkn0YsLsQ==}
 
   '@fortawesome/fontawesome-common-types@6.7.2':
     resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
@@ -2251,6 +2263,10 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
+
+  '@fontsource/comic-mono@5.3.0': {}
+
+  '@fontsource/commit-mono@5.3.0': {}
 
   '@fortawesome/fontawesome-common-types@6.7.2': {}
 
