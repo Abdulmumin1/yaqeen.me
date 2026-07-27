@@ -1,40 +1,46 @@
 ---
-title: 'Taste as a Dial'
-description: 'taste became the thing we were told would matter after execution got automated. then almost immediately people started trying to automate taste too.'
+title: 'The Machine Has Endless Hands'
+description: 'AI made making things cheap, so now everyone is trying to package taste too.'
 date: '2026-05-30'
-lastmod: '2026-06-19'
+lastmod: '2026-07-27'
 categories:
   - thoughts
   - randoms
 published: true
 ---
 
-Christopher Alexander wrote about a quality that makes a room, a building, or a piece of work feel alive. He refused to name it directly because naming it collapses the thing into one of its aspects. Call it beauty and you lose the comfort. Call it comfort and you lose the tension. Call it elegance and you lose the strangeness. He called it the quality without a name.
+Christopher Alexander wrote about a quality that makes a room, a building, or a piece of work feel alive. he called it the quality without a name. once you name it, you reduce it to one part. beauty without comfort. elegance without strangeness.
 
-You know it when you feel it. A room where the light falls across a wooden table in a way that makes you want to stay. A short sentence after a long one. You do not notice the rhythm but you feel it. A building where the entrance does not announce itself but somehow you know where to go.
+i like that he left it alone.
 
-You also know its absence. A coworking space with polished concrete floors and minimalist oak furniture and a single monstera plant and soft ambient music. Everything is correct. Everything is dead.
+you still know when it is there. you also know when it isn't. the polished room with the correct furniture, correct lighting, correct plant. everything works. everything is dead.
 
-The quality without a name is not produced by following rules. It comes from a faculty that does not speak in sentences. Intuition. The body registers something before the mind has formed a word about it. The deeper mind, built from everything you have looked at, read, heard, and touched, delivers a verdict. The narrator catches up later and takes credit.
+maybe taste lives somewhere in that gap. you feel something before you can make a clean argument for it.
 
-We grew to use the word taste to describe this attribute in the things people make. The same faculty, turned toward a paragraph, a room, an event, a sentence.
+now AI can make twenty plausible versions of almost anything before you've had one actual thought about it. so making is not really the problem anymore. choosing is.
 
-Not a preference. Not a style guide.
+but i don't think choosing is automatically taste. recommendation systems choose. crowds choose. both are very good at finding the thing most people will find acceptable. familiar enough to understand, different enough to feel new.
 
-The word emptied out when people began treating this signal as a skill you can hire for. Companies list taste in job postings. "AI can automate everything, taste is now the moat". There are prompt "skills" for AI agents that claim to give agents "taste". The signal is being codified into a set of rules.
+that is one version of taste i guess. consensus with better clothes.
 
-But you cannot codify the quality without a name. When you extract the surface features of something that felt alive and turn them into a checklist, you are naming the unnameable. You get the shape of aliveness without the thing itself. It ticks all the boxes. Correct and dead.
+real taste has to be a little embarrassing. you have to like something before everybody else gives you permission. sometimes you will be wrong, which is also the point. if every choice is already validated then you are not really choosing much.
 
-It is really funny. Taste became the thing we were told would matter after execution got automated. Then almost immediately people started trying to automate taste too.
+before AI, your eye could be ahead of your hands. you could see that your work was bad and still have no idea how to fix it. deeply annoying. but all the failed attempts did something to you. you started noticing smaller things. your hands got better, but your eyes did too.
 
-A set of rules is the opposite of what produced the quality in the first place. The quality comes from having spent enough time in a domain that your deeper mind recognizes patterns too fine for the surface mind to name. It is compressed experience. You cannot compress experience you have not had.
+now that can flip. the machine has endless hands and you are standing there trying to decide which output is yours.
 
-Developing it requires the slow accumulation of real encounters with the thing you are making. Sitting with work that makes you uncomfortable because you do not yet understand why it works. Trusting the signal when it arrives, even when you cannot defend it.
+i can ask it to rewrite a paragraph twenty times and eventually get a sentence better than anything i would have written. cool. but maybe i still don't know why it is better. the paragraph improved and nothing happened to me.
 
-At Ohio State in the 1920s, the campus was built without a fixed network of walkways. The architects waited. Students walked across the grass for a full year, cutting routes between buildings, tracing whatever paths made sense to them. Only later did the university pave the routes their feet had already worn into the ground. They did not draw the paths on a blueprint. They waited and the pattern emerged.
+maybe that is the stranger loss here. not that AI makes bad work, but that it can make good work that leaves nothing behind in the person who made it.
 
-That is not how the corporate world operates.
+and because we cannot leave anything alone, taste is becoming a checklist. then a prompt file. now there are agent skills you can install to give the agent taste. very funny.
 
-The corporations that are now using the word taste do not want any of that. They want the output without the accumulation. The judgment without the years. The signal without the body that produces it. Taste as a dial they can turn up or down in a prompt window.
+you end up with all the signs of good work, copied from things that were already agreed to be good. correct and dead again.
 
-If the word is ruined now, maybe that is fine. The actual thing does not need the word. It needs someone who has spent enough time looking, reading, or building that they know, without knowing why they know, when something has the quality and when it does not.
+i don't have a clean answer to this. probably we have to keep doing some inefficient things on purpose. look longer. make comparisons. throw away good-looking results. try to explain why. make something ourselves even when the machine can do it faster.
+
+not because struggle is holy. just because some friction was teaching us how to see, and we removed it without noticing.
+
+the temptation is to want judgment without the formation of judgment. taste as a dial in a prompt window.
+
+but you cannot turn up what nobody had time to grow.

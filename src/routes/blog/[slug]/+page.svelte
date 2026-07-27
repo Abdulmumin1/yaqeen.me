@@ -211,7 +211,7 @@
 			{data.meta.title}
 		</h1>
 		<div
-			class="flex gap-4 text-sm font-serif text-text-muted italic border-b border-border/20 pb-6"
+			class="flex items-baseline gap-4 text-sm font-serif text-text-muted italic border-b border-border/20 pb-6"
 		>
 			<span class="text-accent not-italic font-mono text-[10px] tracking-widest uppercase"
 				>{formatDate(data.meta.date)}</span
