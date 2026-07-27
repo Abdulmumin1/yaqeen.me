@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 // async function getFile(file) {
 // 	const fileResponse = await fetch(file.download_url);
@@ -9,6 +9,10 @@ import { error } from '@sveltejs/kit';
 // }
 
 export async function load({ params }) {
+	if (params.slug === 'taste-is-now-corporate') {
+		throw redirect(308, '/blog/the-machine-has-endless-hands');
+	}
+
 	try {
 		const post = await import(`../posts/${params.slug}.md`);
 		return {
