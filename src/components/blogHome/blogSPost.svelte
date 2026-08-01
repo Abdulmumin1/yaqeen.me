@@ -19,7 +19,7 @@
 </script>
 
 <div class="relative py-4 group">
-	<div class="flex items-baseline gap-3 md:block">
+	<div class="flex items-baseline gap-3 md:block hover:bg-accent/60 w-fit">
 		<!-- Date positioned in the gutter for md+ screens -->
 		<div
 			class="w-[4.5rem] shrink-0 hidden md:flex items-center gap-1.5 whitespace-nowrap md:absolute md:-left-32 md:w-24 md:justify-end text-xs md:text-sm font-serif text-text-muted/60 italic mb-0 md:mb-0 date-gutter"

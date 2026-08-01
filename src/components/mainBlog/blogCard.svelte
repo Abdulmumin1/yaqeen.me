@@ -45,13 +45,13 @@
 			<span>{formatDisplayDate(details.date)}</span>
 		</div>
 
-		<div class="flex items-baseline gap-2 md:block">
+		<div class="flex items-baseline gap-2 md:block hover:bg-accent/20 w-fit">
 			{#if isExternal}
 				<a
 					href={details.href}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-[17px] md:text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
+					class="text-[17px] md:text-xl font-serif text-text-main decoration-border/40 underline-offset-4 hover:decoration-accent"
 				>
 					{details.title}<span class="inline-block align-middle ml-1 italic text-accent opacity-60"
 						><Fa icon={faLongArrowRight} class="-rotate-45" /></span
@@ -60,7 +60,7 @@
 			{:else}
 				<a
 					href={resolve('/blog/[slug]', { slug: details.slug })}
-					class="text-[17px] md:text-xl font-serif text-text-main hover:text-accent decoration-border/40 underline-offset-4 hover:decoration-accent transition-all"
+					class="text-[17px] md:text-xl font-serif text-text-main decoration-border/40 underline-offset-4 hover:decoration-accent"
 				>
 					{details.title}
 				</a>

@@ -18,7 +18,9 @@
 		class="text-2xl sm:text-3xl md:text-5xl font-serif mb-5 leading-tight text-text-main md:whitespace-nowrap"
 	>
 		Hi, call me
-		<span class="relative inline-block font-comic text-accent">
+		<span
+			class="relative inline-block font-comic text-accent text-[1.7rem] sm:text-[2rem] md:text-[3.2rem]"
+		>
 			<span
 				use:highlight={{
 					markType: 'underline',

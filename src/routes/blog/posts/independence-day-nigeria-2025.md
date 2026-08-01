@@ -1,5 +1,5 @@
 ---
-title: 'The enjoyment of individual freedom under the law, should mean more to us than ourselves, programs, parties and manifestos'
+title: 'The enjoyment of individual freedom under the law'
 
 description: "reflecting on nigeria's independence and the primacy of individual freedom under law — that it should matter more than parties, programs, and manifestos"
 

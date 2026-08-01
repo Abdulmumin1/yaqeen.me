@@ -1,5 +1,5 @@
 ---
-title: 'How to implement Google OAuth from scratch: No Libraries, Just APIs'
+title: 'How to implement Google OAuth from scratch'
 
 description: 'Google OAUTH is fairly easy to configure, and this article will be walking you through the entire process without using any packages, wrappers or helpers.'
 
