@@ -10,6 +10,19 @@
 	const MOON_IMPACT_DURATION = 300;
 	const MOON_MESSAGE_VISIBLE_DURATION = 2000;
 	const MOON_MESSAGE_FADE_DURATION = 220;
+	const DAY_IN_MILLISECONDS = 86_400_000;
+	const SYNODIC_MONTH_IN_DAYS = 29.530588853;
+	const KNOWN_NEW_MOON = Date.UTC(2000, 0, 6, 18, 14);
+	const MOON_PHASE_NAMES = [
+		'New moon',
+		'Waxing crescent',
+		'First quarter',
+		'Waxing gibbous',
+		'Full moon',
+		'Waning gibbous',
+		'Last quarter',
+		'Waning crescent'
+	];
 
 	let moonStep = $state(0);
 	let guestbookOpen = $state(false);
@@ -40,6 +53,45 @@
 	const month = d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
 	const year = d.getFullYear().toString().slice(-2);
 	const formattedDate = `${day} ${month} '${year}`;
+	const moonPhase = getMoonPhase(d);
+
+	function getMoonPhase(date) {
+		// Noon UTC keeps the server and browser on the same daily phase during hydration.
+		const phaseDate = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 12);
+		const elapsedDays = (phaseDate - KNOWN_NEW_MOON) / DAY_IN_MILLISECONDS;
+		const ageInDays =
+			((elapsedDays % SYNODIC_MONTH_IN_DAYS) + SYNODIC_MONTH_IN_DAYS) % SYNODIC_MONTH_IN_DAYS;
+		const progress = ageInDays / SYNODIC_MONTH_IN_DAYS;
+		const illumination = Math.round(((1 - Math.cos(progress * Math.PI * 2)) / 2) * 100);
+		const phaseIndex = Math.round(progress * MOON_PHASE_NAMES.length) % MOON_PHASE_NAMES.length;
+
+		return {
+			name: MOON_PHASE_NAMES[phaseIndex],
+			illumination,
+			path: buildMoonPhasePath(progress)
+		};
+	}
+
+	function buildMoonPhasePath(progress) {
+		const center = 20;
+		const radius = 19.4;
+		const segments = 36;
+		const waxing = progress < 0.5;
+		const terminatorDirection = Math.cos(progress * Math.PI * 2) * (waxing ? 1 : -1);
+		const limb = [];
+		const terminator = [];
+
+		for (let index = 0; index <= segments; index += 1) {
+			const y = -radius + (index / segments) * radius * 2;
+			const halfWidth = Math.sqrt(Math.max(0, radius * radius - y * y));
+			const limbX = center + halfWidth * (waxing ? 1 : -1);
+			const terminatorX = center + halfWidth * terminatorDirection;
+			limb.push(`${limbX.toFixed(2)} ${(center + y).toFixed(2)}`);
+			terminator.unshift(`${terminatorX.toFixed(2)} ${(center + y).toFixed(2)}`);
+		}
+
+		return `M ${limb.join(' L ')} L ${terminator.join(' L ')} Z`;
+	}
 
 	const signaturePaths = $derived.by(() => {
 		const paths = completedStrokes.map((stroke) => buildSignaturePath(stroke)).filter(Boolean);
@@ -270,9 +322,36 @@
 		class="moon-trigger grid size-10 cursor-pointer place-items-center rounded-full"
 		onclick={orbitMoon}
 		aria-label="Open the moon's guestbook invitation"
+		aria-describedby="moon-phase-tooltip"
 	>
-		<img src="/favicon.png" alt="" class="size-10 opacity-80 grayscale dark:invert" />
+		<svg aria-hidden="true" class="moon size-10" viewBox="0 0 40 40">
+			<defs>
+				<clipPath id="current-moon-phase" clipPathUnits="userSpaceOnUse">
+					<path d={moonPhase.path} />
+				</clipPath>
+			</defs>
+			<circle class="moon-shadow" cx="20" cy="20" r="19.4" />
+			<image href="/favicon.png" width="40" height="40" class="moon-texture moon-earthshine" />
+			<image
+				href="/favicon.png"
+				width="40"
+				height="40"
+				clip-path="url(#current-moon-phase)"
+				class="moon-texture moon-lit"
+			/>
+		</svg>
 	</button>
+
+	<div
+		id="moon-phase-tooltip"
+		role="tooltip"
+		class:moon-message-active={moonMessageVisible}
+		class="moon-phase-tooltip pointer-events-none absolute top-0 left-[3.25rem] flex h-10 items-center"
+	>
+		<p class="m-0 w-max font-visby text-[0.7rem] leading-none whitespace-nowrap text-text-muted">
+			{moonPhase.name.toLowerCase()} · {moonPhase.illumination}% illuminated
+		</p>
+	</div>
 
 	{#if moonMessageVisible && moonStep >= 1}
 		<div class="absolute top-0 left-[3.25rem] flex h-10 items-center">
@@ -563,6 +642,43 @@
 		transform: scale(0.96);
 	}
 
+	.moon-texture {
+		filter: grayscale(1);
+	}
+
+	.moon-shadow {
+		fill: #57534e;
+	}
+
+	.moon-earthshine {
+		opacity: 0.18;
+	}
+
+	.moon-lit {
+		opacity: 0.82;
+	}
+
+	:global(.dark) .moon-shadow {
+		fill: #292524;
+	}
+
+	.moon-phase-tooltip {
+		opacity: 0;
+		filter: blur(3px);
+		transform: translateX(-0.25rem);
+		transition:
+			opacity 160ms ease-out,
+			filter 160ms ease-out,
+			transform 160ms ease-out;
+	}
+
+	.moon-trigger:hover ~ .moon-phase-tooltip:not(.moon-message-active),
+	.moon-trigger:focus-visible ~ .moon-phase-tooltip:not(.moon-message-active) {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateX(0);
+	}
+
 	.moon-message {
 		animation: note-in 340ms cubic-bezier(0.2, 0, 0, 1) both;
 		will-change: transform, opacity, filter;
@@ -785,6 +901,7 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		.moon-trigger,
+		.moon-phase-tooltip,
 		.moon-message,
 		.card-preview,
 		.guestbook-form,
