@@ -13,16 +13,6 @@
 	const DAY_IN_MILLISECONDS = 86_400_000;
 	const SYNODIC_MONTH_IN_DAYS = 29.530588853;
 	const KNOWN_NEW_MOON = Date.UTC(2000, 0, 6, 18, 14);
-	const MOON_PHASE_NAMES = [
-		'New moon',
-		'Waxing crescent',
-		'First quarter',
-		'Waxing gibbous',
-		'Full moon',
-		'Waning gibbous',
-		'Last quarter',
-		'Waning crescent'
-	];
 
 	let moonStep = $state(0);
 	let guestbookOpen = $state(false);
@@ -63,13 +53,20 @@
 			((elapsedDays % SYNODIC_MONTH_IN_DAYS) + SYNODIC_MONTH_IN_DAYS) % SYNODIC_MONTH_IN_DAYS;
 		const progress = ageInDays / SYNODIC_MONTH_IN_DAYS;
 		const illumination = Math.round(((1 - Math.cos(progress * Math.PI * 2)) / 2) * 100);
-		const phaseIndex = Math.round(progress * MOON_PHASE_NAMES.length) % MOON_PHASE_NAMES.length;
 
 		return {
-			name: MOON_PHASE_NAMES[phaseIndex],
+			name: getMoonPhaseName(progress, illumination),
 			illumination,
 			path: buildMoonPhasePath(progress)
 		};
+	}
+
+	function getMoonPhaseName(progress, illumination) {
+		if (illumination === 0) return 'New moon';
+		if (illumination === 100) return 'Full moon';
+		if (illumination === 50) return progress < 0.5 ? 'First quarter' : 'Last quarter';
+		if (progress < 0.5) return illumination < 50 ? 'Waxing crescent' : 'Waxing gibbous';
+		return illumination > 50 ? 'Waning gibbous' : 'Waning crescent';
 	}
 
 	function buildMoonPhasePath(progress) {
@@ -326,11 +323,22 @@
 	>
 		<svg aria-hidden="true" class="moon size-10" viewBox="0 0 40 40">
 			<defs>
+				<mask
+					id="moon-silhouette"
+					maskUnits="userSpaceOnUse"
+					x="0"
+					y="0"
+					width="40"
+					height="40"
+					style="mask-type: alpha"
+				>
+					<image href="/favicon.png" width="40" height="40" />
+				</mask>
 				<clipPath id="current-moon-phase" clipPathUnits="userSpaceOnUse">
 					<path d={moonPhase.path} />
 				</clipPath>
 			</defs>
-			<circle class="moon-shadow" cx="20" cy="20" r="19.4" />
+			<circle class="moon-shadow" cx="20" cy="20" r="20" mask="url(#moon-silhouette)" />
 			<image href="/favicon.png" width="40" height="40" class="moon-texture moon-earthshine" />
 			<image
 				href="/favicon.png"
