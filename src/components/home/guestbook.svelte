@@ -660,6 +660,7 @@
 
 	.moon-earthshine {
 		opacity: 0.4;
+		filter: blur(0.3px) grayscale(1);
 	}
 
 	.moon-lit {
