@@ -659,7 +659,7 @@
 	}
 
 	.moon-earthshine {
-		opacity: 0.18;
+		opacity: 0.4;
 	}
 
 	.moon-lit {
