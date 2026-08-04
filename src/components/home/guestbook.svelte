@@ -334,9 +334,27 @@
 				>
 					<image href="/favicon.png" width="40" height="40" />
 				</mask>
-				<clipPath id="current-moon-phase" clipPathUnits="userSpaceOnUse">
-					<path d={moonPhase.path} />
-				</clipPath>
+				<filter
+					id="soften-moon-terminator"
+					filterUnits="userSpaceOnUse"
+					x="-4"
+					y="-4"
+					width="48"
+					height="48"
+				>
+					<feGaussianBlur stdDeviation="0.6" />
+				</filter>
+				<mask
+					id="current-moon-light"
+					maskUnits="userSpaceOnUse"
+					x="0"
+					y="0"
+					width="40"
+					height="40"
+					style="mask-type: alpha"
+				>
+					<path d={moonPhase.path} fill="white" filter="url(#soften-moon-terminator)" />
+				</mask>
 			</defs>
 			<circle class="moon-shadow" cx="20" cy="20" r="20" mask="url(#moon-silhouette)" />
 			<image href="/favicon.png" width="40" height="40" class="moon-texture moon-earthshine" />
@@ -344,7 +362,7 @@
 				href="/favicon.png"
 				width="40"
 				height="40"
-				clip-path="url(#current-moon-phase)"
+				mask="url(#current-moon-light)"
 				class="moon-texture moon-lit"
 			/>
 		</svg>
