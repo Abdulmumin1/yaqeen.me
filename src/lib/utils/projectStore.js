@@ -128,7 +128,7 @@ export const project_data = readable([
 			'CLI coding agent with first-class support for collaborative coding. Web, CLI, and mobile clients.',
 		links: {
 			study: 'https://github.com/Abdulmumin1/chump',
-			page: 'chump.yaqeen.me'
+			page: 'chmp.dev'
 		},
 		imagelist: [
 			'https://mac-file.yaqeen.me/5CE35DDF-b127847a9978f074f3760f4428c4fc8814df8e7c1ff52452c614a03616435d84.png'
