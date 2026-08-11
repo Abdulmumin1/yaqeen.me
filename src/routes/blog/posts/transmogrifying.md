@@ -17,16 +17,15 @@ Rumi wrote a very interesting peom in his Masnavi, roughly adapted as follows:
 
 <div class="poem">
   <p>
-      I died as mineral became a plant, <br/>
-      I died as plant and Rose to animal, <br/>
+      I died as mineral became a vegetable, <br/>
+      I died as vegetable and rose to animal, <br/>
       I died as animal and I was human, <br/>
       why should I fear when was I less by dying <br/>
       yet once more I shall die human <br/>
       to soar with angels blessed above  <br/>
-      and when I sacrificed my angel soul, <br/>
+      and when I let my angel body go, <br/>
       I shall be more than mortal mind can know.<br/>
   </p>
-  <!--<cite>Robert Frost</cite>-->
 </div>
 
 
