@@ -20,7 +20,7 @@ Rumi wrote a very interesting peom in his Masnavi, roughly adapted as follows:
       I died as mineral became a vegetable, <br/>
       I died as vegetable and rose to animal, <br/>
       I died as animal and I was human, <br/>
-      why should I fear when was I less by dying <br/>
+      why should I fear? when was I less by dying? <br/>
       yet once more I shall die human <br/>
       to soar with angels blessed above  <br/>
       and when I let my angel body go, <br/>
