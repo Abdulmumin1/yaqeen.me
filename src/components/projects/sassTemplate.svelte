@@ -16,7 +16,7 @@
 	<div class="flex flex-col gap-2 hover:cursor-pointer">
 		<div class="flex items-baseline gap-3 flex-wrap">
 			<h3
-				class="text-lg md:text-2xl flex gap-2 items-center font-serif text-text-main group-hover:text-accent transition-colors"
+				class="text-lg  !font-serif md:text-2xl flex gap-2 items-center  text-text-main group-hover:text-accent transition-colors"
 			>
 				<span class="relative inline-flex italic text-accent opacity-60 project-icon-wrap"
 					><img

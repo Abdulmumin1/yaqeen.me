@@ -21,7 +21,7 @@
 	<div class="flex flex-col gap-2">
 		<div class="flex items-baseline gap-3 flex-wrap">
 			<h3
-				class="text-lg md:text-2xl font-serif text-text-main group-hover:text-accent transition-colors"
+			class="text-lg !font-serif md:text-2xl text-text-main group-hover:text-accent transition-colors"
 			>
 				{details.name}
 			</h3>

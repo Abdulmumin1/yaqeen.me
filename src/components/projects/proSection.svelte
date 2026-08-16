@@ -10,7 +10,7 @@
 	</div>
 
 	<div class="space-y-6">
-		<h2 class="text-xl md:text-3xl font-serif text-text-main">Open Source</h2>
+		<h2 class="text-xl md:text-3xl font-serif text-text-main">Selected Work</h2>
 		<ProjectGrid />
 
 		<div class="pt-4">
