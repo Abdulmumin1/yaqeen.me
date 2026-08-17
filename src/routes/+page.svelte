@@ -49,5 +49,14 @@
 	<div class="mt-16 space-y-20">
 		<ProSection />
 		<BlogSection {data} />
+		<div class="hidden">
+
+		<h5>randoms about me</h5>
+I spend most of my time building agents, amazingly stunning ui and dev tools,
+My career has been all over the place. And I'm not sure how I would even identify myself now. I shapeshift between an engineer, product manager, and designer.
+I love to write, i write quite a bit -> yaqeen.me/blog, i really enjoy owning products end to end, i’ve built a bunch of them (yaqeen.me/work) and everything is open source (github.com/Abdulmumin1)
+
+Really you would get to know be better if you take your time to explore my products or read my blogs.
+		</div>
 	</div>
 </div>
