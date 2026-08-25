@@ -151,6 +151,20 @@
 								allowfullscreen
 							></iframe>
 						</div>
+
+					{:else if project.name === 'Chump'}
+
+					<div class="aspect-video">
+						<iframe
+							src="https://www.youtube.com/embed/B7cCCHSHM-k"
+							title="Owostack product walkthrough"
+							class="h-full w-full"
+							loading="lazy"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+						></iframe>
+					</div>
+
 					{:else if project.name === 'Thirdpen'}
 						<div class="aspect-video">
 							<iframe

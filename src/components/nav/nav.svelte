@@ -10,13 +10,13 @@
 	);
 	let isWorkActive = $derived(
 		page.url.pathname.startsWith('/projects') ||
-			['/drop', '/braintime', '/css-faster'].includes(page.url.pathname)
+			['/drop', '/braintime', '/css-faster', '/work'].includes(page.url.pathname)
 	);
 
 	const navItems = $derived([
 		{ name: 'Home', href: '/', active: isHomeActive },
 		{ name: 'Thoughts', href: '/blog', active: isThoughtsActive },
-		{ name: 'Work', href: '/projects', active: isWorkActive },
+		{ name: 'Work', href: '/work', active: isWorkActive },
 		{ name: 'RSS', href: '/rss.xml', active: false }
 	]);
 </script>
