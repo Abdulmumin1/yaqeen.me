@@ -53,7 +53,6 @@
 		function cleanup() {
 			if (cleanedUp) return;
 			cleanedUp = true;
-			projectObserver.disconnect();
 			animation?.scrollTrigger?.kill(true);
 			animation?.kill();
 			context?.revert();
@@ -61,26 +60,6 @@
 			gsap.set(containerNode, { clearProps: 'all' });
 			cleanupWorkScroll = () => {};
 		}
-
-		const projectObserver = new IntersectionObserver(
-			(entries) => {
-				const visibleEntry = entries
-					.filter((entry) => entry.isIntersecting)
-					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-				if (!visibleEntry) return;
-				const newSlide = Number(visibleEntry.target.getAttribute('data-slide-index'));
-				if (newSlide !== activeSlide) {
-					activeSlide = newSlide;
-					playingProject = null;
-				}
-			},
-			{ threshold: [0.4, 0.6, 0.8] }
-		);
-
-		rowNode
-			.querySelectorAll('[data-slide-index]')
-			.forEach((slide) => projectObserver.observe(slide));
-
 		const mobileQuery = window.matchMedia('(max-width: 700px)');
 		if (mobileQuery.matches) {
 			cleanupWorkScroll = cleanup;
@@ -101,14 +80,20 @@
 					start: 'top top',
 					end: () => `+=${slideDistance()}`,
 					pin: true,
-					scrub: 1,
+					scrub: true,
 					onUpdate: (self) => {
-						const newSlide = Math.round(self.progress * Math.max(slideCount - 1, 0));
+						const rawIndex = self.progress * (slideCount - 1);
+						const newSlide = Math.min(
+							Math.max(Math.round(rawIndex), 0),
+							slideCount - 1
+						);
 						if (newSlide !== activeSlide) {
 							activeSlide = newSlide;
 							playingProject = null;
 						}
 					},
+					onLeave: () => (playingProject = null),
+					onLeaveBack: () => (playingProject = null),
 					invalidateOnRefresh: true,
 					anticipatePin: 1
 				}
@@ -337,6 +322,7 @@
 		height: 1.1rem;
 		background: var(--color-text-muted);
 		opacity: 0.55;
+		transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, opacity 0.2s ease;
 	}
 
 	.work-progress span.active {
@@ -345,6 +331,7 @@
 		border: 1px solid var(--color-text-muted);
 		background: transparent;
 		opacity: 1;
+		transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, opacity 0.2s ease;
 	}
 
 	.horizontal-track {
