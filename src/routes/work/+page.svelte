@@ -222,6 +222,7 @@
 						contributions to notable projects like
 						<a href="https://github.com/sveltejs/svelte" target="_blank" rel="noopener noreferrer">Svelte</a>,
 						<a href="https://github.com/pydantic/pydantic" target="_blank" rel="noopener noreferrer">Pydantic</a>,
+						<a href="https://github.com/huntabyte/shadcn-svelte" target="_blank" rel="noopener noreferrer">shadcn-svelte</a>,
 						<a href="https://github.com/hookdeck/outpost" target="_blank" rel="noopener noreferrer">Outpost</a>,
 						and
 						<a href="https://github.com/flet-dev/flet" target="_blank" rel="noopener noreferrer">Flet</a>,
