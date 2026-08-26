@@ -1,7 +1,10 @@
 <script>
+	import { onMount } from 'svelte';
+	import { beforeNavigate } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import Seo from '../../components/general/seo.svelte';
-	import { faFolder } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
 	import { project_data, sass_projects } from '$lib/utils/projectStore.js';
 
 	const favoriteNames = ['Chump', 'ai-query.dev', 'Owostack', 'Thirdpen'];
@@ -12,212 +15,226 @@
 	const otherProjects = $derived(
 		projects.filter((project) => !favoriteNames.includes(project.name))
 	);
-	const projectNotes = {
-		Chump:
-			'A coding agent I built to dogfood ai-query in a real product. Building it gives me a feedback loop for improving how stateful, collaborative agents work.',
-		'ai-query.dev':
-			'A Python framework for building stateful agents. I care about the developer experience here: agents that can persist, communicate, and be composed without hiding the important parts.',
-		Owostack:
-			'An experiment in making billing less painful. Plans are easy; usage, retries, proration, and all the small money decisions are where products usually get messy.',
-		Thirdpen:
-			'An interactive learning project for curious people. I use it to explore how writing, visual explanations, and software can make difficult ideas feel approachable.'
-	};
 
 	function linkFor(project) {
 		const link = project.links.page || project.links.study;
+		if (link?.startsWith('/')) return resolve(link);
 		return link?.startsWith('http') ? link : `https://${link}`;
 	}
 
-	function logoFor(project) {
-		if (project.name === 'Chump') return 'https://chmp.dev/favicon.svg';
-		return project.icon;
+	function videoFor(project) {
+		if (project.name === 'Chump') return 'B7cCCHSHM-k';
+		if (project.name === 'Owostack') return 'vVq5Qrd2Qmc';
+		if (project.name === 'Thirdpen') return 'C6RJ8lcIKs4';
 	}
 
-	let scrollY = $state(0);
-	let innerHeight = $state(0);
-	let trackNode = $state(null);
+	function thumbnailFor(videoId) {
+		return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+	}
 
-	let trainProgress = $derived.by(() => {
-		// Read scrollY so this calculation reruns for every scroll event.
-		scrollY;
-		if (!trackNode || !innerHeight) return 0;
-		const rect = trackNode.getBoundingClientRect();
-		const progress = (innerHeight / 2 - rect.top) / rect.height;
-		return Math.max(0, Math.min(1, progress));
+	let containerNode = $state(null);
+	let rowNode = $state(null);
+	let activeSlide = $state(0);
+	let playingProject = $state(null);
+	let cleanupWorkScroll = () => {};
+	const slideCount = $derived(favorites.length + 2);
+
+	beforeNavigate(() => {
+		cleanupWorkScroll();
+	});
+
+	onMount(() => {
+		if (!containerNode || !rowNode) return;
+
+		let animation;
+		let context;
+		let cleanedUp = false;
+
+		function cleanup() {
+			if (cleanedUp) return;
+			cleanedUp = true;
+			projectObserver.disconnect();
+			animation?.scrollTrigger?.kill(true);
+			animation?.kill();
+			context?.revert();
+			gsap.set(rowNode, { clearProps: 'all' });
+			gsap.set(containerNode, { clearProps: 'all' });
+			cleanupWorkScroll = () => {};
+		}
+
+		const projectObserver = new IntersectionObserver(
+			(entries) => {
+				const visibleEntry = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+				if (!visibleEntry) return;
+				const newSlide = Number(visibleEntry.target.getAttribute('data-slide-index'));
+				if (newSlide !== activeSlide) {
+					activeSlide = newSlide;
+					playingProject = null;
+				}
+			},
+			{ threshold: [0.4, 0.6, 0.8] }
+		);
+
+		rowNode
+			.querySelectorAll('[data-slide-index]')
+			.forEach((slide) => projectObserver.observe(slide));
+
+		const mobileQuery = window.matchMedia('(max-width: 700px)');
+		if (mobileQuery.matches) {
+			cleanupWorkScroll = cleanup;
+			return cleanup;
+		}
+
+		gsap.registerPlugin(ScrollTrigger);
+
+		context = gsap.context(() => {
+			const slideDistance = () => Math.max(rowNode.scrollWidth - window.innerWidth, 0);
+
+			animation = gsap.to(rowNode, {
+				x: () => -slideDistance(),
+				ease: 'none',
+				scrollTrigger: {
+					id: 'work-horizontal-scroll',
+					trigger: containerNode,
+					start: 'top top',
+					end: () => `+=${slideDistance()}`,
+					pin: true,
+					scrub: 1,
+					onUpdate: (self) => {
+						const newSlide = Math.round(self.progress * Math.max(slideCount - 1, 0));
+						if (newSlide !== activeSlide) {
+							activeSlide = newSlide;
+							playingProject = null;
+						}
+					},
+					invalidateOnRefresh: true,
+					anticipatePin: 1
+				}
+			});
+		}, containerNode);
+
+		cleanupWorkScroll = cleanup;
+		return cleanup;
 	});
 </script>
 
 <svelte:head>
 	<Seo title="Work" description="A few products and experiments built by Abdulmumin Yaqeen." />
 </svelte:head>
-<svelte:window bind:scrollY bind:innerHeight />
 
-<article class="mx-auto max-w-2xl px-6 py-16 md:py-24">
-	<header class="mb-5">
-		<h1 class="mb-7 text-2xl font-normal leading-tight tracking-tight text-text-main md:text-3xl">
-			A few things I’ve built
-		</h1>
-		<div class="space-y-5 text-lg leading-relaxed text-text-muted">
-			<p>
-				I build to understand the problem, then keep going until the thing is useful to someone
-				besides me.
-			</p>
-		</div>
-	</header>
-
-	<section class="mb-10 text-base leading-relaxed text-text-muted">
-		<p>
-			Alongside these experiments, I’ve spent 3+ years doing product engineering at
-			<a
-				class="text-accent underline underline-offset-4"
-				href="https://cloudplexo.com"
-				target="_blank"
-				rel="noopener noreferrer">CloudPlexo</a
-			>, leading a team of 2 to build
-			<a
-				class="text-accent underline underline-offset-4"
-				href="https://agentspec.ai"
-				target="_blank"
-				rel="noopener noreferrer">AgentSpec.ai</a
-			>,
-			<a
-				class="text-accent underline underline-offset-4"
-				href="https://wendu.io"
-				target="_blank"
-				rel="noopener noreferrer">Wendu.io</a
-			>, and
-			<a
-				class="text-accent underline underline-offset-4"
-				href="https://checkitme.com"
-				target="_blank"
-				rel="noopener noreferrer">Checkitme.com</a
-			>.
-		</p>
-	</section>
-
-	<div class="relative space-y-16 text-[1.05rem] leading-relaxed text-text-main md:pl-24">
-		<div
-			bind:this={trackNode}
-			class="pointer-events-none absolute bottom-8 left-0 top-8 hidden w-24 justify-center md:flex"
-		>
-			<div class="train-track relative h-full w-5">
-				<div
-					class="train absolute left-1/2 z-10 text-accent"
-					style:top={`${trainProgress * 100}%`}
-					style="transform: translate(-50%, -24px)"
-				>
-					<svg
-						width="24"
-						height="48"
-						viewBox="0 0 24 48"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<rect x="2" y="2" width="20" height="44" rx="4" fill="currentColor" />
-						<rect x="6" y="8" width="12" height="10" rx="2" fill="var(--color-surface)" />
-						<rect x="6" y="22" width="12" height="10" rx="2" fill="var(--color-surface)" />
-						<rect x="6" y="36" width="12" height="10" rx="2" fill="var(--color-surface)" />
-					</svg>
-				</div>
-			</div>
-		</div>
-		{#each favorites as project, index (project.name)}
-			<section class="relative space-y-5" aria-labelledby={`project-${index}`}>
-				<div class="absolute -left-24 top-0 hidden w-24 justify-center md:flex z-10">
-					<div
-						class="flex h-12 w-12 items-center justify-center bg-orange-100/90 border border-border/30  rounded-xl"
-					>
-						{#if logoFor(project)}
-							<img src={logoFor(project)} alt="" class="h-8 rounded-lg w-8 object-contain" />
-						{:else}
-							<Fa icon={faFolder} class="text-xl text-text-muted" />
-						{/if}
-					</div>
-				</div>
-				<div class="flex items-baseline justify-between gap-4 pt-2">
-					<h2 id={`project-${index}`} class="text-2xl font-normal">{project.name}</h2>
-					<span class="font-mono text-xs text-text-muted">{project.year}</span>
-				</div>
-
-				<div class="overflow-hidden rounded-lg border border-border bg-surface-soft/30">
-					{#if project.name === 'Owostack'}
-						<div class="aspect-video">
-							<iframe
-								src="https://www.youtube.com/embed/vVq5Qrd2Qmc"
-								title="Owostack product walkthrough"
-								class="h-full w-full"
-								loading="lazy"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-								allowfullscreen
-							></iframe>
-						</div>
-
-					{:else if project.name === 'Chump'}
-
-					<div class="aspect-video">
-						<iframe
-							src="https://www.youtube.com/embed/B7cCCHSHM-k"
-							title="Owostack product walkthrough"
-							class="h-full w-full"
-							loading="lazy"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							allowfullscreen
-						></iframe>
-					</div>
-
-					{:else if project.name === 'Thirdpen'}
-						<div class="aspect-video">
-							<iframe
-								src="https://www.youtube.com/embed/C6RJ8lcIKs4"
-								title="Thirdpen product walkthrough"
-								class="h-full w-full"
-								loading="lazy"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-								allowfullscreen
-							></iframe>
-						</div>
-					{:else if project.imagelist?.[0]}
-						<img
-							src={project.imagelist[0]}
-							alt={`${project.name} preview`}
-							class="aspect-[16/9] w-full object-cover"
-							loading="lazy"
-						/>
-					{/if}
-				</div>
-				<p>{projectNotes[project.name] || project.description}.</p>
-				<a
-					href={linkFor(project)}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-block text-sm text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
-				>
-					visit {project.name} →
-				</a>
-			</section>
+<div bind:this={containerNode} class="horizontal-scene">
+	<div class="work-progress" aria-hidden="true">
+		{#each Array.from({ length: slideCount }, (_, index) => index) as index (index)}
+			<span class:active={index === activeSlide}></span>
 		{/each}
 	</div>
 
-	<style>
-		.train-track {
-			opacity: 0.4;
-			border-left: 2px solid var(--color-border);
-			border-right: 2px solid var(--color-border);
-			background: repeating-linear-gradient(
-				to bottom,
-				transparent,
-				transparent 16px,
-				var(--color-border) 16px,
-				var(--color-border) 20px
-			);
-		}
 
-		.train {
-			transition: top 160ms linear;
-			filter: drop-shadow(0 0 8px color-mix(in srgb, var(--color-accent) 40%, transparent));
-		}
-	</style>
+	<div class="horizontal-pin">
+		<div bind:this={rowNode} class="horizontal-track">
+			<article class="work-slide intro-slide" data-slide-index={0}>
+				<div class="intro-card">
+					<p class="intro-text">
+						8+ years in tech and I’ve spent about 4 years doing product engineering at
+						<a href="https://cloudplexo.com" target="_blank" rel="noopener noreferrer">CloudPlexo</a>,
+						leading a team of 2 to build
+						<a href="https://agentspec.ai" target="_blank" rel="noopener noreferrer">AgentSpec.ai</a>,
+						<a href="https://wendu.io" target="_blank" rel="noopener noreferrer">Wendu.io</a>, and
+						<a href="https://checkitme.com" target="_blank" rel="noopener noreferrer">Checkitme.com</a>.
+						Some personal projects/saas I really love ->
+					</p>
+				</div>
+			</article>
+			{#each favorites as project, index (project.name)}
+				{@const videoId = videoFor(project)}
+				<article class="work-slide project-slide slide-{index + 1}" data-slide-index={index + 1}>
+					<div class="project-meta">
+						{#if project.links?.page || project.links?.study}
+							<a href={linkFor(project)} target="_blank" rel="noopener noreferrer" class="project-title-link">
+								{project.name}
+							</a>
+						{:else}
+							<span>{project.name}</span>
+						{/if}
+						<span>{project.year}</span>
+					</div>
+					<a
+						href={linkFor(project)}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="project-media"
+						onclick={(event) => {
+							event.preventDefault();
+							if (videoId) {
+								playingProject = playingProject === project.name ? null : project.name;
+							}
+						}}
+					>
+						{#if videoId && playingProject === project.name}
+							<iframe
+								src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&loop=1&playlist=${videoId}&controls=1`}
+								title={project.name}
+								class="project-video"
+								allow="autoplay; encrypted-media"
+								allowfullscreen
+							></iframe>
+						{:else if videoId}
+							<img
+								src={thumbnailFor(videoId)}
+								alt={`${project.name} preview`}
+								class="project-image"
+								loading="lazy"
+							/>
+							<div class="play-badge" aria-hidden="true">
+								<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+									<polygon points="5 3 19 12 5 21 5 3" />
+								</svg>
+							</div>
+						{:else if project.imagelist?.[0]}
+							<img
+								src={project.imagelist[0]}
+								alt={`${project.name} preview`}
+								class="project-image"
+								loading="lazy"
+							/>
+						{:else if project.imagelist?.[0]}
+							<img
+								src={project.imagelist[0]}
+								alt={`${project.name} preview`}
+								class="project-image"
+								loading="lazy"
+							/>
+						{/if}
+						{#if playingProject !== project.name}
+							<div class="project-overlay">
+								<p>{project.description}</p>
+							</div>
+						{/if}
+					</a>
+				</article>
+			{/each}
+			<article class="work-slide intro-slide" data-slide-index={favorites.length + 1}>
+				<div class="intro-card">
+					<p class="intro-text">
+						I'm a bit of open source guy and i do it from time to time. I’ve made
+						contributions to notable projects like
+						<a href="https://github.com/sveltejs/svelte" target="_blank" rel="noopener noreferrer">Svelte</a>,
+						<a href="https://github.com/pydantic/pydantic" target="_blank" rel="noopener noreferrer">Pydantic</a>,
+						<a href="https://github.com/hookdeck/outpost" target="_blank" rel="noopener noreferrer">Outpost</a>,
+						and
+						<a href="https://github.com/flet-dev/flet" target="_blank" rel="noopener noreferrer">Flet</a>,
+						alongside maintaining my own open source experiments on
+						<a href="https://github.com/Abdulmumin1" target="_blank" rel="noopener noreferrer">GitHub</a>.
+					</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
 
+<div class="max-w-3xl mx-auto px-6 md:px-12 py-16">
 	<section class="mt-20" aria-labelledby="all-projects-heading">
 		<h2 id="all-projects-heading" class="mb-5 text-2xl font-normal">More projects</h2>
 		<div class="divide-y divide-border border-y border-border">
@@ -226,12 +243,7 @@
 					<summary
 						class="flex cursor-pointer list-none items-baseline justify-between gap-4 text-base marker:hidden"
 					>
-						<span class="flex items-center gap-3 group-open:text-accent">
-							{#if logoFor(project)}
-								<img src={logoFor(project)} alt="" class="h-6 w-6 rounded object-contain" />
-							{/if}
-							{project.name}
-						</span>
+						<span class="group-open:text-accent">{project.name}</span>
 						<span class="font-mono text-xs text-text-muted">{project.year}</span>
 					</summary>
 					<div class="space-y-3 pb-2 pt-4 text-sm leading-relaxed text-text-muted">
@@ -250,15 +262,293 @@
 		</div>
 	</section>
 
-	<footer class="mt-20 border-t border-border pt-6 text-base leading-relaxed text-text-muted">
-		<p>
-			There are plenty of smaller experiments scattered around too. The source for most of these is
-			<a
-				class="text-accent underline underline-offset-4"
-				href="https://github.com/Abdulmumin1"
-				target="_blank"
-				rel="noopener noreferrer">on GitHub</a
-			>.
-		</p>
+	<footer class="pt-8 text-sm text-text-muted flex justify-between">
+		<a
+			class="hover:text-text-main transition-colors"
+			href="https://github.com/Abdulmumin1"
+			target="_blank"
+			rel="noopener noreferrer">more on github ↗</a
+		>
 	</footer>
-</article>
+</div>
+
+<style>
+	.horizontal-scene {
+		position: relative;
+		background: var(--color-surface);
+	}
+
+	.work-progress,
+	.project-meta {
+		font-family: 'Commit Mono', ui-monospace, monospace;
+		font-size: 0.7rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.intro-slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-inline: clamp(1.5rem, 6vw, 6rem);
+	}
+
+	.intro-card {
+		/*background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+		border-radius: 4px;*/
+		padding: clamp(1.5rem, 3vw, 2.5rem);
+		max-width: 38rem;
+	}
+
+	.intro-text {
+		font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+		line-height: 1.65;
+		color: var(--color-text-main);
+	}
+
+	.intro-text a {
+		color: var(--color-accent);
+		text-decoration: none;
+	}
+
+	.horizontal-pin {
+		position: relative;
+		height: 100vh;
+		width: 100%;
+		overflow: hidden;
+		will-change: transform;
+	}
+
+	.work-progress {
+		position: absolute;
+		top: clamp(2rem, 5vw, 4rem);
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 4;
+		display: flex;
+		gap: 0.38rem;
+		align-items: center;
+	}
+
+	.work-progress span {
+		width: 1px;
+		height: 1.1rem;
+		background: var(--color-text-muted);
+		opacity: 0.55;
+	}
+
+	.work-progress span.active {
+		width: 1.6rem;
+		height: 0.9rem;
+		border: 1px solid var(--color-text-muted);
+		background: transparent;
+		opacity: 1;
+	}
+
+	.horizontal-track {
+		display: flex;
+		align-items: center;
+		gap: clamp(0.25rem, 0.75vw, 0.75rem);
+		width: max-content;
+		height: 100vh;
+		will-change: transform;
+	}
+
+	.work-slide {
+		width: min(76vw, 68rem);
+		height: min(72vh, 42rem);
+		flex: none;
+	}
+
+	.project-meta {
+		display: flex;
+		justify-content: space-between;
+		color: var(--color-text-muted);
+	}
+
+	.project-title-link {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+
+	.project-title-link:hover {
+		color: var(--color-accent);
+		text-decoration: underline;
+	}
+
+	.project-slide {
+		display: grid;
+		grid-template-columns: minmax(1rem, 1fr) minmax(20rem, 60rem) minmax(1rem, 1fr);
+		grid-template-rows: 1fr auto auto 1fr;
+		align-items: center;
+		padding-inline: clamp(1rem, 4vw, 4rem);
+	}
+
+	.project-meta {
+		grid-column: 2;
+		grid-row: 2;
+		margin-bottom: 0.75rem;
+		padding-inline: 0.25rem;
+	}
+
+	.project-media {
+		position: relative;
+		grid-column: 2;
+		grid-row: 3;
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		background: var(--color-surface-soft);
+		cursor: pointer;
+	}
+
+	.project-media:active {
+		cursor: pointer;
+	}
+
+	.project-image,
+	.project-video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		object-fit: cover;
+	}
+
+	.project-video {
+		pointer-events: auto;
+		transform: scale(1.01);
+	}
+
+	.play-badge {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.5rem;
+		height: 3.5rem;
+		border-radius: 9999px;
+		background: rgb(0 0 0 / 0.65);
+		color: white;
+		border: 1px solid rgb(255 255 255 / 0.2);
+		transition: transform 0.2s ease, background-color 0.2s ease;
+	}
+
+	.project-media:hover .play-badge {
+		transform: translate(-50%, -50%) scale(1.1);
+		background: var(--color-accent);
+	}
+
+	.project-overlay {
+		position: absolute;
+		inset: auto 0 0;
+		z-index: 2;
+		padding: clamp(1rem, 3vw, 2rem);
+		background: linear-gradient(to top, rgb(0 0 0 / 0.72), rgb(0 0 0 / 0));
+		color: white;
+	}
+
+	.project-overlay p {
+		max-width: 36rem;
+		margin: 0.8rem 0 0;
+		color: rgb(255 255 255 / 0.78);
+		font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+		line-height: 1.45;
+	}
+
+	.project-copy {
+		grid-column: 2;
+		grid-row: 4;
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: 0.9rem 0.25rem 0;
+	}
+
+	.project-copy span {
+		flex: none;
+		color: var(--color-text-muted);
+		letter-spacing: 0;
+	}
+
+	@media (max-width: 700px) {
+		.horizontal-scene {
+			padding: 1rem;
+		}
+
+		.work-progress {
+			display: none;
+		}
+
+		.horizontal-pin {
+			height: auto;
+			overflow: visible;
+		}
+
+		.horizontal-track {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 1rem;
+			width: 100%;
+			height: auto;
+			transform: none !important;
+			will-change: auto;
+		}
+
+		.work-slide {
+			width: 100%;
+			height: auto;
+		}
+
+		.project-slide {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto;
+			padding: 0;
+		}
+
+		.project-meta,
+		.project-media {
+			grid-column: 1;
+		}
+
+		.project-meta {
+			grid-row: 1;
+			margin-bottom: 0.5rem;
+			padding-inline: 0;
+		}
+
+		.project-media {
+			grid-row: 2;
+		}
+
+		.project-copy {
+			display: block;
+		}
+
+		.project-copy span {
+			display: block;
+			margin-top: 0.5rem;
+		}
+
+		.project-overlay {
+			padding: 1rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.horizontal-pin,
+		.horizontal-track {
+			will-change: auto;
+		}
+	}
+</style>
