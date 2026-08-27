@@ -26,7 +26,7 @@ people spent lifetimes tracking rumors of where it landed.
 
 nobody ever caught it. but nobody stopped looking either, why? 
 
-maybe because the anqa is varst enough to receive whatever you put into it.
+It depiction is described in such a way the anqa is vast enough to receive whatever you put into it.
 
 you can paint it in a way that makes you comfortable chasing it. you can control its beauty. you can decide what it promises. you can imagine the exact future that would begin if you finally reached it.
 
