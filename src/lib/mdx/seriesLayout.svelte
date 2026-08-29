@@ -7,10 +7,12 @@
 
 <script>
 	import { resolve } from '$app/paths';
+	import { onMount } from 'svelte';
 	import Fa from 'svelte-fa';
 	import SeriesEpisodes from '../../components/mainBlog/seriesEpisodes.svelte';
 	import './styles.css';
 	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+	import { renderMermaid } from '../utils/mermaid.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -22,6 +24,10 @@
 
 	/** @type {Props} */
 	let { categories, series, episode, children } = $props();
+
+	let main;
+
+	onMount(() => renderMermaid(main));
 </script>
 
 <div class="w-full">
@@ -36,7 +42,7 @@
 		class="space-y-5 max-w-[800px] w-full markdown-content text-base text-text-muted
 	"
 	>
-		<main class="container">
+		<main class="container" bind:this={main}>
 			<!-- <h1 class="heading">SvelteKit Shiki Code Highlighting</h1> -->
 			{@render children?.()}
 		</main>

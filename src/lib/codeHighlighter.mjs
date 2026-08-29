@@ -36,6 +36,21 @@ function escapeHtml(code) {
 }
 
 /**
+ * Safely escapes characters for HTML content in Svelte templates
+ * @param {string} text - text to escape
+ * @returns {string} - escaped text
+ */
+function escapeMermaid(text) {
+	return text
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/{/g, '&lbrace;')
+		.replace(/}/g, '&rbrace;')
+		.replace(/`/g, '&grave;');
+}
+
+/**
  * Returns array of line numbers to be highlghted
  * @param {string} rangeString - range string to be parsed (e.g. {1,3-5,8})
  * @returns {number[]}
@@ -75,6 +90,10 @@ function makeFocussable(html) {
  * @returns {string} - highlighted html
  */
 async function highlighter(code, lang, meta) {
+	if (lang === 'mermaid') {
+		return `<pre class="mermaid">${escapeMermaid(code)}</pre>`;
+	}
+
 	const shikiHighlighter = await highlighterPromise;
 
 	let html;
