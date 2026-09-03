@@ -240,8 +240,9 @@ h6 {
 
 	.article code:not(pre code),
 	.markdown-content code:not(pre code) {
-		@apply px-1.5 py-0.5 rounded text-xs font-mono;
+		@apply px-1.5 py-0.5 rounded-md text-[0.85em] font-mono border border-primary/15 transition-colors;
 		background-color: var(--color-surface-muted);
+		color: var(--color-text-main);
 	}
 
 	.article blockquote,
