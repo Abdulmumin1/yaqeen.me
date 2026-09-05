@@ -26,6 +26,7 @@
 		if (project.name === 'Chump') return 'B7cCCHSHM-k';
 		if (project.name === 'Owostack') return 'vVq5Qrd2Qmc';
 		if (project.name === 'Thirdpen') return 'C6RJ8lcIKs4';
+		if (project.name == 'ai-query.dev') return "RMmiLAX0kxc";
 	}
 
 	function thumbnailFor(videoId) {
