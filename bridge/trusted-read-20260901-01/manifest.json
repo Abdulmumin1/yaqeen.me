@@ -1,0 +1,57 @@
+{
+  "bridgeVersion": "3.6",
+  "kind": "google-docs-trusted-read",
+  "status": "complete",
+  "outputDir": "/Users/macbookpro/Documents/tpr/yaqeen.me/bridge/trusted-read-20260901-01",
+  "target": {
+    "documentId": "1BYVaDBjuC91GM7as67-2T8KFJzoE6jl0zteLRYd4woo",
+    "title": "abdulmumin_yqn_abdulkarim_resume_xs",
+    "revisionId": "AIroW360IIIwKKe8mBGIpT3x1il7PWqpwQLfza_puyfinAHjf43aLc7eT0S_wUysR0LTwAVBSeohycQ0UrNYqNSes1RDn8pgslsvB2B0CCw",
+    "documentUrl": "https://docs.google.com/document/d/1BYVaDBjuC91GM7as67-2T8KFJzoE6jl0zteLRYd4woo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "controlAwareness": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "affectedParagraphCount": 0,
+    "nativeElementCounts": {},
+    "preservationRequired": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope."
+  },
+  "warnings": [],
+  "files": {
+    "document_result": {
+      "path": "/Users/macbookpro/Documents/tpr/yaqeen.me/bridge/trusted-read-20260901-01/document-result.json",
+      "bytes": 172840,
+      "sha256": "4e2ddf911f1954fafcbc37cca4ae7d68f2f61b3cb4c6ecdb4b4fe1b6b9ac10bd"
+    },
+    "control_inventory": {
+      "path": "/Users/macbookpro/Documents/tpr/yaqeen.me/bridge/trusted-read-20260901-01/control-inventory.json",
+      "bytes": 1041,
+      "sha256": "8d18ab614811c3a3ad877b962297d0b9daeb3b56d808c628f27e01eed0f4d29d"
+    },
+    "document_outline": {
+      "path": "/Users/macbookpro/Documents/tpr/yaqeen.me/bridge/trusted-read-20260901-01/document-outline.json",
+      "bytes": 17251,
+      "sha256": "092b587370c79d7e66822c5417e8ebd56092b7dda7a4f28e4cfd34bc0a020f24"
+    },
+    "document_text": {
+      "path": "/Users/macbookpro/Documents/tpr/yaqeen.me/bridge/trusted-read-20260901-01/document-text.md",
+      "bytes": 4340,
+      "sha256": "84685c07a9068a683703c1b276c28cdcc731fdbdbeaa0f6dac4ded6c1d6b49ba"
+    },
+    "receipt": {
+      "path": "/Users/macbookpro/Documents/tpr/yaqeen.me/bridge/trusted-read-20260901-01/receipt.json",
+      "bytes": 972,
+      "sha256": "13ec5a4987cab09251f2e98fdd2e1184aea1ff14995bbc445be05feb99d2633f"
+    }
+  },
+  "error": null
+}

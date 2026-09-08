@@ -1,8 +1,5 @@
 .shiki {
-	/* border-radius: var(--spacing-1); */
-	/* padding: var(--spacing-6) var(--spacing-4); */
-	margin: var(--spacing-4) 0;
-	/* box-shadow: var(--shadow-elevation-medium); */
+	margin: 0;
 	overflow-x: auto;
 	max-width: var(--max-width-full);
 	/* color: wheat; */

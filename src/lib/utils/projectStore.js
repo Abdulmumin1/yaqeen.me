@@ -101,7 +101,7 @@ export const sass_projects = readable([
 		]
 	},
 	{
-		name: 'CommentRig  (inactive)',
+		name: 'CommentRig',
 		year: '2022',
 		stack: ['Svelte', 'Tailwindcss', 'Supabase', 'Javascript'],
 		description: 'A modern comment system for blogs and websites',
@@ -125,7 +125,7 @@ export const project_data = readable([
 		year: '2026',
 		stack: ['TypeScript', 'Svelte', 'Python', 'Websockets'],
 		description:
-			'CLI coding agent with first-class support for collaborative coding. Web, CLI, and mobile clients.',
+			'Multiplayer coding agent - web, CLI, and headless client support',
 		links: {
 			study: 'https://github.com/Abdulmumin1/chump',
 			page: 'chmp.dev'
@@ -138,7 +138,7 @@ export const project_data = readable([
 		name: 'ai-query.dev',
 		year: '2026',
 		stack: ['python', 'ai-http', 'websockets'],
-		description: 'A python sdk for building stateful AI Agents',
+		description: 'A python sdk for building multiplayer AI Agents',
 		links: {
 			study: 'https://github.com/Abdulmumin1/ai-query',
 			page: 'ai-query.dev'
@@ -155,7 +155,7 @@ export const project_data = readable([
 		name: 'onlocal.dev',
 		year: '2025',
 		stack: ['bunjs', 'cloudflare', 'websockets'],
-		description: 'A tunnel server to expose your localhost to the internet. My take on ngrok.',
+		description: 'A tunnel server to built on websockets',
 		links: {
 			study: 'https://github.com/Abdulmumin1/onlocal',
 			page: 'onlocal.dev'
@@ -171,8 +171,7 @@ export const project_data = readable([
 		name: 'LMFetch',
 		year: '2025',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
-		description:
-			'A CLI and MCP tool that fetches, chunks, and ranks local-codebase and GitHub-repository context to fit the most relevant code into a token budget.',
+		description:'code aware search + retrival for agents',
 		links: {
 			study: 'https://github.com/Abdulmumin1/lmfetch'
 		},
@@ -200,7 +199,7 @@ export const project_data = readable([
 		year: '2026',
 		stack: ['AI Model', 'LLMs', 'Routing'],
 		description:
-			'An AI router model that predicts and selects the smallest language model capable of answering a given prompt correctly',
+			'A tiny model that router',
 		links: {
 			study: 'https://github.com/Abdulmumin1/smol-router'
 		},
@@ -212,7 +211,7 @@ export const project_data = readable([
 		year: '2026',
 		stack: ['Python', 'Virtual File System'],
 		description:
-			'A virtual file system for Python - interact with a simulated shell environment programmatically',
+			'A virtual file system for Python',
 		links: {
 			study: 'https://github.com/Abdulmumin1/py-fs-shell'
 		},

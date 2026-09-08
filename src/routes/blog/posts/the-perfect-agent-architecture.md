@@ -34,9 +34,7 @@ flowchart TD
     CLI -->|"cd ~/project-b"| D2
     CLI -->|"cd ~/project-c"| D3
 
-    style D1 fill:#fee2e2,stroke:#fca5a5,color:#7f1d1d
-    style D2 fill:#fee2e2,stroke:#fca5a5,color:#7f1d1d
-    style D3 fill:#fee2e2,stroke:#fca5a5,color:#7f1d1d
+    class D1,D2,D3 danger
 ```
 
 For local single-directory tinkering, this felt frictionless. But the moment we wanted remote execution and a collaborative web app, the 1:1 daemon model completely broke down.
@@ -68,10 +66,9 @@ flowchart LR
     Router -->|"Request /projects/B"| WB["Workspace B (Active Runtime)\n• State & Watcher\n• Agent Sessions"]
     Router -->|"No traffic"| WC["Workspace C (Idle / Unloaded)"]
 
-    style Router fill:#dbeafe,stroke:#93c5fd,color:#1e3a8a
-    style WA fill:#d1fae5,stroke:#6ee7b7,color:#065f46
-    style WB fill:#d1fae5,stroke:#6ee7b7,color:#065f46
-    style WC fill:#f3f4f6,stroke:#d1d5db,color:#6b7280
+    class Router control
+    class WA,WB active
+    class WC muted
 ```
 
 #### 1. Static Routes with Dynamic Dispatch

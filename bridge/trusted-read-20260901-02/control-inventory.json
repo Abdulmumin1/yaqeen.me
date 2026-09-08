@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "kind": "google-docs-trusted-read-context",
+  "target": {
+    "documentId": "1BYVaDBjuC91GM7as67-2T8KFJzoE6jl0zteLRYd4woo",
+    "title": "abdulmumin_yqn_abdulkarim_resume_xs",
+    "revisionId": "ANLCKQnFtFFeLgmeVn1tvSSavqEeNI5fNAU5H9HdntH4R5XuSfA6Kyxp6KFh6QdqOnYP3tZaX49BqxQ-FbSRaOakmRDS4h_K3f7OfXuwoPM",
+    "documentUrl": "https://docs.google.com/document/d/1BYVaDBjuC91GM7as67-2T8KFJzoE6jl0zteLRYd4woo",
+    "selectedTabId": "t.0"
+  },
+  "dropdownMetadata": {
+    "status": "unavailable",
+    "resolvedTool": null,
+    "authoritative": false,
+    "count": 0
+  },
+  "derivedControlInventory": {
+    "hasProtectedControls": false,
+    "authoritativeDropdownCount": 0,
+    "opaqueControlCount": 0,
+    "nativeElementCounts": {},
+    "tabsScanned": [
+      "t.0"
+    ],
+    "controls": [],
+    "nativeElements": []
+  },
+  "editGuidance": {
+    "advisoryOnly": true,
+    "requiresTargetedPreservation": false,
+    "recommendedBehavior": "No protected controls were detected in the scanned scope.",
+    "warnings": []
+  }
+}

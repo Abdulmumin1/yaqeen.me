@@ -1,5 +1,5 @@
 ---
-title: 'fix your preview, before moving to cloud agents'
+title: 'Fix your preview, before moving to cloud agents'
 
 description: 'cloud agents can write code while you sleep. very cool. now who is checking if any of it actually works?'
 

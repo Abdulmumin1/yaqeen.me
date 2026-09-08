@@ -123,13 +123,13 @@
 			<article class="work-slide intro-slide" data-slide-index={0}>
 				<div class="intro-card">
 					<p class="intro-text">
-						8+ years in tech and I’ve spent about 4 years doing product engineering at
+						 I’ve spent 4+ years doing product engineering at
 						<a href="https://cloudplexo.com" target="_blank" rel="noopener noreferrer">CloudPlexo</a>,
 						leading a team of 2 to build
 						<a href="https://agentspec.ai" target="_blank" rel="noopener noreferrer">AgentSpec.ai</a>,
 						<a href="https://wendu.io" target="_blank" rel="noopener noreferrer">Wendu.io</a>, and
 						<a href="https://checkitme.com" target="_blank" rel="noopener noreferrer">Checkitme.com</a>.
-						Some personal projects/saas I really love ->
+						I’m a product engineer, rooted in doing infra for agents. I would also say I have a good eye for design.
 					</p>
 				</div>
 			</article>
@@ -211,9 +211,9 @@
 						<a href="https://github.com/huntabyte/shadcn-svelte" target="_blank" rel="noopener noreferrer">shadcn-svelte</a>,
 						<a href="https://github.com/hookdeck/outpost" target="_blank" rel="noopener noreferrer">Outpost</a>,
 						and
-						<a href="https://github.com/flet-dev/flet" target="_blank" rel="noopener noreferrer">Flet</a>,
-						alongside maintaining my own open source experiments on
-						<a href="https://github.com/Abdulmumin1" target="_blank" rel="noopener noreferrer">GitHub</a>.
+						<a href="https://github.com/flet-dev/flet" target="_blank" rel="noopener noreferrer">Flet</a>.
+						I used to run a
+						<a href="https://youtube.com/abdulmuminyqn" target="_blank" rel="noopener noreferrer">youtube channel</a> a few years ago
 					</p>
 				</div>
 			</article>
@@ -267,7 +267,7 @@
 
 	.work-progress,
 	.project-meta {
-		font-family: 'Commit Mono', ui-monospace, monospace;
+		font-family: var(--font-commit);
 		font-size: 0.7rem;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;

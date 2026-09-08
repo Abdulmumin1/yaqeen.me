@@ -12,6 +12,30 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: 'Archivo Variable';
+	src: url('/src/lib/font/Archivo-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Archivo Variable';
+	src: url('/src/lib/font/Archivo-VariableItalic.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Pilcrow Rounded';
+	src: url('/src/lib/font/PilcrowRounded-Variable.woff2') format('woff2');
+	font-weight: 400 900;
+	font-style: normal;
+	font-display: swap;
+}
+
 @theme {
 	/* Palette - Semantic naming */
 	--color-primary: var(--color-orange-500);
@@ -32,13 +56,14 @@
 	--color-accent-muted: rgba(249, 65, 31, 0.3);
 
 	/* Typography */
-	--font-visby: 'Inter', system-ui, sans-serif;
-	--font-visby-mid: 'Inter', system-ui, sans-serif;
-	--font-visby-bold: 'Inter', system-ui, sans-serif;
-	--font-serif: 'Inter', system-ui, sans-serif;
+	--font-visby: var(--site-font-body);
+	--font-visby-mid: var(--site-font-body);
+	--font-visby-bold: var(--site-font-body);
+	--font-serif: var(--site-font-body);
+	--font-mono: var(--site-font-utility);
 	--font-meri: 'Merriweather', 'Times New Roman', Times, serif;
-	--font-comic: 'Comic Mono', ui-monospace, monospace;
-	--font-commit: 'Commit Mono', ui-monospace, monospace;
+	--font-comic: var(--site-font-display);
+	--font-commit: var(--site-font-utility);
 	--font-pixel: 'CS Mileya Pixel', 'DotGothic16', 'Pixelify Sans', monospace;
 	/* Non-serif options to explore: */
 	/* --font-serif: 'Space Grotesk', sans-serif; */
@@ -56,7 +81,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Comic Mono', ui-monospace, monospace;
+	font-family: var(--site-font-display);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -79,6 +104,10 @@ h6 {
 
 @layer base {
 	:root {
+		--site-font-body: 'Archivo Variable', 'Inter', system-ui, sans-serif;
+		--site-font-display: 'Pilcrow Rounded', 'Archivo Variable', system-ui, sans-serif;
+		--site-font-utility: 'Pilcrow Rounded', 'Archivo Variable', system-ui, sans-serif;
+
 		--color-surface: var(--color-orange-50);
 		--color-surface-soft: var(--color-orange-50);
 		--color-surface-muted: var(--color-orange-100);
@@ -124,7 +153,7 @@ h6 {
 
 	body {
 		background-color: var(--color-surface);
-		font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
+		font-family: var(--site-font-body);
 		@apply antialiased;
 		overflow-x: hidden;
 	}
@@ -147,23 +176,37 @@ h6 {
 	}
 
 	/* Scrollbars */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: color-mix(in srgb, var(--color-text-muted) 52%, transparent) transparent;
+	}
+
 	*::-webkit-scrollbar {
-		display: block;
-		width: 12px;
+		width: 8px;
+		height: 8px;
 	}
 
 	*::-webkit-scrollbar-track {
-		background-color: var(--color-surface-soft);
+		background: transparent;
 	}
 
 	*::-webkit-scrollbar-thumb {
-		@apply rounded-full border-4 border-solid;
-		background-color: var(--color-border);
-		border-color: var(--color-surface-soft);
+		border: 2px solid transparent;
+		border-radius: 999px;
+		background-color: color-mix(in srgb, var(--color-text-muted) 52%, transparent);
+		background-clip: padding-box;
 	}
 
 	*::-webkit-scrollbar-thumb:hover {
-		@apply bg-primary;
+		background-color: var(--color-primary);
+	}
+
+	*::-webkit-scrollbar-corner {
+		background: transparent;
+	}
+
+	*::-webkit-scrollbar-button {
+		display: none;
 	}
 
 	/* Custom Links */
@@ -223,14 +266,158 @@ h6 {
 
 	.article pre,
 	.markdown-content pre {
-		@apply my-6 p-4 rounded-xl border border-primary/10 overflow-x-auto text-xs;
-		background-color: var(--color-surface-soft) !important;
+		@apply my-2 py-1 overflow-x-auto;
+		border: 0;
+		border-radius: 0;
+		background: transparent !important;
+		font-size: inherit;
+		line-height: 1.45;
+	}
+
+	/* Mermaid diagrams — a clean, hand-drawn technical-notebook treatment. */
+	.article pre.mermaid,
+	.markdown-content pre.mermaid {
+		position: relative;
+		isolation: isolate;
+		width: 100%;
+		margin-block: 2rem;
+		padding: 0.5rem 0;
+		border: 0;
+		border-radius: 0;
+		background: transparent !important;
+		overflow-x: auto;
+		overscroll-behavior-inline: contain;
+	}
+
+	.article pre.mermaid::before,
+	.markdown-content pre.mermaid::before {
+		display: none;
+	}
+
+	.article pre.mermaid svg,
+	.markdown-content pre.mermaid svg {
+		display: block;
+		min-width: 36rem;
+		max-width: none !important;
+		height: auto;
+		margin-inline: auto;
+		overflow: visible;
+	}
+
+	.article pre.mermaid .node rect,
+	.article pre.mermaid .node circle,
+	.article pre.mermaid .node ellipse,
+	.article pre.mermaid .node polygon,
+	.markdown-content pre.mermaid .node rect,
+	.markdown-content pre.mermaid .node circle,
+	.markdown-content pre.mermaid .node ellipse,
+	.markdown-content pre.mermaid .node polygon {
+		stroke-width: 1.5px;
+	}
+
+	.article pre.mermaid .nodeLabel,
+	.article pre.mermaid .edgeLabel,
+	.article pre.mermaid .cluster-label,
+	.markdown-content pre.mermaid .nodeLabel,
+	.markdown-content pre.mermaid .edgeLabel,
+	.markdown-content pre.mermaid .cluster-label {
+		font-family: 'Comic Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+		letter-spacing: -0.02em;
+	}
+
+	.article pre.mermaid .cluster-label,
+	.markdown-content pre.mermaid .cluster-label {
+		font-family: 'Comic Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+		font-weight: 700;
+		letter-spacing: 0.025em;
+	}
+
+	/* Subgraphs keep their title and layout, without drawing another shell. */
+	.article pre.mermaid .cluster > g:first-child,
+	.markdown-content pre.mermaid .cluster > g:first-child {
+		display: none;
+	}
+
+	.article pre.mermaid .edgeLabel,
+	.markdown-content pre.mermaid .edgeLabel {
+		font-size: 0.78rem;
+	}
+
+	.article pre.mermaid .edgeLabel rect,
+	.markdown-content pre.mermaid .edgeLabel rect {
+		rx: 6px;
+		ry: 6px;
+		opacity: 0.92 !important;
+	}
+
+	.article pre.mermaid .flowchart-link,
+	.markdown-content pre.mermaid .flowchart-link {
+		stroke-width: 1.5px;
+	}
+
+	/* Reusable semantic roles: `class nodeId danger`, etc. */
+	.article pre.mermaid .node.danger > :first-child,
+	.markdown-content pre.mermaid .node.danger > :first-child {
+		fill: #fff1f2 !important;
+		stroke: #fb7185 !important;
+	}
+
+	.article pre.mermaid .node.control > :first-child,
+	.markdown-content pre.mermaid .node.control > :first-child {
+		fill: #eff6ff !important;
+		stroke: #60a5fa !important;
+	}
+
+	.article pre.mermaid .node.active > :first-child,
+	.markdown-content pre.mermaid .node.active > :first-child {
+		fill: #ecfdf5 !important;
+		stroke: #34d399 !important;
+	}
+
+	.article pre.mermaid .node.muted > :first-child,
+	.markdown-content pre.mermaid .node.muted > :first-child {
+		fill: #f5f5f4 !important;
+		stroke: #a8a29e !important;
+	}
+
+	.dark .article pre.mermaid .node.danger > :first-child,
+	.dark .markdown-content pre.mermaid .node.danger > :first-child {
+		fill: #4c1d26 !important;
+		stroke: #fb7185 !important;
+	}
+
+	.dark .article pre.mermaid .node.control > :first-child,
+	.dark .markdown-content pre.mermaid .node.control > :first-child {
+		fill: #172554 !important;
+		stroke: #60a5fa !important;
+	}
+
+	.dark .article pre.mermaid .node.active > :first-child,
+	.dark .markdown-content pre.mermaid .node.active > :first-child {
+		fill: #052e2b !important;
+		stroke: #34d399 !important;
+	}
+
+	.dark .article pre.mermaid .node.muted > :first-child,
+	.dark .markdown-content pre.mermaid .node.muted > :first-child {
+		fill: #292524 !important;
+		stroke: #78716c !important;
+	}
+
+	@media (max-width: 767px) {
+		.article pre.mermaid svg,
+		.markdown-content pre.mermaid svg {
+			min-width: 32rem;
+		}
 	}
 
 	.article pre > code,
 	.markdown-content pre > code {
 		background-color: transparent !important;
-		@apply text-text-main text-[11px];
+		@apply text-text-main;
+		font-family: var(--font-commit);
+		font-size: 0.9rem;
+		line-height: 1.45;
 	}
 
 	.article pre code .line::before,

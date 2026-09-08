@@ -14,13 +14,11 @@
 <div class="relative max-w-xl">
 	<Guestbook />
 
-	<h1
-		class="text-2xl sm:text-3xl md:text-5xl font-serif mb-5 leading-tight text-text-main md:whitespace-nowrap"
-	>
+	<h1 class="sr-only">Abdulmumin Yaqeen — product builder and writer</h1>
+
+	<p class="text-xl sm:text-2xl md:text-3xl font-visby leading-relaxed text-text-main text-balance">
 		Hi, call me
-		<span
-			class="relative inline-block font-comic text-accent text-[1.7rem] sm:text-[2rem] md:text-[3.2rem]"
-		>
+		<span class="relative inline-block font-comic text-accent text-[1.08em]">
 			<span
 				use:highlight={{
 					markType: 'underline',
@@ -36,23 +34,21 @@
 			>
 				yaqeen
 			</span>
-		</span>
-	</h1>
-
-	<div class="text-base sm:text-lg md:text-xl font-visby text-text-muted leading-relaxed">
-		<p class="text-balance">
-			I enjoy building products. I also write a lot, and some of it ends up here on my blog.
-		</p>
-	</div>
-
-	<div class="flex flex-wrap gap-x-6 gap-y-2 mt-5">
-		{#each socials as social (social.name)}
+		</span>. I enjoy building products. I also write a lot, and some of it ends up here on my
+		<a
+			href={resolve('/blog')}
+			class="text-text-main underline decoration-accent/45 underline-offset-4"
+		>
+			blog</a
+		>. You can find me on
+		{#each socials as social, index (social.name)}
+			{#if index > 0}<span aria-hidden="true">, </span>{:else}{' '}{/if}
 			<a
 				href={social.href.startsWith('/') ? resolve(social.href) : social.href}
-				class="text-text-muted transition-colors text-base font-mono tracking-widest uppercase"
+				class="font-mono text-[0.72em] tracking-wide text-accent/80 underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent"
 			>
 				{social.name}
 			</a>
-		{/each}
-	</div>
+		{/each}.
+	</p>
 </div>

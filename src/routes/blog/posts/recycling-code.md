@@ -1,5 +1,5 @@
 ---
-title: 'recycling code'
+title: 'Recycling Code'
 
 description: 'what is really cool is that i get to use most of what i build in other stuff i build'
 
