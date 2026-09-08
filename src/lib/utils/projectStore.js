@@ -44,7 +44,7 @@ export const sass_projects = readable([
 		name: 'Thirdpen',
 		year: '2025',
 		stack: ['Sveltekit', 'Cloudflare', 'Honojs', 'AWS'],
-		description: 'Interactive learning with AI',
+		description: 'Multiplayer Agent for teams',
 		links: {
 			page: 'thirdpen.app'
 		},
