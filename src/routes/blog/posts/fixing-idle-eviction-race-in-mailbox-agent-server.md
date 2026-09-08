@@ -18,8 +18,6 @@ published: true
 
 An agent in `ai-query` can live longer than any one request. The server creates it on demand, gives it a mailbox, routes HTTP and streaming calls into it, and evicts it after it has been idle long enough.
 
-In August 2026, that last part was wrong.
-
 An agent could be halfway through a long tool call with no WebSocket connected. Its mailbox processor had already taken the request from the queue, so the queue looked empty. Its last-activity timestamp was old because beginning work did not update it.
 
 To the caller, the agent was still working. To the eviction loop, it had no connections, no queued work it knew about, and an expired timestamp.
