@@ -9,6 +9,7 @@
 	import { onMount } from 'svelte';
 	import './styles.css';
 	import { renderMermaid } from '../utils/mermaid.js';
+	import MermaidModal from '../../components/mainBlog/mermaidModal.svelte';
 
 	/**
 	 * @typedef {Object} Props
@@ -42,6 +43,8 @@
 			{@render children?.()}
 		</main>
 	</div>
+
+	<MermaidModal />
 </div>
 
 <style>

@@ -36,6 +36,14 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: 'Virgil';
+	src: url('/src/lib/font/Virgil.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 @theme {
 	/* Palette - Semantic naming */
 	--color-primary: var(--color-orange-500);
@@ -287,6 +295,20 @@ h6 {
 		background: transparent !important;
 		overflow-x: auto;
 		overscroll-behavior-inline: contain;
+		cursor: zoom-in;
+		transition: transform 0.15s ease, opacity 0.15s ease;
+	}
+
+	.article pre.mermaid:hover,
+	.markdown-content pre.mermaid:hover {
+		opacity: 0.92;
+	}
+
+	.article pre.mermaid:focus-visible,
+	.markdown-content pre.mermaid:focus-visible {
+		outline: 2px solid var(--color-accent, #f9411f);
+		outline-offset: 4px;
+		border-radius: 0.5rem;
 	}
 
 	.article pre.mermaid::before,
@@ -321,13 +343,13 @@ h6 {
 	.markdown-content pre.mermaid .nodeLabel,
 	.markdown-content pre.mermaid .edgeLabel,
 	.markdown-content pre.mermaid .cluster-label {
-		font-family: 'Comic Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+		font-family: 'Virgil', 'Comic Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
 		letter-spacing: -0.02em;
 	}
 
 	.article pre.mermaid .cluster-label,
 	.markdown-content pre.mermaid .cluster-label {
-		font-family: 'Comic Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+		font-family: 'Virgil', 'Comic Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
 		font-weight: 700;
 		letter-spacing: 0.025em;
 	}

@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import { openMermaidModal } from './mermaidModalStore.js';
 
 const palettes = {
 	light: {
@@ -58,7 +59,7 @@ function getConfig(mode) {
 		look: 'handDrawn',
 		securityLevel: 'loose',
 		suppressErrors: true,
-		fontFamily: 'Comic Mono, ui-monospace, SFMono-Regular, Menlo, monospace',
+		fontFamily: 'Virgil, Comic Mono, ui-monospace, SFMono-Regular, Menlo, monospace',
 		themeVariables: {
 			...palettes[mode],
 			fontSize: '14px'
@@ -117,6 +118,40 @@ export function renderMermaid(node) {
 
 			mermaidModule.initialize(getConfig(colorMode));
 			await mermaidModule.run({ nodes });
+
+			// Attach click-to-open modal behavior on each rendered diagram
+			for (const diagram of nodes) {
+				if (diagram.dataset.modalBound) continue;
+				diagram.dataset.modalBound = 'true';
+				diagram.setAttribute('tabindex', '0');
+				diagram.setAttribute('role', 'button');
+				diagram.setAttribute('title', 'Click to expand diagram');
+				diagram.classList.add('mermaid-interactive');
+
+				const handleOpen = () => {
+					const svg = diagram.querySelector('svg');
+					if (!svg) return;
+					// Clone svg and ensure viewBox/width attributes make it responsive
+					const clone = svg.cloneNode(true);
+					clone.removeAttribute('style');
+					clone.style.width = '100%';
+					clone.style.height = 'auto';
+					clone.style.maxWidth = '100%';
+					openMermaidModal(clone.outerHTML);
+				};
+
+				diagram.addEventListener('click', (e) => {
+					e.stopPropagation();
+					handleOpen();
+				});
+
+				diagram.addEventListener('keydown', (e) => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						handleOpen();
+					}
+				});
+			}
 		} catch (e) {
 			console.error('Mermaid rendering failed', e);
 		}

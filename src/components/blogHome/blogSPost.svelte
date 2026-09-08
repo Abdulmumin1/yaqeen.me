@@ -18,24 +18,27 @@
 	}
 </script>
 
-<div class="relative py-4 group">
+<div class="relative py-2 md:py-4 group">
 	<div class="flex items-baseline gap-3 md:block hover:bg-accent/60 w-fit">
-		<!-- Date positioned in the gutter for md+ screens -->
+		<!-- Date positioned in the gutter for md+ screens (hidden on mobile) -->
 		<div
 			class="w-[4.5rem] shrink-0 hidden md:flex items-center gap-1.5 whitespace-nowrap md:absolute md:-left-32 md:w-24 md:justify-end text-xs md:text-sm font-serif text-text-muted/60 italic mb-0 md:mb-0 date-gutter"
 		>
 			<div class="w-3.5 shrink-0 flex items-center justify-center">
 				{#if pinned}
-					<div class="text-accent/60 flex items-center" aria-hidden="true">
-						<Fa icon={faThumbTack} class="size-2.5 rotate-45" />
-					</div>
-					<span class="sr-only">Pinned post</span>
+					<Fa icon={faThumbTack} class="size-2.5 rotate-45 text-accent/60" aria-hidden="true" />
 				{/if}
 			</div>
 			<span>{formatDisplayDate(date)}</span>
 		</div>
 
 		<div class="flex items-baseline gap-2 md:block">
+			{#if pinned}
+				<span class="inline-flex md:hidden items-center mr-1.5 text-accent/70 -rotate-45 shrink-0" aria-label="Pinned post">
+					<Fa icon={faThumbTack} class="size-3" />
+				</span>
+			{/if}
+
 			{#if external}
 				<a
 					href={link}

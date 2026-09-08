@@ -19,7 +19,7 @@
 		{/if}
 
 		{#if data.regularPosts?.length}
-			<div class="flex flex-col gap-3">
+			<div class="flex flex-col">
 				<div class="flex flex-col">
 					{#each data.regularPosts.slice(0, 11) as post (post.slug)}
 						<BlogCard details={post} />
