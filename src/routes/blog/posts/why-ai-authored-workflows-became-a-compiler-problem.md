@@ -24,7 +24,7 @@ That architecture was attractive for the same reason agents are attractive: we c
 
 It also meant the LLM was our scheduler, state machine, dependency resolver, and recovery mechanism.
 
-By March 2026, the hard part was no longer getting a model to produce a useful workflow. The hard part was answering normal infrastructure questions:
+The hard part was no longer getting a model to produce a useful workflow. The hard part was answering normal infrastructure questions:
 
 - Which exact workflow version produced this run?
 - Which node is allowed to execute next?
