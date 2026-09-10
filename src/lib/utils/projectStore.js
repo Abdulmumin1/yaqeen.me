@@ -155,7 +155,7 @@ export const project_data = readable([
 		name: 'onlocal.dev',
 		year: '2025',
 		stack: ['bunjs', 'cloudflare', 'websockets'],
-		description: 'A tunnel server to built on websockets',
+		description: 'A tunnel server built on websockets',
 		links: {
 			study: 'https://github.com/Abdulmumin1/onlocal',
 			page: 'onlocal.dev'
@@ -171,7 +171,7 @@ export const project_data = readable([
 		name: 'LMFetch',
 		year: '2025',
 		stack: ['Python', 'Coroutines', 'Thread pool'],
-		description:'code aware search + retrival for agents',
+		description: 'Code-aware search and retrieval for agents',
 		links: {
 			study: 'https://github.com/Abdulmumin1/lmfetch'
 		},
@@ -199,9 +199,9 @@ export const project_data = readable([
 		year: '2026',
 		stack: ['AI Model', 'LLMs', 'Routing'],
 		description:
-			'A tiny model that router',
+			'A tiny, calibrated capability router that picks the smallest model capable of answering correctly',
 		links: {
-			study: 'https://github.com/Abdulmumin1/smol-router'
+			study: 'https://github.com/Abdulmumin1/smol.router'
 		},
 		imagelist: []
 	},
