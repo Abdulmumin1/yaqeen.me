@@ -67,7 +67,7 @@
 				Beyond Code
 			</h2>
 			<p>
-				Outside of engineering, I enjoy dabbling in creative side-tracks: experimenting with 3D models in Blender, capturing <a class="text-text-main underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-all font-medium" href="/photos">everyday moments on camera</a>, and diving into poetry.
+				Outside of engineering, I enjoy dabbling in creative side-tracks: experimenting with 3D models in Blender, capturing <a class="text-text-main underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-all font-medium" href="/photos">everyday moments on camera</a>, and reading poetry.
 			</p>
 			<p>
 				Previously, I also hosted a tech <a
