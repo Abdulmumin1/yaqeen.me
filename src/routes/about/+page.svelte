@@ -43,8 +43,8 @@
 		</p>
 	</div>
 
-	<!-- Image -->
-	<div class="w-full max-w-xl mx-auto overflow-hidden rounded-xl border border-border/20 shadow-sm bg-neutral-900/5">
+	<!-- Image (Flat) -->
+	<div class="w-full max-w-xl mx-auto overflow-hidden rounded-lg">
 		{#if $darkMode}
 			<img src="/me-dark.jpg" alt="Abdulmumin Yaqeen" class="w-full object-cover aspect-[16/10]" />
 		{:else}
