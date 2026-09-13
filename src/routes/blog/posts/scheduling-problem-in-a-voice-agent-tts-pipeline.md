@@ -13,7 +13,7 @@ categories:
   - typescript
   - infrastructure
 
-published: false
+published: true
 ---
 
 I was walking through `voicepipe`, the little package I was using to turn a streamed model response into speech, when I hit a blocker that looked like a TTS problem. The demo would start talking, then pause in strange places. Occasionally a later sentence arrived before an earlier one. Pressing stop stopped the loop, but I could still hear audio that had already made it into the browser. On a fast response, the browser ended up holding far more audio than it could play.
