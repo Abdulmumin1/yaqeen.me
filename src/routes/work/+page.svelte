@@ -125,7 +125,7 @@
 					<p class="intro-text">
 						 I’ve spent 4+ years doing product engineering at
 						<a href="https://cloudplexo.com" target="_blank" rel="noopener noreferrer">CloudPlexo</a>,
-						leading a team of 2 to build
+						leading a team of 3 to build
 						<a href="https://agentspec.ai" target="_blank" rel="noopener noreferrer">AgentSpec.ai</a>,
 						<a href="https://wendu.io" target="_blank" rel="noopener noreferrer">Wendu.io</a>, and
 						<a href="https://checkitme.com" target="_blank" rel="noopener noreferrer">Checkitme.com</a>.
