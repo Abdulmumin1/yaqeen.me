@@ -511,11 +511,17 @@
 			>
 				<!-- 3 horizontal grip notches in center -->
 				<div
-					class="absolute inset-x-1 top-3 bottom-3 flex flex-col justify-center items-center gap-[3px]"
+					class="absolute inset-x-0 top-3 bottom-3 flex flex-col justify-center items-center gap-[3.5px]"
 				>
-					<div class="w-2 h-[1px] {$darkMode ? 'bg-[#b0b0b0]' : 'bg-[#383838]'} rounded-full"></div>
-					<div class="w-2 h-[1px] {$darkMode ? 'bg-[#b0b0b0]' : 'bg-[#383838]'} rounded-full"></div>
-					<div class="w-2 h-[1px] {$darkMode ? 'bg-[#b0b0b0]' : 'bg-[#383838]'} rounded-full"></div>
+					<div
+						class="w-2.5 h-[1.5px] {$darkMode ? 'bg-[#9ca3af]' : 'bg-neutral-500'} rounded-full"
+					></div>
+					<div
+						class="w-2.5 h-[1.5px] {$darkMode ? 'bg-[#9ca3af]' : 'bg-neutral-500'} rounded-full"
+					></div>
+					<div
+						class="w-2.5 h-[1.5px] {$darkMode ? 'bg-[#9ca3af]' : 'bg-neutral-500'} rounded-full"
+					></div>
 				</div>
 
 				<!-- Subtle specular highlight line on left edge -->
