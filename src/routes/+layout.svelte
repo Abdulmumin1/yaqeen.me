@@ -10,6 +10,7 @@
 	import { siteOrigin, siteName } from '$lib/js/config.js';
 	import { darkMode } from '$lib/utils/darkmode.js';
 	import { setModalContext, setCurrentProjectInModal } from '$lib/utils/projectStore';
+	import PullCordSwitch from '$components/general/PullCordSwitch.svelte';
 
 	/**
 	 * @typedef {Object} Props
@@ -129,6 +130,8 @@
 </svelte:head>
 
 <div class="fixed inset-0 z-[1000] pointer-events-none bg-noise opacity-[0.03]"></div>
+
+<PullCordSwitch />
 
 <div
 	id="layout-wrapper"
