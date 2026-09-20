@@ -17,6 +17,7 @@ const highlighterPromise = getHighlighter({
 		'json',
 		'powershell',
 		'python',
+		'rust',
 		'sql',
 		'svelte',
 		'typescript'

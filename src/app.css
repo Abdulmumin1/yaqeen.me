@@ -252,17 +252,26 @@ h6 {
 
 	.article h2,
 	.markdown-content h2 {
-		@apply text-3xl font-serif leading-tight pt-5 pb-2 capitalize;
+		@apply text-3xl font-serif leading-tight pt-5 pb-0 capitalize;
+		margin-bottom: 0.25rem;
 	}
 
 	.article h3,
 	.markdown-content h3 {
-		@apply text-2xl font-serif leading-snug pt-4 pb-1;
+		@apply text-2xl font-serif leading-snug pt-3.5 pb-0;
+		margin-bottom: 0.25rem;
 	}
 
 	.article h4,
 	.markdown-content h4 {
-		@apply text-xl font-serif leading-snug pt-3;
+		@apply text-xl font-serif leading-snug pt-2 pb-0;
+		margin-bottom: 0.25rem;
+	}
+
+	.article :is(h1, h2, h3, h4, h5) + :is(h1, h2, h3, h4, h5, h6),
+	.markdown-content :is(h1, h2, h3, h4, h5) + :is(h1, h2, h3, h4, h5, h6) {
+		padding-top: 0 !important;
+		margin-top: 0 !important;
 	}
 
 	.article p,
@@ -460,10 +469,22 @@ h6 {
 	}
 
 	.article ul,
-	.markdown-content ul,
+	.markdown-content ul {
+		@apply pl-5 space-y-2 list-disc;
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+	}
+
 	.article ol,
 	.markdown-content ol {
-		@apply my-4 space-y-2;
+		@apply pl-5 space-y-2 list-decimal;
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+	}
+
+	.article p + :is(ul, ol),
+	.markdown-content p + :is(ul, ol) {
+		margin-top: -0.25rem;
 	}
 
 	.article table,

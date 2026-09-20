@@ -12,6 +12,12 @@ export async function load({ params }) {
 	if (params.slug === 'taste-is-now-corporate') {
 		throw redirect(308, '/blog/the-machine-has-endless-hands');
 	}
+	if (
+		params.slug === 'when-classifiers-get-as-fast-as-code' ||
+		params.slug === 'semantic-fast-as-code'
+	) {
+		throw redirect(308, '/blog/when-ai-get-as-fast-as-code');
+	}
 
 	try {
 		const post = await import(`../posts/${params.slug}.md`);
