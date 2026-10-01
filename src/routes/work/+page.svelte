@@ -1,10 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { beforeNavigate } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import Seo from '../../components/general/seo.svelte';
+	import DitherField from '../../components/general/ditherField.svelte';
 	import { project_data, sass_projects } from '$lib/utils/projectStore.js';
 
 	const favoriteNames = ['Chump', 'ai-query.dev', 'Owostack', 'Thirdpen'];
@@ -33,12 +35,72 @@
 		return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 	}
 
+	// Press play and the house lights go down: the page dims to a slow dither in
+	// that product's colours until the video stops or you scroll on.
+	const rooms = {
+		Chump: {
+			pattern: 'rings',
+			matrix: 4,
+			ramp: ['#0c0a09', '#14180a', '#232a10', '#3c4715', '#5d6917']
+		},
+		'ai-query.dev': {
+			pattern: 'clouds',
+			matrix: 4,
+			ramp: ['#0c0a09', '#1a071f', '#310a3a', '#551062', '#86198f']
+		},
+		Owostack: {
+			pattern: 'bands',
+			matrix: 2,
+			ramp: ['#0c0a09', '#3a1512', '#4a300f', '#12382a', '#0c0a09']
+		},
+		Thirdpen: {
+			pattern: 'clouds',
+			matrix: 4,
+			ramp: ['#06080f', '#0a1230', '#102d63', '#0b5680', '#0f84b8']
+		}
+	};
+
 	let containerNode = $state(null);
 	let rowNode = $state(null);
 	let activeSlide = $state(0);
 	let playingProject = $state(null);
 	let cleanupWorkScroll = () => {};
+	let scroller = null;
 	const slideCount = $derived(favorites.length + 2);
+	const room = $derived(playingProject ? rooms[playingProject] : null);
+
+	// Scrolls to wherever the strip has this slide in the middle of the window.
+	function goTo(index) {
+		if (!scroller || !rowNode) return;
+		const slides = rowNode.querySelectorAll('.work-slide');
+		const slide = slides[Math.min(Math.max(index, 0), slides.length - 1)];
+		const distance = Math.max(rowNode.scrollWidth - window.innerWidth, 0);
+		const offset = slide.getBoundingClientRect().left - rowNode.getBoundingClientRect().left;
+		const centred = offset + slide.offsetWidth / 2 - window.innerWidth / 2;
+		const progress = distance ? Math.min(Math.max(centred / distance, 0), 1) : 0;
+		window.scrollTo({
+			top: scroller.start + progress * (scroller.end - scroller.start),
+			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+		});
+	}
+
+	function onKeydown(event) {
+		if (event.key === 'Escape' && playingProject) {
+			playingProject = null;
+			return;
+		}
+		// Arrow keys step through the strip, but only while it is the thing on screen.
+		if (!scroller || window.scrollY >= scroller.end) return;
+		if (event.metaKey || event.ctrlKey || event.altKey) return;
+		if (event.target.closest?.('input, textarea, select, [contenteditable]')) return;
+		if (event.key === 'ArrowRight') {
+			event.preventDefault();
+			goTo(activeSlide + 1);
+		} else if (event.key === 'ArrowLeft') {
+			event.preventDefault();
+			goTo(activeSlide - 1);
+		}
+	}
 
 	beforeNavigate(() => {
 		cleanupWorkScroll();
@@ -54,6 +116,7 @@
 		function cleanup() {
 			if (cleanedUp) return;
 			cleanedUp = true;
+			scroller = null;
 			animation?.scrollTrigger?.kill(true);
 			animation?.kill();
 			context?.revert();
@@ -99,6 +162,7 @@
 					anticipatePin: 1
 				}
 			});
+			scroller = animation.scrollTrigger;
 		}, containerNode);
 
 		cleanupWorkScroll = cleanup;
@@ -110,10 +174,30 @@
 	<Seo title="Work" description="A few products and experiments built by Abdulmumin Yaqeen." />
 </svelte:head>
 
-<div bind:this={containerNode} class="horizontal-scene">
-	<div class="work-progress" aria-hidden="true">
+<svelte:window onkeydown={onKeydown} />
+
+<div bind:this={containerNode} class="horizontal-scene" class:theater={playingProject}>
+	{#if playingProject && room}
+		<button
+			type="button"
+			class="house-lights"
+			aria-label="Stop the video and bring the lights back up"
+			onclick={() => (playingProject = null)}
+			transition:fade={{ duration: 320 }}
+		>
+			<DitherField pattern={room.pattern} ramp={room.ramp} matrix={room.matrix} seed={4} />
+		</button>
+	{/if}
+
+	<div class="work-progress">
 		{#each Array.from({ length: slideCount }, (_, index) => index) as index (index)}
-			<span class:active={index === activeSlide}></span>
+			<button
+				type="button"
+				class:active={index === activeSlide}
+				aria-label={`Go to slide ${index + 1} of ${slideCount}`}
+				aria-current={index === activeSlide ? 'true' : undefined}
+				onclick={() => goTo(index)}
+			></button>
 		{/each}
 	</div>
 
@@ -135,7 +219,11 @@
 			</article>
 			{#each favorites as project, index (project.name)}
 				{@const videoId = videoFor(project)}
-				<article class="work-slide project-slide slide-{index + 1}" data-slide-index={index + 1}>
+				<article
+					class="work-slide project-slide slide-{index + 1}"
+					class:playing={playingProject === project.name}
+					data-slide-index={index + 1}
+				>
 					<div class="project-meta">
 						{#if project.links?.page || project.links?.study}
 							<a href={linkFor(project)} target="_blank" rel="noopener noreferrer" class="project-title-link">
@@ -178,13 +266,6 @@
 									<polygon points="5 3 19 12 5 21 5 3" />
 								</svg>
 							</div>
-						{:else if project.imagelist?.[0]}
-							<img
-								src={project.imagelist[0]}
-								alt={`${project.name} preview`}
-								class="project-image"
-								loading="lazy"
-							/>
 						{:else if project.imagelist?.[0]}
 							<img
 								src={project.imagelist[0]}
@@ -301,10 +382,44 @@
 
 	.horizontal-pin {
 		position: relative;
+		z-index: 2;
 		height: 100vh;
 		width: 100%;
 		overflow: hidden;
 		will-change: transform;
+	}
+
+	/* Lights down: while a video plays, everything else recedes into its colours. */
+	.house-lights {
+		position: fixed;
+		inset: 0;
+		z-index: 1;
+		padding: 0;
+		border: 0;
+		background: #0c0a09;
+		cursor: default;
+		overflow: hidden;
+	}
+
+	.theater .work-slide:not(.playing) {
+		opacity: 0.05;
+		pointer-events: none;
+	}
+
+	.theater .project-meta,
+	.theater .project-title-link {
+		color: rgb(245 245 244 / 0.7);
+	}
+
+	/* No bright flash of page colour while the player loads. */
+	.playing .project-media {
+		border-color: transparent;
+		background: #0c0a09;
+	}
+
+	.theater .work-progress {
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	.work-progress {
@@ -316,17 +431,29 @@
 		display: flex;
 		gap: 0.38rem;
 		align-items: center;
+		transition: opacity 0.2s ease;
 	}
 
-	.work-progress span {
+	.work-progress button {
+		position: relative;
 		width: 1px;
 		height: 1.1rem;
+		padding: 0;
+		border: 0;
 		background: var(--color-text-muted);
 		opacity: 0.55;
+		cursor: pointer;
 		transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, opacity 0.2s ease;
 	}
 
-	.work-progress span.active {
+	/* A tick is a hair wide; this gives it something to click. */
+	.work-progress button::before {
+		content: '';
+		position: absolute;
+		inset: -0.6rem -0.19rem;
+	}
+
+	.work-progress button.active {
 		width: 1.6rem;
 		height: 0.9rem;
 		border: 1px solid var(--color-text-muted);
@@ -348,6 +475,7 @@
 		width: min(76vw, 68rem);
 		height: min(72vh, 42rem);
 		flex: none;
+		transition: opacity 0.32s ease;
 	}
 
 	.project-meta {

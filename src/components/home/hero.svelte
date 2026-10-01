@@ -9,6 +9,9 @@
 		{ name: 'twitter', href: 'https://twitter.com/abdulmuminyqn' },
 		{ name: 'email', href: 'mailto:abdulmuminyqn@gmail.com' }
 	];
+
+	// Hover does this on its own; the toggle is for taps.
+	let realNameShown = $state(false);
 </script>
 
 <div class="relative max-w-xl">
@@ -18,7 +21,13 @@
 
 	<p class="text-xl sm:text-2xl md:text-3xl font-visby leading-relaxed text-text-main text-balance">
 		Hi, call me
-		<span class="relative inline-block font-comic text-accent text-[1.08em]">
+		<button
+			type="button"
+			class="nickname relative inline-block cursor-default font-comic text-accent text-[1.08em]"
+			aria-describedby="real-name"
+			onclick={() => (realNameShown = !realNameShown)}
+			onblur={() => (realNameShown = false)}
+		>
 			<span
 				use:highlight={{
 					markType: 'underline',
@@ -34,7 +43,10 @@
 			>
 				yaqeen
 			</span>
-		</span>. I enjoy building products. I also write a lot, and some of it ends up here on my
+			<span id="real-name" role="tooltip" class="real-name" class:shown={realNameShown}>
+				abdulmumin abdulkarim
+			</span>
+		</button>. I enjoy building products. I also write a lot, and some of it ends up here on my
 		<a
 			href={resolve('/blog')}
 			class="text-text-main underline decoration-accent/45 underline-offset-4"
@@ -52,3 +64,40 @@
 		{/each}.
 	</p>
 </div>
+
+<style>
+	/* Same quiet entrance as the moon's tooltip. */
+	.real-name {
+		position: absolute;
+		bottom: calc(100% - 0.1em);
+		left: 0.1em;
+		width: max-content;
+		color: var(--color-text-muted);
+		font-family: var(--site-font-body);
+		font-size: 0.75rem;
+		line-height: 1;
+		letter-spacing: 0.01em;
+		opacity: 0;
+		filter: blur(3px);
+		pointer-events: none;
+		transform: translateY(0.25rem);
+		transition:
+			opacity 160ms ease-out,
+			filter 160ms ease-out,
+			transform 160ms ease-out;
+	}
+
+	.nickname:hover .real-name,
+	.nickname:focus-visible .real-name,
+	.real-name.shown {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.real-name {
+			transition: none;
+		}
+	}
+</style>

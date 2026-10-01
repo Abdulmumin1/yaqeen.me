@@ -1,5 +1,6 @@
 <script>
 	import { project_data, sass_projects } from '$lib/utils/projectStore.js';
+	import ProjectPeek from './projectPeek.svelte';
 
 	function hrefFor(project) {
 		const href = project.links?.page || project.links?.study;
@@ -10,12 +11,13 @@
 	let selectedProjects = $derived($project_data.slice(0, 7));
 </script>
 
+<ProjectPeek projects={[...$sass_projects, ...selectedProjects]}>
 <div class="project-sections" id="projects">
 	<section aria-labelledby="products-heading">
 		<h2 id="products-heading">Products</h2>
-		<div class="project-rows">
+		<div class="project-rows" data-peek-group>
 			{#each $sass_projects as project (project.name)}
-				<p class="project-line">
+				<p class="project-line" data-peek={project.name}>
 					{#if hrefFor(project)}
 						<a
 							href={hrefFor(project)}
@@ -36,9 +38,9 @@
 
 	<section aria-labelledby="work-heading">
 		<h2 id="work-heading">Selected work</h2>
-		<div class="project-rows">
+		<div class="project-rows" data-peek-group>
 			{#each selectedProjects as project (project.name)}
-				<p class="project-line">
+				<p class="project-line" data-peek={project.name}>
 					{#if hrefFor(project)}
 						<a
 							href={hrefFor(project)}
@@ -61,6 +63,7 @@
 		</div>
 	</section>
 </div>
+</ProjectPeek>
 
 <style>
 	.project-sections {

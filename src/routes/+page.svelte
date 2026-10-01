@@ -1,6 +1,7 @@
 <script>
 	import BlogSection from '../components/blogHome/blogSection.svelte';
 	import Seo from '../components/general/seo.svelte';
+	import Butterfly from '../components/home/butterfly.svelte';
 	import Hero from '../components/home/hero.svelte';
 	import ProSection from '../components/projects/proSection.svelte';
 	import {
@@ -43,7 +44,8 @@
 	<svelte:element this={'script'} type="application/ld+json">{homeSchema}</svelte:element>
 </svelte:head>
 
-<div class="py-12 md:py-24 max-w-2xl mx-auto px-6">
+<div class="relative py-12 md:py-24 max-w-2xl mx-auto px-6">
+	<Butterfly />
 	<Hero />
 
 	<div class="mt-16 space-y-20">
