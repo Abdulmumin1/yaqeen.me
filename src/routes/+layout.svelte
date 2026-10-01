@@ -11,6 +11,8 @@
 	import { darkMode } from '$lib/utils/darkmode.js';
 	import { setModalContext, setCurrentProjectInModal } from '$lib/utils/projectStore';
 	import PullCordSwitch from '$components/general/PullCordSwitch.svelte';
+	import DoodleLayer from '$components/general/doodleLayer.svelte';
+	import { doodle } from '$components/general/doodle.svelte.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -88,6 +90,12 @@
 			]
 		},
 		{
+			title: 'Doodle on this page',
+			callback: () => {
+				doodle.active = true;
+			}
+		},
+		{
 			title: 'Search Blog',
 			nested: posts
 		}
@@ -144,6 +152,7 @@
 	{#if !['/garden'].includes(page.url.pathname)}
 		<Footer />
 	{/if}
+	<DoodleLayer />
 </div>
 
 {#if loaded}

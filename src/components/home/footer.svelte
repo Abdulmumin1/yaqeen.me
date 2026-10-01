@@ -4,6 +4,7 @@
 	import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 	import { copyUrlToClipboard } from '$lib/js/utils.js';
 	import { darkMode } from '$lib/utils/darkmode.js';
+	import { doodle } from '$components/general/doodle.svelte.js';
 
 	const links = {
 		github: 'https://github.com/Abdulmumin1',
@@ -110,6 +111,14 @@
 				class="hover:text-text-main transition-colors cursor-pointer touch-manipulation"
 			>
 				{$darkMode ? 'light mode' : 'dark mode'}
+			</button>
+			<span>/</span>
+			<button
+				type="button"
+				onclick={() => (doodle.active = true)}
+				class="hover:text-text-main transition-colors cursor-pointer touch-manipulation"
+			>
+				doodle
 			</button>
 		</div>
 
