@@ -1,7 +1,8 @@
 <script>
 	import Seo from '$components/general/seo.svelte';
+	import ButterflyGarden from '$components/general/butterflyGarden.svelte';
+	import GardenBed from '$components/general/gardenBed.svelte';
 	import { siteOrigin } from '$lib/js/config.js';
-	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	let entries = $state([]);
@@ -124,47 +125,34 @@
 			{/each}
 		</section>
 
-		<div class="garden-butterfly-bar">
-			<video
-				class="garden-butterfly"
-				src={resolve('/butterflies-loop.webm')}
-				autoplay
-				muted
-				loop
-				playsinline
-				preload="metadata"
-				aria-hidden="true"
-			></video>
-		</div>
+		<!-- Live butterflies, which come and sit on the flowers and at the end of people's names. -->
+		<ButterflyGarden perches=".mark-name, [data-perch]" roams="page" />
+		<div class="garden-bed"><div class="garden-plot"><GardenBed /></div></div>
 	{/if}
 </section>
 
 <style>
 	.garden-shell {
+		position: relative;
+		display: flex;
+		flex-direction: column;
 		width: min(100%, 78rem);
+		min-height: 100svh;
 		margin: 0 auto;
 		padding: 9rem 1.5rem 6rem;
 	}
 
-	.garden-butterfly-bar {
-		position: relative;
-		isolation: isolate;
-		overflow: hidden;
-		margin-top: 4rem;
-		padding: 6rem 0 4rem;
+	/* The flowers stand on the bottom edge of the page, however little is above them. */
+	.garden-bed {
+		margin: auto 0 -6rem;
+		padding-top: 5rem;
 	}
 
-	.garden-butterfly {
-		position: absolute;
-		z-index: 0;
-		inset: -2rem 0;
-		width: 100%;
-		height: calc(100% + 4rem);
-		object-fit: cover;
-		object-position: center 35%;
-		opacity: 0.48;
-		pointer-events: none;
-		filter: hue-rotate(-12deg) saturate(1.5) brightness(1.08);
+	.garden-plot {
+		position: relative;
+		width: min(20rem, 100%);
+		height: 12rem;
+		margin: 0 auto;
 	}
 
 	.garden-hero {
@@ -319,6 +307,10 @@
 	@media (max-width: 640px) {
 		.garden-shell {
 			padding: 7rem 1rem 5rem;
+		}
+
+		.garden-bed {
+			margin-bottom: -5rem;
 		}
 
 		.garden-hero {

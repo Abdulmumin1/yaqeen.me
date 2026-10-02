@@ -28,7 +28,9 @@
 			onclick={() => (realNameShown = !realNameShown)}
 			onblur={() => (realNameShown = false)}
 		>
+			<!-- data-perch: the butterfly may sit on the end of the word (see $lib/butterfly/habitat.js). -->
 			<span
+				data-perch="90% -8%"
 				use:highlight={{
 					markType: 'underline',
 					color: '#f9411f',

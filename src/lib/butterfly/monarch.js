@@ -170,10 +170,15 @@ function bodyCards() {
  */
 
 /**
- * @param {HTMLCanvasElement} canvas
+ * Something to draw monarchs with. It keeps a WebGL canvas of its own, off the
+ * page, and copies what it draws on to whichever 2D canvas it is handed, so one
+ * of these can serve any number of butterflies. Returns null without WebGL.
+ *
  * @param {HTMLImageElement | ImageBitmap} atlas
+ * @param {() => void} [onRestore] - Called if the graphics context was lost and has come back.
  */
-export function createMonarch(canvas, atlas) {
+export function createMonarch(atlas, onRestore) {
+	const canvas = document.createElement('canvas');
 	const options = { alpha: true, antialias: false, depth: false, stencil: false };
 	const gl =
 		canvas.getContext('webgl', options) ?? canvas.getContext('experimental-webgl', options);
@@ -261,6 +266,7 @@ export function createMonarch(canvas, atlas) {
 	};
 	const onRestored = () => {
 		lost = !setup();
+		if (!lost) onRestore?.();
 	};
 	canvas.addEventListener('webglcontextlost', onLost);
 	canvas.addEventListener('webglcontextrestored', onRestored);
@@ -371,10 +377,17 @@ export function createMonarch(canvas, atlas) {
 		}
 	}
 
+	/** Copy what was just drawn on to a 2D canvas, scaled to fit it. */
+	function hand(target) {
+		const { width, height } = target.canvas;
+		target.clearRect(0, 0, width, height);
+		target.drawImage(canvas, 0, 0, width, height);
+	}
+
 	return {
 		/**
-		 * @param {number} cssSize - Width of the (square) canvas in CSS pixels.
-		 * @param {number} density - Backing pixels per CSS pixel.
+		 * @param {number} cssSize - Width of the (square) stage a butterfly is drawn in, in CSS pixels.
+		 * @param {number} density - Pixels drawn per CSS pixel.
 		 */
 		resize(cssSize, density) {
 			size = cssSize;
@@ -385,15 +398,19 @@ export function createMonarch(canvas, atlas) {
 			}
 		},
 
-		/** @param {Pose} pose */
-		draw(pose) {
+		/**
+		 * @param {CanvasRenderingContext2D} target - The stage: a square canvas the butterfly sits in the middle of.
+		 * @param {Pose} pose
+		 */
+		draw(target, pose) {
 			if (lost) return;
 			paint(build(pose, pose.scale, false), false);
+			hand(target);
 		},
 
 		/**
-		 * The butterfly's shadow on the page, drawn into another (2D) canvas so it
-		 * can be blurred and placed on its own. `scale` is the size it has on the page.
+		 * The butterfly's shadow on the page, on a canvas of its own so that it can
+		 * be blurred and placed separately. `scale` is the size it has on the page.
 		 *
 		 * @param {CanvasRenderingContext2D} target
 		 * @param {Pose} pose
@@ -402,9 +419,7 @@ export function createMonarch(canvas, atlas) {
 		drawShadow(target, pose, scale) {
 			if (lost) return;
 			paint(build(pose, scale, true), true);
-			const { width, height } = target.canvas;
-			target.clearRect(0, 0, width, height);
-			target.drawImage(canvas, 0, 0, width, height);
+			hand(target);
 		},
 
 		destroy() {
