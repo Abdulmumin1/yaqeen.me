@@ -11,4 +11,8 @@ vite.config.ts.timestamp-*
 .vercel/
 .chump/
 .wrangler/
-scripts/
+# Scratch area, untracked — except the build hook that package.json's
+# "build" script needs on a fresh clone (it wires the Guestbook Durable
+# Object into the generated worker).
+scripts/*
+!scripts/append-durable-object-export.mjs
