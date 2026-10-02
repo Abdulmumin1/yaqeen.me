@@ -16,14 +16,34 @@ export async function load({ fetch, platform, setHeaders }) {
 		: await loadPhotosFromPublicKeys(fetch, fallbackPhotoKeys);
 
 	// In dev the bucket is a local, empty stand-in for R2, so nothing comes back.
-	// Fill the grid with placeholders so the page can still be worked on.
+	// Borrow the list the live site serves instead (the photos themselves load
+	// straight from the public bucket), and fall back to placeholders offline.
 	if (dev && !photos.length) {
-		photos = placeholderPhotos();
+		photos = (await loadPhotosFromLiveSite(fetch)) ?? placeholderPhotos();
 	}
 
 	return {
 		photos
 	};
+}
+
+/* Dev only: the photos the live page is showing, read from the data SvelteKit
+   serves alongside it. One small request; no Cloudflare login needed. */
+async function loadPhotosFromLiveSite(fetch) {
+	try {
+		const { unflatten } = await import('devalue');
+		const response = await fetch('https://yaqeen.me/photos/__data.json', {
+			signal: AbortSignal.timeout(8000)
+		});
+		if (!response.ok) return undefined;
+
+		const { nodes } = await response.json();
+		const node = nodes?.find((entry) => entry?.type === 'data' && entry.data);
+		const photos = node ? unflatten(node.data)?.photos : undefined;
+		return Array.isArray(photos) && photos.length ? photos : undefined;
+	} catch {
+		return undefined;
+	}
 }
 
 /* Placeholders, for dev only. A spread of shapes (landscape, portrait, square,

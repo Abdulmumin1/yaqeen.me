@@ -88,6 +88,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.27
         version: 10.5.4(postcss@8.5.23)
+      devalue:
+        specifier: ^5.8.2
+        version: 5.8.2
       eslint:
         specifier: ^10.8.0
         version: 10.8.0(jiti@2.7.0)
