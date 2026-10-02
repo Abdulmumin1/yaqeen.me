@@ -84,14 +84,20 @@
 		</div>
 
 		<div class="flex flex-col gap-1">
+			<!-- Reads "email"; pointing at it shows the address, and clicking copies it. -->
 			<button
 				type="button"
 				onclick={copyEmailAddress}
-				class="w-fit text-left hover:text-text-main transition-colors"
-				aria-label="Copy email address"
+				class="group w-fit cursor-pointer text-left hover:text-text-main focus-visible:text-text-main transition-colors"
+				aria-label={`Copy email address, ${emailAddress}`}
 				data-perch
 			>
-				{copiedEmail ? 'email copied' : 'copy email'}
+				{#if copiedEmail}
+					email copied
+				{:else}
+					<span class="group-hover:hidden group-focus-visible:hidden">email</span>
+					<span class="hidden group-hover:inline group-focus-visible:inline">{emailAddress}</span>
+				{/if}
 			</button>
 		</div>
 
