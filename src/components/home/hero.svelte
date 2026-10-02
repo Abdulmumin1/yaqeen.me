@@ -1,6 +1,7 @@
 <script>
 	import { highlight } from '@highlighters/svelte';
 	import { resolve } from '$app/paths';
+	import HoverPeek from '$components/general/hoverPeek.svelte';
 	import Guestbook from '$components/home/guestbook.svelte';
 
 	const socials = [
@@ -9,9 +10,6 @@
 		{ name: 'twitter', href: 'https://twitter.com/abdulmuminyqn' },
 		{ name: 'email', href: 'mailto:abdulmuminyqn@gmail.com' }
 	];
-
-	// Hover does this on its own; the toggle is for taps.
-	let realNameShown = $state(false);
 </script>
 
 <div class="relative max-w-xl">
@@ -19,87 +17,55 @@
 
 	<h1 class="sr-only">Abdulmumin Yaqeen — product builder and writer</h1>
 
-	<p class="text-xl sm:text-2xl md:text-3xl font-visby leading-relaxed text-text-main text-balance">
-		Hi, call me
-		<button
-			type="button"
-			class="nickname relative inline-block cursor-default font-comic text-accent text-[1.08em]"
-			aria-describedby="real-name"
-			onclick={() => (realNameShown = !realNameShown)}
-			onblur={() => (realNameShown = false)}
+	<!-- The print shows his real name to the eye; this gives it to a screen reader. -->
+	<span id="real-name" hidden>abdulmumin abdulkarim</span>
+
+	<!-- Hover the nickname (or tap it) and a print of the man himself floats up: see peeks.js. -->
+	<HoverPeek subjects={[{ name: 'yaqeen' }]}>
+		<p
+			class="text-xl sm:text-2xl md:text-3xl font-visby leading-relaxed text-text-main text-balance"
 		>
-			<!-- data-perch: the butterfly may sit on the end of the word (see $lib/butterfly/habitat.js). -->
-			<span
-				data-perch="90% -8%"
-				use:highlight={{
-					markType: 'underline',
-					color: '#f9411f',
-					opacity: 0.55,
-					vivid: true,
-					renderer: 'css',
-					tip: { angle: 100, overshoot: 13 },
-					ink: { flow: 1, feathering: 1, streakiness: 1 },
-					edge: { waviness: 1, roughness: 1, cap: 'round' },
-					animation: { duration: 300, trigger: 'in-view' }
-				}}
+			Hi, call me
+			<button
+				type="button"
+				class="relative inline-block cursor-default font-comic text-accent text-[1.08em]"
+				aria-describedby="real-name"
+				data-peek="yaqeen"
+				data-peek-tap
 			>
-				yaqeen
-			</span>
-			<span id="real-name" role="tooltip" class="real-name" class:shown={realNameShown}>
-				abdulmumin abdulkarim
-			</span>
-		</button>. I enjoy building products. I also write a lot, and some of it ends up here on my
-		<a
-			href={resolve('/blog')}
-			class="text-text-main underline decoration-accent/45 underline-offset-4"
-		>
-			blog</a
-		>. You can find me on
-		{#each socials as social, index (social.name)}
-			{#if index > 0}<span aria-hidden="true">, </span>{:else}{' '}{/if}
+				<!-- data-perch: the butterfly may sit on the end of the word (see $lib/butterfly/habitat.js). -->
+				<span
+					data-perch="90% -8%"
+					use:highlight={{
+						markType: 'underline',
+						color: '#f9411f',
+						opacity: 0.55,
+						vivid: true,
+						renderer: 'css',
+						tip: { angle: 100, overshoot: 13 },
+						ink: { flow: 1, feathering: 1, streakiness: 1 },
+						edge: { waviness: 1, roughness: 1, cap: 'round' },
+						animation: { duration: 300, trigger: 'in-view' }
+					}}
+				>
+					yaqeen
+				</span>
+			</button>. I enjoy building products. I also write a lot, and some of it ends up here on my
 			<a
-				href={social.href.startsWith('/') ? resolve(social.href) : social.href}
-				class="font-mono text-[0.72em] tracking-wide text-accent/80 underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent"
+				href={resolve('/blog')}
+				class="text-text-main underline decoration-accent/45 underline-offset-4"
 			>
-				{social.name}
-			</a>
-		{/each}.
-	</p>
+				blog</a
+			>. You can find me on
+			{#each socials as social, index (social.name)}
+				{#if index > 0}<span aria-hidden="true">, </span>{:else}{' '}{/if}
+				<a
+					href={social.href.startsWith('/') ? resolve(social.href) : social.href}
+					class="font-mono text-[0.72em] tracking-wide text-accent/80 underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent"
+				>
+					{social.name}
+				</a>
+			{/each}.
+		</p>
+	</HoverPeek>
 </div>
-
-<style>
-	/* Same quiet entrance as the moon's tooltip. */
-	.real-name {
-		position: absolute;
-		bottom: calc(100% - 0.1em);
-		left: 0.1em;
-		width: max-content;
-		color: var(--color-text-muted);
-		font-family: var(--site-font-body);
-		font-size: 0.75rem;
-		line-height: 1;
-		letter-spacing: 0.01em;
-		opacity: 0;
-		filter: blur(3px);
-		pointer-events: none;
-		transform: translateY(0.25rem);
-		transition:
-			opacity 160ms ease-out,
-			filter 160ms ease-out,
-			transform 160ms ease-out;
-	}
-
-	.nickname:hover .real-name,
-	.nickname:focus-visible .real-name,
-	.real-name.shown {
-		opacity: 1;
-		filter: blur(0);
-		transform: translateY(0);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.real-name {
-			transition: none;
-		}
-	}
-</style>

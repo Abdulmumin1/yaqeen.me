@@ -1,15 +1,26 @@
-// What pops up when a project in a list is hovered, keyed by the project's name
-// in projectStore.
+// What pops up when something on the home page is hovered (see
+// $components/general/hoverPeek.svelte), keyed by its name: a project's name in
+// projectStore, or `yaqeen` for the nickname in the hero.
 //
-// - An object is a print: a screenshot on a dithered mat. `image` comes from
-//   static/peeks (regenerate with `node scripts/capture-peeks.mjs`); without one
-//   the print uses the project's first picture in projectStore. `pattern`,
-//   `matrix` and `ramp` describe the mat.
+// - An object is a print: a picture on a dithered mat. `image` comes from
+//   static/peeks; without one the print uses the project's first picture in
+//   projectStore. `pattern`, `matrix` and `ramp` describe the mat.
+// - A print with a `caption` is a portrait: narrower, a 4:5 picture mounted on
+//   paper with the caption written under it.
 // - NO_UI is for the things that only exist in a terminal: they get a receipt.
-// - A project that is not listed gets nothing.
+// - Anything that is not listed gets nothing.
 export const NO_UI = 'no-ui';
 
 export const peeks = {
+	// The man himself, and the name on his birth certificate.
+	yaqeen: {
+		image: '/peeks/yaqeen.webp',
+		caption: 'abdulmumin abdulkarim',
+		pattern: 'clouds',
+		matrix: 4,
+		ramp: ['#fff1e4', '#fdc9a5', '#f9411f', '#3d3aa6', '#1c1917']
+	},
+
 	Owostack: {
 		image: '/peeks/owostack.webp',
 		pattern: 'bands',

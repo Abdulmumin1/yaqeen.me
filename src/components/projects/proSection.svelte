@@ -1,6 +1,6 @@
 <script>
 	import { project_data, sass_projects } from '$lib/utils/projectStore.js';
-	import ProjectPeek from './projectPeek.svelte';
+	import HoverPeek from '$components/general/hoverPeek.svelte';
 
 	function hrefFor(project) {
 		const href = project.links?.page || project.links?.study;
@@ -11,7 +11,7 @@
 	let selectedProjects = $derived($project_data.slice(0, 7));
 </script>
 
-<ProjectPeek projects={[...$sass_projects, ...selectedProjects]}>
+<HoverPeek subjects={[...$sass_projects, ...selectedProjects]}>
 <div class="project-sections" id="projects">
 	<section aria-labelledby="products-heading">
 		<h2 id="products-heading">Products</h2>
@@ -63,7 +63,7 @@
 		</div>
 	</section>
 </div>
-</ProjectPeek>
+</HoverPeek>
 
 <style>
 	.project-sections {
