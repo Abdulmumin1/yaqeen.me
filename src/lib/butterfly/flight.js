@@ -141,11 +141,15 @@ function wanderer(random, hertz) {
  *
  * @typedef {Object} Surroundings
  * @property {{x: number, y: number} | null} [pointer] - Where the reader's cursor is, on the page.
- * @property {{left: number, right: number}} [bounds]  - Page x it should stay between.
+ * @property {{left: number, right: number, top?: number, bottom?: number}} [bounds] - Where on the page it should stay.
  */
 
-/** @param {{ random?: () => number }} [options] */
-export function createFlight({ random = Math.random } = {}) {
+/**
+ * @param {Object} [options]
+ * @param {() => number} [options.random]
+ * @param {number} [options.pace] - How briskly it flies; 1 is a monarch in no hurry.
+ */
+export function createFlight({ random = Math.random, pace = 1 } = {}) {
 	const between = (low, high) => low + random() * (high - low);
 	const noise = {
 		turn: wanderer(random, 0.62),
@@ -385,7 +389,8 @@ export function createFlight({ random = Math.random } = {}) {
 		const depth = lerp(STANDOFF, CRUISE_DEPTH + 26 * noise.depth(s.time), far);
 		let ax = dx + WEAVE * s.sway * loose * (0.35 + 0.65 * steep);
 		let az = ((fleeing ? goal.z : depth) - s.z) * 2.6;
-		let climb = clamp(dy * 2, -SINK * s.haste, CLIMB * s.haste) + SWELL * s.heave * loose;
+		let climb =
+			clamp(dy * 2, -SINK * pace * s.haste, CLIMB * pace * s.haste) + SWELL * s.heave * loose;
 
 		const pointer = around?.pointer;
 		if (pointer) {
@@ -406,6 +411,9 @@ export function createFlight({ random = Math.random } = {}) {
 		if (bounds) {
 			if (s.x < bounds.left + 28) ax += (bounds.left + 28 - s.x) * 8;
 			if (s.x > bounds.right - 28) ax -= (s.x - bounds.right + 28) * 8;
+			// (Page y runs down, the world's up.)
+			if (bounds.top !== undefined && -s.y < bounds.top) climb -= (bounds.top + s.y) * 9;
+			if (bounds.bottom !== undefined && -s.y > bounds.bottom) climb += (-s.y - bounds.bottom) * 9;
 		}
 
 		s.jinkIn -= dt;
@@ -426,6 +434,7 @@ export function createFlight({ random = Math.random } = {}) {
 		s.dart = ease(s.dart, 0, 4, dt);
 		let cruise =
 			CRUISE *
+			pace *
 			(0.85 + 0.3 * noise.speed(s.time) + s.dart) *
 			(passing ? 1 : lerp(0.5, 1, smooth(distance / 150))) *
 			s.haste *
@@ -679,8 +688,14 @@ export function createFlight({ random = Math.random } = {}) {
 				const dx = s.x - from.x;
 				const dy = s.y + from.y;
 				const length = Math.hypot(dx, dy) || 1;
-				// Away from whatever it was, and up: butterflies go up.
+				// Away from whatever it was, and up: butterflies go up. Never down, even
+				// from something above: out to one side instead (below there may be
+				// nothing but the edge of the page).
 				away = [dx / length, dy / length + 0.7];
+				if (dy < 0) {
+					const side = Math.sign(dx) || (random() < 0.5 ? -1 : 1);
+					away = [side * Math.max(Math.abs(dx) / length, 0.8), 0.25];
+				}
 			}
 			const length = Math.hypot(away[0], away[1]) || 1;
 			s.fleeDir = [away[0] / length, away[1] / length];
@@ -725,8 +740,8 @@ export function createFlight({ random = Math.random } = {}) {
 			const length = Math.hypot(dx, dy) || 1;
 			s.yaw = dx >= 0 ? rad(15) : rad(165);
 			s.yawRate = 0;
-			s.vx = (dx / length) * CRUISE;
-			s.vy = (dy / length) * CRUISE * 0.6;
+			s.vx = (dx / length) * CRUISE * pace;
+			s.vy = (dy / length) * CRUISE * pace * 0.6;
 			s.vz = 0;
 			s.bob = s.bobSpeed = 0;
 			s.pitchBase = rad(28);
