@@ -1,4 +1,5 @@
 import exifr from 'exifr';
+import { dev } from '$app/environment';
 import { fallbackPhotoKeys, photoUrl } from '$lib/data/photos.js';
 
 const imageExtensions = /\.(avif|gif|jpe?g|png|webp)$/i;
@@ -10,13 +11,73 @@ export async function load({ fetch, platform, setHeaders }) {
 	});
 
 	const bucket = platform?.env?.PHOTOS_BUCKET;
-	const photos = bucket
+	let photos = bucket
 		? await loadPhotosFromBucket(bucket)
 		: await loadPhotosFromPublicKeys(fetch, fallbackPhotoKeys);
+
+	// In dev the bucket is a local, empty stand-in for R2, so nothing comes back.
+	// Fill the grid with placeholders so the page can still be worked on.
+	if (dev && !photos.length) {
+		photos = placeholderPhotos();
+	}
 
 	return {
 		photos
 	};
+}
+
+/* Placeholders, for dev only. A spread of shapes (landscape, portrait, square,
+   wide, tall) and of captions (a place, coordinates only, nothing at all), so
+   the grid and its captions can be tried against each. */
+const placeholderShapes = [
+	{ width: 1600, height: 1067, place: 'Danmagaji', year: '2026' },
+	{ width: 1200, height: 1800, place: 'Osapa, Lagos', year: '2026' },
+	{ width: 1600, height: 1600, place: 'Kano', year: '2025' },
+	{ width: 1920, height: 1080, latitude: 9.0765, longitude: 7.3986, year: '2025' },
+	{ width: 1280, height: 1600, place: 'Abuja', year: '2025' },
+	{ width: 1600, height: 1200, place: 'Zaria', year: '2024' },
+	{ width: 1080, height: 1920, place: 'Jos Plateau', year: '2024' },
+	{ width: 1600, height: 1067 },
+	{ width: 1200, height: 1500, place: 'Ilorin', year: '2023' },
+	{ width: 2000, height: 857, place: 'Lekki, Lagos', year: '2023' }
+];
+
+const placeholderTones = [
+	['#d9b38c', '#8a5a3c'],
+	['#a9b8a0', '#4f5e48'],
+	['#e3c7a6', '#b06a45'],
+	['#9fb3c8', '#4a5d73'],
+	['#cdb6a0', '#6e5646'],
+	['#e8d3b0', '#a4824f'],
+	['#b8a6c4', '#5c4b6b'],
+	['#c9c2b4', '#6b655b'],
+	['#d8a88f', '#7d4632'],
+	['#a6c1bd', '#3f625e']
+];
+
+function placeholderPhotos() {
+	return placeholderShapes.map((shape, index) => {
+		const { width, height, place, year, latitude, longitude } = shape;
+		const [light, dark] = placeholderTones[index % placeholderTones.length];
+		const number = String(index + 1).padStart(2, '0');
+		const label = `${number} · ${width}×${height}`;
+		const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${light}"/><stop offset="1" stop-color="${dark}"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><text x="50%" y="50%" fill="rgba(255,255,255,0.75)" font-family="ui-monospace, Menlo, monospace" font-size="${Math.round(Math.min(width, height) / 18)}" text-anchor="middle" dominant-baseline="middle">${label}</text></svg>`;
+
+		return {
+			key: `placeholder-${number}`,
+			src: `data:image/svg+xml,${encodeURIComponent(svg)}`,
+			width,
+			height,
+			alt: `Placeholder photo ${number}`,
+			place,
+			year,
+			camera: undefined,
+			// One day apart, newest first, so they keep this order.
+			date: new Date(Date.UTC(2026, 4, 30 - index)).toISOString(),
+			latitude,
+			longitude
+		};
+	});
 }
 
 async function loadPhotosFromBucket(bucket) {
