@@ -13,11 +13,13 @@
 			['/drop', '/braintime', '/css-faster', '/work'].includes(page.url.pathname)
 	);
 
+	let isPhotosActive = $derived(page.url.pathname.startsWith('/photos'));
+
 	const navItems = $derived([
 		{ name: 'Home', href: '/', active: isHomeActive },
 		{ name: 'Thoughts', href: '/blog', active: isThoughtsActive },
 		{ name: 'Work', href: '/work', active: isWorkActive },
-		{ name: 'RSS', href: '/rss.xml', active: false }
+		{ name: 'Photos', href: '/photos', active: isPhotosActive }
 	]);
 </script>
 
