@@ -46,13 +46,13 @@
 	{/if}
 </svelte:head>
 
-<section class="max-w-2xl mx-auto px-6 py-12 md:py-24">
+<section class="page">
 	<h1 class="sr-only">Writing</h1>
-	<div class="flex flex-col">
+	<div class="grid gap-(--gap-section)">
 		{#if pinnedPosts.length}
-			<div class="flex flex-col gap-1">
-				<h2 class="text-xl md:text-3xl font-serif text-text-main mb-2">Pinned</h2>
-				<div class="flex flex-col">
+			<div>
+				<h2 class="section-heading">Pinned</h2>
+				<div class="row-list">
 					{#each pinnedPosts as post (post.slug)}
 						<BlogCard details={post} />
 					{/each}
@@ -60,16 +60,15 @@
 			</div>
 		{/if}
 
-		{#if latest}
-			<h2 class="text-xl md:text-3xl font-serif text-text-main mt-8 mb-2">Latest</h2>
-			<div class="flex flex-col">
-				<BlogCard details={latest} latest={true} />
-			</div>
-		{/if}
-
-		{#if posts.length}
-			<div class="flex flex-col gap-4">
-				<div class="flex flex-col">
+		{#if latest || posts.length}
+			<div>
+				{#if latest}
+					<h2 class="section-heading">Latest</h2>
+				{/if}
+				<div class="row-list">
+					{#if latest}
+						<BlogCard details={latest} />
+					{/if}
 					{#each posts as post (post.slug)}
 						<BlogCard details={post} />
 					{/each}
@@ -78,24 +77,22 @@
 		{/if}
 
 		{#if showPagination}
-			<div class="flex justify-between items-center pt-4">
+			<div class="type-small flex items-center justify-between text-text-muted">
 				{#if currentPage > 1}
 					<button
 						onclick={() => loadPage(currentPage - 1)}
-						class="text-sm text-text-muted hover:text-accent transition-colors flex items-center gap-1"
+						class="flex items-center gap-1 transition-colors hover:text-text-main"
 					>
 						<Fa icon={faAngleLeft} /> prev
 					</button>
 				{:else}
 					<span></span>
 				{/if}
-				<span class="text-sm font-serif text-text-muted/70"
-					>{currentPage} / {activeData.totalPages}</span
-				>
+				<span class="text-text-faint">{currentPage} / {activeData.totalPages}</span>
 				{#if currentPage < activeData.totalPages}
 					<button
 						onclick={() => loadPage(currentPage + 1)}
-						class="text-sm text-text-muted hover:text-accent transition-colors flex items-center gap-1"
+						class="flex items-center gap-1 transition-colors hover:text-text-main"
 					>
 						next <Fa icon={faAngleRight} />
 					</button>

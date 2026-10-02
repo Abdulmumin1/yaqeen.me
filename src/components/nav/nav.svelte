@@ -21,24 +21,25 @@
 	]);
 </script>
 
-<nav
-	class="font-serif select-none flex items-center mx-auto px-5 md:px-1 max-w-[40rem] justify-between py-4 text-sm sm:text-base"
->
+<!-- The nav sits in the page column: "Home" starts where the text below it starts,
+     and the last item ends where the column ends. -->
+<nav class="page-column type-ui flex items-center justify-between py-4 font-medium select-none">
 	{#each navItems as item (item.name)}
-		<div class="flex items-center gap-1 relative group">
-			<span class="w-4 flex items-center justify-center shrink-0">
-				{#if item.active}
-					<span class="w-1.5 h-1.5 bg-accent inline-block rounded-[1px]" aria-hidden="true"></span>
-				{/if}
-			</span>
-			<a
-				href={resolve(item.href)}
-				class="transition-colors whitespace-nowrap {item.active
-					? 'text-text-main font-comic font-bold'
-					: 'text-text-muted hover:text-text-main font-medium'}"
-			>
-				{item.name}
-			</a>
-		</div>
+		<a
+			href={resolve(item.href)}
+			aria-current={item.active ? 'page' : undefined}
+			class="relative whitespace-nowrap transition-colors {item.active
+				? 'text-text-main'
+				: 'text-text-muted hover:text-text-main'}"
+		>
+			{#if item.active}
+				<!-- The mark for the current page hangs in the margin, like the dates do. -->
+				<span
+					class="absolute top-1/2 -left-3.5 size-1.5 -translate-y-1/2 rounded-[1px] bg-accent"
+					aria-hidden="true"
+				></span>
+			{/if}
+			{item.name}
+		</a>
 	{/each}
 </nav>

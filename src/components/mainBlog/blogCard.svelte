@@ -6,14 +6,22 @@
 	/**
 	 * @typedef {Object} Props
 	 * @property {any} details
-	 * @property {any} [latest]
 	 */
 
 	/** @type {Props} */
-	let { details, latest } = $props();
+	let { details } = $props();
 
 	let isExternal = $derived(Boolean(details?.isExternal));
 	let isPinned = $derived(Boolean(details?.pinned));
+
+	// The title, all but its last word, and then that word (see the markup).
+	let words = $derived(
+		String(details?.title ?? '')
+			.trim()
+			.split(/\s+/)
+	);
+	let head = $derived(words.length > 1 ? `${words.slice(0, -1).join(' ')} ` : '');
+	let tail = $derived(words[words.length - 1]);
 
 	function formatDisplayDate(dateStr) {
 		const d = new Date(dateStr);
@@ -28,54 +36,42 @@
 	}
 </script>
 
-<div class="relative py-2 md:py-4 group">
-	<div class="flex items-baseline gap-3 md:block">
-		<!-- Date in gutter on md+ (hidden on mobile) -->
-		<div
-			class="w-[4.5rem] shrink-0 hidden md:flex items-center gap-1.5 whitespace-nowrap md:absolute md:-left-32 md:w-24 md:justify-end text-xs md:text-sm font-serif text-text-muted/60 italic mb-0 md:mb-0 date-gutter"
-		>
-			<div class="w-3.5 shrink-0 flex items-center justify-center">
-				{#if isPinned}
-					<Fa icon={faThumbTack} class="size-2.5 rotate-45 text-accent/60" aria-hidden="true" />
-				{/if}
-			</div>
-			<span>{formatDisplayDate(details.date)}</span>
-		</div>
+<!-- The title's words. Its marks follow, tied to the last word, so every title starts
+     at the same edge and no arrow or pin is ever left on a line by itself. -->
+{#snippet title()}
+	{head}<span class="whitespace-nowrap"
+		>{tail}{#if isExternal}<span
+				class="ml-1.5 inline-block align-middle text-accent"
+				aria-hidden="true"><Fa icon={faLongArrowRight} class="-rotate-45" /></span
+			>{/if}{#if isPinned}<span
+				class="ml-1.5 inline-block rotate-45 align-middle text-accent min-[60rem]:hidden"
+				aria-label="Pinned post"><Fa icon={faThumbTack} class="size-2.5" /></span
+			>{/if}</span
+	>
+{/snippet}
 
-		<div class="flex items-baseline gap-2 md:block hover:bg-accent/20 w-fit">
-			{#if isPinned}
-				<span class="inline-flex md:hidden items-center mr-1.5 text-accent/70 -rotate-45 shrink-0" aria-label="Pinned post">
-					<Fa icon={faThumbTack} class="size-3" />
-				</span>
-			{/if}
+<!-- A post in a list. Where there is room, its date hangs in the margin beside it. -->
+<div class="hang-row">
+	<div class="hang-meta max-[60rem]:hidden">
+		{#if isPinned}
+			<Fa
+				icon={faThumbTack}
+				class="size-2.5 rotate-45 self-center text-accent"
+				aria-hidden="true"
+			/>
+		{/if}
+		<time datetime={details.date}>{formatDisplayDate(details.date)}</time>
+	</div>
 
-			{#if isExternal}
-				<a
-					href={details.href}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-[17px] md:text-xl font-serif text-text-main decoration-border/40 underline-offset-4 hover:decoration-accent"
-				>
-					{details.title}<span class="inline-block align-middle ml-1 italic text-accent opacity-60"
-						><Fa icon={faLongArrowRight} class="-rotate-45" /></span
-					>
-				</a>
-			{:else}
-				<a
-					href={resolve('/blog/[slug]', { slug: details.slug })}
-					class="text-[17px] md:text-xl font-serif text-text-main decoration-border/40 underline-offset-4 hover:decoration-accent"
-				>
-					{details.title}
-				</a>
-			{/if}
-		</div>
+	<div class="type-list">
+		{#if isExternal}
+			<a href={details.href} target="_blank" rel="noopener noreferrer" class="row-link"
+				>{@render title()}</a
+			>
+		{:else}
+			<a href={resolve('/blog/[slug]', { slug: details.slug })} class="row-link"
+				>{@render title()}</a
+			>
+		{/if}
 	</div>
 </div>
-
-<style>
-	@media (min-width: 768px) {
-		.date-gutter {
-			top: 21px;
-		}
-	}
-</style>

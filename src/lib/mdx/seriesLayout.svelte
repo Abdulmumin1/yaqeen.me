@@ -8,11 +8,10 @@
 <script>
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
-	import Fa from 'svelte-fa';
 	import SeriesEpisodes from '../../components/mainBlog/seriesEpisodes.svelte';
 	import './styles.css';
-	import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 	import { renderMermaid } from '../utils/mermaid.js';
+	import { copyCode } from './copyCode.js';
 	import MermaidModal from '../../components/mainBlog/mermaidModal.svelte';
 
 	/**
@@ -28,7 +27,14 @@
 
 	let main;
 
-	onMount(() => renderMermaid(main));
+	onMount(() => {
+		const stopDiagrams = renderMermaid(main);
+		const stopCopying = copyCode(main);
+		return () => {
+			stopDiagrams();
+			stopCopying();
+		};
+	});
 </script>
 
 <div class="w-full">
@@ -39,34 +45,22 @@
 			>
 		{/each}
 	</div> -->
-	<div
-		class="space-y-5 max-w-[800px] w-full markdown-content text-base text-text-muted
-	"
-	>
-		<main class="container" bind:this={main}>
-			<!-- <h1 class="heading">SvelteKit Shiki Code Highlighting</h1> -->
+	<!-- How everything in here looks is in app.css, under "Articles". -->
+	<div class="markdown-content w-full">
+		<main bind:this={main}>
 			{@render children?.()}
 		</main>
-
-		<div class="pt-6 flex gap-3 flex-col">
-			<a href={resolve('/blog/series/[slug]', { slug: series })} class="skip">
-				<h3 class="flex gap-2 text-text-main hover:text-accent transition-colors">
-					<span class="uppercase">{series}</span> Series
-					<span class="text-sm"><Fa icon={faExternalLink} /></span>
-				</h3>
-			</a>
-
-			<SeriesEpisodes {series} highlight={episode} />
-		</div>
 	</div>
+
+	<!-- The rest of the series this post belongs to. -->
+	<section class="mt-(--gap-section) border-t border-border pt-10">
+		<h2 class="section-heading">
+			<a href={resolve('/blog/series/[slug]', { slug: series })} class="row-link">
+				<span class="uppercase">{series}</span> series
+			</a>
+		</h2>
+		<SeriesEpisodes {series} highlight={episode} />
+	</section>
 
 	<MermaidModal />
 </div>
-
-<style>
-	.container {
-		display: flex;
-		gap: 20px;
-		flex-direction: column;
-	}
-</style>

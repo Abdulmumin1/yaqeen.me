@@ -43,16 +43,15 @@
 	}
 </script>
 
-<footer class="butterfly-footer w-full py-10 px-6 flex flex-col gap-3 text-xs text-text-muted">
+<footer class="butterfly-footer type-tiny flex w-full flex-col gap-3 py-10 text-text-muted">
 	<!-- A few live butterflies. They sit on whatever in here is marked data-perch... -->
 	<ButterflyGarden />
 
 	<!-- ...which includes the flowers they come for, standing along the bottom edge. -->
 	<div class="flower-bed"><GardenBed /></div>
 
-	<div class="footer-content max-w-2xl mx-auto w-full flex flex-col gap-3 relative">
-		<!-- Beautiful watercolor ginkgo tree standing tall on the left of footer content -->
-
+	<!-- In the page column, so it lines up with the nav and with whatever page is above it. -->
+	<div class="footer-content page-column relative flex flex-col gap-3">
 		<div class="flex gap-3" data-perch>
 			<a
 				href={links.github}
@@ -88,7 +87,7 @@
 			<button
 				type="button"
 				onclick={copyEmailAddress}
-				class="w-fit text-left hover:text-primary transition-colors"
+				class="w-fit text-left hover:text-text-main transition-colors"
 				aria-label="Copy email address"
 				data-perch
 			>
@@ -96,13 +95,13 @@
 			</button>
 		</div>
 
-		<div class="flex gap-2 text-[10px]">
+		<div class="flex gap-2">
 			<a href="/about" class="hover:text-text-main transition-colors">about</a>
-			<span>/</span>
+			<span class="text-text-faint" aria-hidden="true">/</span>
 			<a href={links.linkedin} class="hover:text-text-main transition-colors">linkedin</a>
-			<span>/</span>
+			<span class="text-text-faint" aria-hidden="true">/</span>
 			<a href={resolve('/photos')} class="hover:text-text-main transition-colors">photos</a>
-			<span>/</span>
+			<span class="text-text-faint" aria-hidden="true">/</span>
 			<button
 				type="button"
 				onclick={toggleTheme}
@@ -110,7 +109,7 @@
 			>
 				{$darkMode ? 'light mode' : 'dark mode'}
 			</button>
-			<span>/</span>
+			<span class="text-text-faint" aria-hidden="true">/</span>
 			<button
 				type="button"
 				onclick={() => (doodle.active = true)}

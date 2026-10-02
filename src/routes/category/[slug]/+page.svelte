@@ -50,25 +50,25 @@
 	<Seo title={pageTitle} description={pageDescription} {canonical} robots="noindex, follow" />
 </svelte:head>
 
-<section in:scale class="max-w-2xl mx-auto px-6 py-8">
-	<div class="flex flex-col gap-6">
-		<div class="flex flex-col gap-2">
-			<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">category</p>
-			<h1 class="text-sm font-bold text-primary uppercase tracking-widest">{$page.params.slug}</h1>
+<section in:scale class="page">
+	<div class="grid gap-(--gap-section)">
+		<div>
+			<p class="type-tiny font-mono tracking-[0.08em] text-text-faint uppercase">category</p>
+			<h1 class="type-title text-text-main">{$page.params.slug}</h1>
 		</div>
 
 		{#if latest}
-			<div class="flex flex-col gap-4">
-				<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">
-					{latest?.pinned ? 'pinned' : 'latest'}
-				</p>
-				<BlogCard details={latest} latest={true} />
+			<div>
+				<h2 class="section-heading">{latest?.pinned ? 'Pinned' : 'Latest'}</h2>
+				<div class="row-list">
+					<BlogCard details={latest} />
+				</div>
 			</div>
 		{/if}
 
-		<div class="flex flex-col gap-4">
-			<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted">more-posts</p>
-			<div class="flex flex-col">
+		<div>
+			<h2 class="section-heading">More posts</h2>
+			<div class="row-list">
 				{#each currentPageData as post (post.slug)}
 					<BlogCard details={post} />
 				{/each}
@@ -76,18 +76,18 @@
 		</div>
 
 		{#if showPagination}
-			<div class="flex justify-between items-center pt-4">
+			<div class="type-small flex items-center justify-between text-text-muted">
 				<button
 					onclick={prev}
 					disabled={mutePrev}
-					class="text-xs text-text-muted hover:text-text-main disabled:opacity-20 transition-colors flex items-center gap-1"
+					class="flex items-center gap-1 transition-colors hover:text-text-main disabled:opacity-20"
 				>
 					<Fa icon={faAngleLeft} /> prev
 				</button>
 				<button
 					onclick={next}
 					disabled={muteNext}
-					class="text-xs text-text-muted hover:text-text-main disabled:opacity-20 transition-colors flex items-center gap-1"
+					class="flex items-center gap-1 transition-colors hover:text-text-main disabled:opacity-20"
 				>
 					next <Fa icon={faAngleRight} />
 				</button>

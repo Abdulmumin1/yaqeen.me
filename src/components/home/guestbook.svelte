@@ -374,7 +374,7 @@
 		class:moon-message-active={moonMessageVisible}
 		class="moon-phase-tooltip pointer-events-none absolute top-0 left-[3.25rem] flex h-10 items-center"
 	>
-		<p class="m-0 w-max font-visby text-[0.7rem] leading-none whitespace-nowrap text-text-muted">
+		<p class="m-0 w-max font-visby text-[0.75rem] leading-none whitespace-nowrap text-text-muted">
 			{moonPhase.name.toLowerCase()} · {moonPhase.illumination}% illuminated
 		</p>
 	</div>

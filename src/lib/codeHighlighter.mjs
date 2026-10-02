@@ -74,14 +74,37 @@ function rangeParser(rangeString) {
 	return result;
 }
 
+// What a fence says its language is, as the corner of a listing should name it.
+const LANGUAGE_NAMES = {
+	js: 'javascript',
+	ts: 'typescript',
+	py: 'python',
+	sh: 'bash',
+	shell: 'bash',
+	docker: 'dockerfile'
+};
+const UNNAMED = new Set(['', 'text', 'txt', 'plaintext']);
+
 /**
- * @param html {string} - code to highlight
- * @returns {string} - highlighted html
+ * Wraps a listing so it can carry a corner (see `.code` in app.css): the corner
+ * names the language, and copies the listing when it is pressed
+ * (src/lib/mdx/copyCode.js).
+ *
+ * @param html {string} - highlighted html
+ * @param lang {string} - the fence's language
+ * @returns {string} - the listing, focusable and wrapped
  */
-function makeFocussable(html) {
+function frame(html, lang) {
 	const root = parse(html);
 	root.querySelector('pre').setAttribute('tabIndex', '0');
-	return root.toString();
+	const name = String(lang ?? '')
+		.toLowerCase()
+		.replace(/[^a-z0-9+#.-]/g, '');
+	const label = UNNAMED.has(name) ? '' : (LANGUAGE_NAMES[name] ?? name);
+	return (
+		`<div class="code">${root.toString()}` +
+		`<button type="button" class="code-copy" data-label="${label}" aria-label="Copy this code"></button></div>`
+	);
 }
 
 /**
@@ -114,8 +137,7 @@ async function highlighter(code, lang, meta) {
 			}))
 		});
 	}
-	html = makeFocussable(html);
-	return escapeHtml(html);
+	return escapeHtml(frame(html, lang));
 }
 
 export default highlighter;

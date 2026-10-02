@@ -204,18 +204,25 @@
 
 	<div class="horizontal-pin">
 		<div bind:this={rowNode} class="horizontal-track">
-			<article class="work-slide intro-slide" data-slide-index={0}>
-				<div class="intro-card">
-					<p class="intro-text">
-						 I’ve spent 4+ years doing product engineering at
-						<a href="https://cloudplexo.com" target="_blank" rel="noopener noreferrer">CloudPlexo</a>,
-						leading a team of 3 to build
-						<a href="https://agentspec.ai" target="_blank" rel="noopener noreferrer">AgentSpec.ai</a>,
-						<a href="https://wendu.io" target="_blank" rel="noopener noreferrer">Wendu.io</a>, and
-						<a href="https://checkitme.com" target="_blank" rel="noopener noreferrer">Checkitme.com</a>.
-						I’m a product engineer, rooted in doing infra for agents. I would also say I have a good eye for design.
-					</p>
-				</div>
+			<!-- The words that open the strip sit in the page column, in the same type as the
+			     intro on the home page: /work begins where every other page begins. -->
+			<article class="work-slide intro-slide opening" data-slide-index={0}>
+				<p class="intro-text type-lead text-balance">
+					I’ve spent 4+ years doing product engineering at
+					<a class="link" href="https://cloudplexo.com" target="_blank" rel="noopener noreferrer"
+						>CloudPlexo</a
+					>, leading a team of 3 to build
+					<a class="link" href="https://agentspec.ai" target="_blank" rel="noopener noreferrer"
+						>AgentSpec.ai</a
+					>,
+					<a class="link" href="https://wendu.io" target="_blank" rel="noopener noreferrer"
+						>Wendu.io</a
+					>, and
+					<a class="link" href="https://checkitme.com" target="_blank" rel="noopener noreferrer"
+						>Checkitme.com</a
+					>. I’m a product engineer, rooted in doing infra for agents. I would also say I have a
+					good eye for design.
+				</p>
 			</article>
 			{#each favorites as project, index (project.name)}
 				{@const videoId = videoFor(project)}
@@ -282,62 +289,82 @@
 					</a>
 				</article>
 			{/each}
-			<article class="work-slide intro-slide" data-slide-index={favorites.length + 1}>
-				<div class="intro-card">
-					<p class="intro-text">
-						I'm a bit of open source guy and i do it from time to time. I’ve made
-						contributions to notable projects like
-						<a href="https://github.com/sveltejs/svelte" target="_blank" rel="noopener noreferrer">Svelte</a>,
-						<a href="https://github.com/pydantic/pydantic" target="_blank" rel="noopener noreferrer">Pydantic</a>,
-						<a href="https://github.com/huntabyte/shadcn-svelte" target="_blank" rel="noopener noreferrer">shadcn-svelte</a>,
-						<a href="https://github.com/hookdeck/outpost" target="_blank" rel="noopener noreferrer">Outpost</a>,
-						and
-						<a href="https://github.com/flet-dev/flet" target="_blank" rel="noopener noreferrer">Flet</a>.
-						I used to run a
-						<a href="https://youtube.com/abdulmuminyqn" target="_blank" rel="noopener noreferrer">youtube channel</a> a few years ago
-					</p>
-				</div>
+			<article class="work-slide intro-slide closing" data-slide-index={favorites.length + 1}>
+				<p class="intro-text type-lead text-balance">
+					I'm a bit of open source guy and i do it from time to time. I’ve made contributions to
+					notable projects like
+					<a
+						class="link"
+						href="https://github.com/sveltejs/svelte"
+						target="_blank"
+						rel="noopener noreferrer">Svelte</a
+					>,
+					<a
+						class="link"
+						href="https://github.com/pydantic/pydantic"
+						target="_blank"
+						rel="noopener noreferrer">Pydantic</a
+					>,
+					<a
+						class="link"
+						href="https://github.com/huntabyte/shadcn-svelte"
+						target="_blank"
+						rel="noopener noreferrer">shadcn-svelte</a
+					>,
+					<a
+						class="link"
+						href="https://github.com/hookdeck/outpost"
+						target="_blank"
+						rel="noopener noreferrer">Outpost</a
+					>, and
+					<a
+						class="link"
+						href="https://github.com/flet-dev/flet"
+						target="_blank"
+						rel="noopener noreferrer">Flet</a
+					>. I used to run a
+					<a
+						class="link"
+						href="https://youtube.com/abdulmuminyqn"
+						target="_blank"
+						rel="noopener noreferrer">youtube channel</a
+					> a few years ago
+				</p>
 			</article>
 		</div>
 	</div>
 </div>
 
-<div class="max-w-3xl mx-auto px-6 md:px-12 py-16">
-	<section class="mt-20" aria-labelledby="all-projects-heading">
-		<h2 id="all-projects-heading" class="mb-5 text-2xl font-normal">More projects</h2>
-		<div class="divide-y divide-border border-y border-border">
+<!-- Everything else, in the same kind of list as the writing on the home page:
+     a name to a row, with its year hanging in the margin. A row opens to say more. -->
+<div class="page">
+	<section aria-labelledby="all-projects-heading">
+		<h2 id="all-projects-heading" class="section-heading">More projects</h2>
+		<div class="row-list">
 			{#each otherProjects as project (project.name)}
-				<details class="group py-4">
-					<summary
-						class="flex cursor-pointer list-none items-baseline justify-between gap-4 text-base marker:hidden"
-					>
-						<span class="group-open:text-accent">{project.name}</span>
-						<span class="font-mono text-xs text-text-muted">{project.year}</span>
+				<details class="more-row">
+					<summary class="hang-row type-list">
+						<span class="hang-meta">{project.year}</span>
+						<span class="more-name row-link">{project.name}</span>
 					</summary>
-					<div class="space-y-3 pb-2 pt-4 text-sm leading-relaxed text-text-muted">
-						<p>{project.description}</p>
-						<a
-							class="text-accent underline underline-offset-4"
-							href={linkFor(project)}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+					<div class="more-body">
+						<p class="type-ui text-text-muted">{project.description}</p>
+						<a class="tiny-link" href={linkFor(project)} target="_blank" rel="noopener noreferrer">
 							open project →
 						</a>
 					</div>
 				</details>
 			{/each}
+			<a
+				class="tiny-link self-start"
+				href="https://github.com/Abdulmumin1"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				more on github →
+			</a>
 		</div>
 	</section>
-
-	<footer class="pt-8 text-sm text-text-muted flex justify-between">
-		<a
-			class="hover:text-text-main transition-colors"
-			href="https://github.com/Abdulmumin1"
-			target="_blank"
-			rel="noopener noreferrer">more on github ↗</a
-		>
-	</footer>
 </div>
 
 <style>
@@ -346,38 +373,37 @@
 		background: var(--color-surface);
 	}
 
-	.work-progress,
 	.project-meta {
-		font-family: var(--font-commit);
-		font-size: 0.7rem;
-		letter-spacing: 0.1em;
+		font-family: var(--site-font-utility);
+		font-size: 0.75rem;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 
 	.intro-slide {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		padding-inline: clamp(1.5rem, 6vw, 6rem);
 	}
 
-	.intro-card {
-		/*background: color-mix(in srgb, var(--color-accent) 22%, transparent);
-		border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
-		border-radius: 4px;*/
-		padding: clamp(1.5rem, 3vw, 2.5rem);
-		max-width: 38rem;
+	/* The page column, measured from the strip itself (100cqw is its width, with
+	   no scrollbar in it) so the words line up with the nav above them. */
+	.intro-slide.opening {
+		width: max(min(76vw, 68rem), calc((100cqw + 39rem) / 2 + 3rem));
+		padding-left: max(1.5rem, calc((100cqw - 39rem) / 2));
+		padding-right: 3rem;
+	}
+
+	/* At the far end the strip stops with these words in the column again. */
+	.intro-slide.closing {
+		width: calc((100cqw + 39rem) / 2);
+		min-width: 22rem;
+		padding-right: max(1.5rem, calc((100cqw - 39rem) / 2));
 	}
 
 	.intro-text {
-		font-size: clamp(1.05rem, 1.5vw, 1.35rem);
-		line-height: 1.65;
+		max-width: 39rem;
+		margin: 0;
 		color: var(--color-text-main);
-	}
-
-	.intro-text a {
-		color: var(--color-accent);
-		text-decoration: none;
 	}
 
 	.horizontal-pin {
@@ -386,6 +412,7 @@
 		height: 100vh;
 		width: 100%;
 		overflow: hidden;
+		container-type: inline-size;
 		will-change: transform;
 	}
 
@@ -577,9 +604,52 @@
 	.project-overlay p {
 		max-width: 36rem;
 		margin: 0.8rem 0 0;
-		color: rgb(255 255 255 / 0.78);
-		font-size: clamp(0.9rem, 1.2vw, 1.05rem);
-		line-height: 1.45;
+		color: rgb(255 255 255 / 0.82);
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+
+	@media (min-width: 48rem) {
+		.project-overlay p {
+			font-size: 1rem;
+		}
+	}
+
+	/* A row of the list: closed, it is a name and a year; open, it says what the thing is. */
+	.more-row summary {
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.more-row summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.more-row[open] .more-name {
+		text-decoration-color: var(--color-accent);
+	}
+
+	.more-body {
+		display: grid;
+		justify-items: start;
+		gap: 0.5rem;
+		padding: 0.25rem 0 0.5rem;
+	}
+
+	.more-body p {
+		margin: 0;
+		max-width: 34rem;
+	}
+
+	/* Where the margin is too narrow for the year to hang, it sits at the end of the row. */
+	@media (max-width: 59.99rem) {
+		.more-row summary {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 1rem;
+		}
 	}
 
 	.project-copy {
@@ -599,8 +669,16 @@
 	}
 
 	@media (max-width: 700px) {
+		/* Stacked, in the same gutters as the rest of the site. */
 		.horizontal-scene {
-			padding: 1rem;
+			padding: 1rem 1.5rem;
+		}
+
+		.intro-slide.opening,
+		.intro-slide.closing {
+			width: 100%;
+			min-width: 0;
+			padding: 1.5rem 0;
 		}
 
 		.work-progress {

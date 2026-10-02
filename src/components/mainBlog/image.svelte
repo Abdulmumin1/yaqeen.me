@@ -37,7 +37,7 @@
 		onclick={openModal}
 		aria-label={alt ? `Expand image: ${alt}` : 'Expand image'}
 	>
-		<img {src} {alt} class="thumbnail rounded-lg" />
+		<img {src} {alt} class="thumbnail" />
 	</button>
 	{#if alt}
 		<span class="caption">{alt}</span>
@@ -92,7 +92,7 @@
 		background: none;
 		padding: 0;
 		outline: none;
-		border-radius: var(--radius-xl, 0.75rem);
+		border-radius: 0.5rem;
 		overflow: hidden;
 	}
 
@@ -101,14 +101,16 @@
 		height: auto;
 		display: block;
 		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
 	}
 
 	.caption {
 		display: block;
 		text-align: center;
 		font-style: italic;
-		margin-top: 0.75em;
-		font-size: 13px;
+		margin-top: 0.7rem;
+		font-size: 0.875rem;
+		line-height: 1.45;
 		color: var(--color-text-muted);
 	}
 

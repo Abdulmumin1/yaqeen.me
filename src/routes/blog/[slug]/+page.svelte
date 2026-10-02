@@ -205,17 +205,16 @@
 	<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
 
-<article class="max-w-2xl mx-auto px-2 md:px-6 flex flex-col gap-4">
-	<hgroup class="flex flex-col gap-4 py-">
-		<h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-text-main leading-tight">
+<article class="flex flex-col gap-8">
+	<hgroup class="flex flex-col gap-4">
+		<h1 class="type-title text-text-main text-balance">
 			{data.meta.title}
 		</h1>
+		<!-- Dates look the same here as they do in the lists that lead here. -->
 		<div
-			class="flex items-baseline gap-4 text-sm font-serif text-text-muted italic border-b border-border/20 pb-6"
+			class="type-small flex items-baseline gap-4 border-b border-border pb-6 text-text-faint italic"
 		>
-			<span class="text-accent not-italic font-mono text-[10px] tracking-widest uppercase"
-				>{formatDate(data.meta.date)}</span
-			>
+			<time datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
 			{#if data.meta.date != data.meta.lastmod}
 				<span>edited {formatDate(data.meta.lastmod)}</span>
 			{/if}
@@ -228,9 +227,9 @@
 		</div>
 	</section>
 
-	<div class="pt-12 border-t border-border/20 mt-12 mb-20">
-		<p class="text-[9px] font-mono uppercase tracking-[0.3em] text-text-muted mb-3">/share</p>
-		<div class="flex gap-3 text-xs text-text-muted">
+	<div class="mt-12 border-t border-border pt-10">
+		<p class="tiny-link mb-3">/share</p>
+		<div class="type-small flex gap-3 text-text-muted">
 			<button
 				onclick={() => copyUrlToClipboard(shareUrl)}
 				class="hover:text-text-main transition-colors"
@@ -276,7 +275,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="mt-16">
+	<div class="mt-(--gap-section)">
 		<Ad />
 	</div>
 </article>

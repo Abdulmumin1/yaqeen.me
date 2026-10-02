@@ -44,11 +44,11 @@
 	<svelte:element this={'script'} type="application/ld+json">{homeSchema}</svelte:element>
 </svelte:head>
 
-<div class="relative py-12 md:py-24 max-w-2xl mx-auto px-6">
+<div class="page relative">
 	<Butterfly />
 	<Hero />
 
-	<div class="mt-16 space-y-20">
+	<div class="home-sections">
 		<ProSection />
 		<BlogSection {data} />
 		<div class="hidden">
@@ -64,3 +64,12 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	/* The same gap after the intro, and between every section that follows it. */
+	.home-sections {
+		display: grid;
+		gap: var(--gap-section);
+		margin-top: var(--gap-section);
+	}
+</style>

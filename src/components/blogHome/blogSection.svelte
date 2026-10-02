@@ -4,7 +4,7 @@
 	let { data } = $props();
 </script>
 
-<div class="w-full space-y-4 md:space-y-8 flex flex-col" id="blog">
-	<h2 class="text-xl md:text-3xl font-serif text-text-main">Writing</h2>
+<section class="w-full" id="blog" aria-labelledby="writing-heading">
+	<h2 id="writing-heading" class="section-heading">Writing</h2>
 	<BlogSGrid {data} />
-</div>
+</section>

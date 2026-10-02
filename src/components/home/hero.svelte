@@ -22,9 +22,7 @@
 
 	<!-- Hover the nickname (or tap it) and a print of the man himself floats up: see peeks.js. -->
 	<HoverPeek subjects={[{ name: 'yaqeen' }]}>
-		<p
-			class="text-xl sm:text-2xl md:text-3xl font-visby leading-relaxed text-text-main text-balance"
-		>
+		<p class="type-lead text-text-main text-balance">
 			Hi, call me
 			<button
 				type="button"
@@ -51,17 +49,12 @@
 					yaqeen
 				</span>
 			</button>. I enjoy building products. I also write a lot, and some of it ends up here on my
-			<a
-				href={resolve('/blog')}
-				class="text-text-main underline decoration-accent/45 underline-offset-4"
-			>
-				blog</a
-			>. You can find me on
+			<a href={resolve('/blog')} class="link">blog</a>. You can find me on
 			{#each socials as social, index (social.name)}
 				{#if index > 0}<span aria-hidden="true">, </span>{:else}{' '}{/if}
 				<a
 					href={social.href.startsWith('/') ? resolve(social.href) : social.href}
-					class="font-mono text-[0.72em] tracking-wide text-accent/80 underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent"
+					class="font-mono text-[0.72em] tracking-wide text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
 				>
 					{social.name}
 				</a>

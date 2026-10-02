@@ -9,6 +9,7 @@
 	import { onMount } from 'svelte';
 	import './styles.css';
 	import { renderMermaid } from '../utils/mermaid.js';
+	import { copyCode } from './copyCode.js';
 	import MermaidModal from '../../components/mainBlog/mermaidModal.svelte';
 
 	/**
@@ -26,10 +27,17 @@
 
 	let main;
 
-	onMount(() => renderMermaid(main));
+	onMount(() => {
+		const stopDiagrams = renderMermaid(main);
+		const stopCopying = copyCode(main);
+		return () => {
+			stopDiagrams();
+			stopCopying();
+		};
+	});
 </script>
 
-<div class="w-full max-w-2xl mx-auto {isPoetry ? 'poetry-layout' : ''}">
+<div class="w-full {isPoetry ? 'poetry-layout' : ''}">
 	<!-- <div class="flex gap-2 flex-wrap mb-4">
 		{#each categories as tag}
 			<span class="text-[10px] font-mono text-text-muted">
@@ -38,19 +46,12 @@
 		{/each}
 	</div> -->
 
-	<div class="space-y-4 w-full markdown-content text-sm text-text-muted">
-		<main class="container" bind:this={main}>
+	<!-- How everything in here looks is in app.css, under "Articles". -->
+	<div class="markdown-content w-full">
+		<main bind:this={main}>
 			{@render children?.()}
 		</main>
 	</div>
 
 	<MermaidModal />
 </div>
-
-<style>
-	.container {
-		display: flex;
-		gap: 12px;
-		flex-direction: column;
-	}
-</style>

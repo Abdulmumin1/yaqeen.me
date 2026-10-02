@@ -54,12 +54,11 @@
 	/>
 </svelte:head>
 
-<div class="max-w-2xl mx-auto px-6 py-12 md:py-24">
+<div class="page">
+	<h1 class="sr-only">Projects</h1>
 	<div class="flex flex-col gap-6">
-		<div class="flex flex-col">
-			{#each [...$sass_projects, ...$project_data, ...mini_projects] as project (project.name)}
-				<Template details={project} />
-			{/each}
-		</div>
+		{#each [...$sass_projects, ...$project_data, ...mini_projects] as project (project.name)}
+			<Template details={project} />
+		{/each}
 	</div>
 </div>

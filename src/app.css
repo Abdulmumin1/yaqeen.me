@@ -56,9 +56,15 @@
 	--color-surface-muted: var(--color-orange-100);
 	--color-border: var(--color-orange-200);
 
-	/* Text colors - Light theme defaults */
+	/* Text colors - Light theme defaults.
+	   Four strengths of one ink: main for headings, titles and names; body for
+	   long-form prose; muted for whatever supports them; faint for dates and
+	   small print. The accent is not a text colour (it fails contrast at small
+	   sizes): it marks the name, the active page, and links' underlines. */
 	--color-text-main: var(--color-black);
+	--color-text-body: var(--color-stone-700);
 	--color-text-muted: var(--color-stone-600);
+	--color-text-faint: var(--color-stone-500);
 
 	--color-accent: #f9411f;
 	--color-accent-muted: rgba(249, 65, 31, 0.3);
@@ -115,26 +121,39 @@ h6 {
 		--site-font-body: 'Archivo Variable', 'Inter', system-ui, sans-serif;
 		--site-font-display: 'Pilcrow Rounded', 'Archivo Variable', system-ui, sans-serif;
 		--site-font-utility: 'Pilcrow Rounded', 'Archivo Variable', system-ui, sans-serif;
+		--site-font-code: 'Commit Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
 		--color-surface: var(--color-orange-50);
 		--color-surface-soft: var(--color-orange-50);
-		--color-surface-muted: var(--color-orange-100);
-		--color-border: var(--color-orange-200);
+		/* Hairlines, and the ground that code and other quiet fills sit on, are
+		   tints of the ink on the page (14% and 5.5%), not a second orange. */
+		--color-surface-muted: #f3ebe1;
+		--color-border: #dfd8cf;
 		--color-text-main: #1c1917;
+		--color-text-body: #3d3935;
 		--color-text-muted: #78716c;
+		--color-text-faint: #918a84;
 
-		/* Shiki Light Theme */
-		--shiki-color-text: #24292e;
+		/* Rhythm: how far a page starts under the nav, the gap between its
+		   sections, between a heading and what it heads, and between rows. */
+		--page-top: 3rem;
+		--gap-section: 3rem;
+		--gap-heading: 1rem;
+		--gap-row: 0.875rem;
+
+		/* Code listings: the ink, with rust for keywords, indigo for what is
+		   called, moss for strings and amber for constants. */
+		--shiki-color-text: #292524;
 		--shiki-color-background: transparent;
-		--shiki-token-constant: #005cc5;
-		--shiki-token-string: #032f62;
-		--shiki-token-comment: #6a737d;
-		--shiki-token-keyword: #d73a49;
-		--shiki-token-parameter: #24292e;
-		--shiki-token-function: #6f42c1;
-		--shiki-token-string-expression: #22863a;
-		--shiki-token-punctuation: #24292e;
-		--shiki-token-link: #005cc5;
+		--shiki-token-constant: #875500;
+		--shiki-token-string: #4a6b1e;
+		--shiki-token-comment: #857e77;
+		--shiki-token-keyword: #b4380f;
+		--shiki-token-parameter: #3d3935;
+		--shiki-token-function: #4a40ad;
+		--shiki-token-string-expression: #4a6b1e;
+		--shiki-token-punctuation: #6b645e;
+		--shiki-token-link: #4a40ad;
 	}
 
 	.dark {
@@ -143,20 +162,31 @@ h6 {
 		--color-surface-muted: #2a2724;
 		--color-border: #3d3834;
 		--color-text-main: #f5f5f4;
+		--color-text-body: #d6d3d1;
 		--color-text-muted: #a8a29e;
+		--color-text-faint: #857f7a;
 
-		/* Shiki Dark Theme */
-		--shiki-color-text: #e1e4e8;
+		/* Code listings, by night */
+		--shiki-color-text: #e7e5e4;
 		--shiki-color-background: transparent;
-		--shiki-token-constant: #79b8ff;
-		--shiki-token-string: #9ecbff;
-		--shiki-token-comment: #6a737d;
-		--shiki-token-keyword: #f97583;
-		--shiki-token-parameter: #e1e4e8;
-		--shiki-token-function: #b392f0;
-		--shiki-token-string-expression: #85e89d;
-		--shiki-token-punctuation: #e1e4e8;
-		--shiki-token-link: #79b8ff;
+		--shiki-token-constant: #f0c36a;
+		--shiki-token-string: #b5d98a;
+		--shiki-token-comment: #8a847f;
+		--shiki-token-keyword: #ff8563;
+		--shiki-token-parameter: #d6d3d1;
+		--shiki-token-function: #b4b9ff;
+		--shiki-token-string-expression: #b5d98a;
+		--shiki-token-punctuation: #a8a29e;
+		--shiki-token-link: #b4b9ff;
+	}
+
+	@media (width >= 48rem) {
+		:root {
+			--page-top: 6rem;
+			--gap-section: 4rem;
+			--gap-heading: 1.5rem;
+			--gap-row: 1rem;
+		}
 	}
 
 	body {
@@ -175,6 +205,178 @@ h6 {
 		outline: 2px solid var(--color-accent);
 		outline-offset: 3px;
 		transition: none !important;
+	}
+}
+
+/* =============================================================================
+  The system
+  One column, a handful of text sizes, four strengths of ink. Every page is
+  built from these, so nothing shifts when you move from one to the next.
+  ============================================================================= */
+
+/* The column: a 39rem measure with a gutter either side. The nav, every page
+   and the footer all sit in it, so they share their left and right edges. */
+@utility page-column {
+	width: 100%;
+	max-width: 42rem;
+	margin-inline: auto;
+	padding-inline: 1.5rem;
+}
+
+/* A whole page: the column, starting the same distance under the nav everywhere. */
+@utility page {
+	width: 100%;
+	max-width: 42rem;
+	margin-inline: auto;
+	padding: var(--page-top) 1.5rem;
+}
+
+/* Text comes in these sizes and no others. Each steps up once, at 48rem. */
+@utility type-title {
+	font-family: var(--site-font-display);
+	font-size: 1.875rem;
+	font-weight: 400;
+	line-height: 1.15;
+	@media (width >= 48rem) {
+		font-size: 2.5rem;
+	}
+}
+
+@utility type-heading {
+	font-family: var(--site-font-display);
+	font-size: 1.375rem;
+	font-weight: 400;
+	line-height: 1.2;
+	@media (width >= 48rem) {
+		font-size: 1.875rem;
+	}
+}
+
+/* The opening statement of a page. */
+@utility type-lead {
+	font-size: 1.25rem;
+	line-height: 1.6;
+	@media (width >= 48rem) {
+		font-size: 1.875rem;
+	}
+}
+
+/* A row in a list: a project, a post. */
+@utility type-list {
+	font-size: 1.0625rem;
+	line-height: 1.6;
+	@media (width >= 48rem) {
+		font-size: 1.25rem;
+	}
+}
+
+/* Prose that is read at length. */
+@utility type-body {
+	font-size: 1rem;
+	line-height: 1.7;
+	@media (width >= 48rem) {
+		font-size: 1.125rem;
+	}
+}
+
+@utility type-ui {
+	font-size: 0.875rem;
+	line-height: 1.5;
+	@media (width >= 48rem) {
+		font-size: 1rem;
+	}
+}
+
+@utility type-small {
+	font-size: 0.875rem;
+	line-height: 1.45;
+}
+
+@utility type-tiny {
+	font-size: 0.75rem;
+	line-height: 1.4;
+	letter-spacing: 0.02em;
+}
+
+/* A section's heading, and the rows under it. */
+@utility section-heading {
+	margin: 0 0 var(--gap-heading);
+	color: var(--color-text-main);
+	font-family: var(--site-font-display);
+	font-size: 1.375rem;
+	font-weight: 400;
+	line-height: 1.2;
+	@media (width >= 48rem) {
+		font-size: 1.875rem;
+	}
+}
+
+@utility row-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-row);
+}
+
+/* A row with something small hanging in the margin to its left (a date, a
+   year), once the margin is wide enough to hold it. The two share a baseline. */
+@utility hang-row {
+	@media (width >= 60rem) {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		column-gap: 2rem;
+		align-items: baseline;
+		margin-left: -8rem;
+	}
+}
+
+@utility hang-meta {
+	color: var(--color-text-faint);
+	font-size: 0.875rem;
+	font-style: italic;
+	white-space: nowrap;
+	@media (width >= 60rem) {
+		display: flex;
+		align-items: baseline;
+		justify-content: flex-end;
+		gap: 0.375rem;
+	}
+}
+
+/* A link in running text: ink, with the accent only in its underline. */
+@utility link {
+	color: var(--color-text-main);
+	text-decoration-line: underline;
+	text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+	text-underline-offset: 0.2em;
+	transition: text-decoration-color 160ms ease;
+	&:hover {
+		text-decoration-color: var(--color-accent);
+	}
+}
+
+/* A title in a list. It is plainly a link already; the underline waits for the cursor. */
+@utility row-link {
+	color: var(--color-text-main);
+	text-decoration-line: underline;
+	text-decoration-color: transparent;
+	text-underline-offset: 0.2em;
+	transition: text-decoration-color 160ms ease;
+	&:hover {
+		text-decoration-color: var(--color-accent);
+	}
+}
+
+/* The small print at the foot of a list: "more on github", "/all-posts". */
+@utility tiny-link {
+	color: var(--color-text-faint);
+	font-family: var(--site-font-utility);
+	font-size: 0.75rem;
+	line-height: 1.4;
+	letter-spacing: 0.04em;
+	text-transform: lowercase;
+	transition: color 160ms ease;
+	&:hover {
+		color: var(--color-text-main);
 	}
 }
 
@@ -235,60 +437,404 @@ h6 {
 		@apply transition-colors duration-300 hover:text-primary;
 	}
 
-	/* Article Typography */
+	/* =========================================================================
+	  Articles
+	  Everything a post can contain, on the same ink, measure and rhythm as the
+	  rest of the site. Hairlines and code sit on tints of the ink; the accent
+	  is kept for a link's underline, the rule beside a quotation and the
+	  marker pen.
+	  ========================================================================= */
 	.article,
 	.markdown-content {
-		@apply space-y-10;
+		color: var(--color-text-body);
 	}
 
 	.markdown-content main {
-		@apply space-y-3 text-lg leading-relaxed;
+		@apply type-body;
 	}
 
-	.article h1,
-	.markdown-content h1 {
-		@apply text-4xl font-serif leading-tight pt-6 pb-2;
+	/* Rhythm: a line and a bit between blocks. A heading stands well clear of
+	   what came before it and close to what it introduces. */
+	.markdown-content main > * {
+		margin-block: 0;
+	}
+
+	.markdown-content main > * + * {
+		margin-top: 1.35em;
+	}
+
+	.article :is(h1, h2, h3, h4),
+	.markdown-content :is(h1, h2, h3, h4) {
+		color: var(--color-text-main);
+		font-family: var(--site-font-display);
+		font-weight: 400;
+		text-wrap: balance;
+	}
+
+	.article :is(h1, h2),
+	.markdown-content :is(h1, h2) {
+		font-size: 1.5rem;
+		line-height: 1.2;
 	}
 
 	.article h2,
 	.markdown-content h2 {
-		@apply text-3xl font-serif leading-tight pt-5 pb-0 capitalize;
-		margin-bottom: 0.25rem;
+		text-transform: capitalize;
 	}
 
 	.article h3,
 	.markdown-content h3 {
-		@apply text-2xl font-serif leading-snug pt-3.5 pb-0;
-		margin-bottom: 0.25rem;
+		font-size: 1.25rem;
+		line-height: 1.25;
 	}
 
 	.article h4,
 	.markdown-content h4 {
-		@apply text-xl font-serif leading-snug pt-2 pb-0;
-		margin-bottom: 0.25rem;
+		font-size: 1.125rem;
+		line-height: 1.3;
 	}
 
-	.article :is(h1, h2, h3, h4, h5) + :is(h1, h2, h3, h4, h5, h6),
-	.markdown-content :is(h1, h2, h3, h4, h5) + :is(h1, h2, h3, h4, h5, h6) {
-		padding-top: 0 !important;
-		margin-top: 0 !important;
+	.markdown-content main > :is(h1, h2) {
+		margin-top: 3rem;
 	}
 
-	.article p,
-	.markdown-content p,
-	.article li,
-	.markdown-content li {
-		font: inherit;
+	.markdown-content main > h3 {
+		margin-top: 2.5rem;
 	}
 
-	.article pre,
-	.markdown-content pre {
-		@apply my-2 py-1 overflow-x-auto;
+	.markdown-content main > h4 {
+		margin-top: 2rem;
+	}
+
+	.markdown-content main > :is(h1, h2, h3, h4) + * {
+		margin-top: 0.75rem;
+	}
+
+	.markdown-content main > :first-child {
+		margin-top: 0;
+	}
+
+	.article :is(strong, b),
+	.markdown-content :is(strong, b) {
+		color: var(--color-text-main);
+		font-weight: 600;
+	}
+
+	/* A link written as plain HTML in a post gets what the link component gives the rest. */
+	.markdown-content main a:not([class]) {
+		@apply link;
+	}
+
+	/* Lists */
+	.article :is(ul, ol),
+	.markdown-content :is(ul, ol) {
+		padding-left: 1.3rem;
+	}
+
+	.article ul,
+	.markdown-content ul {
+		list-style: disc;
+	}
+
+	.article ol,
+	.markdown-content ol {
+		list-style: decimal;
+	}
+
+	.article li + li,
+	.markdown-content li + li,
+	.article li > :is(ul, ol),
+	.markdown-content li > :is(ul, ol) {
+		margin-top: 0.5em;
+	}
+
+	.article li::marker,
+	.markdown-content li::marker {
+		color: var(--color-text-faint);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.markdown-content main > p + :is(ul, ol) {
+		margin-top: 0.85em;
+	}
+
+	/* A quotation, or an aside: the one place a post shows the accent as a rule. */
+	.article blockquote,
+	.markdown-content blockquote {
+		padding: 0.1em 0 0.1em 1.25rem;
+		border-left: 2px solid var(--color-accent);
+		font-style: italic;
+	}
+
+	.markdown-content main > blockquote {
+		margin-block: 2rem;
+	}
+
+	.article blockquote > * + *,
+	.markdown-content blockquote > * + * {
+		margin-top: 0.75em;
+	}
+
+	.article blockquote code,
+	.markdown-content blockquote code {
+		font-style: normal;
+	}
+
+	/* A break in the text: a hairline, with room around it. */
+	.article hr,
+	.markdown-content hr {
+		height: 1px;
 		border: 0;
-		border-radius: 0;
-		background: transparent !important;
+		background: var(--color-border);
+	}
+
+	.markdown-content main > hr {
+		margin-block: 2.5rem;
+	}
+
+	/* Tables: rules across, none down, and no fill. The header is ruled off in
+	   ink; the first column, usually what a row is about, is in ink too. */
+	.article table,
+	.markdown-content table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9375rem;
+		font-variant-numeric: tabular-nums;
+		line-height: 1.5;
+	}
+
+	.markdown-content main > table {
+		margin-block: 2rem;
+	}
+
+	.article :is(th, td),
+	.markdown-content :is(th, td) {
+		padding: 0.7rem 1.25rem 0.7rem 0;
+		border-bottom: 1px solid var(--color-border);
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.article :is(th, td):last-child,
+	.markdown-content :is(th, td):last-child {
+		padding-right: 0;
+	}
+
+	.article th,
+	.markdown-content th {
+		padding-top: 0;
+		border-bottom-color: color-mix(in srgb, var(--color-text-main) 45%, transparent);
+		color: var(--color-text-main);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.01em;
+		vertical-align: bottom;
+	}
+
+	.article tbody tr:last-child td,
+	.markdown-content tbody tr:last-child td {
+		border-bottom: 0;
+	}
+
+	.article td:first-child,
+	.markdown-content td:first-child {
+		color: var(--color-text-main);
+	}
+
+	/* Pictures and embeds fill the measure. */
+	.markdown-content main iframe {
+		display: block;
+		width: 100%;
+		border: 0;
+		border-radius: 0.5rem;
+	}
+
+	.markdown-content main iframe[src*='youtube'] {
+		height: auto;
+		aspect-ratio: 16 / 9;
+	}
+
+	.markdown-content main > :is(p:has(> .image-container:only-child), iframe) {
+		margin-block: 2rem;
+	}
+
+	/* A picture inside a list item stands a little clear of the words it follows. */
+	.markdown-content li .image-container {
+		margin-block: 0.75rem 0.5rem;
+	}
+
+	/* Code is set in a real monospace, on a tint of the ink. */
+	.article :is(code, pre),
+	.markdown-content :is(code, pre) {
+		font-family: var(--site-font-code);
+		font-variant-ligatures: none;
+	}
+
+	/* Inline code is one piece: `ai-query` never breaks at its hyphen. Anything
+	   too long for that is marked `long` when the post is compiled
+	   (mdsvex.config.mjs) and may wrap, each line of it in a box of its own. */
+	.article code:not(pre code),
+	.markdown-content code:not(pre code) {
+		padding: 0.14em 0.36em;
+		border-radius: 0.3em;
+		background: var(--color-surface-muted);
+		color: var(--color-text-main);
+		font-size: 0.84em;
+		white-space: nowrap;
+	}
+
+	.article code.long:not(pre code),
+	.markdown-content code.long:not(pre code) {
+		white-space: normal;
+		overflow-wrap: anywhere;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+	}
+
+	.article :is(h1, h2, h3, h4) code,
+	.markdown-content :is(h1, h2, h3, h4) code {
+		font-size: 0.8em;
+	}
+
+	/* A block of code: the listing, with its language in the corner. Point at
+	   the block and the corner offers to copy it. */
+	.article .code,
+	.markdown-content .code {
+		position: relative;
+	}
+
+	.markdown-content main > :is(.code, pre:not(.mermaid)) {
+		margin-block: 1.75rem;
+	}
+
+	.article pre:not(.mermaid),
+	.markdown-content pre:not(.mermaid) {
+		margin: 0;
+		padding: 1.1rem 1.25rem;
+		border: 0;
+		border-radius: 0.625rem;
+		background: var(--color-surface-muted) !important;
+		font-size: 0.875rem;
+		line-height: 1.7;
+		tab-size: 4;
+		overflow-x: auto;
+		scrollbar-width: thin;
+		-webkit-text-size-adjust: 100%;
+	}
+
+
+	.article pre > code,
+	.markdown-content pre > code {
+		display: block;
+		width: max-content;
+		min-width: 100%;
+		padding: 0;
+		background: none;
+		color: var(--shiki-color-text);
 		font-size: inherit;
-		line-height: 1.45;
+		line-height: inherit;
+	}
+
+	.article pre code .line::before,
+	.markdown-content pre code .line::before {
+		display: none !important;
+	}
+
+	/* A line picked out with ```lang {3} is marked the way a passage of prose is. */
+	.article pre .highlight-line,
+	.markdown-content pre .highlight-line {
+		display: inline-block;
+		width: calc(100% + 2.5rem);
+		margin-inline: -1.25rem;
+		padding-inline: 1.25rem;
+		background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+		box-shadow: inset 2px 0 0 var(--color-accent);
+	}
+
+	/* The corner sits over the end of the first line, on a patch of the listing's
+	   own ground, so a long line runs under it rather than through it. */
+	.article .code-copy,
+	.markdown-content .code-copy {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		padding: 0.15rem 0.45rem;
+		border: 0;
+		border-radius: 0.3rem;
+		background: var(--color-surface-muted);
+		box-shadow: -0.5rem 0 0.5rem var(--color-surface-muted);
+		color: var(--color-text-faint);
+		font-family: var(--site-font-utility);
+		font-size: 0.6875rem;
+		letter-spacing: 0.06em;
+		line-height: 1.4;
+		text-transform: lowercase;
+		cursor: pointer;
+		transition: color 160ms ease;
+	}
+
+	.article .code-copy::before,
+	.markdown-content .code-copy::before {
+		content: attr(data-label);
+	}
+
+	.article .code:hover .code-copy::before,
+	.markdown-content .code:hover .code-copy::before,
+	.article .code-copy:focus-visible::before,
+	.markdown-content .code-copy:focus-visible::before {
+		content: 'copy';
+	}
+
+	.article .code .code-copy.copied::before,
+	.markdown-content .code .code-copy.copied::before {
+		content: 'copied';
+	}
+
+	.article .code-copy:hover,
+	.markdown-content .code-copy:hover,
+	.article .code-copy.copied,
+	.markdown-content .code-copy.copied {
+		color: var(--color-text-main);
+	}
+
+	/* Nothing to point with: the corner always offers to copy. */
+	@media (hover: none) {
+		.article .code-copy::before,
+		.markdown-content .code-copy::before {
+			content: 'copy';
+		}
+	}
+
+	@media (min-width: 48rem) {
+		.article :is(h1, h2),
+		.markdown-content :is(h1, h2) {
+			font-size: 1.875rem;
+		}
+
+		.article h3,
+		.markdown-content h3 {
+			font-size: 1.5rem;
+		}
+
+		.article h4,
+		.markdown-content h4 {
+			font-size: 1.25rem;
+		}
+	}
+
+	/* On a phone three columns still fit, set a little smaller. A table with more
+	   scrolls sideways by itself, not with the page. */
+	@media (max-width: 39.99rem) {
+		.markdown-content main > table {
+			display: block;
+			overflow-x: auto;
+			font-size: 0.875rem;
+		}
+
+		.markdown-content :is(th, td) {
+			min-width: 6rem;
+			padding-right: 0.875rem;
+		}
 	}
 
 	/* Mermaid diagrams — a clean, hand-drawn technical-notebook treatment. */
@@ -386,148 +932,77 @@ h6 {
 		stroke-width: 1.5px;
 	}
 
-	/* Reusable semantic roles: `class nodeId danger`, etc. */
-	.article pre.mermaid .node.danger > :first-child,
-	.markdown-content pre.mermaid .node.danger > :first-child {
-		fill: #fff1f2 !important;
-		stroke: #fb7185 !important;
+	/* Diagrams are drawn by hand (rough.js): each box is a hatching and an outline.
+	   A plain box is paper and ink; `class nodeId danger` and the like tint one,
+	   in the same few colours the code listings use. */
+	.article pre.mermaid .rough-node path[stroke-width='4'],
+	.markdown-content pre.mermaid .rough-node path[stroke-width='4'],
+	.mermaid-modal .rough-node path[stroke-width='4'] {
+		stroke: var(--diagram-fill) !important;
 	}
 
-	.article pre.mermaid .node.control > :first-child,
-	.markdown-content pre.mermaid .node.control > :first-child {
-		fill: #eff6ff !important;
-		stroke: #60a5fa !important;
+	.article pre.mermaid .rough-node path:not([stroke-width='4']),
+	.markdown-content pre.mermaid .rough-node path:not([stroke-width='4']),
+	.mermaid-modal .rough-node path:not([stroke-width='4']) {
+		stroke: var(--diagram-line) !important;
 	}
 
-	.article pre.mermaid .node.active > :first-child,
-	.markdown-content pre.mermaid .node.active > :first-child {
-		fill: #ecfdf5 !important;
-		stroke: #34d399 !important;
+	.article pre.mermaid,
+	.markdown-content pre.mermaid,
+	.mermaid-modal {
+		--diagram-fill: #efe6da;
+		--diagram-line: #57534e;
 	}
 
-	.article pre.mermaid .node.muted > :first-child,
-	.markdown-content pre.mermaid .node.muted > :first-child {
-		fill: #f5f5f4 !important;
-		stroke: #a8a29e !important;
+	:is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.danger {
+		--diagram-fill: #f8d9cd;
+		--diagram-line: #b4380f;
 	}
 
-	.dark .article pre.mermaid .node.danger > :first-child,
-	.dark .markdown-content pre.mermaid .node.danger > :first-child {
-		fill: #4c1d26 !important;
-		stroke: #fb7185 !important;
+	:is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.control {
+		--diagram-fill: #dfdcf6;
+		--diagram-line: #4a40ad;
 	}
 
-	.dark .article pre.mermaid .node.control > :first-child,
-	.dark .markdown-content pre.mermaid .node.control > :first-child {
-		fill: #172554 !important;
-		stroke: #60a5fa !important;
+	:is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.active {
+		--diagram-fill: #dbe7c8;
+		--diagram-line: #4a6b1e;
 	}
 
-	.dark .article pre.mermaid .node.active > :first-child,
-	.dark .markdown-content pre.mermaid .node.active > :first-child {
-		fill: #052e2b !important;
-		stroke: #34d399 !important;
+	:is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.muted {
+		--diagram-fill: #ece7e1;
+		--diagram-line: #a8a29e;
 	}
 
-	.dark .article pre.mermaid .node.muted > :first-child,
-	.dark .markdown-content pre.mermaid .node.muted > :first-child {
-		fill: #292524 !important;
-		stroke: #78716c !important;
+	.dark :is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) {
+		--diagram-fill: #37312c;
+		--diagram-line: #a8a29e;
+	}
+
+	.dark :is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.danger {
+		--diagram-fill: #4d271c;
+		--diagram-line: #ff8563;
+	}
+
+	.dark :is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.control {
+		--diagram-fill: #2f2d5a;
+		--diagram-line: #b4b9ff;
+	}
+
+	.dark :is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.active {
+		--diagram-fill: #2e3b20;
+		--diagram-line: #b5d98a;
+	}
+
+	.dark :is(.article pre.mermaid, .markdown-content pre.mermaid, .mermaid-modal) .rough-node.muted {
+		--diagram-fill: #2d2926;
+		--diagram-line: #78716c;
 	}
 
 	@media (max-width: 767px) {
 		.article pre.mermaid svg,
 		.markdown-content pre.mermaid svg {
 			min-width: 32rem;
-		}
-	}
-
-	.article pre > code,
-	.markdown-content pre > code {
-		background-color: transparent !important;
-		@apply text-text-main;
-		font-family: var(--font-commit);
-		font-size: 0.9rem;
-		line-height: 1.45;
-	}
-
-	.article pre code .line::before,
-	.markdown-content pre code .line::before {
-		display: none !important;
-	}
-
-	.article code:not(pre code),
-	.markdown-content code:not(pre code) {
-		@apply px-1.5 py-0.5 rounded-md text-[0.85em] font-mono border border-primary/15 transition-colors;
-		background-color: var(--color-surface-muted);
-		color: var(--color-text-main);
-	}
-
-	.article blockquote,
-	.markdown-content blockquote {
-		@apply my-4 pl-4 border-l-2 border-primary italic opacity-80;
-	}
-
-	.article ul,
-	.markdown-content ul {
-		@apply pl-5 space-y-2 list-disc;
-		margin-top: 0;
-		margin-bottom: 0.75rem;
-	}
-
-	.article ol,
-	.markdown-content ol {
-		@apply pl-5 space-y-2 list-decimal;
-		margin-top: 0;
-		margin-bottom: 0.75rem;
-	}
-
-	.article p + :is(ul, ol),
-	.markdown-content p + :is(ul, ol) {
-		margin-top: -0.25rem;
-	}
-
-	.article table,
-	.markdown-content table {
-		@apply w-full my-6 border-collapse text-sm;
-	}
-
-	.article th,
-	.markdown-content th,
-	.article td,
-	.markdown-content td {
-		@apply p-3 border border-primary/10 text-left;
-	}
-
-	.article th,
-	.markdown-content th {
-		background-color: var(--color-surface-muted);
-		@apply font-bold;
-	}
-
-	@media (max-width: 767px) {
-		.markdown-content main {
-			@apply text-base leading-relaxed;
-		}
-
-		.article h1,
-		.markdown-content h1 {
-			@apply text-3xl;
-		}
-
-		.article h2,
-		.markdown-content h2 {
-			@apply text-2xl;
-		}
-
-		.article h3,
-		.markdown-content h3 {
-			@apply text-xl;
-		}
-
-		.article h4,
-		.markdown-content h4 {
-			@apply text-lg;
 		}
 	}
 }
