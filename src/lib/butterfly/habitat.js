@@ -467,11 +467,7 @@ export function createHabitat({
 					flight.follow({ ...spot, tilt: flight.target.tilt });
 				} else {
 					resident.courting = false;
-					const other = elsewhere(resident);
-					if (other) {
-						resident.here = other.key;
-						flight.retarget(other.spot);
-					}
+					moveOn(resident);
 				}
 			} else if (flight.mode === 'flying' && now - resident.checked > 350) {
 				// Is someone hovering over the place it is making for? Pick another.
@@ -487,8 +483,11 @@ export function createHabitat({
 			}
 
 			// A perch that moves (a flower in the wind) takes whoever is on it, or
-			// making for it, along with it.
-			const perch = resident.courting || resident.riding ? null : perchOf(resident, all);
+			// making for it, along with it. One that has gone (the page is another
+			// shape now) is no longer anywhere to be.
+			const free = resident.courting || resident.riding;
+			const perch = free ? null : perchOf(resident, all);
+			if (!free && !perch && resident.here !== null) abandon(resident);
 			const swaying = Boolean(perch?.live);
 			if (swaying) {
 				const spot = spotOn(perch, ground, flight.target.tilt, resident.gap);
@@ -559,6 +558,22 @@ export function createHabitat({
 		sitOn(resident, perchOf(resident));
 		onSettle?.(resident.index, resident.flight.target);
 		restlessIn(resident);
+	}
+
+	/** Already in the air, and wherever it was going will not do: go somewhere else instead. */
+	function moveOn(resident) {
+		const other = elsewhere(resident);
+		const spot = other?.spot ?? sameSpot(resident);
+		if (other) resident.here = other.key;
+		if (spot) resident.flight.retarget(spot);
+	}
+
+	/** Its perch is not there any more: get off it, or stop making for it. */
+	function abandon(resident) {
+		const { mode } = resident.flight;
+		resident.here = null;
+		if (mode === 'perched') leave(resident);
+		else if (mode !== 'windup') moveOn(resident);
 	}
 
 	/** Off to another perch: scared by something at `from`, or (without) in its own time. */
@@ -775,11 +790,13 @@ export function createHabitat({
 	/** The page has reflowed: keep each on its perch, or still making for it. */
 	function stayPut() {
 		fit();
+		known.at = -Infinity; // the perches may not be what they were
 		const all = places();
 		for (const resident of residents) {
 			if (!resident.living) continue;
 			const { flight } = resident;
-			const perch = resident.riding || resident.courting ? null : perchOf(resident, all);
+			const free = resident.riding || resident.courting;
+			const perch = free ? null : perchOf(resident, all);
 			if (perch) {
 				const spot = spotOn(perch, ground, flight.target.tilt, resident.gap);
 				if (flight.mode === 'perched') {
@@ -788,9 +805,8 @@ export function createHabitat({
 				} else if (flight.mode !== 'windup') {
 					flight.follow(spot);
 				}
-			} else if (resident.seat && flight.mode === 'perched') {
-				// What it was sitting on is not there at this size: find somewhere else.
-				leave(resident);
+			} else if (!free && resident.here !== null) {
+				abandon(resident);
 			}
 			draw(resident);
 		}
