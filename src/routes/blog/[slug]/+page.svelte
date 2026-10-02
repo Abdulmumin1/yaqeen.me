@@ -211,9 +211,7 @@
 			{data.meta.title}
 		</h1>
 		<!-- Dates look the same here as they do in the lists that lead here. -->
-		<div
-			class="type-small flex items-baseline gap-4 border-b border-border pb-6 text-text-faint italic"
-		>
+		<div class="type-small flex items-baseline gap-4 text-text-faint italic">
 			<time datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
 			{#if data.meta.date != data.meta.lastmod}
 				<span>edited {formatDate(data.meta.lastmod)}</span>
@@ -227,7 +225,7 @@
 		</div>
 	</section>
 
-	<div class="mt-12 border-t border-border pt-10">
+	<div class="mt-12">
 		<p class="tiny-link mb-3">/share</p>
 		<div class="type-small flex gap-3 text-text-muted">
 			<button

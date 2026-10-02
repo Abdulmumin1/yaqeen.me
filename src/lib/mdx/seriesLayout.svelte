@@ -53,7 +53,7 @@
 	</div>
 
 	<!-- The rest of the series this post belongs to. -->
-	<section class="mt-(--gap-section) border-t border-border pt-10">
+	<section class="mt-(--gap-section)">
 		<h2 class="section-heading">
 			<a href={resolve('/blog/series/[slug]', { slug: series })} class="row-link">
 				<span class="uppercase">{series}</span> series
