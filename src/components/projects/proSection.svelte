@@ -85,7 +85,6 @@
 	.project-link,
 	.project-lead {
 		color: var(--color-text-main);
-		font-weight: 600;
 		text-decoration: underline;
 		text-underline-offset: 0.2em;
 		text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);

@@ -27,7 +27,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					onclick={() => track(product.name)}
-					class="link font-semibold">{product.name}</a
+					class="link">{product.name}</a
 				>
 				{product.desc}
 			</p>
