@@ -8,13 +8,44 @@
 	const canonical = `${siteOrigin}/photos`;
 	const photos = $derived(data.photos ?? []);
 
-	function photoMeta(photo) {
-		const coordinates =
-			photo.latitude && photo.longitude
-				? `${photo.latitude.toFixed(4)}, ${photo.longitude.toFixed(4)}`
-				: undefined;
+	/* The edges of the window go soft: eight layers, each blurred twice as
+	   much as the one before, each showing through a band an eighth of the
+	   way further along. Together they ramp from sharp to 10px. */
+	const blurLayers = Array.from({ length: 8 }, (_, index) => {
+		const at = (step) => `${step * 12.5}%`;
+		return {
+			blur: `blur(${0.078125 * 2 ** index}px)`,
+			stops: `transparent ${at(index)}, #000 ${at(index + 1)}, #000 ${at(index + 2)}, transparent ${at(index + 3)}`
+		};
+	});
 
-		return [photo.place ?? coordinates, photo.year].filter(Boolean).join(', ');
+	// The top edge only softens once the nav has scrolled away, and the bottom
+	// one lets go when the photos run out, so neither blurs the nav or footer.
+	let scrollY = $state(0);
+	let reachedEnd = $state(false);
+	const softTop = $derived(scrollY > 120);
+	const softBottom = $derived(!reachedEnd);
+
+	function watchEnd(node) {
+		const observer = new IntersectionObserver(([entry]) => {
+			reachedEnd = entry.isIntersecting || entry.boundingClientRect.top < 0;
+		});
+		observer.observe(node);
+		return () => observer.disconnect();
+	}
+
+	// A photo that is still on its way fades in when it lands. One that is
+	// already there (cached, or loaded before the page woke up) just shows.
+	function fadeInOnLoad(img) {
+		if (img.complete) return;
+		img.classList.add('is-loading');
+		const done = () => img.classList.remove('is-loading');
+		img.addEventListener('load', done, { once: true });
+		img.addEventListener('error', done, { once: true });
+		return () => {
+			img.removeEventListener('load', done);
+			img.removeEventListener('error', done);
+		};
 	}
 </script>
 
@@ -27,142 +58,191 @@
 	/>
 </svelte:head>
 
-<section class="photos-shell">
-	<header class="photos-intro">
+<svelte:window bind:scrollY />
+
+<section class="photos-page page-column">
+	<header class="photos-intro type-small">
+		<h1 class="sr-only">{photoNotes.title}</h1>
 		<p>{photoNotes.intro}</p>
 	</header>
 
 	{#if photos.length}
-		<div class="photo-grid" aria-label="Photo gallery">
-			{#each photos as photo (photo.src)}
-				<figure class="photo-item">
+		<!-- One column, hung from the right edge of the page, like the last item in the nav.
+		     Just the photos: no captions, no dates. -->
+		<div class="photo-stack" aria-label="Photo gallery">
+			{#each photos as photo, index (photo.key)}
+				<div class="frame">
 					<img
 						src={photo.src}
 						alt={photo.alt}
 						width={photo.width}
 						height={photo.height}
-						loading="lazy"
+						loading={index < 2 ? 'eager' : 'lazy'}
+						fetchpriority={index === 0 ? 'high' : undefined}
 						decoding="async"
+						{@attach fadeInOnLoad}
 					/>
-					<figcaption>
-						{#if photoMeta(photo)}
-							<span>{photoMeta(photo)}</span>
-						{/if}
-					</figcaption>
-				</figure>
+				</div>
 			{/each}
 		</div>
+		<div class="stack-end" aria-hidden="true" {@attach watchEnd}></div>
 	{:else}
 		<div class="empty-state">
-			<p class="eyebrow">/photos</p>
-			<h1>{photoNotes.title}</h1>
-			<p>{photoNotes.storageHint}</p>
+			<p class="type-small">{photoNotes.storageHint}</p>
 		</div>
 	{/if}
 </section>
 
+{#if photos.length}
+	<div class="soft-edge soft-edge-top" class:visible={softTop} aria-hidden="true">
+		{#each blurLayers as layer, index (index)}
+			<div
+				style:backdrop-filter={layer.blur}
+				style:-webkit-backdrop-filter={layer.blur}
+				style:mask-image={`linear-gradient(to top, ${layer.stops})`}
+				style:-webkit-mask-image={`linear-gradient(to top, ${layer.stops})`}
+			></div>
+		{/each}
+	</div>
+	<div class="soft-edge soft-edge-bottom" class:visible={softBottom} aria-hidden="true">
+		{#each blurLayers as layer, index (index)}
+			<div
+				style:backdrop-filter={layer.blur}
+				style:-webkit-backdrop-filter={layer.blur}
+				style:mask-image={`linear-gradient(to bottom, ${layer.stops})`}
+				style:-webkit-mask-image={`linear-gradient(to bottom, ${layer.stops})`}
+			></div>
+		{/each}
+	</div>
+{/if}
+
 <style>
-	.photos-shell {
-		width: min(100%, 78rem);
-		margin: 0 auto;
-		padding: 9rem 1.5rem 6rem;
+	.photos-page {
+		padding-top: var(--page-top);
+		padding-bottom: 4rem;
 	}
 
 	.photos-intro {
-		min-height: 42vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		color: var(--color-text-main);
+		color: var(--color-text-faint);
 	}
 
 	.photos-intro p {
 		margin: 0;
-		font-size: 0.95rem;
-		color: var(--color-text-muted);
 	}
 
-	.photo-grid {
-		column-count: 2;
-		column-gap: 1.25rem;
+	/* The first photo starts well down the window, with nothing but air above it. */
+	.photo-stack {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		width: min(30rem, 100%);
+		margin-top: max(3rem, calc(40vh - 9rem));
+		margin-left: auto;
+		animation: stack-appear 500ms ease both;
 	}
 
-	.photo-item {
-		break-inside: avoid;
-		margin: 0 0 1.75rem;
-	}
-
-	.photo-item img {
-		display: block;
-		width: 100%;
-		height: auto;
+	/* Every photo is cut to the same 3:4, so the column reads as one strip. */
+	.frame {
+		position: relative;
+		aspect-ratio: 3 / 4;
+		overflow: hidden;
 		background: var(--color-surface-muted);
 	}
 
-	.photo-item figcaption {
-		display: flex;
-		justify-content: space-between;
-		gap: 1rem;
-		padding-top: 0.45rem;
-		color: var(--color-text-muted);
-		font-size: 0.72rem;
-		line-height: 1.2;
+	/* A hairline, drawn over the photo rather than around it, so pale skies
+	   still have an edge. */
+	.frame::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border: 1px solid color-mix(in srgb, var(--color-text-main) 6%, transparent);
+		pointer-events: none;
 	}
 
-	.photo-item figcaption span:last-child {
-		text-align: right;
-		color: color-mix(in srgb, var(--color-text-muted) 78%, transparent);
+	.frame img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		transition: opacity 500ms ease;
+	}
+
+	.frame :global(img.is-loading) {
+		opacity: 0;
+	}
+
+	.stack-end {
+		height: 1px;
 	}
 
 	.empty-state {
-		max-width: 34rem;
-		margin: 0 auto;
-		padding: 4rem 0 12rem;
-		text-align: center;
+		margin-top: max(3rem, calc(40vh - 9rem));
+		max-width: 26rem;
 		color: var(--color-text-muted);
 	}
 
-	.empty-state .eyebrow {
-		margin: 0 0 0.5rem;
-		color: var(--color-accent);
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-		font-size: 0.65rem;
-		letter-spacing: 0.28em;
-		text-transform: uppercase;
+	.empty-state p {
+		margin: 0;
 	}
 
-	.empty-state h1 {
-		margin: 0 0 0.75rem;
-		color: var(--color-text-main);
-		font-size: clamp(2rem, 8vw, 5.5rem);
-		font-weight: 600;
-		letter-spacing: -0.04em;
-		line-height: 0.95;
+	/* The soft edges: fixed to the top and bottom of the window, over the photos. */
+	.soft-edge {
+		position: fixed;
+		left: 0;
+		right: 0;
+		z-index: 20;
+		height: 108px;
+		overflow: hidden;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 300ms ease;
 	}
 
-	.empty-state p:last-child {
-		margin: 0 auto;
-		max-width: 26rem;
-		line-height: 1.7;
+	.soft-edge.visible {
+		opacity: 1;
 	}
 
-	@media (max-width: 720px) {
-		.photos-shell {
-			padding-inline: 1rem;
-			padding-top: 6rem;
+	.soft-edge-top {
+		top: 0;
+	}
+
+	.soft-edge-bottom {
+		bottom: 0;
+	}
+
+	.soft-edge > div {
+		position: absolute;
+		inset: 0;
+	}
+
+	/* Like jrhu.me, the soft edges are for bigger screens; on a phone they
+	   cost more than they give. */
+	@media (width < 48rem) {
+		.soft-edge {
+			display: none;
+		}
+	}
+
+	@media (prefers-reduced-transparency: reduce) {
+		.soft-edge {
+			display: none;
+		}
+	}
+
+	@keyframes stack-appear {
+		from {
+			opacity: 0;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.photo-stack {
+			animation: none;
 		}
 
-		.photos-intro {
-			min-height: 34vh;
-		}
-
-		.photo-grid {
-			column-count: 1;
-		}
-
-		.photo-item {
-			margin-bottom: 1.35rem;
+		.frame img {
+			transition: none;
 		}
 	}
 </style>
