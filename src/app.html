@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="light dark" />
 		<meta name="theme-color" content="#fff7ed" />
 		<link rel="icon" href="/favicon.png" />
 		<link rel="alternate" type="application/rss+xml" href="https://yaqeen.me/rss.xml" />
@@ -43,6 +44,13 @@
 					(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 				if (isDark) {
 					document.documentElement.classList.add('dark');
+				}
+				// Match the browser chrome (address bar / status bar) and native
+				// controls to the theme before first paint.
+				document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+				const themeColor = document.querySelector('meta[name="theme-color"]');
+				if (themeColor) {
+					themeColor.setAttribute('content', isDark ? '#1c1917' : '#fff7ed');
 				}
 			})();
 		</script>

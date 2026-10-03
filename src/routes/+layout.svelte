@@ -45,6 +45,20 @@
 			document.documentElement.classList.remove('dark');
 		}
 	}
+
+	// Keep the browser chrome (mobile address bar / status bar) and native
+	// controls in step with the page as the theme changes.
+	$effect(() => {
+		const isDark = $darkMode;
+		document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+		const meta = document.querySelector('meta[name="theme-color"]');
+		if (!meta) return;
+		const surface = getComputedStyle(document.body).backgroundColor;
+		meta.setAttribute(
+			'content',
+			surface && surface !== 'rgba(0, 0, 0, 0)' ? surface : isDark ? '#1c1917' : '#fff7ed'
+		);
+	});
 	let posts = $state([]);
 
 	let actions = $derived([
