@@ -10,7 +10,8 @@
 	);
 	let isWorkActive = $derived(
 		page.url.pathname.startsWith('/projects') ||
-			['/drop', '/braintime', '/css-faster', '/work'].includes(page.url.pathname)
+			page.url.pathname.startsWith('/work') ||
+			['/drop', '/braintime', '/css-faster'].includes(page.url.pathname)
 	);
 
 	let isPhotosActive = $derived(page.url.pathname.startsWith('/photos'));

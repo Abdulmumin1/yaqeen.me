@@ -149,7 +149,8 @@
 	<main class="relative z-10">
 		{@render children?.()}
 	</main>
-	{#if !['/garden'].includes(page.url.pathname)}
+	<!-- The garden and the work tour fill the window, so they go without a footer. -->
+	{#if !['/garden', '/work/tour'].includes(page.url.pathname)}
 		<Footer />
 	{/if}
 	<DoodleLayer />
