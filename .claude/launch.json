@@ -6,6 +6,12 @@
 			"runtimeExecutable": "pnpm",
 			"runtimeArgs": ["exec", "vite", "dev", "--port", "5199", "--strictPort"],
 			"port": 5199
+		},
+		{
+			"name": "yaqeen-workerd",
+			"runtimeExecutable": "pnpm",
+			"runtimeArgs": ["exec", "wrangler", "dev", "--port", "8799"],
+			"port": 8799
 		}
 	]
 }

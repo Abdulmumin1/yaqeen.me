@@ -13,6 +13,7 @@
 	 * @property {string} [title]
 	 * @property {string} [description]
 	 * @property {string} [image]
+	 * @property {{ width: number, height: number } | null} [imageSize] - In pixels, when it is known.
 	 * @property {string} [canonical]
 	 * @property {boolean} [published]
 	 * @property {string} [type]
@@ -38,6 +39,7 @@
 		title = '',
 		description = '',
 		image = '',
+		imageSize = null,
 		canonical = '',
 		published = true,
 		type = 'website',
@@ -57,6 +59,12 @@
 		toAbsoluteUrl(canonical || $page.url.pathname)
 	);
 	let ogImage = $derived(toAbsoluteUrl(image || defaultSocialImage));
+	// static/og.png (see $lib/og/card.svelte): its size and what is on it are known.
+	let isDefaultImage = $derived(ogImage === toAbsoluteUrl(defaultSocialImage));
+	let ogImageSize = $derived(isDefaultImage ? { width: 2400, height: 1260 } : imageSize);
+	let ogImageAlt = $derived(
+		isDefaultImage ? 'yaqeen, in orange, with a monarch butterfly sitting on the n' : resolvedTitle
+	);
 	let resolvedRobots = $derived(
 		robots ||
 			(published
@@ -76,7 +84,11 @@
 <meta property="og:title" content={resolvedTitle} />
 <meta property="og:description" content={truncatedDescription} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:image:alt" content={resolvedTitle} />
+{#if ogImageSize}
+	<meta property="og:image:width" content={String(ogImageSize.width)} />
+	<meta property="og:image:height" content={String(ogImageSize.height)} />
+{/if}
+<meta property="og:image:alt" content={ogImageAlt} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content="en_US" />
 {#if type === 'article' && publishedTime}
@@ -103,7 +115,7 @@
 <meta name="twitter:title" content={resolvedTitle} />
 <meta name="twitter:description" content={truncatedDescription} />
 <meta name="twitter:image" content={ogImage} />
-<meta name="twitter:image:alt" content={resolvedTitle} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
 
 <!-- Other important meta tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />

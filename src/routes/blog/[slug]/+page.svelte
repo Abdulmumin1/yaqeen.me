@@ -12,10 +12,10 @@
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import Seo from '../../../components/general/seo.svelte';
 	import Fa from 'svelte-fa';
+	import { postCardUrl } from '$lib/og/postCardUrl.js';
 	import {
 		authorName,
 		authorUrl,
-		defaultSocialImage,
 		logoUrl,
 		siteName,
 		siteOrigin,
@@ -35,7 +35,11 @@
 	let canonicalUrl = $derived(data.meta?.canonical || `${siteOrigin}/blog/${data.slug}`);
 	let shareUrl = $derived(canonicalUrl);
 	let description = $derived(data.meta?.description || `Read ${data.meta?.title} on ${siteName}.`);
-	let imageUrl = $derived(data.meta?.image || defaultSocialImage);
+	// Its own card, drawn on request, unless the post names a picture of its own.
+	let imageUrl = $derived(
+		data.meta?.image ||
+			postCardUrl({ slug: data.slug, title: data.meta.title, date: data.meta.date })
+	);
 	let encodedTitle = $derived(encodeURIComponent(data.meta.title));
 	let publishedTime = $derived(toSchemaDate(data.meta.date));
 	let modifiedTime = $derived(toSchemaDate(data.meta.lastmod || data.meta.date));
@@ -191,6 +195,7 @@
 		canonical={canonicalUrl}
 		type="article"
 		image={imageUrl}
+		imageSize={data.meta?.image ? null : { width: 2400, height: 1260 }}
 		robots={articleRobots}
 		{publishedTime}
 		{modifiedTime}

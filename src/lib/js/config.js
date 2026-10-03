@@ -6,7 +6,7 @@ export const description =
 	'Fullstack developer, cybersecurity graduate, and writer. Building interfaces, dev tools, and experiments.';
 export const siteOrigin = dev ? 'http://localhost:5173' : 'https://yaqeen.me';
 export const url = `${siteOrigin}/blog`;
-export const defaultSocialImage = `${siteOrigin}/dummy.png`;
+export const defaultSocialImage = `${siteOrigin}/og.png`;
 export const logoUrl = `${siteOrigin}/favicon.png`;
 export const authorName = 'Abdulmumin Yaqeen';
 export const authorUrl = `${siteOrigin}/about`;
