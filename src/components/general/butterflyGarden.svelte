@@ -25,6 +25,7 @@
 
 	let garden = $state(null);
 	let stages = $state([]);
+	let shadows = $state([]);
 	let shown = $state(false);
 	let stills = $state([]); // where the still pictures go, when there is to be no flying
 
@@ -38,7 +39,7 @@
 		const narrow = window.matchMedia('(max-width: 640px)').matches;
 		const flock = stages
 			.slice(0, narrow ? Math.min(count, 2) : count)
-			.map((canvas, n) => ({ canvas, span: SPANS[n % SPANS.length] }));
+			.map((canvas, n) => ({ canvas, shadow: shadows[n], span: SPANS[n % SPANS.length] }));
 
 		/** Still pictures, one to a perch. */
 		function settleForPlain() {
@@ -94,6 +95,10 @@
 <!-- The sky is laid over the whole page and clips at its edges (see frameSky in habitat.js). -->
 <div bind:this={garden} class="garden" class:shown aria-hidden="true">
 	<div class="origin">
+		<!-- Every shadow first, so none of them falls across another butterfly. -->
+		{#each { length: count }, n (n)}
+			<canvas bind:this={shadows[n]}></canvas>
+		{/each}
 		{#each { length: count }, n (n)}
 			<canvas bind:this={stages[n]}></canvas>
 		{/each}
