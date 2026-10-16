@@ -155,12 +155,14 @@
 
 <PullCordSwitch />
 
+<!-- A column at least the height of the window: on a page shorter than that, main takes up the
+     slack, so the footer (and the flower bed rooted on its bottom edge) still sits at the bottom. -->
 <div
 	id="layout-wrapper"
-	class="w-full overflow-x-hidden bg-surface text-text-main relative min-h-screen"
+	class="w-full overflow-x-hidden bg-surface text-text-main relative flex min-h-svh flex-col"
 >
 	<Nav {isBlog} />
-	<main class="relative z-10">
+	<main class="relative z-10 grow">
 		{@render children?.()}
 	</main>
 	<!-- The garden and the work tour fill the window, so they go without a footer. -->
