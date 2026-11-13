@@ -1,11 +1,11 @@
 ---
 title: 'Context Is a Cache, Not a Database'
 
-description: 'Your agent will lose its context. If that is a catastrophe, the transcript was doing a job your system should have been doing.'
+description: 'How Thirdpen compacts a conversation and keeps the files, decisions, and records the agent needs to pick up where it left off.'
 
 date: '2026-10-02'
 
-lastmod: '2026-11-11'
+lastmod: '2026-11-13'
 
 categories:
   - ai
@@ -15,67 +15,114 @@ categories:
 published: true
 ---
 
-When a long agent session runs out of room, it writes itself a note and forgets everything else.
+An agent can come out of compaction knowing it has three call sites left to migrate and still have to search the repo to find them. Steven Poitras saw how easily that can happen when he compacted a working session and the summary kept [five of its 101 file paths](https://agenticthinking.ai/blog/what-compaction-actually-destroys/). If the agent writes the remaining paths to a file while it’s working, it can open that file and get on with the migration.
 
-The note is usually good. Steven Poitras [measured one](https://agenticthinking.ai/blog/what-compaction-actually-destroys). A session hit its limit at about 650,000 tokens and came back as a summary of about 20,000. The summary was right about the shape of the work. The migration was underway, the loader was done, three call sites remained.
+In Thirdpen, the agent has a workspace it can read and write throughout the session. The files are still there when the model gets a shorter version of the conversation.
 
-But it had lost 96 of the 101 file paths the session had touched, 43 of the 44 URLs, and all 31 of the record ids it had cited. Five of those ids came back cut off after eight or nine characters, which is worse than losing them. They looked like references. They pointed at nothing.
+## What we send to the model
 
-So the agent knew three call sites remained. It no longer knew which three.
-
-This matters more than it sounds. [Microsoft looked at 13.5 million Copilot agent sessions](https://www.microsoft.com/en-us/research/publication/benchmarking-long-horizon-agent-context-compaction-with-compactionbench/). Only 7.8% ever hit compaction, but those sessions used 44.2% of all the tokens. The sessions that run out of room are the ones doing the most work.
-
-The usual response is to build a better summarizer. A stronger model, a better prompt, a bigger window. I think that's the wrong layer. The summary didn't fail because it was bad. It failed because it was a summary.
-
-A summary keeps what happened. An agent about to act needs something else: the path, the id, the exact name of the flag. Prose survives summarizing. Pointers don't. Poitras found that decisions written in ordinary sentences mostly survived, about three in four, and that the citations he planted didn't survive once.
-
-You can't prompt your way out of that, because it's a property of the format.
-
-The way out is to stop treating the conversation as the only copy of the work.
-
-Think about what a CPU does with its cache. It throws things out constantly, and nobody worries, because everything it throws out is still in memory. A miss isn't a failure. It's a slower read. Agents are in the opposite position. The context window is the only copy, so every eviction is a loss.
-
-Fix that and compaction stops being scary. The context window is a cache. The work lives somewhere else.
+You can scroll back through the full conversation in Thirdpen after it’s been compacted. The change is in the next model request. We send a summary of the older messages and keep about 24,000 tokens of recent messages verbatim.
 
 ```mermaid
-flowchart TB
-    S["The record<br/>transcript, files, notes"]
-    W["The window<br/>summary + recent messages"]
-    S -->|"rebuilt every turn"| W
-    W -->|"write it down first"| S
+flowchart LR
+    T["Stored transcript"] --> S["Older messages summarized"]
+    T --> R["Recent messages verbatim"]
+    S --> W["Model input"]
+    R --> W
 
-    class S active
-    class W muted
+    class T active
+    class S muted
+    class W control
 ```
 
-_The window is a view of the work. It is not the work._
+To pick the cut, we count backward from the end of the transcript and look for a user message within that budget. The latest user message stays even if its turn is bigger than the budget. We attach the summary to the first retained user message so the model starts at a turn boundary. When we compact again, we give the summarizer the previous summary and the messages that have since fallen before the cut.
 
-That's roughly how I built Thirdpen. The full conversation is never thrown away, and the person always sees all of it. Only what the agent reads gets shortened. After a turn that read more than about 100,000 tokens, the older part is summarized, the most recent 24,000 or so tokens are kept word for word, and each new summary folds in the last one. The summarizer is told to quote exact wording for names, numbers and dates, and to list files by path.
+I ran a five-message migration through Thirdpen’s window planner with a small token budget and a fixed summary. The cut lands at `m04`. The summary goes into that user message as its first text part.
 
-That helps. But I don't trust it with the real work. The real work lives in a workspace of files that the agent reads and writes with tools, instead of being handed a transcript.
+```text
+Stored transcript
+  m01  m02  m03  m04  m05
 
-Routines, the jobs that run on a schedule, get one more file: `routine/notes.md`. Each run reads it first and rewrites it last. It holds what the next run needs: where this one stopped, what's still open, what the person asked for. The prompt says the file should be short and current, and that it is not a log. A run can lose its whole conversation and pick up from that one page.
+Model input (cutMessageId: m04)
+  m04 user
+    Summary:
+      Loader ready.
+      Three callers remain.
+    Keep CLI output unchanged.
+  m05 assistant
+    I’ll keep the formatter.
 
-The rule underneath is to write things down before they fall out, not after. A summary is made after the fact, so whatever it drops is gone. A note written while the work happens costs one line.
+After replacing m04 with m06
+  summaryStale: true
+  window: null
+```
 
-Poitras tested the other way too. He saved the summary durably, right after compaction. It never remembered more than the summary held. Capturing something after it has been squeezed just stores the loss.
+We store the ID of the first retained message. If an edit or retry removes it, the summary may describe a conversation the user has since changed. For scheduled routines, we also store the ID of the latest run’s starting message, so a summary from one run expires when the next starts.
 
-So keep the pointers in a file as you go: paths, ids, urls, ticket numbers. Let the summary carry the intent. Then, after a boundary, read the file, not the summary.
+```ts
+export function summaryCutIndex(messages, summary, runIndex = latestRunIndex(messages)) {
+	const floor = runIndex >= 0 ? messages[runIndex]!.id : null;
+	if (summary.floorMessageId !== floor) return -1;
 
-Rules are the same problem, only worse. [One study](https://arxiv.org/abs/2608.22752) measured Claude Code's default compaction and found it kept 53% of safety rules after one round and 10% after five. A rule that only works in its exact wording can't survive being paraphrased. So put rules where compaction can't reach them, and put them back from the source on every turn. A rule that is usually present isn't a rule.
+	const index = messages.findIndex((message) => message.id === summary.cutMessageId);
+	if (index <= runIndex || messages[index]?.role !== 'user') return -1;
 
-Actions need the same care. In [AgentSpec](/blog/why-ai-authored-workflows-became-a-compiler-problem), the model used to be the scheduler, and the process could die between "I sent the email" and "I recorded that I sent the email." We fixed that with a journal, written before and after every side effect. An agent turn is just a smaller workflow, with the same hole in it.
+	return index;
+}
+```
 
-How do you know it works? Take a real task, and halfway through, throw away the conversation. Keep the disk. Let the agent resume, and see whether it finishes and whether it does anything twice. Try it a quarter of the way through, then halfway, then three quarters.
+If the user edits `m04` and the replacement comes back as `m06`, `findIndex` returns `-1`. We drop the summary and build the model input from the current transcript. We also check for `m04` before saving a new summary, since the same edit can happen while the summarizer is running.
 
-If it finishes every time, your state is somewhere safe. If it falls off a cliff, you don't have a model problem. You have a missing note.
+There’s another check when we build the request. The model messages have no transcript IDs, and one assistant message with a tool result can expand into several model messages. We count the user messages to locate the cut in the request, then check that its opening text matches. If it doesn’t, we send the request without applying the window.
 
-The cheapest check is also the dullest. List the paths and ids that were live before the cut, and see how many are still there after. You don't need a judge model for that. A string is either there or it isn't.
+## Compaction runs after the reply
 
-Won't a bigger window fix all this? Poitras also recorded a compaction at about 998,000 tokens. Whatever window that session had, it was at least that big. A bigger window moves the boundary. It doesn't remove it.
+When the last model call in a turn reads at least 100,000 input tokens, or the turn ends with a context overflow error, we start compaction in the background with `waitUntil`. The turn has already ended by then. Only one compaction runs per thread at a time. If it fails, the next turn that crosses the threshold can try again.
 
-And bigger isn't better. [Chroma tested 18 models](https://research.trychroma.com/context-rot) and found that a focused prompt of about 300 tokens beat a full one of about 113,000 on the same question. A longer context is a bigger cache with worse hit rates.
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant T as Thread
+    participant C as Compactor
 
-None of this is really about memory. It's about not asking a forgetful thing to be the database. The model can be brilliant and forgetful, and the system has to be the part that remembers.
+    U->>T: Continue the migration
+    T-->>U: Reply (last model call read 108k tokens)
+    T->>C: Summarize messages before m04
+    alt m04 still exists
+        C->>T: Save summary with cut ID m04
+    else An edit removed m04
+        Note over C: Discard the result
+    end
+    U->>T: Run the CLI tests
+    Note over T: Use the saved summary if the cut is still valid
+```
 
-A reliable agent isn't one with a perfect memory. It's one that can lose its mind without losing its place.
+The threshold leaves room for tool output. A single turn can add tens of thousands of tokens before we get another chance to compact. Doing the work in the background also takes summarization off the reply path. Until a new summary lands, ordinary turns can keep appending to the same prefix, which the provider can reuse. Compaction changes that prefix, so the cache has to warm up again. Microsoft covers the cost of doing this in the foreground in its [CompactionBench writeup](https://www.microsoft.com/en-us/research/publication/benchmarking-long-horizon-agent-context-compaction-with-compactionbench/).
+
+## What I put in the workspace
+
+I ask the summarizer to keep the goal, decisions, files produced, and open items, and to copy names and paths exactly. Once the agent has the three paths and knows to preserve the CLI output, it can put both in `migration.md`.
+
+```md
+# Move callers from `getAccount` to `loadAccount`
+
+Loader is ready. Keep the CLI output unchanged.
+
+- [ ] `src/api/accounts.ts` (`getAccountHandler`)
+- [ ] `src/jobs/reconcile.ts` (`reconcileAccount`)
+- [ ] `src/cli/accounts.ts` (`showAccount`)
+```
+
+After it updates `getAccountHandler`, it can check off that line. A later turn can open the file and go straight to `reconcileAccount`, even if all it got from the summary was “the migration is in progress.” Permissions and safety rules come from the system prompt on every turn.
+
+Scheduled routines are where this matters most in Thirdpen. Each run reads `routine/notes.md` at the start and updates it at the end. If you tell a routine to skip newsletters, that preference belongs in the notes so tomorrow’s run can apply it. The notes also give the next run a place to pick up anything the last run left open.
+
+We still give the model a small digest of the last three runs. We build it directly from the transcript, keeping a short excerpt of each final reply and up to four user follow-ups per run. That lets the agent see a correction like “Skip newsletters from now on” without spending context on the opening “On it.”
+
+## What happens if the agent retries a send?
+
+A file can tell the agent what it meant to do. Whether an email actually went out is something the runtime has to track. In AgentSpec, we journal actions and check an idempotency ledger before making another call. Suppose a retry comes in for `run_42:send_digest` and the ledger already has a successful result with provider message ID `email_918`. The adapter returns that result and skips the send. If the provider accepted a send just before the process died, recovery still depends on whether we can confirm or safely retry that request. I wrote about the journal and ledger in [Why AI-authored workflows became a compiler problem](/blog/why-ai-authored-workflows-became-a-compiler-problem).
+
+## Try resuming without the chat
+
+Take a task the agent already knows how to do. Halfway through, give it a fresh conversation with the original goal and the same workspace and action records. See if it can finish, whether it sends anything twice, and how much work it has to redo. Try the same thing a quarter and three quarters of the way through. For the migration, I’d check whether it can find the remaining call sites from what it saved or has to search the repo all over again.
