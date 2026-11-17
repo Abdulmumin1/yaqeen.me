@@ -10,59 +10,59 @@ categories:
 published: true
 ---
 
-Imagine a world where AI models like [Jev](https://typesafe.ai) get as fast as code... Yeah, sounds impossible, but we're humans, remember! Computers were not even supposed to exist, but they did. They're not supposed to be this small, but they are. We're not supposed to have 3nm chips, but we do!
+Suppose models like [Jev](https://typesafe.ai) get as fast as code. That sounds impossible. Computers weren't supposed to exist either. They weren't supposed to get this small. We weren't supposed to have 3nm chips.
 
-We literally tricked rocks into thinking by putting lightning through sand. So saying a model can never be as fast as an `if` statement is just ignoring everything we've done for the last eighty years.
+We tricked rocks into thinking by running lightning through sand. Saying a model can never be as fast as an `if` statement ignores eighty years of that.
 
-Right now, we have a hard boundary in software.
+## The boundary
 
-If you need a decision made in sub-millisecond time, you write hardcoded `if/else` checks, regexes, or finite state machines. They're fast, but they're brittle (at least since we've been figuring out how to replace them with AI). They can't understand intent, nuance, or context.
+Software has a hard line right now.
 
-If you want actual judgment, understanding what a user is trying to do, whether a code diff introduces subtle risk, or which tactical move makes sense, you reach for an LLM.
+Need a decision in under a millisecond? You write `if/else`, a regex, or a state machine. They're fast and brittle. They can't read intent, nuance or context.
 
-Because of that 500ms tax, nobody in their right mind puts a model inside a tight `for` loop, or in a Git hook, or inside a database query. It's just way too slow, costs too much, and is unpredictable.
+Need judgment? What is the user trying to do, does this diff add subtle risk, which move makes sense? You call an LLM.
 
-## Making Logical Decisions Over Choices
+That costs about 500ms, so nobody puts a model in a tight `for` loop, a Git hook or a database query. It's too slow, too expensive and too unpredictable.
 
-A model like [Jev](https://typesafe.ai) isn't trying to be a text generator. It's built specifically to evaluate state, weigh tradeoffs, and make logical decisions given a set of choices.
+## Decisions, not prose
 
-When a model doesn't need to generate conversational prose, its entire compute goes directly into evaluation:
+A model like Jev doesn't try to write text. It evaluates state, weighs tradeoffs and picks from a set of choices.
 
-* Given this game state and these four possible moves, which one cuts off the opponent's escape?
-* Given this npm install script, is this behavior benign setup or an attempt at credential exfiltration?
-* Given this screen state and a user goal, which DOM element is the logical next step to interact with?
+With no conversational prose to produce, all the compute goes to evaluation:
 
-Because the model is evaluating probabilities across candidate choices directly rather than generating text, the latency drops from seconds down to ~70ms. And eventually, into single-digit milliseconds.
+* Given this game state and four possible moves, which one cuts off the opponent's escape?
+* Given this npm install script, is this benign setup or credential exfiltration?
+* Given this screen and a user goal, which DOM element is the next step?
 
-## Applications I See Today Already
+The model scores the candidate choices directly instead of generating text. Latency drops from seconds to about 70ms, and eventually to single-digit milliseconds.
 
-### Airbags for agents (actual runtime alignment)
+## What this already does
 
-Giving an LLM free rein over bash or database tools is scary. But asking the same LLM *"is this safe to run?"* doesn't work. It has total bias for its own plan.
+### Airbags for agents
 
-Putting a fast, dedicated decision model in front of every tool call changes the game. Before any destructive command executes, it evaluates the action against safety choices in milliseconds. It doesn't talk or rationalize; it just acts like an OS-level permission gate.
+Giving an LLM free rein over bash or database tools is scary. Asking the same LLM "is this safe to run?" doesn't work, because it's biased toward its own plan.
 
-### Discrete search & games
+Put a fast decision model in front of every tool call. Before a destructive command runs, it checks the action against safety choices in milliseconds. It doesn't talk or rationalize. It works like an OS permission gate.
 
-Think about games like tic-tac-toe, chess, or state-space pathfinding. Traditionally, you write hand-tuned heuristics because calculating deep minimax trees is too expensive.
+### Games and search
 
-When you can evaluate candidate moves with a fast model, you don't need text generation. You feed the board state and the legal moves into a choice matrix. Minimax can now explore deep trees where every branch is evaluated by actual strategic intuition in near-zero time.
+Tic-tac-toe, chess and pathfinding usually run on hand-tuned heuristics, because deep minimax trees are too expensive to compute.
+
+With a fast model you skip text. Feed in the board and the legal moves as a set of choices. Minimax can search deep, and every branch is judged by something like strategic intuition at almost no cost.
 
 ### Replacing Ctrl+F and regex
 
-`Ctrl+F` and `grep` are 50 years old and only understand literal characters. Vector search (RAG) is heavy and requires chunking and databases.
+`Ctrl+F` and `grep` are fifty years old and only understand literal characters. Vector search needs chunking and a database.
 
-With fast classification, you can stream raw text directly through semantic filters in real time. You search *"show me errors that are NOT network timeouts"* and the editor highlights them instantly as you type.
+Fast classification lets you stream raw text through a semantic filter. Search "show me errors that are NOT network timeouts" and the editor highlights them as you type.
 
-### Adaptive UI controls
+### Adaptive UI
 
-Instead of burying 50 buttons in nested menus or writing complex state machines to predict what the user wants next, the interface evaluates context on the fly and surfaces the top 3 most logical actions right when you need them.
+Don't bury 50 buttons in nested menus, and don't hand-write a state machine to guess what the user wants. Read the context and show the three most likely actions when they're needed.
 
-## We Might Be Onto Something, Really!
+## What changes
 
-As decision models get faster, the way we design systems changes:
+1. **Heavy models plan, fast models act.** Frontier LLMs do long-horizon reasoning and architecture. Fast decision models do real-time execution, verification and reflex loops.
+2. **Semantic branching becomes normal logic.** Skip the regex and the fragile heuristic. Define the choices and let an aligned decision model pick.
 
-1. **Heavy models plan, fast models act:** Frontier LLMs handle long-horizon reasoning and architecture, while fast decision models handle real-time execution, verification, and reflex loops.
-2. **Semantic branching becomes standard logic:** Instead of writing brittle regexes or fragile heuristics to handle edge cases, you define choice spaces and let an aligned decision model pick the path.
-
-We are still in the early stages of this shift. Right now it runs in dozens of milliseconds over an API. But as these decision weights get compiled closer to the metal and run on local silicon, the boundary between deterministic code and semantic judgment will disappear entirely.
+It's early. Today this runs in dozens of milliseconds over an API. Once the weights are compiled closer to the metal and run on local silicon, the line between deterministic code and semantic judgment goes away.

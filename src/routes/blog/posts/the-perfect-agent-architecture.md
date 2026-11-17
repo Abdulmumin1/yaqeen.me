@@ -1,5 +1,5 @@
 ---
-title: 'The imperfect agent architecture'
+title: 'The Imperfect Agent Architecture'
 
 description: 'Why running one background daemon per workspace falls apart, and how we rebuilt Chump into an in-process multi-tenant control plane.'
 
@@ -15,11 +15,11 @@ categories:
 published: true
 ---
 
-When I started building Chump (an AI coding agent harness built on top of `ai-query`), I split it into a classic client/server architecture: a Python backend (`chump-server`) for agent loops, tool executions, and file watchers; and a TypeScript frontend for the interactive CLI and web interface.
+Chump is an AI coding agent harness built on `ai-query`. I started it as a plain client/server split. A Python backend, `chump-server`, ran the agent loops, tool execution and file watchers. A TypeScript frontend gave you the CLI and the web interface.
 
-In the beginning, the server model was dead simple: **one workspace, one background daemon process.**
+The server model was simple: **one workspace, one background daemon.**
 
-Whenever you navigated into a project directory and ran `chump`, the CLI silently forked a Python child process bound specifically to that path. That daemon claimed an available local port, spun up file watchers, and managed all agent sessions for that single codebase.
+Run `chump` in a project directory and the CLI quietly forked a Python process bound to that path. The daemon grabbed a free local port, started file watchers, and managed every agent session for that one codebase.
 
 ```mermaid
 flowchart TD
@@ -37,25 +37,23 @@ flowchart TD
     class D1,D2,D3 danger
 ```
 
-For local single-directory tinkering, this felt frictionless. But the moment we wanted remote execution and a collaborative web app, the 1:1 daemon model completely broke down.
+For tinkering in one directory on your laptop, this was fine. Then we wanted remote execution and a collaborative web app, and the model fell apart.
 
-### The Breaking Point: Remote Multi-Tenancy
+### Remote multi-tenancy
 
-When hosting the agent runtime on a remote VPS or dev server, you cannot SSH into the machine to fork a new Python process and hunt for available ports every time someone opens a new repository.
+On a remote VPS or dev server you can't SSH in, fork a Python process and hunt for a free port every time someone opens a repo. Keep the model anyway and you end up writing a process manager.
 
-If you try to keep that model alive remotely, you end up writing an ad-hoc operating system process manager:
+1. **Ports and firewalls.** Every workspace needs another port opened, tracked and reverse-proxied.
+2. **Wasted memory.** Twenty idle projects means twenty Python baselines, twenty sets of imports, and zombie processes nobody owns.
+3. **Scattered state.** Nothing can tell you which workspaces exist, which sessions are active, or where errors are happening.
 
-1. **Port sprawl & firewall friction:** Every new workspace needs another port opened, tracked, and reverse-proxied.
-2. **Resource waste:** 20 idle projects mean 20 separate Python runtime baselines, duplicate imports, and orphaned zombie processes.
-3. **Fragmented state:** No single place to query what workspaces exist, what sessions are active, or where errors are happening.
+We didn't need twenty daemons. We needed **one control plane**.
 
-We did not need twenty daemons. We needed **one control plane**.
+### In-process workspace runtimes
 
-### The New Architecture: In-Process Workspace Runtimes
+We gutted the per-workspace daemon and rebuilt `chump-server` as one multi-project control plane.
 
-We gutted the per-workspace daemon model and rebuilt `chump-server` as a single multi-project control plane.
-
-A single `uv run chump-server` instance runs on one port (`:8000`), handles project routing, and lazily mounts project runtimes in-process using `asyncio` task trees.
+A single `uv run chump-server` listens on `:8000`, routes by project, and mounts project runtimes lazily, in-process, as `asyncio` task trees.
 
 ```mermaid
 flowchart LR
@@ -71,9 +69,9 @@ flowchart LR
     class WC muted
 ```
 
-#### 1. Static Routes with Dynamic Dispatch
+#### 1. Static routes, dynamic dispatch
 
-Instead of dynamic servers, we mount unconditional project-scoped routes at startup. Project identification happens directly through the URL path:
+We don't start servers on demand. The project-scoped routes are mounted once at startup, and the project comes from the URL path:
 
 ```python
 # chump_server/main.py
@@ -92,9 +90,9 @@ def on_app_setup(self, app: web.Application) -> None:
     app.router.add_post("/projects/{project_id}/terminal", self.project_terminal)
 ```
 
-#### 2. Lazy In-Memory Hydration
+#### 2. Lazy in-memory hydration
 
-When a request hits `/projects/{project_id}/...`, the control plane checks an in-memory dictionary:
+A request to `/projects/{project_id}/...` makes the control plane check a dictionary in memory:
 
 ```python
 # chump_server/runtime_manager.py
@@ -117,9 +115,9 @@ class RuntimeManager:
         return runtime
 ```
 
-No process forks. No port allocations. If 50 projects are registered, idle ones consume nothing more than an entry in `projects.json`.
+No forks. No port allocation. With 50 projects registered, the idle ones cost an entry in `projects.json`.
 
-### Before vs After
+### Before and after
 
 | Metric / Behavior | Per-Workspace Daemons (Before) | Unified Control Plane (After) |
 | :--- | :--- | :--- |
@@ -129,17 +127,19 @@ No process forks. No port allocations. If 50 projects are registered, idle ones 
 | **Remote Deployment** | Complex (dynamic reverse proxy / ssh tunneling) | Simple (single reverse proxy / VPN tunnel) |
 | **Lifecycle** | Orphaned daemons lingered after CLI exited | Controlled graceful shutdown & timeout idle evictions |
 
-### The Realities and Tradeoffs
+### What it costs
 
-Unifying everything under one roof solved our architecture bottlenecks, but it introduces tradeoffs you need to handle explicitly:
+One process for everything fixed the bottlenecks. It also brought problems we have to handle on purpose.
 
-#### 1. Auth and Blast Radius
-In standalone mode, `uv run chump-server` has zero authentication by default. The bearer-token authentication layer only injects when running as a managed local service.
+#### 1. Auth and blast radius
 
-> **warning:** if you expose `chump-server` to `0.0.0.0` over the public internet without a reverse proxy (like Cloudflare Access or Tailscale) or token auth, you are exposing arbitrary file read/write and terminal execution across every registered project.
+Standalone `uv run chump-server` has no authentication by default. The bearer-token layer is only added when it runs as a managed local service.
 
-#### 2. Client Target Migration
-On the TypeScript frontend, supporting both legacy direct servers and new multi-project control planes requires an explicit target abstraction:
+> **warning:** if you expose `chump-server` on `0.0.0.0` to the public internet without a reverse proxy (Cloudflare Access, Tailscale) or token auth, you've exposed arbitrary file read/write and terminal execution across every registered project.
+
+#### 2. Client migration
+
+The TypeScript frontend has to talk to both old direct servers and the new control plane, so it needs an explicit target type:
 
 ```typescript
 // client/src/api/target.ts
@@ -158,12 +158,12 @@ export function buildProjectUrl(config: ChumpConfig, path: string): string {
 }
 ```
 
-### The Takeaway
+### Takeaway
 
-Building agent harnesses often lures you into thinking about prompts, tools, and models first. But the moment you move from local prototypes to production collaboration, your biggest headaches are classic systems problems:
+Building an agent harness pulls your attention to prompts, tools and models. Once you leave the local prototype and share the thing, the hard problems are old systems problems:
 
-- Process isolation vs. memory efficiency
-- Port management vs. unified routing
-- Clean lifecycle boundaries for idle resources
+- Process isolation against memory use
+- One port per thing against one router
+- Cleaning up what's idle
 
-Killing the per-workspace daemon was not flashy AI research. It was boring, foundational plumbing—and it made the entire system significantly more resilient.
+Killing the per-workspace daemon wasn't AI research. It was plumbing. It made the whole system sturdier.
