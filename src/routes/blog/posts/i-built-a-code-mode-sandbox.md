@@ -16,7 +16,6 @@ categories:
 published: true
 ---
 
-## Introduction
 
 People building agents have a fair amount of interest in code mode right now. This isn't surprising; the model already writes good code, and code mode lets it write one short program that calls your tools instead of calling them one at a time. A sandbox seems to be the closest already-existing thing to a safe place for that program to run. That doesn't mean it's *very* safe, only that I can't think of anything closer.
 
@@ -41,9 +40,7 @@ flowchart TB
 
 _Tool calling sends every result through the model. Code mode keeps them in the program, and the sandbox is what runs it._
 
-People are Doing Engineering on sandboxes. There are [V8 isolates in a sidecar](https://rivet.dev/secure-exec/), [interpreters written from scratch](https://github.com/anomalyco/opencode/tree/dev/packages/codemode), [isolates at the edge](https://blog.cloudflare.com/code-mode/), and containers you rent by the second. [Insert usual disclaimer that many of these benchmarks either won't reproduce or aren't measuring what they say they're measuring.] Sandboxing is apparently considered a security product; this is quite annoying, actually, since it's a thing a lot of people could understand, lumped in with things you're only meant to install.
-
-[There's the formal security-review side of sandboxes, too. I won't touch on that, since my own experience isn't related to that part.]
+People are Doing Engineering on sandboxes. There are [V8 isolates in a sidecar](https://rivet.dev/secure-exec/), [interpreters written from scratch](https://github.com/anomalyco/opencode/tree/dev/packages/codemode), [isolates at the edge](https://blog.cloudflare.com/code-mode/), and containers you rent by the second. Sandboxing is apparently considered a security product; this is quite annoying, actually, since it's a thing a lot of people could understand, lumped in with things you're only meant to install.
 
 Cloudflare has posted about [code mode](https://blog.cloudflare.com/code-mode/) and the isolates under it; Rivet has posted about [secure-exec](https://rivet.dev/secure-exec/) and why `node:vm` isn't enough. OpenCode, which I use, quietly ships its own JavaScript interpreter for its `execute` tool. And I've written about [what code mode takes away](/blog/what-code-mode-takes-away), without ever looking at what runs the code.
 
