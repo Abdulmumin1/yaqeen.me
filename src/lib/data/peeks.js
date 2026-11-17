@@ -69,13 +69,7 @@ export const peeks = {
 		matrix: 4,
 		ramp: ['#fafaf9', '#e7e5e4', '#a8a29e', '#57534e', '#1c1917']
 	},
-	'Dear Future self': {
-		image: '/peeks/dearfutureself.webp',
-		pattern: 'waves',
-		matrix: 4,
-		ramp: ['#f4f4f5', '#dbeafe', '#bfdbfe', '#60a5fa', '#2563eb']
-	},
-
+	minicode: NO_UI,
 	LMFetch: NO_UI,
 	'smol.router': NO_UI,
 	'py-fs-shell': NO_UI,

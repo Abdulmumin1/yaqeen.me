@@ -180,18 +180,15 @@ export const project_data = readable([
 		]
 	},
 	{
-		name: 'Dear Future self',
-		year: '2025',
-
-		stack: ['Svelte', 'Tailwind'],
-		description: 'A portal to visit your future self',
+		name: 'minicode',
+		year: '2026',
+		stack: ['JavaScript', 'Interpreter', 'Code mode'],
+		description:
+			'A small code mode runtime: an interpreter for a safe subset of JavaScript, where the only way out is a tool call',
 		links: {
-			page: 'dearfutureself.me'
+			study: 'https://github.com/Abdulmumin1/minicode'
 		},
-		imagelist: [
-			'https://rawcontent.dearfutureself.me/portfolio/Screenshot%202025-11-16%20at%2000.41.47.png',
-			'https://rawcontent.dearfutureself.me/portfolio/annotely_image%20(1).jpeg'
-		]
+		imagelist: []
 	},
 	{
 		name: 'smol.router',
