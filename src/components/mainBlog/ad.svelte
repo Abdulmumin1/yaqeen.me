@@ -1,7 +1,6 @@
 <script>
 	const products = [
 		{ name: 'Owostack', desc: 'Billing engine for the AI products.', link: 'https://owostack.com' },
-		{ name: 'Thirdpen', desc: 'Interactive learning with AI.', link: 'https://thirdpen.app' },
 		{
 			name: 'Littlestats',
 			desc: 'Analytics for solo creators.',
