@@ -8,7 +8,7 @@
 		spotOn,
 		viewOf,
 		within
-	} from '$lib/butterfly/habitat.js';
+	} from '#lib/butterfly/habitat.js';
 
 	/**
 	 * A monarch that lives on the page.

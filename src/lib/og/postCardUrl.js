@@ -1,4 +1,4 @@
-import { siteOrigin } from '$lib/js/config.js';
+import { siteOrigin } from '#lib/js/config.js';
 
 // Bump when the post card's design changes ($lib/server/og/postCard.js), so
 // caches let go of the old pictures.

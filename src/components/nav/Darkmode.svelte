@@ -1,10 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import Fa from 'svelte-fa';
 	import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 	import { scale } from 'svelte/transition';
-	import { darkMode } from '$lib/utils/darkmode.js';
+	import { darkMode } from '#lib/utils/darkmode.js';
 
 	function updateThemeClass(isDark) {
 		if (!browser) return;

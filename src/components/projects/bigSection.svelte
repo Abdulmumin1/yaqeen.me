@@ -1,5 +1,5 @@
 <script>
-	import { project_data_main } from '$lib/utils/projectStore.js';
+	import { project_data_main } from '#lib/utils/projectStore.js';
 	import BigProject from './bigProject.svelte';
 </script>
 

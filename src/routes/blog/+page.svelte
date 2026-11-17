@@ -1,7 +1,7 @@
 <script>
 	import BlogCard from '../../components/mainBlog/blogCard.svelte';
-	import Seo from '$components/general/seo.svelte';
-	import { defaultSocialImage, siteOrigin } from '$lib/js/config.js';
+	import Seo from '#components/general/seo.svelte';
+	import { defaultSocialImage, siteOrigin } from '#lib/js/config.js';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 

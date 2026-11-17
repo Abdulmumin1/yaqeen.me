@@ -1,23 +1,23 @@
 <script>
 	import { scale } from 'svelte/transition';
-	import BlogCard from '$components/mainBlog/blogCard.svelte';
-	import Seo from '$components/general/seo.svelte';
+	import BlogCard from '#components/mainBlog/blogCard.svelte';
+	import Seo from '#components/general/seo.svelte';
 	import Fa from 'svelte-fa';
 	import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
-	import { siteOrigin } from '$lib/js/config.js';
+	import { page } from '$app/state';
+	import { siteOrigin } from '#lib/js/config.js';
 
 	let { data } = $props();
 
 	let posts = $derived(data.posts);
 	let latest = $derived(posts[0]);
-	let categoryName = $derived($page.params.slug);
+	let categoryName = $derived(page.params.slug);
 	let pageTitle = $derived(`Category: ${categoryName} | Abdulmumin Yaqeen`);
 	let pageDescription = $derived(
 		`Articles by Abdulmumin Yaqeen in the "${categoryName}" category.`
 	);
-	let canonical = $derived(`${siteOrigin}${$page.url.pathname}`);
+	let canonical = $derived(`${siteOrigin}${page.url.pathname}`);
 	let pagelength = 6;
 
 	let currentPage = $state(0);
@@ -54,7 +54,8 @@
 	<div class="grid gap-(--gap-section)">
 		<div>
 			<p class="type-tiny font-mono tracking-[0.08em] text-text-faint uppercase">category</p>
-			<h1 class="type-title text-text-main">{$page.params.slug}</h1>
+
+			<h1 class="type-title text-text-main">{page.params.slug}</h1>
 		</div>
 
 		{#if latest}

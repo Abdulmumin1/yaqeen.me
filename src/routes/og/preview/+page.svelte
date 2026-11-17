@@ -1,7 +1,7 @@
 <script>
-	import Card from '$lib/og/card.svelte';
-	import Seo from '$components/general/seo.svelte';
-	import { siteOrigin } from '$lib/js/config.js';
+	import Card from '#lib/og/card.svelte';
+	import Seo from '#components/general/seo.svelte';
+	import { siteOrigin } from '#lib/js/config.js';
 
 	/** Out of the layout and on to the end of the page, so nothing of the site's chrome can sit on top of it. */
 	function onTop(node) {

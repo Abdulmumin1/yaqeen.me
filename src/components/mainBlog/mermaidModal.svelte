@@ -1,7 +1,7 @@
 <script>
 	import { faClose } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	import { activeMermaidModalSvg, closeMermaidModal } from '$lib/utils/mermaidModalStore.js';
+	import { activeMermaidModalSvg, closeMermaidModal } from '#lib/utils/mermaidModalStore.js';
 
 	let svgContent = $derived($activeMermaidModalSvg);
 
@@ -85,7 +85,9 @@
 		outline: none;
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
-		transition: background-color 0.15s, color 0.15s;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 
 	.close-button:hover {

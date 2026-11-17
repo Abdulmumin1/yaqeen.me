@@ -1,6 +1,5 @@
-import { json } from '@sveltejs/kit';
-import { getAllPosts } from '$lib/utils/blogPosts.js';
+import { getAllPosts } from '#lib/utils/blogPosts.js';
 
 export async function GET() {
-	return json(getAllPosts().slice(0, 11));
+	return Response.json(getAllPosts().slice(0, 11));
 }

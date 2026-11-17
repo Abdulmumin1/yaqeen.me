@@ -1,16 +1,17 @@
 import exifr from 'exifr';
-import { dev } from '$app/environment';
-import { fallbackPhotoKeys, photoUrl } from '$lib/data/photos.js';
+import { env } from 'cloudflare:workers';
+import { dev } from '$app/env';
+import { fallbackPhotoKeys, photoUrl } from '#lib/data/photos.js';
 
 const imageExtensions = /\.(avif|gif|jpe?g|png|webp)$/i;
 const metadataExtensions = /\.json$/i;
 
-export async function load({ fetch, platform, setHeaders }) {
+export async function load({ fetch, setHeaders }) {
 	setHeaders({
 		'cache-control': 'public, max-age=300'
 	});
 
-	const bucket = platform?.env?.PHOTOS_BUCKET;
+	const bucket = env.PHOTOS_BUCKET;
 	let photos = bucket
 		? await loadPhotosFromBucket(bucket)
 		: await loadPhotosFromPublicKeys(fetch, fallbackPhotoKeys);

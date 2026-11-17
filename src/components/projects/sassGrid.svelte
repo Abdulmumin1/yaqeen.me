@@ -1,6 +1,6 @@
 <script>
 	import Template from './template.svelte';
-	import { sass_projects } from '$lib/utils/projectStore.js';
+	import { sass_projects } from '#lib/utils/projectStore.js';
 	import SassTemplate from './sassTemplate.svelte';
 	// let data = [];
 	// const unsubscribe_stack = project_data.subscribe((data) => (stack_dict = data));

@@ -1,5 +1,5 @@
 // What pops up when something on the home page is hovered (see
-// $components/general/hoverPeek.svelte), keyed by its name: a project's name in
+// #components/general/hoverPeek.svelte), keyed by its name: a project's name in
 // projectStore, or `yaqeen` for the nickname in the hero.
 //
 // - An object is a print: a picture on a dithered mat. `image` comes from

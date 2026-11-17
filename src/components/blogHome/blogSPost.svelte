@@ -34,7 +34,10 @@
 
 		<div class="flex items-baseline gap-2 md:block">
 			{#if pinned}
-				<span class="inline-flex md:hidden items-center mr-1.5 text-accent/70 -rotate-45 shrink-0" aria-label="Pinned post">
+				<span
+					class="inline-flex md:hidden items-center mr-1.5 text-accent/70 -rotate-45 shrink-0"
+					aria-label="Pinned post"
+				>
 					<Fa icon={faThumbTack} class="size-3" />
 				</span>
 			{/if}

@@ -1,4 +1,4 @@
-import { siteName, siteOrigin } from '$lib/js/config.js';
+import { siteName, siteOrigin } from '#lib/js/config.js';
 
 const apiCatalogProfile = 'https://www.rfc-editor.org/info/rfc9727';
 

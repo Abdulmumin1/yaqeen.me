@@ -1,7 +1,8 @@
-import { error, json } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
+import { env } from 'cloudflare:workers';
 
-async function reachGuestbook(platform, request) {
-	const namespace = platform?.env?.GUESTBOOK;
+async function reachGuestbook(request) {
+	const namespace = env.GUESTBOOK;
 	if (!namespace) error(503, 'The guestbook is waking up. Please try again in a moment.');
 	const stub = namespace.get(namespace.idFromName('the-garden'));
 
@@ -14,12 +15,12 @@ async function reachGuestbook(platform, request) {
 	});
 }
 
-export async function GET({ platform, request }) {
-	const response = await reachGuestbook(platform, request);
-	return json(await response.json(), { status: response.status });
+export async function GET({ request }) {
+	const response = await reachGuestbook(request);
+	return Response.json(await response.json(), { status: response.status });
 }
 
-export async function POST({ platform, request }) {
-	const response = await reachGuestbook(platform, request);
-	return json(await response.json(), { status: response.status });
+export async function POST({ request }) {
+	const response = await reachGuestbook(request);
+	return Response.json(await response.json(), { status: response.status });
 }

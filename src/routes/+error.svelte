@@ -4,7 +4,7 @@
 	import Fa from 'svelte-fa';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import NotFound from '$components/general/notFound.svelte';
+	import NotFound from '#components/general/notFound.svelte';
 </script>
 
 {#if page.status === 404}

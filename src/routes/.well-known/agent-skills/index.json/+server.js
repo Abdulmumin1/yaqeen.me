@@ -1,4 +1,4 @@
-import { agentSkills } from '$lib/server/agent-discovery.js';
+import { agentSkills } from '#lib/server/agent-discovery.js';
 
 export function GET() {
 	return new Response(

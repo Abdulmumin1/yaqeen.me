@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { createBed } from '$lib/garden/bed.js';
+	import { createBed } from '#lib/garden/bed.js';
 
 	/**
 	 * A bed of flowers standing along the bottom edge of whatever box this is

@@ -1,8 +1,8 @@
 <script>
 	import { highlight } from '@highlighters/svelte';
 	import { resolve } from '$app/paths';
-	import HoverPeek from '$components/general/hoverPeek.svelte';
-	import Guestbook from '$components/home/guestbook.svelte';
+	import HoverPeek from '#components/general/hoverPeek.svelte';
+	import Guestbook from '#components/home/guestbook.svelte';
 
 	const socials = [
 		{ name: 'github', href: 'https://github.com/Abdulmumin1' },
@@ -44,12 +44,12 @@
 						ink: { flow: 1, feathering: 1, streakiness: 1 },
 						edge: { waviness: 1, roughness: 1, cap: 'round' },
 						animation: { duration: 300, trigger: 'in-view' }
-					}}
+					}}>yaqeen</span
 				>
-					yaqeen
-				</span>
-			</button>. I enjoy building products. I also write a lot, and some of it ends up here on my
-			<a href={resolve('/blog')} class="link">blog</a>. You can find me on
+			</button>
+			. I enjoy building products. I also write a lot, and some of it ends up here on my
+			<a href={resolve('blog')} class="link">blog</a>
+			. You can find me on
 			{#each socials as social, index (social.name)}
 				{#if index > 0}<span aria-hidden="true">, </span>{:else}{' '}{/if}
 				<a

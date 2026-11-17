@@ -1,5 +1,4 @@
-import { json } from '@sveltejs/kit';
-import { getAllPosts, getPinnedPosts, getRegularPosts } from '$lib/utils/blogPosts.js';
+import { getAllPosts, getPinnedPosts, getRegularPosts } from '#lib/utils/blogPosts.js';
 
 export async function GET({ url }) {
 	const allPosts = getAllPosts();
@@ -17,7 +16,7 @@ export async function GET({ url }) {
 	const endIndex = startIndex + limit;
 	const paginatedPosts = archivePosts.slice(startIndex, endIndex);
 
-	return json({
+	return Response.json({
 		latest,
 		latestRegular,
 		allPosts,

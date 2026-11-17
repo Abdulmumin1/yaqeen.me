@@ -1,7 +1,7 @@
 <script>
-	import Seo from '$components/general/seo.svelte';
-	import { photoNotes } from '$lib/data/photos.js';
-	import { siteOrigin, defaultSocialImage } from '$lib/js/config.js';
+	import Seo from '#components/general/seo.svelte';
+	import { photoNotes } from '#lib/data/photos.js';
+	import { siteOrigin, defaultSocialImage } from '#lib/js/config.js';
 
 	let { data } = $props();
 

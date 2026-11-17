@@ -1,6 +1,6 @@
 <script>
-	import DitherField from '$components/general/ditherField.svelte';
-	import { linksOf } from '$lib/data/work.js';
+	import DitherField from '#components/general/ditherField.svelte';
+	import { linksOf } from '#lib/data/work.js';
 
 	/**
 	 * Press play and the house lights go down: the window fills with a slow

@@ -20,8 +20,8 @@ published: true
 ---
 
 <script>
-  import Crossfadebubble from '$lib/demos/crossfadeBubble.svelte'
-  import ViewTransitionEnabled from '$lib/demos/viewTransitionEnabled.svelte'
+  import Crossfadebubble from '#lib/demos/crossfadeBubble.svelte'
+  import ViewTransitionEnabled from '#lib/demos/viewTransitionEnabled.svelte'
 
 </script>
 

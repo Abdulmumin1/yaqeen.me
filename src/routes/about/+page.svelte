@@ -1,15 +1,15 @@
 <script>
 	import { resolve } from '$app/paths';
-	import Seo from '$components/general/seo.svelte';
+	import Seo from '#components/general/seo.svelte';
 	import {
 		authorName,
 		authorUrl,
 		defaultSocialImage,
 		siteOrigin,
 		socialProfiles
-	} from '$lib/js/config.js';
-	import me from '$lib/images/me.jpeg';
-	import { darkMode } from '$lib/utils/darkmode.js';
+	} from '#lib/js/config.js';
+	import me from '#lib/images/me.jpeg';
+	import { darkMode } from '#lib/utils/darkmode.js';
 
 	const aboutSchema = JSON.stringify({
 		'@context': 'https://schema.org',
@@ -58,8 +58,8 @@
 		<p>
 			I am a product engineer focused on infrastructure for autonomous agents, developer tooling,
 			and modern web interfaces. Most of my days are spent
-			<a class="link" href={resolve('/projects')}>building experiments</a>, exploring new technical
-			primitives, and contributing to open-source software.
+			<a class="link" href={resolve('projects')}>building experiments</a>
+			, exploring new technical primitives, and contributing to open-source software.
 		</p>
 
 		<p>
@@ -72,8 +72,8 @@
 			<p>
 				Outside of engineering, I enjoy dabbling in creative side-tracks: experimenting with 3D
 				models in Blender, capturing
-				<a class="link" href={resolve('/photos')}>everyday moments on camera</a>, and reading
-				poetry.
+				<a class="link" href={resolve('photos')}>everyday moments on camera</a>
+				, and reading poetry.
 			</p>
 			<p>
 				Previously, I also hosted a tech

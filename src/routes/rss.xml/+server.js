@@ -1,4 +1,4 @@
-import * as config from '$lib/js/config.js';
+import * as config from '#lib/js/config.js';
 
 export async function GET({ fetch }) {
 	const response = await fetch('/blog/api/posts');

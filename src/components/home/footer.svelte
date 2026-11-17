@@ -2,11 +2,11 @@
 	import { resolve } from '$app/paths';
 	import Fa from 'svelte-fa';
 	import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-	import { copyUrlToClipboard } from '$lib/js/utils.js';
-	import { darkMode } from '$lib/utils/darkmode.js';
-	import { doodle } from '$components/general/doodle.svelte.js';
-	import ButterflyGarden from '$components/general/butterflyGarden.svelte';
-	import GardenBed from '$components/general/gardenBed.svelte';
+	import { copyUrlToClipboard } from '#lib/js/utils.js';
+	import { darkMode } from '#lib/utils/darkmode.js';
+	import { doodle } from '#components/general/doodle.svelte.js';
+	import ButterflyGarden from '#components/general/butterflyGarden.svelte';
+	import GardenBed from '#components/general/gardenBed.svelte';
 
 	const links = {
 		github: 'https://github.com/Abdulmumin1',
@@ -106,7 +106,9 @@
 			<span class="text-text-faint" aria-hidden="true">/</span>
 			<a href={links.linkedin} class="hover:text-text-main transition-colors">linkedin</a>
 			<span class="text-text-faint" aria-hidden="true">/</span>
-			<a href={resolve('/photos')} class="hover:text-text-main transition-colors">photos</a>
+
+			<a href={resolve('photos')} class="hover:text-text-main transition-colors">photos</a>
+
 			<span class="text-text-faint" aria-hidden="true">/</span>
 			<button
 				type="button"

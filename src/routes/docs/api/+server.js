@@ -1,4 +1,4 @@
-import { estimateMarkdownTokens, getApiDocsMarkdown } from '$lib/server/agent-discovery.js';
+import { estimateMarkdownTokens, getApiDocsMarkdown } from '#lib/server/agent-discovery.js';
 
 export function GET() {
 	const body = getApiDocsMarkdown();

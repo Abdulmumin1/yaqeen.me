@@ -38,7 +38,9 @@
 	const storageKey = $derived(STORAGE_PREFIX + page.url.pathname);
 
 	// Every page has its own sheet: put the pen down and swap drawings on arrival.
-	afterNavigate(() => {
+	afterNavigate(({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
 		doodle.active = false;
 		let saved = [];
 		try {
@@ -143,10 +145,10 @@
 >
 	<g class="from-centre">
 		{#each strokes as stroke, index (index)}
-			<path d={stroke.d} class={stroke.ink} />
+			<path d={stroke.d} class={stroke.ink}></path>
 		{/each}
 		{#if live}
-			<path d={live} class={ink.name} />
+			<path d={live} class={ink.name}></path>
 		{/if}
 	</g>
 </svg>
@@ -166,8 +168,11 @@
 				></button>
 			{/each}
 		</div>
+
 		<button type="button" class="tool" onclick={undo} disabled={!strokes.length}>undo</button>
+
 		<button type="button" class="tool" onclick={clear} disabled={!strokes.length}>clear</button>
+
 		<button type="button" class="tool done" onclick={() => (doodle.active = false)}>done</button>
 	</div>
 {/if}

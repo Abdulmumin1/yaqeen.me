@@ -21,7 +21,7 @@ published: true
 ---
 
 <script>
-	import BlogCarousel from '$lib/demos/blogCoursel.svelte'
+	import BlogCarousel from '#lib/demos/blogCoursel.svelte'
 </script>
 
 Svelte is amazing, and in this article we will go through how you can animation/transition between components in svelte.

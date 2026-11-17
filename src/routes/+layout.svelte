@@ -7,12 +7,12 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
-	import { siteOrigin, siteName } from '$lib/js/config.js';
-	import { darkMode } from '$lib/utils/darkmode.js';
-	import { setModalContext, setCurrentProjectInModal } from '$lib/utils/projectStore';
-	import PullCordSwitch from '$components/general/PullCordSwitch.svelte';
-	import DoodleLayer from '$components/general/doodleLayer.svelte';
-	import { doodle } from '$components/general/doodle.svelte.js';
+	import { siteOrigin, siteName } from '#lib/js/config.js';
+	import { darkMode } from '#lib/utils/darkmode.js';
+	import { setModalContext, setCurrentProjectInModal } from '#lib/utils/projectStore.js';
+	import PullCordSwitch from '#components/general/PullCordSwitch.svelte';
+	import DoodleLayer from '#components/general/doodleLayer.svelte';
+	import { doodle } from '#components/general/doodle.svelte.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -71,19 +71,19 @@
 		{
 			title: 'About',
 			callback: () => {
-				goto(resolve('/about'));
+				goto(resolve('about'));
 			}
 		},
 		{
 			title: 'Projects',
 			callback: () => {
-				goto(resolve('/projects'));
+				goto(resolve('projects'));
 			}
 		},
 		{
 			title: 'Blog',
 			callback: () => {
-				goto(resolve('/blog'));
+				goto(resolve('blog'));
 			}
 		},
 		{
@@ -162,9 +162,7 @@
 	class="w-full overflow-x-hidden bg-surface text-text-main relative flex min-h-svh flex-col"
 >
 	<Nav {isBlog} />
-	<main class="relative z-10 grow">
-		{@render children?.()}
-	</main>
+	<main class="relative z-10 grow">{@render children?.()}</main>
 	<!-- The garden and the work tour fill the window, so they go without a footer. -->
 	{#if !['/garden', '/work/tour'].includes(page.url.pathname)}
 		<Footer />

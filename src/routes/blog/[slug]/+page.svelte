@@ -1,6 +1,6 @@
 <script>
 	import { onMount, tick } from 'svelte';
-	import { formatDate, copyUrlToClipboard } from '$lib/js/utils.js';
+	import { formatDate, copyUrlToClipboard } from '#lib/js/utils.js';
 	import {
 		faHackerNews,
 		faLinkedin,
@@ -12,7 +12,7 @@
 	import Ad from '../../../components/mainBlog/ad.svelte';
 	import Seo from '../../../components/general/seo.svelte';
 	import Fa from 'svelte-fa';
-	import { postCardUrl } from '$lib/og/postCardUrl.js';
+	import { postCardUrl } from '#lib/og/postCardUrl.js';
 	import {
 		authorName,
 		authorUrl,
@@ -20,7 +20,7 @@
 		siteName,
 		siteOrigin,
 		socialProfiles
-	} from '$lib/js/config.js';
+	} from '#lib/js/config.js';
 
 	let { data } = $props();
 	let articleContent;

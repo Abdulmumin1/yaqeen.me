@@ -1,5 +1,5 @@
-import { externalPosts } from '$lib/data/externalPosts.js';
-import { siteOrigin } from '$lib/js/config.js';
+import { externalPosts } from '#lib/data/externalPosts.js';
+import { siteOrigin } from '#lib/js/config.js';
 
 function slugify(value) {
 	return value

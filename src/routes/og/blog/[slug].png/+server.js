@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { postCard } from '$lib/server/og/postCard.js';
+import { postCard } from '#lib/server/og/postCard.js';
 
 /**
  * A post's link preview, /og/blog/<slug>.png, drawn on the first request.

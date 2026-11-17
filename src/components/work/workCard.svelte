@@ -1,7 +1,7 @@
 <script>
 	import { on } from 'svelte/events';
-	import { linksOf } from '$lib/data/work.js';
-	import { highlight } from '$lib/utils/highlight.js';
+	import { linksOf } from '#lib/data/work.js';
+	import { highlight } from '#lib/utils/highlight.js';
 
 	/**
 	 * One piece of work, as a note: what it is called and what it is first,

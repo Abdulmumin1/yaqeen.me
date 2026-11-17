@@ -1,5 +1,5 @@
-import { siteOrigin, siteName } from '$lib/js/config.js';
-import { getInternalPosts } from '$lib/utils/blogPosts.js';
+import { siteOrigin, siteName } from '#lib/js/config.js';
+import { getInternalPosts } from '#lib/utils/blogPosts.js';
 
 export function GET() {
 	const recentPosts = getInternalPosts()

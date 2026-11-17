@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { createHabitat, frameSky, loadAtlas, perchesIn, spotOn } from '$lib/butterfly/habitat.js';
+	import { createHabitat, frameSky, loadAtlas, perchesIn, spotOn } from '#lib/butterfly/habitat.js';
 
 	/**
 	 * A few monarchs living over whatever this is put in (its nearest positioned
@@ -8,7 +8,7 @@
 	 * the `perches` in there, wander from one to another, scatter when the
 	 * cursor comes for them and settle again.
 	 *
-	 * The same butterfly as $components/home/butterfly.svelte, in company and
+	 * The same butterfly as #components/home/butterfly.svelte, in company and
 	 * without the tricks. How they behave is in $lib/butterfly/habitat.js.
 	 *
 	 * @typedef {Object} Props

@@ -2,7 +2,7 @@ import {
 	addDiscoveryHeaders,
 	getApiCatalogContentType,
 	getApiCatalogDocument
-} from '$lib/server/agent-discovery.js';
+} from '#lib/server/agent-discovery.js';
 
 export function GET() {
 	const body = JSON.stringify(getApiCatalogDocument(), null, 2);

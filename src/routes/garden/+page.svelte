@@ -1,8 +1,8 @@
 <script>
-	import Seo from '$components/general/seo.svelte';
-	import ButterflyGarden from '$components/general/butterflyGarden.svelte';
-	import GardenBed from '$components/general/gardenBed.svelte';
-	import { siteOrigin } from '$lib/js/config.js';
+	import Seo from '#components/general/seo.svelte';
+	import ButterflyGarden from '#components/general/butterflyGarden.svelte';
+	import GardenBed from '#components/general/gardenBed.svelte';
+	import { siteOrigin } from '#lib/js/config.js';
 	import { onMount } from 'svelte';
 
 	let entries = $state([]);

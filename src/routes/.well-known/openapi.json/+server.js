@@ -1,4 +1,4 @@
-import { getOpenApiDocument } from '$lib/server/agent-discovery.js';
+import { getOpenApiDocument } from '#lib/server/agent-discovery.js';
 
 export function GET() {
 	return new Response(JSON.stringify(getOpenApiDocument(), null, 2), {

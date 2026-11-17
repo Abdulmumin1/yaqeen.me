@@ -1,4 +1,4 @@
-import { siteOrigin } from '$lib/js/config.js';
+import { siteOrigin } from '#lib/js/config.js';
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {

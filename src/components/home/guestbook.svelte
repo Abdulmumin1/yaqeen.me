@@ -1,5 +1,5 @@
 <script>
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { getStroke } from 'perfect-freehand';
@@ -150,7 +150,9 @@
 		slotPresent = true;
 		await tick();
 		if (!browser) return;
+
 		afterPaint(() => (slotVisible = true));
+
 		slotTimer = setTimeout(() => {
 			cardPresent = true;
 			tick().then(() => afterPaint(() => (cardVisible = true)));
@@ -330,20 +332,18 @@
 					y="0"
 					width="40"
 					height="40"
-					style="mask-type: alpha"
+					style="mask-type: alpha"><image href="/favicon.png" width="40" height="40"></image></mask
 				>
-					<image href="/favicon.png" width="40" height="40" />
-				</mask>
+
 				<filter
 					id="soften-moon-terminator"
 					filterUnits="userSpaceOnUse"
 					x="-4"
 					y="-4"
 					width="48"
-					height="48"
+					height="48"><feGaussianBlur stdDeviation="0.6"></feGaussianBlur></filter
 				>
-					<feGaussianBlur stdDeviation="0.6" />
-				</filter>
+
 				<mask
 					id="current-moon-light"
 					maskUnits="userSpaceOnUse"
@@ -353,18 +353,22 @@
 					height="40"
 					style="mask-type: alpha"
 				>
-					<path d={moonPhase.path} fill="white" filter="url(#soften-moon-terminator)" />
+					<path d={moonPhase.path} fill="white" filter="url(#soften-moon-terminator)"></path>
 				</mask>
 			</defs>
-			<circle class="moon-shadow" cx="20" cy="20" r="20" mask="url(#moon-silhouette)" />
-			<image href="/favicon.png" width="40" height="40" class="moon-texture moon-earthshine" />
+
+			<circle class="moon-shadow" cx="20" cy="20" r="20" mask="url(#moon-silhouette)"></circle>
+
+			<image href="/favicon.png" width="40" height="40" class="moon-texture moon-earthshine"
+			></image>
+
 			<image
 				href="/favicon.png"
 				width="40"
 				height="40"
 				mask="url(#current-moon-light)"
 				class="moon-texture moon-lit"
-			/>
+			></image>
 		</svg>
 	</button>
 
@@ -431,7 +435,7 @@
 					>
 						<path
 							d="M0.4 0.5 C18 0.1 34 0.8 50 0.35 C67 -0.15 84 0.55 99.5 0.25 M99.35 0.15 C100.2 22 99.1 47 99.65 70 C100.05 84 99.2 92 99.55 99.25 M99.4 99.1 C82 99.8 66 99.15 49 99.45 C32 99.9 17 99.05 0.55 99.55 M0.4 99.4 C-0.15 82 0.65 66 0.25 49 C-0.2 31 0.7 16 0.4 0.4"
-						/>
+						></path>
 					</svg>
 
 					{#if !guestbookOpen}
@@ -606,10 +610,8 @@
 								<button
 									class="min-h-10 cursor-pointer font-visby text-[0.74rem] tracking-[0.05em] text-text-muted underline underline-offset-[0.28rem] hover:text-accent/65"
 									type="button"
-									onclick={() => goto(resolve('/garden'))}
+									onclick={() => goto(resolve('garden'))}>view garden</button
 								>
-									view garden
-								</button>
 
 								<button
 									class:saving
@@ -632,8 +634,8 @@
 									>
 										<path
 											d="m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284"
-										/>
-										<path d="M3 21h18" />
+										></path>
+										<path d="M3 21h18"></path>
 									</svg>
 									<span>{saving ? 'signing...' : 'sign card'}</span>
 								</button>

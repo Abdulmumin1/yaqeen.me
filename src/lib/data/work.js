@@ -1,6 +1,6 @@
 import { get } from 'svelte/store';
 import { resolve } from '$app/paths';
-import { project_data, sass_projects } from '$lib/utils/projectStore.js';
+import { project_data, sass_projects } from '#lib/utils/projectStore.js';
 
 /* Everything on /work, in the order it is walked through. Each chapter is a
    number, a title, a line that says what it is about, and rows of entries.

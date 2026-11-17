@@ -12,8 +12,8 @@
 			<BlogCard details={post} />
 		{/each}
 		<div class="flex gap-4">
-			<a href={resolve('/blog')} class="tiny-link">/all-posts</a>
-			<a href={resolve('/rss.xml')} class="tiny-link">/rss</a>
+			<a href={resolve('blog')} class="tiny-link">/all-posts</a>
+			<a href={resolve('rss.xml')} class="tiny-link">/rss</a>
 		</div>
 	</div>
 {/if}

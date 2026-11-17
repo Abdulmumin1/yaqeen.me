@@ -1,7 +1,7 @@
 <script>
 	import SeriesEpisodes from '../../../../components/mainBlog/seriesEpisodes.svelte';
-	import Seo from '$components/general/seo.svelte';
-	import { siteOrigin } from '$lib/js/config.js';
+	import Seo from '#components/general/seo.svelte';
+	import { siteOrigin } from '#lib/js/config.js';
 
 	// console.log(data);
 </script>

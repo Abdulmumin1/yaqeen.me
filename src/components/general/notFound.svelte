@@ -2,8 +2,8 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
-	import { loadAtlas } from '$lib/butterfly/habitat.js';
-	import { createSwarm } from '$lib/butterfly/swarm.js';
+	import { loadAtlas } from '#lib/butterfly/habitat.js';
+	import { createSwarm } from '#lib/butterfly/swarm.js';
 
 	/**
 	 * The 404: the missing page's number, made of monarchs.

@@ -1,6 +1,6 @@
 <script>
-	import { project_data, sass_projects } from '$lib/utils/projectStore.js';
-	import HoverPeek from '$components/general/hoverPeek.svelte';
+	import { project_data, sass_projects } from '#lib/utils/projectStore.js';
+	import HoverPeek from '#components/general/hoverPeek.svelte';
 
 	function hrefFor(project) {
 		const href = project.links?.page || project.links?.study;
@@ -12,61 +12,61 @@
 </script>
 
 <HoverPeek subjects={[...$sass_projects, ...selectedProjects]}>
-<div class="project-sections" id="projects">
-	<section aria-labelledby="products-heading">
-		<h2 id="products-heading" class="section-heading">Products</h2>
-		<div class="row-list" data-peek-group>
-			{#each $sass_projects as project (project.name)}
-				<p class="project-line type-list" data-peek={project.name}>
-					{#if hrefFor(project)}
-						<a
-							href={hrefFor(project)}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="project-link"
-						>
-							{project.name}
-						</a>
-					{:else}
-						<strong class="project-lead">{project.name}</strong>
-					{/if}
-					<span> {project.description}</span>
-				</p>
-			{/each}
-		</div>
-	</section>
+	<div class="project-sections" id="projects">
+		<section aria-labelledby="products-heading">
+			<h2 id="products-heading" class="section-heading">Products</h2>
+			<div class="row-list" data-peek-group>
+				{#each $sass_projects as project (project.name)}
+					<p class="project-line type-list" data-peek={project.name}>
+						{#if hrefFor(project)}
+							<a
+								href={hrefFor(project)}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="project-link"
+							>
+								{project.name}
+							</a>
+						{:else}
+							<strong class="project-lead">{project.name}</strong>
+						{/if}
+						<span> {project.description}</span>
+					</p>
+				{/each}
+			</div>
+		</section>
 
-	<section aria-labelledby="work-heading">
-		<h2 id="work-heading" class="section-heading">Selected work</h2>
-		<div class="row-list" data-peek-group>
-			{#each selectedProjects as project (project.name)}
-				<p class="project-line type-list" data-peek={project.name}>
-					{#if hrefFor(project)}
-						<a
-							href={hrefFor(project)}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="project-link"
-						>
-							{project.name}
-						</a>
-					{:else}
-						<strong class="project-lead">{project.name}</strong>
-					{/if}
-					<span> {project.description}</span>
-				</p>
-			{/each}
-			<a
-				class="more-link tiny-link"
-				href="https://github.com/Abdulmumin1"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				more on github →
-			</a>
-		</div>
-	</section>
-</div>
+		<section aria-labelledby="work-heading">
+			<h2 id="work-heading" class="section-heading">Selected work</h2>
+			<div class="row-list" data-peek-group>
+				{#each selectedProjects as project (project.name)}
+					<p class="project-line type-list" data-peek={project.name}>
+						{#if hrefFor(project)}
+							<a
+								href={hrefFor(project)}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="project-link"
+							>
+								{project.name}
+							</a>
+						{:else}
+							<strong class="project-lead">{project.name}</strong>
+						{/if}
+						<span> {project.description}</span>
+					</p>
+				{/each}
+				<a
+					class="more-link tiny-link"
+					href="https://github.com/Abdulmumin1"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					more on github →
+				</a>
+			</div>
+		</section>
+	</div>
 </HoverPeek>
 
 <style>

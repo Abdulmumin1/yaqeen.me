@@ -1,5 +1,5 @@
 <script>
-	import { linksOf } from '$lib/data/work.js';
+	import { linksOf } from '#lib/data/work.js';
 
 	/**
 	 * What has nothing to show but words gets a line, not an empty card: one

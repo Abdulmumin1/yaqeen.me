@@ -1,6 +1,6 @@
 <script>
 	import { scale } from 'svelte/transition';
-	import { getModalContext, getCurrentProjectInModal } from '$lib/utils/projectStore';
+	import { getModalContext, getCurrentProjectInModal } from '#lib/utils/projectStore.js';
 	import { onMount } from 'svelte';
 	import { faArrowRightLong, faXmark } from '@fortawesome/free-solid-svg-icons';
 	import { faGithub } from '@fortawesome/free-brands-svg-icons';

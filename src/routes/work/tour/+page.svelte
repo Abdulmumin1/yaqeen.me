@@ -1,12 +1,12 @@
 <script>
 	import { resolve } from '$app/paths';
-	import Seo from '$components/general/seo.svelte';
-	import WorkCanvas from '$components/work/workCanvas.svelte';
-	import WorkCard from '$components/work/workCard.svelte';
-	import WorkIndex from '$components/work/workIndex.svelte';
-	import WorkTheater from '$components/work/workTheater.svelte';
-	import { intro, openSource } from '$components/work/workWords.svelte';
-	import { chapters } from '$lib/data/work.js';
+	import Seo from '#components/general/seo.svelte';
+	import WorkCanvas from '#components/work/workCanvas.svelte';
+	import WorkCard from '#components/work/workCard.svelte';
+	import WorkIndex from '#components/work/workIndex.svelte';
+	import WorkTheater from '#components/work/workTheater.svelte';
+	import { intro, openSource } from '#components/work/workWords.svelte';
+	import { chapters } from '#lib/data/work.js';
 
 	/* The same chapters as /work, laid out on a board as a path that winds
 	   back and forth, three stops to a row, and walked one stop at a time. */
@@ -151,7 +151,7 @@
 	<div class="board" {@attach trace}>
 		<svg class="path" aria-hidden="true">
 			{#each legs as leg, index (index)}
-				<line {...leg} class:walked={index < stop} vector-effect="non-scaling-stroke" />
+				<line {...leg} class:walked={index < stop} vector-effect="non-scaling-stroke"></line>
 			{/each}
 		</svg>
 		{#each stops as item (item.key)}
@@ -175,8 +175,9 @@
 					</p>
 					{#if item.key === 'start'}
 						<p class="aside type-small">
-							Or <a class="link" href={resolve('/work')}>read it as chapters</a>, one after the
-							other.
+							Or
+							<a class="link" href={resolve('work')}>read it as chapters</a>
+							, one after the other.
 						</p>
 					{/if}
 				{:else}

@@ -1,4 +1,4 @@
-import { getAllPosts, getPinnedPosts, getRegularPosts } from '$lib/utils/blogPosts.js';
+import { getAllPosts, getPinnedPosts, getRegularPosts } from '#lib/utils/blogPosts.js';
 
 export const prerender = false;
 

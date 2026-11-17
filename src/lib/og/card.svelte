@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import { highlight } from '@highlighters/core';
-	import { createFlight } from '$lib/butterfly/flight.js';
-	import { createMonarch, SOURCE_WIDTH } from '$lib/butterfly/monarch.js';
-	import { loadAtlas } from '$lib/butterfly/habitat.js';
+	import { createFlight } from '#lib/butterfly/flight.js';
+	import { createMonarch, SOURCE_WIDTH } from '#lib/butterfly/monarch.js';
+	import { loadAtlas } from '#lib/butterfly/habitat.js';
 
 	/**
 	 * The picture a link to the site unfurls into (static/og.png): the nickname

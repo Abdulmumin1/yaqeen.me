@@ -1,4 +1,3 @@
-import { json } from '@sveltejs/kit';
 import matter from 'gray-matter';
 
 async function getPosts(series) {
@@ -41,8 +40,8 @@ async function getPosts(series) {
 
 export async function GET({ url }) {
 	const series = url.searchParams.get('series');
-	if (!series) return json({ error: 'Missing series parameter' }, { status: 400 });
+	if (!series) return Response.json({ error: 'Missing series parameter' }, { status: 400 });
 
 	const { posts } = await getPosts(series);
-	return json(posts);
+	return Response.json(posts);
 }

@@ -1,12 +1,12 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import {
 		authorName,
 		defaultSocialImage,
 		description as defaultDescription,
 		siteName as defaultSiteName,
 		siteOrigin
-	} from '$lib/js/config.js';
+	} from '#lib/js/config.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -56,7 +56,7 @@
 	let truncatedDescription = $derived((description || defaultDescription).slice(0, 300));
 	let resolvedCanonical = $derived(
 		// Prerendered pages cannot safely read query state, so default canonicals use the path only.
-		toAbsoluteUrl(canonical || $page.url.pathname)
+		toAbsoluteUrl(canonical || page.url.pathname)
 	);
 	let ogImage = $derived(toAbsoluteUrl(image || defaultSocialImage));
 	// static/og.png (see $lib/og/card.svelte): its size and what is on it are known.

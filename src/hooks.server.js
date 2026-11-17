@@ -5,7 +5,7 @@ import {
 	addDiscoveryHeaders,
 	addVaryHeader,
 	estimateMarkdownTokens
-} from '$lib/server/agent-discovery.js';
+} from '#lib/server/agent-discovery.js';
 
 function cloneResponse(response) {
 	return new Response(response.body, {

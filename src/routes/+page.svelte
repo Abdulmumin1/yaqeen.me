@@ -12,7 +12,7 @@
 		authorName,
 		authorUrl,
 		socialProfiles
-	} from '$lib/js/config.js';
+	} from '#lib/js/config.js';
 
 	let { data } = $props();
 

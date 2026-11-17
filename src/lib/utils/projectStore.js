@@ -124,8 +124,7 @@ export const project_data = readable([
 		name: 'Chump',
 		year: '2026',
 		stack: ['TypeScript', 'Svelte', 'Python', 'Websockets'],
-		description:
-			'Multiplayer coding agent - web, CLI, and headless client support',
+		description: 'Multiplayer coding agent - web, CLI, and headless client support',
 		links: {
 			study: 'https://github.com/Abdulmumin1/chump',
 			page: 'chmp.dev'
@@ -210,8 +209,7 @@ export const project_data = readable([
 		name: 'py-fs-shell',
 		year: '2026',
 		stack: ['Python', 'Virtual File System'],
-		description:
-			'A virtual file system for Python',
+		description: 'A virtual file system for Python',
 		links: {
 			study: 'https://github.com/Abdulmumin1/py-fs-shell'
 		},
@@ -315,7 +313,7 @@ export const project_data = readable([
 
 		stack: ['svelte'],
 		description: 'A port of react kbar for svelte. hit cmd+k on this website to see it in action',
-		image: '$lib/static/images/edit.jpg',
+		image: '#lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/kbar-svelte-mini',
 			page: 'kbar.yaqeen.me'
@@ -391,7 +389,7 @@ export const project_data = readable([
 		year: '2022',
 		stack: ['Vanillajs', 'TailwindCSS', 'HTML'],
 		description: 'A Progressive Wep App to edit and frame screenshots beautifully',
-		image: '$lib/static/images/edit.jpg',
+		image: '#lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/kbar-svelte-mini',
 			page: 'editss.yaqeen.me'
@@ -488,7 +486,7 @@ export const project_data_main = readable([
 		year: '2022',
 		stack: ['Vanillajs', 'TailwindCSS', 'HTML'],
 		description: 'A Progressive Wep App to edit and frame screenshots beautifully',
-		image: '$lib/static/images/edit.jpg',
+		image: '#lib/static/images/edit.jpg',
 		links: {
 			study: 'https://github.com/Abdulmumin1/kbar-svelte-mini',
 			page: 'https://editss.yaqeen.me'

@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { fade } from 'svelte/transition';
-	import { darkMode } from '$lib/utils/darkmode.js';
+	import { darkMode } from '#lib/utils/darkmode.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -25,6 +25,7 @@
 
 	// Derived values for geometry and spring transform
 	let rotate = $derived((180 * Math.atan2(x || 0, Math.max(88 + (y || 0), 10))) / Math.PI);
+
 	let scaleX = $derived(y < 0 ? 1 - (y / 20) * 0.06 : 1 - Math.min(y / 110, 1) * 0.06);
 	let scaleY = $derived(y < 0 ? 1 + (y / 20) * 0.08 : 1 + Math.min(y / 110, 1) * 0.12);
 
@@ -485,7 +486,7 @@
 				stroke-width="2.5"
 				stroke-linecap="round"
 				stroke-dasharray="1 3.4"
-			/>
+			></line>
 		</svg>
 
 		<!-- Hanging Pull Handle / Fob -->
@@ -551,8 +552,8 @@
 						class="w-2.5 h-2.5 opacity-70 shrink-0"
 						aria-hidden="true"
 					>
-						<line x1="6" y1="2" x2="6" y2="10" />
-						<polyline points="3.5,7.5 6,10 8.5,7.5" />
+						<line x1="6" y1="2" x2="6" y2="10"></line>
+						<polyline points="3.5,7.5 6,10 8.5,7.5"></polyline>
 					</svg>
 				</div>
 			{/if}

@@ -1,7 +1,7 @@
 <script>
 	import { onDestroy } from 'svelte';
-	import DitherField from '$components/general/ditherField.svelte';
-	import { NO_UI, peeks } from '$lib/data/peeks.js';
+	import DitherField from '#components/general/ditherField.svelte';
+	import { NO_UI, peeks } from '#lib/data/peeks.js';
 
 	/**
 	 * Wraps a stretch of page. Hovering (or tabbing to) anything in it marked

@@ -1,6 +1,6 @@
 <script>
 	import Template from '../../components/projects/template.svelte';
-	import { project_data, sass_projects } from '$lib/utils/projectStore.js';
+	import { project_data, sass_projects } from '#lib/utils/projectStore.js';
 	import Seo from '../../components/general/seo.svelte';
 
 	const mini_projects = [

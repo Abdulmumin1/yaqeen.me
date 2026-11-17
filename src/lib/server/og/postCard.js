@@ -1,6 +1,6 @@
 import { read } from '$app/server';
 import { ImageResponse } from '@cf-wasm/og';
-import { formatDate } from '$lib/js/utils.js';
+import { formatDate } from '#lib/js/utils.js';
 import metrics from './pilcrow-rounded-400.json';
 import pilcrowUrl from './pilcrow-rounded-400.ttf?url';
 import archivoUrl from './archivo-italic-400.ttf?url';

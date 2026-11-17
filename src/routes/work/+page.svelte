@@ -1,12 +1,12 @@
 <script>
 	import { resolve } from '$app/paths';
-	import Seo from '$components/general/seo.svelte';
-	import WorkCard from '$components/work/workCard.svelte';
-	import WorkGuide from '$components/work/workGuide.svelte';
-	import WorkIndex from '$components/work/workIndex.svelte';
-	import WorkTheater from '$components/work/workTheater.svelte';
-	import { intro, openSource as openSourceWords } from '$components/work/workWords.svelte';
-	import { chapters } from '$lib/data/work.js';
+	import Seo from '#components/general/seo.svelte';
+	import WorkCard from '#components/work/workCard.svelte';
+	import WorkGuide from '#components/work/workGuide.svelte';
+	import WorkIndex from '#components/work/workIndex.svelte';
+	import WorkTheater from '#components/work/workTheater.svelte';
+	import { intro, openSource as openSourceWords } from '#components/work/workWords.svelte';
+	import { chapters } from '#lib/data/work.js';
 
 	let open = $state(null);
 
@@ -43,8 +43,9 @@
 		</ol>
 
 		<p class="tour type-small">
-			Or <a class="link" href={resolve('/work/tour')}>walk it on a board</a>, which is an experiment
-			of its own.
+			Or
+			<a class="link" href={resolve('work/tour')}>walk it on a board</a>
+			, which is an experiment of its own.
 		</p>
 	</header>
 

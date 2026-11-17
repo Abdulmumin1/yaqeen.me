@@ -1,11 +1,10 @@
 // import { html as toReactNode } from 'satori-html';
 // import satori from 'satori';
 // import { Resvg } from '@resvg/resvg-js';
-// import Card from '$lib/og/card.svelte';
-// import VisbyRoundCF from '$lib/font/VisbyRoundCF-Regular.ttf';
+// import Card from '#lib/og/card.svelte';
+// import VisbyRoundCF from '#lib/font/VisbyRoundCF-Regular.ttf';
 // // import { read } from '$app/server';
 
-import { json } from '@sveltejs/kit';
 
 // const height = 630;
 // const width = 1200;
@@ -65,5 +64,5 @@ import { json } from '@sveltejs/kit';
 // }
 
 export async function GET({ url }) {
-	return json({ url });
+	return Response.json({ url });
 }
